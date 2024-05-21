@@ -1,0 +1,25 @@
+PATH
+  remote: .
+  specs:
+    mjollnir (0.1.0)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    lrama (0.6.9)
+    rake (13.2.1)
+    rake-compiler (1.2.7)
+      rake
+
+PLATFORMS
+  ruby
+  x86_64-linux
+
+DEPENDENCIES
+  lrama (~> 0.6)
+  mjollnir!
+  rake (~> 13.0)
+  rake-compiler
+
+BUNDLED WITH
+   2.6.0.dev
