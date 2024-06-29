@@ -11,3 +11,5 @@
 *.o
 *.a
 mkmf.log
+/ext/mjollnir/ruby-parser/*
+!/ext/mjollnir/ruby-parser/.keep
