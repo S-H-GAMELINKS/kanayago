@@ -62,7 +62,7 @@ namespace :ruby_parser do
   task :import do
     `git clone https://github.com/ruby/ruby.git tmp/ruby --depth=1`
 
-    dist = File.expand_path("../ext/mjollnir/ruby-parser", __FILE__)
+    dist = File.expand_path("./ext/mjollnir/ruby-parser", __FILE__)
     ruby_dir = File.expand_path("../tmp/ruby", __FILE__)
 
     COPY_TARGETS.each do |target|
@@ -99,6 +99,25 @@ namespace :ruby_parser do
     sh "ruby -n #{node_name_path} < #{rubyparser_h_path} > #{node_name_inc_path}"
 
     `rm -rf tmp/ruby`
+  end
+
+  task :clean do
+    dist = File.expand_path("./ext/mjollnir/ruby-parser")
+
+    COPY_TARGETS.each do |target|
+      FileUtils.rm File.join(dist, target), force: true
+    end
+    delete_files = ["constant.h", "id.h", "id.h", "id.h", "lex.c", "node_name.inc", "parse.c", "parse.h", "parse.y", "parse.tmp.y", "probes.h", "shape.h"]
+
+    delete_files.each do |file|
+      FileUtils.rm File.join(dist, file), force: true
+    end
+
+    delete_directories = ["ccan", "internal"]
+
+    delete_directories.each do |dir|
+      FileUtils.rm_rf File.join(dist, dir)
+    end
   end
 end
 
