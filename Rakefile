@@ -112,6 +112,10 @@ namespace :ruby_parser do
     `rm -rf tmp/ruby`
   end
 
+  task :build do
+    sh "bundle exec lrama -oext/mjollnir/ruby-parser/parse.c -Hext/mjollnir/ruby-parser/parse.h ext/mjollnir/ruby-parser/parse.tmp.y"
+  end
+
   task :clean do
     `rm -rf tmp/ruby`
 
