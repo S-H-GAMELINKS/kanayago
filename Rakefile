@@ -40,6 +40,7 @@ COPY_TARGETS = %w[
   method.h
   node.c
   node.h
+  parse.y
   parser_bits.h
   parser_node.h
   parser_st.c
@@ -62,11 +63,17 @@ namespace :ruby_parser do
   task :import do
     `git clone https://github.com/ruby/ruby.git tmp/ruby --depth=1`
 
-    dist = File.expand_path("./ext/mjollnir/ruby-parser", __FILE__)
+    dist = File.expand_path("../ext/mjollnir/ruby-parser", __FILE__)
     ruby_dir = File.expand_path("../tmp/ruby", __FILE__)
 
+    directories = ["ccan", "ccan/check_type", "ccan/container", "ccan/container_of", "ccan/list", "ccan/str", "internal"]
+
+    directories.each do |dir|
+      Dir.mkdir File.join(dist, dir)
+    end
+
     COPY_TARGETS.each do |target|
-      FileUtils.mv File.join(ruby_dir, target), File.join(dist, target), force: true
+      FileUtils.cp File.join(ruby_dir, target), File.join(dist, target)
     end
 
     # "parse.tmp.y"
@@ -102,6 +109,8 @@ namespace :ruby_parser do
   end
 
   task :clean do
+    `rm -rf tmp/ruby`
+
     dist = File.expand_path("./ext/mjollnir/ruby-parser")
 
     COPY_TARGETS.each do |target|
