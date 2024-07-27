@@ -105,6 +105,10 @@ namespace :ruby_parser do
     node_name_inc_path = File.join(dist, "node_name.inc")
     sh "ruby -n #{node_name_path} < #{rubyparser_h_path} > #{node_name_inc_path}"
 
+    # "lex.c"
+    sh "cd tmp/ruby && ./autogen.sh && ./configure && make"
+    FileUtils.mv File.join(ruby_dir, "lex.c"), File.join(dist, "lex.c")
+
     `rm -rf tmp/ruby`
   end
 
