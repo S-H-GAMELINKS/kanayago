@@ -9,6 +9,7 @@ COPY_TARGETS = %w[
   ccan/container_of/container_of.h
   ccan/list/list.h
   ccan/str/str.h
+  constant.h
   internal/array.h
   internal/basic_operators.h
   internal/bignum.h
@@ -34,6 +35,7 @@ COPY_TARGETS = %w[
   internal/string.h
   internal/symbol.h
   internal/thread.h
+  internal/variable.h
   internal/warnings.h
   internal/vm.h
   internal.h

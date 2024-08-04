@@ -8,3 +8,4 @@ require "mkmf"
 append_cflags("-fvisibility=hidden")
 
 create_makefile("mjollnir/mjollnir")
+

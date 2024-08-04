@@ -1,6 +1,6 @@
 #ifndef MJOLLNIR_H
 #define MJOLLNIR_H 1
 
-#include "ruby.h"
+#include "ruby-parser/node.h"
 
 #endif /* MJOLLNIR_H */
