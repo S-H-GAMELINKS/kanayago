@@ -10,6 +10,7 @@ COPY_TARGETS = %w[
   ccan/list/list.h
   ccan/str/str.h
   constant.h
+  id_table.h
   internal/array.h
   internal/basic_operators.h
   internal/bignum.h
@@ -52,6 +53,7 @@ COPY_TARGETS = %w[
   ruby_atomic.h
   ruby_parser.c
   rubyparser.h
+  shape.h
   st.c
   symbol.h
   thread_pthread.h
@@ -65,7 +67,7 @@ namespace :ruby_parser do
   task :import do
     `git clone https://github.com/ruby/ruby.git tmp/ruby --depth=1`
 
-    dist = File.expand_path("../ext/mjollnir/ruby-parser", __FILE__)
+    dist = File.expand_path("../ext/mjollnir", __FILE__)
     ruby_dir = File.expand_path("../tmp/ruby", __FILE__)
 
     directories = ["ccan", "ccan/check_type", "ccan/container", "ccan/container_of", "ccan/list", "ccan/str", "internal"]
@@ -115,18 +117,18 @@ namespace :ruby_parser do
   end
 
   task :build do
-    sh "bundle exec lrama -oext/mjollnir/ruby-parser/parse.c -Hext/mjollnir/ruby-parser/parse.h ext/mjollnir/ruby-parser/parse.tmp.y"
+    sh "bundle exec lrama -oext/mjollnir/parse.c -Hext/mjollnir/parse.h ext/mjollnir/parse.tmp.y"
   end
 
   task :clean do
     `rm -rf tmp/ruby`
 
-    dist = File.expand_path("./ext/mjollnir/ruby-parser")
+    dist = File.expand_path("./ext/mjollnir")
 
     COPY_TARGETS.each do |target|
       FileUtils.rm File.join(dist, target), force: true
     end
-    delete_files = ["constant.h", "id.h", "id.h", "id.h", "lex.c", "node_name.inc", "parse.c", "parse.h", "parse.y", "parse.tmp.y", "probes.h", "shape.h"]
+    delete_files = ["constant.h", "id.h", "id.h", "id.h", "id_table.h", "lex.c", "node_name.inc", "parse.c", "parse.h", "parse.y", "parse.tmp.y", "probes.h", "shape.h"]
 
     delete_files.each do |file|
       FileUtils.rm File.join(dist, file), force: true

@@ -2,10 +2,21 @@
 
 require "mkmf"
 
-# Makes all symbols private by default to avoid unintended conflict
-# with other gems. To explicitly export symbols you can use RUBY_FUNC_EXPORTED
-# selectively, or entirely remove this flag.
+$objs = %w[
+  node
+  parse
+  parser_st
+  ruby_parser
+  mjollnir
+].map do |o|
+  o + ".#{$OBJEXT}"
+end
+
 append_cflags("-fvisibility=hidden")
+append_cppflags("-DUNIVERSAL_PARSER=1")
+
+$INCFLAGS << " -I" << File.expand_path("../../mjollnir", __FILE__)
+$INCFLAGS << " -I" << File.expand_path("../../../", __FILE__)
 
 create_makefile("mjollnir/mjollnir")
 

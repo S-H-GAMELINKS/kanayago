@@ -1,10 +1,12 @@
 #include "mjollnir.h"
+#include <ruby.h>
 
 VALUE rb_mMjollnir;
 
 static VALUE
 parse(VALUE source)
 {
+  const rb_parser_config_t *config = rb_ruby_parser_config();
   return Qtrue;
 }
 
