@@ -63,6 +63,11 @@ ast_to_values(VALUE hash, const NODE *node)
 	  rb_hash_aset(result, rb_str_new2("NODE_INTEGER"), rb_node_integer_literal_val(node));
 	  return result;
 	}
+	case NODE_FLOAT: {
+	  VALUE result = rb_hash_new();
+	  rb_hash_aset(result, rb_str_new2("NODE_FLOAT"), rb_node_float_literal_val(node));
+	  return result;
+	}
 	default:
 	  return Qfalse;
     }
