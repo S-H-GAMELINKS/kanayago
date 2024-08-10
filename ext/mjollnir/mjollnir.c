@@ -53,6 +53,11 @@ ast_to_values(VALUE hash, const NODE *node)
 	  rb_hash_aset(result, rb_str_new2("NODE_OPCALL"), opcall_node_to_hash(node));
 	  return result;
 	}
+	case NODE_BLOCK: {
+	  VALUE result = rb_hash_new();
+	  rb_hash_aset(result, rb_str_new2("NODE_BLOCK"), ast_to_values(hash, RNODE_BLOCK(node)->nd_head));
+	  return result;
+	}
 	case NODE_LIST: {
 	  VALUE result = rb_hash_new();
 	  rb_hash_aset(result, rb_str_new2("NODE_LIST"), list_node_to_hash(node));
