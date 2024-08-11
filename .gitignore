@@ -15,4 +15,5 @@ mkmf.log
 !/ext/mjollnir/mjollnir.h
 !/ext/mjollnir/mjollnir.c
 !/ext/mjollnir/extconf.rb
+test.rb
 

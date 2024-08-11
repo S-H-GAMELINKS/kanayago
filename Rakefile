@@ -155,4 +155,8 @@ Rake::TestTask.new(:test) do |t|
   t.test_files = FileList["test/**/*_test.rb"]
 end
 
+task :run do
+  sh 'ruby test.rb'
+end
+
 task default: %i[clobber compile]
