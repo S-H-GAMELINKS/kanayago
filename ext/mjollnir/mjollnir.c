@@ -19,6 +19,16 @@ opcall_node_to_hash(const NODE *node)
 }
 
 VALUE
+call_node_to_hash(const NODE *node)
+{
+    VALUE result = rb_hash_new();
+    rb_hash_aset(result, rb_str_new2("recv"), ast_to_values(result, RNODE_OPCALL(node)->nd_recv));
+    rb_hash_aset(result, rb_str_new2("mid"), ID2SYM(RNODE_CALL(node)->nd_mid));
+    rb_hash_aset(result, rb_str_new2("args"), ast_to_values(result, RNODE_CALL(node)->nd_args));
+    return result;
+}
+
+VALUE
 list_node_to_hash(const NODE *node)
 {
     VALUE result = rb_ary_new();
@@ -51,6 +61,11 @@ ast_to_values(VALUE hash, const NODE *node)
 	case NODE_OPCALL: {
 	  VALUE result = rb_hash_new();
 	  rb_hash_aset(result, rb_str_new2("NODE_OPCALL"), opcall_node_to_hash(node));
+	  return result;
+	}
+	case NODE_CALL: {
+	  VALUE result = rb_hash_new();
+	  rb_hash_aset(result, rb_str_new2("NODE_CALL"), call_node_to_hash(node));
 	  return result;
 	}
 	case NODE_BLOCK: {
