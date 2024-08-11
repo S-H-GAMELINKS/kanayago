@@ -2,6 +2,7 @@
 
 require "bundler/gem_tasks"
 require "rake/extensiontask"
+require "rake/testtask"
 require "fileutils"
 
 COPY_TARGETS = %w[
@@ -148,6 +149,12 @@ GEMSPEC = Gem::Specification.load("mjollnir.gemspec")
 
 Rake::ExtensionTask.new("mjollnir", GEMSPEC) do |ext|
   ext.lib_dir = "lib/mjollnir"
+end
+
+Rake::TestTask.new(:test) do |t|
+  t.libs << "test"
+  t.libs << "lib"
+  t.test_files = FileList["test/**/*_test.rb"]
 end
 
 task default: %i[clobber compile]
