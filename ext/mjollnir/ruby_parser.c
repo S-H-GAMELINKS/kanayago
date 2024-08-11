@@ -329,6 +329,44 @@ enc_mbc_to_codepoint(const char *p, const char *e, parser_encoding *enc)
 
 extern VALUE rb_eArgError;
 
+//　Add for Mjollnir
+static void *
+xmalloc_mul_add(size_t x, size_t y, size_t z)
+{
+    return rb_xmalloc_mul_add(x, y, z);
+}
+
+static VALUE
+suppress_tracing(VALUE (*func)(VALUE), VALUE arg)
+{
+    return rb_suppress_tracing(func, arg);
+}
+
+static ID
+make_temporary_id(size_t n)
+{
+    return rb_make_temporary_id(n);
+}
+
+static int
+stderr_tty_p(void)
+{
+    return rb_stderr_tty_p();
+}
+
+static VALUE
+reg_compile(VALUE str, int options, const char *sourcefile, int sourceline)
+{
+     return rb_reg_compile(str, options, sourcefile, sourceline);
+}
+
+static VALUE
+reg_check_preprocess(VALUE val)
+{
+    return rb_reg_check_preprocess(val);
+}
+// End of Add for Mjollnir
+
 static const rb_parser_config_t rb_global_parser_config = {
     .malloc = ruby_xmalloc,
     .calloc = ruby_xcalloc,
@@ -340,9 +378,9 @@ static const rb_parser_config_t rb_global_parser_config = {
     .zalloc = zalloc,
     .rb_memmove = memmove2,
     .nonempty_memcpy = nonempty_memcpy,
-    .xmalloc_mul_add = rb_xmalloc_mul_add,
+    .xmalloc_mul_add = xmalloc_mul_add, // use xmalloc_mul_add for Mjollnir
 
-    .compile_callback = rb_suppress_tracing,
+    .compile_callback = suppress_tracing, // use suppress_tracing for Mjollnir
     .reg_named_capture_assign = reg_named_capture_assign,
 
     .attr_get = rb_attr_get,
@@ -352,7 +390,7 @@ static const rb_parser_config_t rb_global_parser_config = {
     .ary_new_from_args = rb_ary_new_from_args,
     .ary_unshift = rb_ary_unshift,
 
-    .make_temporary_id = rb_make_temporary_id,
+    .make_temporary_id = make_temporary_id, // use make_temporary_id for Mjollnir
     .is_local_id = is_local_id2,
     .is_attrset_id = is_attrset_id2,
     .is_global_name_punct = is_global_name_punct,
@@ -389,7 +427,7 @@ static const rb_parser_config_t rb_global_parser_config = {
 
     .int2num = rb_int2num_inline,
 
-    .stderr_tty_p = rb_stderr_tty_p,
+    .stderr_tty_p = stderr_tty_p, //use stderr_tty_p for Mjollnir
     .write_error_str = rb_write_error_str,
     .io_write = rb_io_write,
     .io_flush = rb_io_flush,
@@ -440,8 +478,8 @@ static const rb_parser_config_t rb_global_parser_config = {
     .gc_guard = gc_guard,
     .gc_mark = rb_gc_mark,
 
-    .reg_compile = rb_reg_compile,
-    .reg_check_preprocess = rb_reg_check_preprocess,
+    .reg_compile = reg_compile, // use reg_compile for Mjollnir
+    .reg_check_preprocess = reg_check_preprocess, // use reg_check_preprocess for Mjollnir
     .memcicmp = rb_memcicmp,
 
     .compile_warn = rb_compile_warn,
@@ -529,7 +567,8 @@ parser_memsize(const void *ptr)
     return rb_ruby_parser_memsize(parser->parser_params);
 }
 
-static const rb_data_type_t ruby_parser_data_type = {
+// Not static const for Mjollnir
+const rb_data_type_t ruby_parser_data_type = {
     "parser",
     {
         parser_mark,
@@ -757,7 +796,8 @@ ast_free(void *ptr)
     rb_ast_free(ast);
 }
 
-static const rb_data_type_t ast_data_type = {
+// Not static const for Mjollnir
+const rb_data_type_t ast_data_type = {
     "AST",
     {
         NULL,
