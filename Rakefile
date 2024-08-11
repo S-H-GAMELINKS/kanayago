@@ -122,8 +122,6 @@ namespace :ruby_parser do
   end
 
   task :clean do
-    `rm -rf tmp/ruby`
-
     dist = File.expand_path("./ext/mjollnir")
 
     COPY_TARGETS.each do |target|
