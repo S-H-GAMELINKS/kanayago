@@ -78,6 +78,11 @@ ast_to_values(VALUE hash, const NODE *node)
 	  rb_hash_aset(result, rb_str_new2("NODE_RATIONAL"), rb_node_rational_literal_val(node));
 	  return result;
 	}
+	case NODE_IMAGINARY: {
+	  VALUE result = rb_hash_new();
+	  rb_hash_aset(result, rb_str_new2("NODE_IMAGINARY"), rb_node_imaginary_literal_val(node));
+	  return result;
+	}
 	default:
 	  return Qfalse;
     }
