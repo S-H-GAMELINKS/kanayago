@@ -1,0 +1,44 @@
+name: Ubuntu
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Install dependencies
+      run: sudo apt install git ruby autoconf gcc make zlib1g-dev libffi-dev libreadline-dev libgdbm-dev libssl-dev libyaml-dev -y
+
+    - name: Install rbenv
+      run: |
+        git clone https://github.com/rbenv/rbenv.git ~/.rbenv
+        ~/.rbenv/bin/rbenv init
+        git clone https://github.com/rbenv/ruby-build.git "$(~/.rbenv/bin/rbenv root)"/plugins/ruby-build
+        RUBY_CONFIGURE_OPTS="cppflags=-DUNIVERSAL_PARSER" ~/.rbenv/bin/rbenv install ruby-dev
+        ~/.rbenv/bin/rbenv global ruby-dev
+
+    - name: Install bundler
+      run: ~/.rbenv/shims/gem install bundler
+
+    - name: bunlde install
+      run: ~/.rbenv/shims/bundle install
+
+    - name: Build Ruby Parser
+      run: ~/.rbenv/shims/bundle exec rake ruby_parser:build
+
+    - name: Build Mjollnir
+      run: ~/.rbenv/shims/bundle exec rake compile
+
+    - name: Run tests
+      run: ~/.rbenv/shims/bundle exec rake test
+
