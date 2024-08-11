@@ -1,4 +1,3 @@
-#include "rubyparser.h"
 #ifndef MJOLLNIR_H
 #define MJOLLNIR_H 1
 
