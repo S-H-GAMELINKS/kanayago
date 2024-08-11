@@ -11,9 +11,7 @@
 *.o
 *.a
 mkmf.log
-/ext/mjollnir/*
-!/ext/mjollnir/mjollnir.h
-!/ext/mjollnir/mjollnir.c
-!/ext/mjollnir/extconf.rb
+/ext/mjollnir/parse.h
+/ext/mjollnir/parse.c
 test.rb
 
