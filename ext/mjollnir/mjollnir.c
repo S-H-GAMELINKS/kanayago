@@ -83,6 +83,11 @@ ast_to_values(VALUE hash, const NODE *node)
 	  rb_hash_aset(result, rb_str_new2("NODE_IMAGINARY"), rb_node_imaginary_literal_val(node));
 	  return result;
 	}
+	case NODE_STR: {
+	  VALUE result = rb_hash_new();
+	  rb_hash_aset(result, rb_str_new2("NODE_STRING"), rb_node_str_string_val(node));
+	  return result;
+	}
 	default:
 	  return Qfalse;
     }
