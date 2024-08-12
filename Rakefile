@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-require "bundler/gem_tasks"
-require "rake/extensiontask"
-require "rake/testtask"
-require "fileutils"
+require 'bundler/gem_tasks'
+require 'rake/extensiontask'
+require 'rake/testtask'
+require 'fileutils'
 
 COPY_TARGETS = %w[
   ccan/check_type/check_type.h
@@ -61,17 +61,18 @@ COPY_TARGETS = %w[
   universal_parser.c
   vm_core.h
   vm_opts.h
-]
+].freeze
 
 namespace :ruby_parser do
-  desc "import ruby parser files"
+  desc 'import ruby parser files'
   task :import do
     `git clone https://github.com/ruby/ruby.git tmp/ruby --depth=1`
 
-    dist = File.expand_path("../ext/mjollnir", __FILE__)
-    ruby_dir = File.expand_path("../tmp/ruby", __FILE__)
+    dist = File.expand_path('ext/mjollnir', __dir__)
+    ruby_dir = File.expand_path('tmp/ruby', __dir__)
 
-    directories = ["ccan", "ccan/check_type", "ccan/container", "ccan/container_of", "ccan/list", "ccan/str", "internal"]
+    directories = ['ccan', 'ccan/check_type', 'ccan/container', 'ccan/container_of', 'ccan/list', 'ccan/str',
+                   'internal']
 
     directories.each do |dir|
       Dir.mkdir File.join(dist, dir)
@@ -82,20 +83,20 @@ namespace :ruby_parser do
     end
 
     # "parse.tmp.y"
-    id2token_path = File.join(ruby_dir, "tool/id2token.rb")
-    parse_y_path = File.join(dist, "parse.y")
-    parse_tmp_y_path = File.join(dist, "parse.tmp.y")
+    id2token_path = File.join(ruby_dir, 'tool/id2token.rb')
+    parse_y_path = File.join(dist, 'parse.y')
+    parse_tmp_y_path = File.join(dist, 'parse.tmp.y')
     sh "ruby #{id2token_path} #{parse_y_path} > #{parse_tmp_y_path}"
 
     # "id.h"
-    generic_erb_path = File.join(ruby_dir, "tool/generic_erb.rb")
-    id_h_tmpl_path = File.join(ruby_dir, "template/id.h.tmpl")
-    id_h_path = File.join(dist, "id.h")
+    generic_erb_path = File.join(ruby_dir, 'tool/generic_erb.rb')
+    id_h_tmpl_path = File.join(ruby_dir, 'template/id.h.tmpl')
+    id_h_path = File.join(dist, 'id.h')
     sh "ruby #{generic_erb_path} --output=#{id_h_path} #{id_h_tmpl_path}"
 
     # "probes.h"
-    probes_h_path = File.join(dist, "probes.h")
-    File.open(probes_h_path, "w+") do |f|
+    probes_h_path = File.join(dist, 'probes.h')
+    File.open(probes_h_path, 'w+') do |f|
       f << <<~SRC
         #define RUBY_DTRACE_PARSE_BEGIN_ENABLED() (0)
         #define RUBY_DTRACE_PARSE_BEGIN(arg0, arg1) (void)(arg0), (void)(arg1);
@@ -105,35 +106,36 @@ namespace :ruby_parser do
     end
 
     # "node_name.inc"
-    node_name_path = File.join(ruby_dir, "tool/node_name.rb")
-    rubyparser_h_path = File.join(dist, "rubyparser.h")
-    node_name_inc_path = File.join(dist, "node_name.inc")
+    node_name_path = File.join(ruby_dir, 'tool/node_name.rb')
+    rubyparser_h_path = File.join(dist, 'rubyparser.h')
+    node_name_inc_path = File.join(dist, 'node_name.inc')
     sh "ruby -n #{node_name_path} < #{rubyparser_h_path} > #{node_name_inc_path}"
 
     # "lex.c"
-    sh "cd tmp/ruby && ./autogen.sh && ./configure && make"
-    FileUtils.mv File.join(ruby_dir, "lex.c"), File.join(dist, "lex.c")
+    sh 'cd tmp/ruby && ./autogen.sh && ./configure && make'
+    FileUtils.mv File.join(ruby_dir, 'lex.c'), File.join(dist, 'lex.c')
 
     `rm -rf tmp/ruby`
   end
 
   task :build do
-    sh "bundle exec lrama -oext/mjollnir/parse.c -Hext/mjollnir/parse.h ext/mjollnir/parse.tmp.y"
+    sh 'bundle exec lrama -oext/mjollnir/parse.c -Hext/mjollnir/parse.h ext/mjollnir/parse.tmp.y'
   end
 
   task :clean do
-    dist = File.expand_path("./ext/mjollnir")
+    dist = File.expand_path('./ext/mjollnir')
 
     COPY_TARGETS.each do |target|
       FileUtils.rm File.join(dist, target), force: true
     end
-    delete_files = ["constant.h", "id.h", "id.h", "id.h", "id_table.h", "lex.c", "node_name.inc", "parse.c", "parse.h", "parse.y", "parse.tmp.y", "probes.h", "shape.h"]
+    delete_files = ['constant.h', 'id.h', 'id.h', 'id.h', 'id_table.h', 'lex.c', 'node_name.inc', 'parse.c', 'parse.h',
+                    'parse.y', 'parse.tmp.y', 'probes.h', 'shape.h']
 
     delete_files.each do |file|
       FileUtils.rm File.join(dist, file), force: true
     end
 
-    delete_directories = ["ccan", "internal"]
+    delete_directories = %w[ccan internal]
 
     delete_directories.each do |dir|
       FileUtils.rm_rf File.join(dist, dir)
@@ -143,16 +145,16 @@ end
 
 task build: :compile
 
-GEMSPEC = Gem::Specification.load("mjollnir.gemspec")
+GEMSPEC = Gem::Specification.load('mjollnir.gemspec')
 
-Rake::ExtensionTask.new("mjollnir", GEMSPEC) do |ext|
-  ext.lib_dir = "lib/mjollnir"
+Rake::ExtensionTask.new('mjollnir', GEMSPEC) do |ext|
+  ext.lib_dir = 'lib/mjollnir'
 end
 
 Rake::TestTask.new(:test) do |t|
-  t.libs << "test"
-  t.libs << "lib"
-  t.test_files = FileList["test/**/*_test.rb"]
+  t.libs << 'test'
+  t.libs << 'lib'
+  t.test_files = FileList['test/**/*_test.rb']
 end
 
 task :run do

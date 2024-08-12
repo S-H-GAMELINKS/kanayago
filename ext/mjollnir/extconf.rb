@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "mkmf"
+require 'mkmf'
 
 $objs = %w[
   node
@@ -12,11 +12,10 @@ $objs = %w[
   o + ".#{$OBJEXT}"
 end
 
-append_cflags("-fvisibility=hidden")
-append_cppflags("-DUNIVERSAL_PARSER=1")
+append_cflags('-fvisibility=hidden')
+append_cppflags('-DUNIVERSAL_PARSER=1')
 
-$INCFLAGS << " -I" << File.expand_path("../../mjollnir", __FILE__)
-$INCFLAGS << " -I" << File.expand_path("../../../", __FILE__)
+$INCFLAGS << ' -I' << File.expand_path('../mjollnir', __dir__)
+$INCFLAGS << ' -I' << File.expand_path('../..', __dir__)
 
-create_makefile("mjollnir/mjollnir")
-
+create_makefile('mjollnir/mjollnir')
