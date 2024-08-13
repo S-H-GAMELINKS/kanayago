@@ -52,6 +52,42 @@ left_assign_to_hash(const NODE *node)
     return result;
 }
 
+static VALUE
+literal_node_to_hash(const NODE *node)
+{
+    enum node_type type = nd_type(node);
+
+    switch (type) {
+	case NODE_INTEGER: {
+	  VALUE result = rb_hash_new();
+	  rb_hash_aset(result, rb_str_new2("NODE_INTEGER"), rb_node_integer_literal_val(node));
+	  return result;
+	}
+	case NODE_FLOAT: {
+	  VALUE result = rb_hash_new();
+	  rb_hash_aset(result, rb_str_new2("NODE_FLOAT"), rb_node_float_literal_val(node));
+	  return result;
+	}
+	case NODE_RATIONAL: {
+	  VALUE result = rb_hash_new();
+	  rb_hash_aset(result, rb_str_new2("NODE_RATIONAL"), rb_node_rational_literal_val(node));
+	  return result;
+	}
+	case NODE_IMAGINARY: {
+	  VALUE result = rb_hash_new();
+	  rb_hash_aset(result, rb_str_new2("NODE_IMAGINARY"), rb_node_imaginary_literal_val(node));
+	  return result;
+	}
+	case NODE_STR: {
+	  VALUE result = rb_hash_new();
+	  rb_hash_aset(result, rb_str_new2("NODE_STR"), rb_node_str_string_val(node));
+	  return result;
+	}
+	default:
+	  return Qnil;
+    }
+}
+
 VALUE
 ast_to_values(VALUE hash, const NODE *node)
 {
@@ -92,31 +128,12 @@ ast_to_values(VALUE hash, const NODE *node)
 	  rb_hash_aset(result, rb_str_new2("NODE_LIST"), list_node_to_hash(node));
 	  return result;
 	}
-	case NODE_INTEGER: {
-	  VALUE result = rb_hash_new();
-	  rb_hash_aset(result, rb_str_new2("NODE_INTEGER"), rb_node_integer_literal_val(node));
-	  return result;
-	}
-	case NODE_FLOAT: {
-	  VALUE result = rb_hash_new();
-	  rb_hash_aset(result, rb_str_new2("NODE_FLOAT"), rb_node_float_literal_val(node));
-	  return result;
-	}
-	case NODE_RATIONAL: {
-	  VALUE result = rb_hash_new();
-	  rb_hash_aset(result, rb_str_new2("NODE_RATIONAL"), rb_node_rational_literal_val(node));
-	  return result;
-	}
-	case NODE_IMAGINARY: {
-	  VALUE result = rb_hash_new();
-	  rb_hash_aset(result, rb_str_new2("NODE_IMAGINARY"), rb_node_imaginary_literal_val(node));
-	  return result;
-	}
-	case NODE_STR: {
-	  VALUE result = rb_hash_new();
-	  rb_hash_aset(result, rb_str_new2("NODE_STR"), rb_node_str_string_val(node));
-	  return result;
-	}
+	case NODE_INTEGER:
+	case NODE_FLOAT:
+	case NODE_RATIONAL:
+	case NODE_IMAGINARY:
+	case NODE_STR:
+	  return literal_node_to_hash(node);
 	default:
 	  return Qfalse;
     }
