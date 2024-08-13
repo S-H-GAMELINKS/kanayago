@@ -100,7 +100,7 @@ ast_to_values(VALUE hash, const NODE *node)
 	}
 	case NODE_STR: {
 	  VALUE result = rb_hash_new();
-	  rb_hash_aset(result, rb_str_new2("NODE_STRING"), rb_node_str_string_val(node));
+	  rb_hash_aset(result, rb_str_new2("NODE_STR"), rb_node_str_string_val(node));
 	  return result;
 	}
 	default:
