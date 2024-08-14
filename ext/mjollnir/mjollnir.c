@@ -28,6 +28,15 @@ call_node_to_hash(const NODE *node)
     return result;
 }
 
+static VALUE
+node_fcall_to_hash(const NODE *node)
+{
+    VALUE result = rb_hash_new();
+    rb_hash_aset(result, rb_str_new2("mid"), ID2SYM(RNODE_FCALL(node)->nd_mid));
+    rb_hash_aset(result, rb_str_new2("args"), ast_to_values(result, RNODE_FCALL(node)->nd_args));
+    return result;
+}
+
 VALUE
 list_node_to_hash(const NODE *node)
 {
@@ -121,6 +130,11 @@ ast_to_values(VALUE hash, const NODE *node)
 	case NODE_OPCALL: {
 	  VALUE result = rb_hash_new();
 	  rb_hash_aset(result, rb_str_new2("NODE_OPCALL"), opcall_node_to_hash(node));
+	  return result;
+	}
+	case NODE_FCALL: {
+	  VALUE result = rb_hash_new();
+	  rb_hash_aset(result, rb_str_new2("NODE_FCALL"), node_fcall_to_hash(node));
 	  return result;
 	}
 	case NODE_CALL: {
