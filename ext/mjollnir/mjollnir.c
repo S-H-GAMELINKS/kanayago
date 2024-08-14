@@ -43,6 +43,21 @@ list_node_to_hash(const NODE *node)
     return result;
 }
 
+static VALUE
+node_block_to_hash(const NODE *node)
+{
+    VALUE result = rb_ary_new();
+    NODE *nd_head = RNODE_BLOCK(node)->nd_head;
+    NODE *nd_end = RNODE_BLOCK(node)->nd_end;
+    
+    while (RNODE_BLOCK(node)->nd_next && nd_head != nd_end) {
+ 	rb_ary_push(result, ast_to_values(Qnil, nd_head));
+	nd_head = RNODE_BLOCK(node)->nd_next;
+    }
+
+    return result;
+}
+
 VALUE
 left_assign_to_hash(const NODE *node)
 {
@@ -114,9 +129,7 @@ ast_to_values(VALUE hash, const NODE *node)
 	  return result;
 	}
 	case NODE_BLOCK: {
-	  VALUE result = rb_hash_new();
-	  rb_hash_aset(result, rb_str_new2("NODE_BLOCK"), ast_to_values(hash, RNODE_BLOCK(node)->nd_head));
-	  return result;
+	  return node_block_to_hash(node);
 	}
 	case NODE_LASGN: {
 	  VALUE result = rb_hash_new();
