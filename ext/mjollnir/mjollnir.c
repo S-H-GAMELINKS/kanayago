@@ -84,6 +84,16 @@ node_lvar_to_hash(const NODE *node)
 }
 
 static VALUE
+node_if_to_hash(const NODE *node)
+{
+    VALUE result = rb_hash_new();
+    rb_hash_aset(result, rb_str_new2("cond"), ast_to_values(Qnil, RNODE_IF(node)->nd_cond));
+    rb_hash_aset(result, rb_str_new2("body"), ast_to_values(Qnil, RNODE_IF(node)->nd_body));
+    rb_hash_aset(result, rb_str_new2("else"), ast_to_values(Qnil, RNODE_IF(node)->nd_else));
+    return result;
+}
+
+static VALUE
 literal_node_to_hash(const NODE *node)
 {
     enum node_type type = nd_type(node);
@@ -162,6 +172,11 @@ ast_to_values(VALUE hash, const NODE *node)
 	case NODE_LVAR: {
 	  VALUE result = rb_hash_new();
 	  rb_hash_aset(result, rb_str_new2("NODE_LVAR"), node_lvar_to_hash(node));
+	  return result;
+	}
+	case NODE_IF: {
+	  VALUE result = rb_hash_new();
+	  rb_hash_aset(result, rb_str_new2("NODE_IF"), node_if_to_hash(node));
 	  return result;
 	}
 	case NODE_LIST: {
