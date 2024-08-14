@@ -161,4 +161,8 @@ task :run do
   sh 'ruby test.rb'
 end
 
+task :gdb do
+  sh 'bundle exec gdb --args ruby test.rb'
+end
+
 task default: %i[clobber compile]
