@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.authors = ['S-H-GAMELINKS']
   spec.email = ['gamelinks007@gmail.com']
 
-  spec.summary = 'lrama gen parser binding'
-  spec.description = 'lrama gen parser binding'
+  spec.summary = 'Trying to Make Ruby's Parser Available as a Gem'
+  spec.description = 'Trying to Make Ruby's Parser Available as a Gem'
   spec.homepage = 'https://github.com/S-H-GAMELINKS/mjollnir'
   spec.license = 'MIT'
   spec.required_ruby_version = '>= 3.0.0'
