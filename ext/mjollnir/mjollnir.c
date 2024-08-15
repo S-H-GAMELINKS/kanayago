@@ -104,6 +104,18 @@ node_const_to_hash(const NODE *node)
 }
 
 static VALUE
+node_cdecl_to_hash(const NODE *node)
+{
+    VALUE result = rb_hash_new();
+
+    rb_hash_aset(result, rb_str_new2("vid"), ID2SYM(RNODE_CDECL(node)->nd_vid));
+    rb_hash_aset(result, rb_str_new2("else"), ast_to_values(Qnil, RNODE_CDECL(node)->nd_else));
+    rb_hash_aset(result, rb_str_new2("value"), ast_to_values(Qnil, RNODE_CDECL(node)->nd_value));
+
+    return result;
+}
+
+static VALUE
 literal_node_to_hash(const NODE *node)
 {
     enum node_type type = nd_type(node);
@@ -197,6 +209,11 @@ ast_to_values(VALUE hash, const NODE *node)
 	case NODE_CONST: {
 	  VALUE result = rb_hash_new();
 	  rb_hash_aset(result, rb_str_new2("NODE_CONST"), node_const_to_hash(node));
+	  return result;
+	}
+	case NODE_CDECL: {
+	  VALUE result = rb_hash_new();
+	  rb_hash_aset(result, rb_str_new2("NODE_CDECL"), node_cdecl_to_hash(node));
 	  return result;
 	}
 	case NODE_INTEGER:
