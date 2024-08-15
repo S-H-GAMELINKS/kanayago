@@ -16,4 +16,41 @@ class ParseConstTest < Minitest::Test
 
     assert_equal expected, result
   end
+
+  def test_parse_const_ref
+    result = Mjollnir.parse(<<~CODE)
+      S = 117
+      p S
+    CODE
+
+    expected = {
+      'NODE_SCOPE' => {
+        'NODE_BLOCK' => [
+          {
+            'NODE_CDECL' => {
+              'vid' => :S,
+              'else' => nil,
+              'value' => {
+                'NODE_INTEGER' => 117
+              }
+            }
+          },
+          {
+            'NODE_FCALL' => {
+              'mid' => :p,
+              'args' => {
+                'NODE_LIST' => [
+                  'NODE_CONST' => {
+                    'vid' => :S
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    }
+
+    assert_equal expected, result
+  end
 end
