@@ -1,24 +1,67 @@
 # Mjollnir
 
-TODO: Delete this and the text below, and describe your gem
-
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/mjollnir`. To experiment with that code, run `bin/console` for an interactive prompt.
+Trying to Make Ruby's Parser Available as a Gem.
 
 ## Installation
 
-TODO: Replace `UPDATE_WITH_YOUR_GEM_NAME_IMMEDIATELY_AFTER_RELEASE_TO_RUBYGEMS_ORG` with your gem name right after releasing it to RubyGems.org. Please do not do it earlier due to security reasons. Alternatively, replace this section with instructions to install your gem from git if you don't plan to release to RubyGems.org.
+First, install Ruby master with Universal Parser.
 
-Install the gem and add to the application's Gemfile by executing:
+```console
+RUBY_CONFIGURE_OPTS="cppflags=-DUNIVERSAL_PARSER" rbenv install ruby-dev
+```
 
-    $ bundle add UPDATE_WITH_YOUR_GEM_NAME_IMMEDIATELY_AFTER_RELEASE_TO_RUBYGEMS_ORG
+Clone this repository.
 
-If bundler is not being used to manage dependencies, install the gem by executing:
+```console
+git clone https://github.com/S-H-GAMELINKS/mjollnir.git
+```
 
-    $ gem install UPDATE_WITH_YOUR_GEM_NAME_IMMEDIATELY_AFTER_RELEASE_TO_RUBYGEMS_ORG
+Move `mjollnir` directory, and run `bundle install`.
+
+```console
+cd mjollnir && bundle install
+```
+
+And, build Ruby Parser.
+
+```console
+bundle exec rake ruby_parser:build
+```
+
+Finally, build `Mjollnir` gem  and install it.
+
+```console
+bundle exec rake build
+gem install pkg/mjollnir-0.1.0.gem
+```
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+require 'mjollnir/mjollnir'
+
+result = Mjollnir.parse('117 + 117')
+
+p result
+# =>
+# {
+#   "NODE_SCOPE" => {
+#     "NODE_OPCALL" => {
+#       "recv" => {
+#         "NODE_INTEGER" => 117
+#       },
+#       "mid" => :+,
+#       "args" => {
+#         "NODE_LIST" => [
+#           {
+#             "NODE_INTEGER" => 1
+#           }
+#         ]
+#       }
+#     }
+#   }
+# }
+```
 
 ## Development
 
