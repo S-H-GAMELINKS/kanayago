@@ -22,9 +22,11 @@ static VALUE
 node_call_to_hash(const NODE *node)
 {
     VALUE result = rb_hash_new();
+
     rb_hash_aset(result, rb_str_new2("recv"), ast_to_hash(RNODE_OPCALL(node)->nd_recv));
     rb_hash_aset(result, rb_str_new2("mid"), ID2SYM(RNODE_CALL(node)->nd_mid));
     rb_hash_aset(result, rb_str_new2("args"), ast_to_hash(RNODE_CALL(node)->nd_args));
+
     return result;
 }
 
@@ -32,8 +34,10 @@ static VALUE
 node_fcall_to_hash(const NODE *node)
 {
     VALUE result = rb_hash_new();
+
     rb_hash_aset(result, rb_str_new2("mid"), ID2SYM(RNODE_FCALL(node)->nd_mid));
     rb_hash_aset(result, rb_str_new2("args"), ast_to_hash(RNODE_FCALL(node)->nd_args));
+
     return result;
 }
 
@@ -70,8 +74,10 @@ static VALUE
 node_lasgn_to_hash(const NODE *node)
 {
     VALUE result = rb_hash_new();
+
     rb_hash_aset(result, rb_str_new2("id"), ID2SYM(RNODE_LASGN(node)->nd_vid));
     rb_hash_aset(result, rb_str_new2("value"), ast_to_hash(RNODE_LASGN(node)->nd_value));
+
     return result;
 }
 
@@ -79,7 +85,9 @@ static VALUE
 node_lvar_to_hash(const NODE *node)
 {
     VALUE result = rb_hash_new();
+
     rb_hash_aset(result, rb_str_new2("vid"), ID2SYM(RNODE_LVAR(node)->nd_vid));
+
     return result;
 }
 
@@ -87,9 +95,11 @@ static VALUE
 node_if_to_hash(const NODE *node)
 {
     VALUE result = rb_hash_new();
+
     rb_hash_aset(result, rb_str_new2("cond"), ast_to_hash(RNODE_IF(node)->nd_cond));
     rb_hash_aset(result, rb_str_new2("body"), ast_to_hash(RNODE_IF(node)->nd_body));
     rb_hash_aset(result, rb_str_new2("else"), ast_to_hash(RNODE_IF(node)->nd_else));
+
     return result;
 }
 
