@@ -6,25 +6,25 @@
 
 VALUE rb_mMjollnir;
 
-VALUE ast_to_values(VALUE, const NODE *);
+static VALUE ast_to_hash(const NODE *);
 
-VALUE
-opcall_node_to_hash(const NODE *node)
+static VALUE
+node_opcall_to_hash(const NODE *node)
 {
     VALUE result = rb_hash_new();
-    rb_hash_aset(result, rb_str_new2("recv"), ast_to_values(result, RNODE_OPCALL(node)->nd_recv));
+    rb_hash_aset(result, rb_str_new2("recv"), ast_to_hash(RNODE_OPCALL(node)->nd_recv));
     rb_hash_aset(result, rb_str_new2("mid"), ID2SYM(RNODE_OPCALL(node)->nd_mid));
-    rb_hash_aset(result, rb_str_new2("args"), ast_to_values(result, RNODE_OPCALL(node)->nd_args));
+    rb_hash_aset(result, rb_str_new2("args"), ast_to_hash(RNODE_OPCALL(node)->nd_args));
     return result;
 }
 
-VALUE
-call_node_to_hash(const NODE *node)
+static VALUE
+node_call_to_hash(const NODE *node)
 {
     VALUE result = rb_hash_new();
-    rb_hash_aset(result, rb_str_new2("recv"), ast_to_values(result, RNODE_OPCALL(node)->nd_recv));
+    rb_hash_aset(result, rb_str_new2("recv"), ast_to_hash(RNODE_OPCALL(node)->nd_recv));
     rb_hash_aset(result, rb_str_new2("mid"), ID2SYM(RNODE_CALL(node)->nd_mid));
-    rb_hash_aset(result, rb_str_new2("args"), ast_to_values(result, RNODE_CALL(node)->nd_args));
+    rb_hash_aset(result, rb_str_new2("args"), ast_to_hash(RNODE_CALL(node)->nd_args));
     return result;
 }
 
@@ -33,19 +33,19 @@ node_fcall_to_hash(const NODE *node)
 {
     VALUE result = rb_hash_new();
     rb_hash_aset(result, rb_str_new2("mid"), ID2SYM(RNODE_FCALL(node)->nd_mid));
-    rb_hash_aset(result, rb_str_new2("args"), ast_to_values(result, RNODE_FCALL(node)->nd_args));
+    rb_hash_aset(result, rb_str_new2("args"), ast_to_hash(RNODE_FCALL(node)->nd_args));
     return result;
 }
 
-VALUE
-list_node_to_hash(const NODE *node)
+static VALUE
+node_list_to_hash(const NODE *node)
 {
     VALUE result = rb_ary_new();
     NODE *nd_head = RNODE_LIST(node)->nd_head;
     int list_len = RNODE_LIST(node)->as.nd_alen;
 
     for (int i = 0; i < list_len; i++ ) {
-	rb_ary_push(result, ast_to_values(Qnil, nd_head));
+	rb_ary_push(result, ast_to_hash(nd_head));
 	nd_head = RNODE_LIST(node)->nd_next;
     }
 
@@ -59,19 +59,19 @@ node_block_to_hash(const NODE *node)
     const NODE *current_node = node;
 
     while (current_node) {
- 	rb_ary_push(result, ast_to_values(Qnil, RNODE_BLOCK(current_node)->nd_head));
+ 	rb_ary_push(result, ast_to_hash(RNODE_BLOCK(current_node)->nd_head));
 	current_node = RNODE_BLOCK(current_node)->nd_next;
     }
 
     return result;
 }
 
-VALUE
-left_assign_to_hash(const NODE *node)
+static VALUE
+node_lasgn_to_hash(const NODE *node)
 {
     VALUE result = rb_hash_new();
     rb_hash_aset(result, rb_str_new2("id"), ID2SYM(RNODE_LASGN(node)->nd_vid));
-    rb_hash_aset(result, rb_str_new2("value"), ast_to_values(Qnil, RNODE_LASGN(node)->nd_value));
+    rb_hash_aset(result, rb_str_new2("value"), ast_to_hash(RNODE_LASGN(node)->nd_value));
     return result;
 }
 
@@ -87,9 +87,9 @@ static VALUE
 node_if_to_hash(const NODE *node)
 {
     VALUE result = rb_hash_new();
-    rb_hash_aset(result, rb_str_new2("cond"), ast_to_values(Qnil, RNODE_IF(node)->nd_cond));
-    rb_hash_aset(result, rb_str_new2("body"), ast_to_values(Qnil, RNODE_IF(node)->nd_body));
-    rb_hash_aset(result, rb_str_new2("else"), ast_to_values(Qnil, RNODE_IF(node)->nd_else));
+    rb_hash_aset(result, rb_str_new2("cond"), ast_to_hash(RNODE_IF(node)->nd_cond));
+    rb_hash_aset(result, rb_str_new2("body"), ast_to_hash(RNODE_IF(node)->nd_body));
+    rb_hash_aset(result, rb_str_new2("else"), ast_to_hash(RNODE_IF(node)->nd_else));
     return result;
 }
 
@@ -109,14 +109,14 @@ node_cdecl_to_hash(const NODE *node)
     VALUE result = rb_hash_new();
 
     rb_hash_aset(result, rb_str_new2("vid"), ID2SYM(RNODE_CDECL(node)->nd_vid));
-    rb_hash_aset(result, rb_str_new2("else"), ast_to_values(Qnil, RNODE_CDECL(node)->nd_else));
-    rb_hash_aset(result, rb_str_new2("value"), ast_to_values(Qnil, RNODE_CDECL(node)->nd_value));
+    rb_hash_aset(result, rb_str_new2("else"), ast_to_hash(RNODE_CDECL(node)->nd_else));
+    rb_hash_aset(result, rb_str_new2("value"), ast_to_hash(RNODE_CDECL(node)->nd_value));
 
     return result;
 }
 
 static VALUE
-literal_node_to_hash(const NODE *node)
+node_literal_to_hash(const NODE *node)
 {
     enum node_type type = nd_type(node);
 
@@ -156,9 +156,9 @@ node_class_to_hash(const NODE *node)
 {
     VALUE result = rb_hash_new();
 
-    rb_hash_aset(result, rb_str_new2("cpath"), ast_to_values(Qnil, RNODE_CLASS(node)->nd_cpath));
-    rb_hash_aset(result, rb_str_new2("super"), ast_to_values(Qnil, RNODE_CLASS(node)->nd_super));
-    rb_hash_aset(result, rb_str_new2("body"), ast_to_values(Qnil, RNODE_CLASS(node)->nd_body));
+    rb_hash_aset(result, rb_str_new2("cpath"), ast_to_hash(RNODE_CLASS(node)->nd_cpath));
+    rb_hash_aset(result, rb_str_new2("super"), ast_to_hash(RNODE_CLASS(node)->nd_super));
+    rb_hash_aset(result, rb_str_new2("body"), ast_to_hash(RNODE_CLASS(node)->nd_body));
 
     return result;
 }
@@ -169,7 +169,7 @@ node_colon2_to_hash(const NODE *node)
     VALUE result = rb_hash_new();
 
     rb_hash_aset(result, rb_str_new2("mid"), ID2SYM(RNODE_COLON2(node)->nd_mid));
-    rb_hash_aset(result, rb_str_new2("head"), ast_to_values(Qnil, RNODE_COLON2(node)->nd_head));
+    rb_hash_aset(result, rb_str_new2("head"), ast_to_hash(RNODE_COLON2(node)->nd_head));
 
     return result;
 }
@@ -179,7 +179,7 @@ node_begin_to_hash(const NODE *node)
 {
     VALUE result = rb_hash_new();
 
-    rb_hash_aset(result, rb_str_new2("body"), ast_to_values(Qnil, RNODE_BEGIN(node)->nd_body));
+    rb_hash_aset(result, rb_str_new2("body"), ast_to_hash(RNODE_BEGIN(node)->nd_body));
 
     return result;
 }
@@ -189,14 +189,14 @@ node_scope_to_hash(const NODE *node)
 {
     VALUE result = rb_hash_new();
 
-    rb_hash_aset(result, rb_str_new2("args"), ast_to_values(Qnil, RNODE_SCOPE(node)->nd_args));
-    rb_hash_aset(result, rb_str_new2("body"), ast_to_values(Qnil, RNODE_SCOPE(node)->nd_body));
+    rb_hash_aset(result, rb_str_new2("args"), ast_to_hash(RNODE_SCOPE(node)->nd_args));
+    rb_hash_aset(result, rb_str_new2("body"), ast_to_hash(RNODE_SCOPE(node)->nd_body));
 
     return result;
 }
 
-VALUE
-ast_to_values(VALUE hash, const NODE *node)
+static VALUE
+ast_to_hash(const NODE *node)
 {
     enum node_type type;
 
@@ -219,7 +219,7 @@ ast_to_values(VALUE hash, const NODE *node)
 	}
 	case NODE_OPCALL: {
 	  VALUE result = rb_hash_new();
-	  rb_hash_aset(result, rb_str_new2("NODE_OPCALL"), opcall_node_to_hash(node));
+	  rb_hash_aset(result, rb_str_new2("NODE_OPCALL"), node_opcall_to_hash(node));
 	  return result;
 	}
 	case NODE_FCALL: {
@@ -229,7 +229,7 @@ ast_to_values(VALUE hash, const NODE *node)
 	}
 	case NODE_CALL: {
 	  VALUE result = rb_hash_new();
-	  rb_hash_aset(result, rb_str_new2("NODE_CALL"), call_node_to_hash(node));
+	  rb_hash_aset(result, rb_str_new2("NODE_CALL"), node_call_to_hash(node));
 	  return result;
 	}
 	case NODE_BLOCK: {
@@ -239,7 +239,7 @@ ast_to_values(VALUE hash, const NODE *node)
 	}
 	case NODE_LASGN: {
 	  VALUE result = rb_hash_new();
-	  rb_hash_aset(result, rb_str_new2("NODE_LASGN"), left_assign_to_hash(node));
+	  rb_hash_aset(result, rb_str_new2("NODE_LASGN"), node_lasgn_to_hash(node));
 	  return result;
 	}
 	case NODE_LVAR: {
@@ -254,7 +254,7 @@ ast_to_values(VALUE hash, const NODE *node)
 	}
 	case NODE_LIST: {
 	  VALUE result = rb_hash_new();
-	  rb_hash_aset(result, rb_str_new2("NODE_LIST"), list_node_to_hash(node));
+	  rb_hash_aset(result, rb_str_new2("NODE_LIST"), node_list_to_hash(node));
 	  return result;
 	}
 	case NODE_CONST: {
@@ -282,7 +282,7 @@ ast_to_values(VALUE hash, const NODE *node)
 	case NODE_RATIONAL:
 	case NODE_IMAGINARY:
 	case NODE_STR:
-	  return literal_node_to_hash(node);
+	  return node_literal_to_hash(node);
 	default:
 	  return Qfalse;
     }
@@ -306,9 +306,7 @@ parse(VALUE self, VALUE source)
 
     TypedData_Get_Struct(vast, rb_ast_t, &ast_data_type, ast);
 
-    VALUE result = rb_hash_new();
-
-    return ast_to_values(result, ast->body.root);
+    return ast_to_hash(ast->body.root);
 }
 
 RUBY_FUNC_EXPORTED void
