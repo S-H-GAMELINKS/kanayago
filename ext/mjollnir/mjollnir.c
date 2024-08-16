@@ -151,6 +151,50 @@ literal_node_to_hash(const NODE *node)
     }
 }
 
+static VALUE
+node_class_to_hash(const NODE *node)
+{
+    VALUE result = rb_hash_new();
+
+    rb_hash_aset(result, rb_str_new2("cpath"), ast_to_values(Qnil, RNODE_CLASS(node)->nd_cpath));
+    rb_hash_aset(result, rb_str_new2("super"), ast_to_values(Qnil, RNODE_CLASS(node)->nd_super));
+    rb_hash_aset(result, rb_str_new2("body"), ast_to_values(Qnil, RNODE_CLASS(node)->nd_body));
+
+    return result;
+}
+
+static VALUE
+node_colon2_to_hash(const NODE *node)
+{
+    VALUE result = rb_hash_new();
+
+    rb_hash_aset(result, rb_str_new2("mid"), ID2SYM(RNODE_COLON2(node)->nd_mid));
+    rb_hash_aset(result, rb_str_new2("head"), ast_to_values(Qnil, RNODE_COLON2(node)->nd_head));
+
+    return result;
+}
+
+static VALUE
+node_begin_to_hash(const NODE *node)
+{
+    VALUE result = rb_hash_new();
+
+    rb_hash_aset(result, rb_str_new2("body"), ast_to_values(Qnil, RNODE_BEGIN(node)->nd_body));
+
+    return result;
+}
+
+static VALUE
+node_scope_to_hash(const NODE *node)
+{
+    VALUE result = rb_hash_new();
+
+    rb_hash_aset(result, rb_str_new2("args"), ast_to_values(Qnil, RNODE_SCOPE(node)->nd_args));
+    rb_hash_aset(result, rb_str_new2("body"), ast_to_values(Qnil, RNODE_SCOPE(node)->nd_body));
+
+    return result;
+}
+
 VALUE
 ast_to_values(VALUE hash, const NODE *node)
 {
@@ -163,9 +207,16 @@ ast_to_values(VALUE hash, const NODE *node)
     type = nd_type(node);
 
     switch (type) {
-	case NODE_SCOPE:
-	  rb_hash_aset(hash, rb_str_new2("NODE_SCOPE"), ast_to_values(hash, RNODE_SCOPE(node)->nd_body));
-	  return hash;
+	case NODE_SCOPE: {
+	  VALUE result = rb_hash_new();
+	  rb_hash_aset(result, rb_str_new2("NODE_SCOPE"), node_scope_to_hash(node));
+	  return result;
+	}
+	case NODE_CLASS: {
+	  VALUE result = rb_hash_new();
+	  rb_hash_aset(result, rb_str_new2("NODE_CLASS"), node_class_to_hash(node));
+	  return result;
+	}
 	case NODE_OPCALL: {
 	  VALUE result = rb_hash_new();
 	  rb_hash_aset(result, rb_str_new2("NODE_OPCALL"), opcall_node_to_hash(node));
@@ -214,6 +265,16 @@ ast_to_values(VALUE hash, const NODE *node)
 	case NODE_CDECL: {
 	  VALUE result = rb_hash_new();
 	  rb_hash_aset(result, rb_str_new2("NODE_CDECL"), node_cdecl_to_hash(node));
+	  return result;
+	}
+	case NODE_COLON2: {
+	  VALUE result = rb_hash_new();
+	  rb_hash_aset(result, rb_str_new2("NODE_COLON2"), node_colon2_to_hash(node));
+	  return result;
+	}
+	case NODE_BEGIN: {
+	  VALUE result = rb_hash_new();
+	  rb_hash_aset(result, rb_str_new2("NODE_BEGIN"), node_begin_to_hash(node));
 	  return result;
 	}
 	case NODE_INTEGER:

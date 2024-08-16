@@ -8,8 +8,11 @@ class ParseConstTest < Minitest::Test
 
     expected = {
       'NODE_SCOPE' => {
-        'NODE_CONST' => {
-          'vid' => :Class
+        'args' => nil,
+        'body' => {
+          'NODE_CONST' => {
+            'vid' => :Class
+          }
         }
       }
     }
@@ -25,29 +28,32 @@ class ParseConstTest < Minitest::Test
 
     expected = {
       'NODE_SCOPE' => {
-        'NODE_BLOCK' => [
-          {
-            'NODE_CDECL' => {
-              'vid' => :S,
-              'else' => nil,
-              'value' => {
-                'NODE_INTEGER' => 117
+        'args' => nil,
+        'body' => {
+          'NODE_BLOCK' => [
+            {
+              'NODE_CDECL' => {
+                'vid' => :S,
+                'else' => nil,
+                'value' => {
+                  'NODE_INTEGER' => 117
+                }
+              }
+            },
+            {
+              'NODE_FCALL' => {
+                'mid' => :p,
+                'args' => {
+                  'NODE_LIST' => [
+                    'NODE_CONST' => {
+                      'vid' => :S
+                    }
+                  ]
+                }
               }
             }
-          },
-          {
-            'NODE_FCALL' => {
-              'mid' => :p,
-              'args' => {
-                'NODE_LIST' => [
-                  'NODE_CONST' => {
-                    'vid' => :S
-                  }
-                ]
-              }
-            }
-          }
-        ]
+          ]
+        }
       }
     }
 

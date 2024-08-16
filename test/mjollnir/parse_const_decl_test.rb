@@ -8,11 +8,14 @@ class ParseConstDeclTest < Minitest::Test
 
     expected = {
       'NODE_SCOPE' => {
-        'NODE_CDECL' => {
-          'vid' => :S,
-          'else' => nil,
-          'value' => {
-            'NODE_INTEGER' => 117
+        'args' => nil,
+        'body' => {
+          'NODE_CDECL' => {
+            'vid' => :S,
+            'else' => nil,
+            'value' => {
+              'NODE_INTEGER' => 117
+            }
           }
         }
       }

@@ -6,7 +6,10 @@ class ParseStringTest < Minitest::Test
 
     expected = {
       'NODE_SCOPE' => {
-        'NODE_STR' => 'Mjollnir'
+        'args' => nil,
+        'body' => {
+          'NODE_STR' => 'Mjollnir'
+        }
       }
     }
 
@@ -18,15 +21,18 @@ class ParseStringTest < Minitest::Test
 
     expected = {
       'NODE_SCOPE' => {
-        'NODE_OPCALL' => {
-          'recv' => {
-            'NODE_STR' => 'Mjollnir'
-          },
-          'mid' => :+,
-          'args' => {
-            'NODE_LIST' => [
-              'NODE_STR' => '.parse'
-            ]
+        'args' => nil,
+        'body' => {
+          'NODE_OPCALL' => {
+            'recv' => {
+              'NODE_STR' => 'Mjollnir'
+            },
+            'mid' => :+,
+            'args' => {
+              'NODE_LIST' => [
+                'NODE_STR' => '.parse'
+              ]
+            }
           }
         }
       }
@@ -40,17 +46,20 @@ class ParseStringTest < Minitest::Test
 
     expected = {
       'NODE_SCOPE' => {
-        'NODE_OPCALL' => {
-          'recv' => {
-            'NODE_STR' => 'Mjollnir'
-          },
-          'mid' => :*,
-          'args' => {
-            'NODE_LIST' => [
-              {
-                'NODE_INTEGER' => 2
-              }
-            ]
+        'args' => nil,
+        'body' => {
+          'NODE_OPCALL' => {
+            'recv' => {
+              'NODE_STR' => 'Mjollnir'
+            },
+            'mid' => :*,
+            'args' => {
+              'NODE_LIST' => [
+                {
+                  'NODE_INTEGER' => 2
+                }
+              ]
+            }
           }
         }
       }

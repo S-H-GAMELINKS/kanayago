@@ -8,17 +8,20 @@ class ParseRationalTest < Minitest::Test
 
     expected = {
       'NODE_SCOPE' => {
-        'NODE_OPCALL' => {
-          'recv' => {
-            'NODE_INTEGER' => 1
-          },
-          'mid' => :/,
-          'args' => {
-            'NODE_LIST' => [
-              {
-                'NODE_RATIONAL' => 17
-              }
-            ]
+        'args' => nil,
+        'body' => {
+          'NODE_OPCALL' => {
+            'recv' => {
+              'NODE_INTEGER' => 1
+            },
+            'mid' => :/,
+            'args' => {
+              'NODE_LIST' => [
+                {
+                  'NODE_RATIONAL' => 17
+                }
+              ]
+            }
           }
         }
       }
@@ -32,42 +35,44 @@ class ParseRationalTest < Minitest::Test
 
     expected = {
       'NODE_SCOPE' => {
-        'NODE_OPCALL' => {
-          'recv' => {
-            'NODE_OPCALL' => {
-              'recv' => {
-                'NODE_INTEGER' => 1
-              },
-              'mid' => :/,
-              'args' => {
-                'NODE_LIST' => [
-                  {
-                    'NODE_RATIONAL' => 17
-                  }
-                ]
-              }
-            }
-          },
-          'mid' => :+,
-          'args' => {
-            'NODE_LIST' => [
-              {
-                'NODE_OPCALL' => {
-                  'recv' => {
-                    'NODE_INTEGER' => 1
-                  },
-                  'mid' => :/,
-                  'args' => {
-                    'NODE_LIST' => [
-                      {
-                        'NODE_RATIONAL' => 17
-                      }
-                    ]
-                  }
+        'args' => nil,
+        'body' => {
+          'NODE_OPCALL' => {
+            'recv' => {
+              'NODE_OPCALL' => {
+                'recv' => {
+                  'NODE_INTEGER' => 1
+                },
+                'mid' => :/,
+                'args' => {
+                  'NODE_LIST' => [
+                    {
+                      'NODE_RATIONAL' => 17
+                    }
+                  ]
                 }
               }
-            ]
-
+            },
+            'mid' => :+,
+            'args' => {
+              'NODE_LIST' => [
+                {
+                  'NODE_OPCALL' => {
+                    'recv' => {
+                      'NODE_INTEGER' => 1
+                    },
+                    'mid' => :/,
+                    'args' => {
+                      'NODE_LIST' => [
+                        {
+                          'NODE_RATIONAL' => 17
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            }
           }
         }
       }
@@ -81,41 +86,44 @@ class ParseRationalTest < Minitest::Test
 
     expected = {
       'NODE_SCOPE' => {
-        'NODE_OPCALL' => {
-          'recv' => {
-            'NODE_OPCALL' => {
-              'recv' => {
-                'NODE_INTEGER' => 1
-              },
-              'mid' => :/,
-              'args' => {
-                'NODE_LIST' => [
-                  {
-                    'NODE_RATIONAL' => 17
-                  }
-                ]
-              }
-            }
-          },
-          'mid' => :-,
-          'args' => {
-            'NODE_LIST' => [
-              {
-                'NODE_OPCALL' => {
-                  'recv' => {
-                    'NODE_INTEGER' => 1
-                  },
-                  'mid' => :/,
-                  'args' => {
-                    'NODE_LIST' => [
-                      {
-                        'NODE_RATIONAL' => 17
-                      }
-                    ]
-                  }
+        'args' => nil,
+        'body' => {
+          'NODE_OPCALL' => {
+            'recv' => {
+              'NODE_OPCALL' => {
+                'recv' => {
+                  'NODE_INTEGER' => 1
+                },
+                'mid' => :/,
+                'args' => {
+                  'NODE_LIST' => [
+                    {
+                      'NODE_RATIONAL' => 17
+                    }
+                  ]
                 }
               }
-            ]
+            },
+            'mid' => :-,
+            'args' => {
+              'NODE_LIST' => [
+                {
+                  'NODE_OPCALL' => {
+                    'recv' => {
+                      'NODE_INTEGER' => 1
+                    },
+                    'mid' => :/,
+                    'args' => {
+                      'NODE_LIST' => [
+                        {
+                          'NODE_RATIONAL' => 17
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            }
           }
         }
       }
@@ -129,37 +137,40 @@ class ParseRationalTest < Minitest::Test
 
     expected = {
       'NODE_SCOPE' => {
-        'NODE_OPCALL' => {
-          'recv' => {
-            'NODE_OPCALL' => {
-              'recv' => {
-                'NODE_OPCALL' => {
-                  'recv' => {
-                    'NODE_INTEGER' => 1
-                  },
-                  'mid' => :/,
-                  'args' => {
-                    'NODE_LIST' => [
-                      'NODE_RATIONAL' => 17
-                    ]
+        'args' => nil,
+        'body' => {
+          'NODE_OPCALL' => {
+            'recv' => {
+              'NODE_OPCALL' => {
+                'recv' => {
+                  'NODE_OPCALL' => {
+                    'recv' => {
+                      'NODE_INTEGER' => 1
+                    },
+                    'mid' => :/,
+                    'args' => {
+                      'NODE_LIST' => [
+                        'NODE_RATIONAL' => 17
+                      ]
+                    }
                   }
+                },
+                'mid' => :*,
+                'args' => {
+                  'NODE_LIST' => [
+                    {
+                      'NODE_INTEGER' => 1
+                    }
+                  ]
                 }
-              },
-              'mid' => :*,
-              'args' => {
-                'NODE_LIST' => [
-                  {
-                    'NODE_INTEGER' => 1
-                  }
-                ]
               }
+            },
+            'mid' => :/,
+            'args' => {
+              'NODE_LIST' => [
+                'NODE_RATIONAL' => 17
+              ]
             }
-          },
-          'mid' => :/,
-          'args' => {
-            'NODE_LIST' => [
-              'NODE_RATIONAL' => 17
-            ]
           }
         }
       }
@@ -173,37 +184,40 @@ class ParseRationalTest < Minitest::Test
 
     expected = {
       'NODE_SCOPE' => {
-        'NODE_OPCALL' => {
-          'recv' => {
-            'NODE_OPCALL' => {
-              'recv' => {
-                'NODE_OPCALL' => {
-                  'recv' => {
-                    'NODE_INTEGER' => 1
-                  },
-                  'mid' => :/,
-                  'args' => {
-                    'NODE_LIST' => [
-                      'NODE_RATIONAL' => 17
-                    ]
+        'args' => nil,
+        'body' => {
+          'NODE_OPCALL' => {
+            'recv' => {
+              'NODE_OPCALL' => {
+                'recv' => {
+                  'NODE_OPCALL' => {
+                    'recv' => {
+                      'NODE_INTEGER' => 1
+                    },
+                    'mid' => :/,
+                    'args' => {
+                      'NODE_LIST' => [
+                        'NODE_RATIONAL' => 17
+                      ]
+                    }
                   }
+                },
+                'mid' => :/,
+                'args' => {
+                  'NODE_LIST' => [
+                    {
+                      'NODE_INTEGER' => 1
+                    }
+                  ]
                 }
-              },
-              'mid' => :/,
-              'args' => {
-                'NODE_LIST' => [
-                  {
-                    'NODE_INTEGER' => 1
-                  }
-                ]
               }
+            },
+            'mid' => :/,
+            'args' => {
+              'NODE_LIST' => [
+                'NODE_RATIONAL' => 17
+              ]
             }
-          },
-          'mid' => :/,
-          'args' => {
-            'NODE_LIST' => [
-              'NODE_RATIONAL' => 17
-            ]
           }
         }
       }
@@ -217,37 +231,40 @@ class ParseRationalTest < Minitest::Test
 
     expected = {
       'NODE_SCOPE' => {
-        'NODE_OPCALL' => {
-          'recv' => {
-            'NODE_OPCALL' => {
-              'recv' => {
-                'NODE_OPCALL' => {
-                  'recv' => {
-                    'NODE_INTEGER' => 1
-                  },
-                  'mid' => :/,
-                  'args' => {
-                    'NODE_LIST' => [
-                      'NODE_RATIONAL' => 17
-                    ]
+        'args' => nil,
+        'body' => {
+          'NODE_OPCALL' => {
+            'recv' => {
+              'NODE_OPCALL' => {
+                'recv' => {
+                  'NODE_OPCALL' => {
+                    'recv' => {
+                      'NODE_INTEGER' => 1
+                    },
+                    'mid' => :/,
+                    'args' => {
+                      'NODE_LIST' => [
+                        'NODE_RATIONAL' => 17
+                      ]
+                    }
                   }
+                },
+                'mid' => :%,
+                'args' => {
+                  'NODE_LIST' => [
+                    {
+                      'NODE_INTEGER' => 1
+                    }
+                  ]
                 }
-              },
-              'mid' => :%,
-              'args' => {
-                'NODE_LIST' => [
-                  {
-                    'NODE_INTEGER' => 1
-                  }
-                ]
               }
+            },
+            'mid' => :/,
+            'args' => {
+              'NODE_LIST' => [
+                'NODE_RATIONAL' => 17
+              ]
             }
-          },
-          'mid' => :/,
-          'args' => {
-            'NODE_LIST' => [
-              'NODE_RATIONAL' => 17
-            ]
           }
         }
       }
@@ -261,23 +278,26 @@ class ParseRationalTest < Minitest::Test
 
     expected = {
       'NODE_SCOPE' => {
-        'NODE_OPCALL' => {
-          'recv' => {
-            'NODE_INTEGER' => 1
-          },
-          'mid' => :/,
-          'args' => {
-            'NODE_LIST' => [
-              {
-                'NODE_CALL' => {
-                  'recv' => {
-                    'NODE_RATIONAL' => 17
-                  },
-                  'mid' => :to_i,
-                  'args' => nil
+        'args' => nil,
+        'body' => {
+          'NODE_OPCALL' => {
+            'recv' => {
+              'NODE_INTEGER' => 1
+            },
+            'mid' => :/,
+            'args' => {
+              'NODE_LIST' => [
+                {
+                  'NODE_CALL' => {
+                    'recv' => {
+                      'NODE_RATIONAL' => 17
+                    },
+                    'mid' => :to_i,
+                    'args' => nil
+                  }
                 }
-              }
-            ]
+              ]
+            }
           }
         }
       }
@@ -291,29 +311,32 @@ class ParseRationalTest < Minitest::Test
 
     expected = {
       'NODE_SCOPE' => {
-        'NODE_OPCALL' => {
-          'recv' => {
-            'NODE_INTEGER' => 1
-          },
-          'mid' => :/,
-          'args' => {
-            'NODE_LIST' => [
-              {
-                'NODE_CALL' => {
-                  'recv' => {
-                    'NODE_RATIONAL' => 17
-                  },
-                  'mid' => :to_i,
-                  'args' => {
-                    'NODE_LIST' => [
-                      {
-                        'NODE_INTEGER' => 10
-                      }
-                    ]
+        'args' => nil,
+        'body' => {
+          'NODE_OPCALL' => {
+            'recv' => {
+              'NODE_INTEGER' => 1
+            },
+            'mid' => :/,
+            'args' => {
+              'NODE_LIST' => [
+                {
+                  'NODE_CALL' => {
+                    'recv' => {
+                      'NODE_RATIONAL' => 17
+                    },
+                    'mid' => :to_i,
+                    'args' => {
+                      'NODE_LIST' => [
+                        {
+                          'NODE_INTEGER' => 10
+                        }
+                      ]
+                    }
                   }
                 }
-              }
-            ]
+              ]
+            }
           }
         }
       }

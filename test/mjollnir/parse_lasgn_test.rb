@@ -8,10 +8,13 @@ class ParseLasgnTest < Minitest::Test
 
     expected = {
       'NODE_SCOPE' => {
-        'NODE_LASGN' => {
-          'id' => :var,
-          'value' => {
-            'NODE_INTEGER' => 117
+        'args' => nil,
+        'body' => {
+          'NODE_LASGN' => {
+            'id' => :var,
+            'value' => {
+              'NODE_INTEGER' => 117
+            }
           }
         }
       }

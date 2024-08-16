@@ -8,7 +8,10 @@ class ParseFloatTest < Minitest::Test
 
     expected = {
       'NODE_SCOPE' => {
-        'NODE_FLOAT' => 1.17
+        'args' => nil,
+        'body' => {
+          'NODE_FLOAT' => 1.17
+        }
       }
     }
 
@@ -20,17 +23,20 @@ class ParseFloatTest < Minitest::Test
 
     expected = {
       'NODE_SCOPE' => {
-        'NODE_OPCALL' => {
-          'recv' => {
-            'NODE_FLOAT' => 1.17
-          },
-          'mid' => :+,
-          'args' => {
-            'NODE_LIST' => [
-              {
-                'NODE_FLOAT' => 1.17
-              }
-            ]
+        'args' => nil,
+        'body' => {
+          'NODE_OPCALL' => {
+            'recv' => {
+              'NODE_FLOAT' => 1.17
+            },
+            'mid' => :+,
+            'args' => {
+              'NODE_LIST' => [
+                {
+                  'NODE_FLOAT' => 1.17
+                }
+              ]
+            }
           }
         }
       }
@@ -44,17 +50,20 @@ class ParseFloatTest < Minitest::Test
 
     expected = {
       'NODE_SCOPE' => {
-        'NODE_OPCALL' => {
-          'recv' => {
-            'NODE_FLOAT' => 1.17
-          },
-          'mid' => :-,
-          'args' => {
-            'NODE_LIST' => [
-              {
-                'NODE_FLOAT' => 1.17
-              }
-            ]
+        'args' => nil,
+        'body' => {
+          'NODE_OPCALL' => {
+            'recv' => {
+              'NODE_FLOAT' => 1.17
+            },
+            'mid' => :-,
+            'args' => {
+              'NODE_LIST' => [
+                {
+                  'NODE_FLOAT' => 1.17
+                }
+              ]
+            }
           }
         }
       }
@@ -68,17 +77,20 @@ class ParseFloatTest < Minitest::Test
 
     expected = {
       'NODE_SCOPE' => {
-        'NODE_OPCALL' => {
-          'recv' => {
-            'NODE_FLOAT' => 1.17
-          },
-          'mid' => :*,
-          'args' => {
-            'NODE_LIST' => [
-              {
-                'NODE_FLOAT' => 1.17
-              }
-            ]
+        'args' => nil,
+        'body' => {
+          'NODE_OPCALL' => {
+            'recv' => {
+              'NODE_FLOAT' => 1.17
+            },
+            'mid' => :*,
+            'args' => {
+              'NODE_LIST' => [
+                {
+                  'NODE_FLOAT' => 1.17
+                }
+              ]
+            }
           }
         }
       }
@@ -92,17 +104,20 @@ class ParseFloatTest < Minitest::Test
 
     expected = {
       'NODE_SCOPE' => {
-        'NODE_OPCALL' => {
-          'recv' => {
-            'NODE_FLOAT' => 1.17
-          },
-          'mid' => :/,
-          'args' => {
-            'NODE_LIST' => [
-              {
-                'NODE_FLOAT' => 1.17
-              }
-            ]
+        'args' => nil,
+        'body' => {
+          'NODE_OPCALL' => {
+            'recv' => {
+              'NODE_FLOAT' => 1.17
+            },
+            'mid' => :/,
+            'args' => {
+              'NODE_LIST' => [
+                {
+                  'NODE_FLOAT' => 1.17
+                }
+              ]
+            }
           }
         }
       }
@@ -116,17 +131,20 @@ class ParseFloatTest < Minitest::Test
 
     expected = {
       'NODE_SCOPE' => {
-        'NODE_OPCALL' => {
-          'recv' => {
-            'NODE_FLOAT' => 1.17
-          },
-          'mid' => :%,
-          'args' => {
-            'NODE_LIST' => [
-              {
-                'NODE_FLOAT' => 1.17
-              }
-            ]
+        'args' => nil,
+        'body' => {
+          'NODE_OPCALL' => {
+            'recv' => {
+              'NODE_FLOAT' => 1.17
+            },
+            'mid' => :%,
+            'args' => {
+              'NODE_LIST' => [
+                {
+                  'NODE_FLOAT' => 1.17
+                }
+              ]
+            }
           }
         }
       }
@@ -140,12 +158,15 @@ class ParseFloatTest < Minitest::Test
 
     expected = {
       'NODE_SCOPE' => {
-        'NODE_CALL' => {
-          'recv' => {
-            'NODE_FLOAT' => 1.17
-          },
-          'mid' => :to_i,
-          'args' => nil
+        'args' => nil,
+        'body' => {
+          'NODE_CALL' => {
+            'recv' => {
+              'NODE_FLOAT' => 1.17
+            },
+            'mid' => :to_i,
+            'args' => nil
+          }
         }
       }
     }
@@ -158,17 +179,20 @@ class ParseFloatTest < Minitest::Test
 
     expected = {
       'NODE_SCOPE' => {
-        'NODE_CALL' => {
-          'recv' => {
-            'NODE_FLOAT' => 1.17
-          },
-          'mid' => :to_i,
-          'args' => {
-            'NODE_LIST' => [
-              {
-                'NODE_INTEGER' => 10
-              }
-            ]
+        'args' => nil,
+        'body' => {
+          'NODE_CALL' => {
+            'recv' => {
+              'NODE_FLOAT' => 1.17
+            },
+            'mid' => :to_i,
+            'args' => {
+              'NODE_LIST' => [
+                {
+                  'NODE_INTEGER' => 10
+                }
+              ]
+            }
           }
         }
       }

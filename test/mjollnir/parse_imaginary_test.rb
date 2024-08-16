@@ -6,7 +6,10 @@ class ParseImaginaryTest < Minitest::Test
 
     expected = {
       'NODE_SCOPE' => {
-        'NODE_IMAGINARY' => 0 + 117i
+        'args' => nil,
+        'body' => {
+          'NODE_IMAGINARY' => 0 + 117i
+        }
       }
     }
 
@@ -18,17 +21,20 @@ class ParseImaginaryTest < Minitest::Test
 
     expected = {
       'NODE_SCOPE' => {
-        'NODE_OPCALL' => {
-          'recv' => {
-            'NODE_IMAGINARY' => 0 + 117i
-          },
-          'mid' => :+,
-          'args' => {
-            'NODE_LIST' => [
-              {
-                'NODE_IMAGINARY' => 0 + 117i
-              }
-            ]
+        'args' => nil,
+        'body' => {
+          'NODE_OPCALL' => {
+            'recv' => {
+              'NODE_IMAGINARY' => 0 + 117i
+            },
+            'mid' => :+,
+            'args' => {
+              'NODE_LIST' => [
+                {
+                  'NODE_IMAGINARY' => 0 + 117i
+                }
+              ]
+            }
           }
         }
       }
@@ -42,17 +48,20 @@ class ParseImaginaryTest < Minitest::Test
 
     expected = {
       'NODE_SCOPE' => {
-        'NODE_OPCALL' => {
-          'recv' => {
-            'NODE_IMAGINARY' => 0 + 117i
-          },
-          'mid' => :-,
-          'args' => {
-            'NODE_LIST' => [
-              {
-                'NODE_IMAGINARY' => 0 + 117i
-              }
-            ]
+        'args' => nil,
+        'body' => {
+          'NODE_OPCALL' => {
+            'recv' => {
+              'NODE_IMAGINARY' => 0 + 117i
+            },
+            'mid' => :-,
+            'args' => {
+              'NODE_LIST' => [
+                {
+                  'NODE_IMAGINARY' => 0 + 117i
+                }
+              ]
+            }
           }
         }
       }
@@ -66,17 +75,20 @@ class ParseImaginaryTest < Minitest::Test
 
     expected = {
       'NODE_SCOPE' => {
-        'NODE_OPCALL' => {
-          'recv' => {
-            'NODE_IMAGINARY' => 0 + 117i
-          },
-          'mid' => :*,
-          'args' => {
-            'NODE_LIST' => [
-              {
-                'NODE_IMAGINARY' => 0 + 117i
-              }
-            ]
+        'args' => nil,
+        'body' => {
+          'NODE_OPCALL' => {
+            'recv' => {
+              'NODE_IMAGINARY' => 0 + 117i
+            },
+            'mid' => :*,
+            'args' => {
+              'NODE_LIST' => [
+                {
+                  'NODE_IMAGINARY' => 0 + 117i
+                }
+              ]
+            }
           }
         }
       }
@@ -90,17 +102,20 @@ class ParseImaginaryTest < Minitest::Test
 
     expected = {
       'NODE_SCOPE' => {
-        'NODE_OPCALL' => {
-          'recv' => {
-            'NODE_IMAGINARY' => 0 + 117i
-          },
-          'mid' => :/,
-          'args' => {
-            'NODE_LIST' => [
-              {
-                'NODE_IMAGINARY' => 0 + 117i
-              }
-            ]
+        'args' => nil,
+        'body' => {
+          'NODE_OPCALL' => {
+            'recv' => {
+              'NODE_IMAGINARY' => 0 + 117i
+            },
+            'mid' => :/,
+            'args' => {
+              'NODE_LIST' => [
+                {
+                  'NODE_IMAGINARY' => 0 + 117i
+                }
+              ]
+            }
           }
         }
       }
@@ -114,17 +129,20 @@ class ParseImaginaryTest < Minitest::Test
 
     expected = {
       'NODE_SCOPE' => {
-        'NODE_OPCALL' => {
-          'recv' => {
-            'NODE_IMAGINARY' => 0 + 117i
-          },
-          'mid' => :%,
-          'args' => {
-            'NODE_LIST' => [
-              {
-                'NODE_IMAGINARY' => 0 + 117i
-              }
-            ]
+        'args' => nil,
+        'body' => {
+          'NODE_OPCALL' => {
+            'recv' => {
+              'NODE_IMAGINARY' => 0 + 117i
+            },
+            'mid' => :%,
+            'args' => {
+              'NODE_LIST' => [
+                {
+                  'NODE_IMAGINARY' => 0 + 117i
+                }
+              ]
+            }
           }
         }
       }
@@ -138,12 +156,15 @@ class ParseImaginaryTest < Minitest::Test
 
     expected = {
       'NODE_SCOPE' => {
-        'NODE_CALL' => {
-          'recv' => {
-            'NODE_IMAGINARY' => 0 + 117i
-          },
-          'mid' => :to_i,
-          'args' => nil
+        'args' => nil,
+        'body' => {
+          'NODE_CALL' => {
+            'recv' => {
+              'NODE_IMAGINARY' => 0 + 117i
+            },
+            'mid' => :to_i,
+            'args' => nil
+          }
         }
       }
     }
