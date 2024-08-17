@@ -167,6 +167,11 @@ node_literal_to_hash(const NODE *node)
 	  rb_hash_aset(result, rb_str_new2("NODE_STR"), rb_node_str_string_val(node));
 	  return result;
 	}
+	case NODE_SYM: {
+	  VALUE result = rb_hash_new();
+	  rb_hash_aset(result, rb_str_new2("NODE_SYM"), rb_node_sym_string_val(node));
+	  return result;
+	}
 	default:
 	  return Qnil;
     }
@@ -344,6 +349,7 @@ ast_to_hash(const NODE *node)
 	case NODE_RATIONAL:
 	case NODE_IMAGINARY:
 	case NODE_STR:
+	case NODE_SYM:
 	  return node_literal_to_hash(node);
 	default:
 	  return Qfalse;
