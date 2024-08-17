@@ -57,6 +57,17 @@ node_list_to_hash(const NODE *node)
 }
 
 static VALUE
+node_defn_to_hash(const NODE *node)
+{
+    VALUE result = rb_hash_new();
+
+    rb_hash_aset(result, rb_str_new2("mid"), ID2SYM(RNODE_DEFN(node)->nd_mid));
+    rb_hash_aset(result, rb_str_new2("defn"), ast_to_hash(RNODE_DEFN(node)->nd_defn));
+
+    return result;
+}
+
+static VALUE
 node_block_to_hash(const NODE *node)
 {
     VALUE result = rb_ary_new();
@@ -206,6 +217,37 @@ node_scope_to_hash(const NODE *node)
 }
 
 static VALUE
+args_ainfo_to_hash(const struct rb_args_info ainfo)
+{
+    VALUE result = rb_hash_new();
+
+    rb_hash_aset(result, rb_str_new2("forwarding"), INT2NUM(ainfo.forwarding));
+    rb_hash_aset(result, rb_str_new2("pre_args_num"), INT2NUM(ainfo.pre_args_num));
+    rb_hash_aset(result, rb_str_new2("pre_init"), ast_to_hash(ainfo.pre_init));
+    rb_hash_aset(result, rb_str_new2("post_args_num"), INT2NUM(ainfo.post_args_num));
+    rb_hash_aset(result, rb_str_new2("post_init"), ast_to_hash(ainfo.post_init));
+    rb_hash_aset(result, rb_str_new2("first_post_arg"), Qnil);
+    rb_hash_aset(result, rb_str_new2("rest_arg"), Qnil);
+    rb_hash_aset(result, rb_str_new2("block_arg"), Qnil);
+    rb_hash_aset(result, rb_str_new2("opt_args"), ast_to_hash((const NODE *)(ainfo.opt_args)));
+    rb_hash_aset(result, rb_str_new2("kw_args"), ast_to_hash((const NODE *)(ainfo.kw_args)));
+    rb_hash_aset(result, rb_str_new2("kw_rest_arg"), ast_to_hash(ainfo.kw_rest_arg));
+
+    return result;
+}
+
+static VALUE
+node_args_to_hash(const NODE *node)
+{
+    VALUE result = rb_hash_new();
+    VALUE ainfo_hash = args_ainfo_to_hash(RNODE_ARGS(node)->nd_ainfo);
+
+    rb_hash_aset(result, rb_str_new2("ainfo"), ainfo_hash);
+
+    return result;
+}
+
+static VALUE
 ast_to_hash(const NODE *node)
 {
     enum node_type type;
@@ -227,6 +269,11 @@ ast_to_hash(const NODE *node)
 	  rb_hash_aset(result, rb_str_new2("NODE_CLASS"), node_class_to_hash(node));
 	  return result;
 	}
+	case NODE_DEFN: {
+	  VALUE result = rb_hash_new();
+	  rb_hash_aset(result, rb_str_new2("NODE_DEFN"), node_defn_to_hash(node));
+	  return result;
+	}
 	case NODE_OPCALL: {
 	  VALUE result = rb_hash_new();
 	  rb_hash_aset(result, rb_str_new2("NODE_OPCALL"), node_opcall_to_hash(node));
@@ -240,6 +287,11 @@ ast_to_hash(const NODE *node)
 	case NODE_CALL: {
 	  VALUE result = rb_hash_new();
 	  rb_hash_aset(result, rb_str_new2("NODE_CALL"), node_call_to_hash(node));
+	  return result;
+	}
+	case NODE_ARGS: {
+	  VALUE result = rb_hash_new();
+	  rb_hash_aset(result, rb_str_new2("NODE_ARGS"), node_args_to_hash(node));
 	  return result;
 	}
 	case NODE_BLOCK: {
