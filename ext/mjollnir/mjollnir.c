@@ -199,7 +199,7 @@ node_scope_to_hash(const NODE *node)
 {
     VALUE result = rb_hash_new();
 
-    rb_hash_aset(result, rb_str_new2("args"), ast_to_hash(RNODE_SCOPE(node)->nd_args));
+    rb_hash_aset(result, rb_str_new2("args"), ast_to_hash((const NODE *)(RNODE_SCOPE(node)->nd_args)));
     rb_hash_aset(result, rb_str_new2("body"), ast_to_hash(RNODE_SCOPE(node)->nd_body));
 
     return result;
