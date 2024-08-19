@@ -253,6 +253,16 @@ node_args_to_hash(const NODE *node)
 }
 
 static VALUE
+node_ivar_to_hash(const NODE *node)
+{
+    VALUE result = rb_hash_new();
+
+    rb_hash_aset(result, rb_str_new2("vid"), ID2SYM(RNODE_IVAR(node)->nd_vid));
+
+    return result;
+}
+
+static VALUE
 ast_to_hash(const NODE *node)
 {
     enum node_type type;
@@ -342,6 +352,11 @@ ast_to_hash(const NODE *node)
 	case NODE_BEGIN: {
 	  VALUE result = rb_hash_new();
 	  rb_hash_aset(result, rb_str_new2("NODE_BEGIN"), node_begin_to_hash(node));
+	  return result;
+	}
+	case NODE_IVAR: {
+	  VALUE result = rb_hash_new();
+	  rb_hash_aset(result, rb_str_new2("NODE_IVAR"), node_ivar_to_hash(node));
 	  return result;
 	}
 	case NODE_INTEGER:
