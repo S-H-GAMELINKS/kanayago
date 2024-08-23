@@ -509,27 +509,6 @@ static const rb_parser_config_t rb_global_parser_config = {
 };
 #endif
 
-enum lex_type {
-    lex_type_str,
-    lex_type_io,
-    lex_type_array,
-    lex_type_generic,
-};
-
-struct ruby_parser {
-    rb_parser_t *parser_params;
-    enum lex_type type;
-    union {
-        struct lex_pointer_string lex_str;
-        struct {
-            VALUE file;
-        } lex_io;
-        struct {
-            VALUE ary;
-        } lex_array;
-    } data;
-};
-
 static void
 parser_mark(void *ptr)
 {

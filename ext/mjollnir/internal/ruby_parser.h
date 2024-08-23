@@ -15,6 +15,29 @@ struct lex_pointer_string {
     long ptr;
 };
 
+// Add Ruby's Parser struct and enum for Mjollnir
+enum lex_type {
+    lex_type_str,
+    lex_type_io,
+    lex_type_array,
+    lex_type_generic,
+};
+
+struct ruby_parser {
+    rb_parser_t *parser_params;
+    enum lex_type type;
+    union {
+        struct lex_pointer_string lex_str;
+        struct {
+            VALUE file;
+        } lex_io;
+        struct {
+            VALUE ary;
+        } lex_array;
+    } data;
+};
+// End for Mjollnir
+
 RUBY_SYMBOL_EXPORT_BEGIN
 #ifdef UNIVERSAL_PARSER
 const rb_parser_config_t *rb_ruby_parser_config(void);
