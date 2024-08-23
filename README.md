@@ -44,23 +44,26 @@ result = Mjollnir.parse('117 + 117')
 
 p result
 # =>
-# {
-#   "NODE_SCOPE" => {
-#     "NODE_OPCALL" => {
-#       "recv" => {
-#         "NODE_INTEGER" => 117
-#       },
-#       "mid" => :+,
-#       "args" => {
-#         "NODE_LIST" => [
-#           {
-#             "NODE_INTEGER" => 1
-#           }
-#         ]
-#       }
-#     }
-#   }
-# }
+#{
+#  "NODE_SCOPE" => {
+#    "args" => nil,
+#    "body" => {
+#      "NODE_OPCALL" => {
+#        "recv" => {
+#          "NODE_INTEGER" => 117
+#        },
+#        "mid" => :+,
+#        "args" => {
+#          "NODE_LIST" => [
+#            {
+#              "NODE_INTEGER"=>117
+#            }
+#          ]
+#        }
+#      }
+#    }
+#  }
+#}
 ```
 
 ## Development
