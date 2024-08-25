@@ -20,8 +20,7 @@ jobs:
       run: sudo apt install git ruby autoconf gcc make zlib1g-dev libffi-dev libreadline-dev libgdbm-dev libssl-dev libyaml-dev -y
 
     - name: Install rbenv
-      run: |
-        git clone https://github.com/rbenv/rbenv.git ~/.rbenv
+      run: git clone https://github.com/rbenv/rbenv.git ~/.rbenv
 
 
     - name: Add PATH
@@ -30,6 +29,7 @@ jobs:
         echo "~/.rbenv/shims" >> $GITHUB_PATH
 
     - name: Install Ruby head
+      run: |
         rbenv init
         git clone https://github.com/rbenv/ruby-build.git "$(rbenv root)"/plugins/ruby-build
         RUBY_CONFIGURE_OPTS="cppflags=-DUNIVERSAL_PARSER" rbenv install ruby-dev
