@@ -22,12 +22,6 @@ Move `mjollnir` directory, and run `bundle install`.
 cd mjollnir && bundle install
 ```
 
-And, build Ruby Parser.
-
-```console
-bundle exec rake ruby_parser:build
-```
-
 Finally, build `Mjollnir` gem  and install it.
 
 ```console

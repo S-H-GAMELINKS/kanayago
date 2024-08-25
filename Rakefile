@@ -143,7 +143,8 @@ namespace :ruby_parser do
   end
 end
 
-task build: :compile
+task build: ['ruby_parser:build', 'compile']
+task install: ['ruby_parser:build', 'compile']
 
 GEMSPEC = Gem::Specification.load('mjollnir.gemspec')
 
