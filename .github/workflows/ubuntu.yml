@@ -22,28 +22,36 @@ jobs:
     - name: Install rbenv
       run: |
         git clone https://github.com/rbenv/rbenv.git ~/.rbenv
-        ~/.rbenv/bin/rbenv init
-        git clone https://github.com/rbenv/ruby-build.git "$(~/.rbenv/bin/rbenv root)"/plugins/ruby-build
-        RUBY_CONFIGURE_OPTS="cppflags=-DUNIVERSAL_PARSER" ~/.rbenv/bin/rbenv install ruby-dev
-        ~/.rbenv/bin/rbenv global ruby-dev
+
+
+    - name: Add PATH
+      run: |
+        echo "~/.rbenv/bin" >> $GITHUB_PATH
+        echo "~/.rbenv/shims" >> $GITHUB_PATH
+
+    - name: Install Ruby head
+        rbenv init
+        git clone https://github.com/rbenv/ruby-build.git "$(rbenv root)"/plugins/ruby-build
+        RUBY_CONFIGURE_OPTS="cppflags=-DUNIVERSAL_PARSER" rbenv install ruby-dev
+        rbenv global ruby-dev
 
     - name: Install bundler
-      run: ~/.rbenv/shims/gem install bundler
+      run: gem install bundler
 
     - name: bunlde install
-      run: ~/.rbenv/shims/bundle install
+      run: bundle install
 
     - name: Build Ruby Parser
-      run: ~/.rbenv/shims/bundle exec rake ruby_parser:build
+      run: bundle exec rake ruby_parser:build
 
     - name: Build Mjollnir
-      run: ~/.rbenv/shims/bundle exec rake compile
+      run: bundle exec rake compile
 
     - name: Run tests
-      run: ~/.rbenv/shims/bundle exec rake test
+      run: bundle exec rake test
 
     - name: Run install
       run: |
-        ~/rbenv/shims/bundle exec rake build
-        ~/rbenv/shims/gem install pkg/mjollnir-0.1.0.gem
+        bundle exec rake build
+        gem install pkg/mjollnir-0.1.0.gem
 
