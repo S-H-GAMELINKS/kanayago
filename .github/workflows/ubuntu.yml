@@ -42,3 +42,8 @@ jobs:
     - name: Run tests
       run: ~/.rbenv/shims/bundle exec rake test
 
+    - name: Run install
+      run: |
+        ~/rbenv/shims/bundle exec rake build
+        ~/rbenv/shims/gem install pkg/mjollnir-0.1.0.gem
+
