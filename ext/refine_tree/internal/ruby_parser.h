@@ -15,7 +15,7 @@ struct lex_pointer_string {
     long ptr;
 };
 
-// Add Ruby's Parser struct and enum for Mjollnir
+// Add Ruby's Parser struct and enum for RefineTree
 enum lex_type {
     lex_type_str,
     lex_type_io,
@@ -36,7 +36,7 @@ struct ruby_parser {
         } lex_array;
     } data;
 };
-// End for Mjollnir
+// End for RefineTree
 
 RUBY_SYMBOL_EXPORT_BEGIN
 #ifdef UNIVERSAL_PARSER

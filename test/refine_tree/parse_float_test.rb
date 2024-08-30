@@ -4,7 +4,7 @@ require 'test_helper'
 
 class ParseFloatTest < Minitest::Test
   def test_parse_float
-    result = Mjollnir.parse('1.17')
+    result = RefineTree.parse('1.17')
 
     expected = {
       'NODE_SCOPE' => {
@@ -19,7 +19,7 @@ class ParseFloatTest < Minitest::Test
   end
 
   def test_parse_float_plus_opcall
-    result = Mjollnir.parse('1.17 + 1.17')
+    result = RefineTree.parse('1.17 + 1.17')
 
     expected = {
       'NODE_SCOPE' => {
@@ -46,7 +46,7 @@ class ParseFloatTest < Minitest::Test
   end
 
   def test_parse_float_minus_opcall
-    result = Mjollnir.parse('1.17 - 1.17')
+    result = RefineTree.parse('1.17 - 1.17')
 
     expected = {
       'NODE_SCOPE' => {
@@ -73,7 +73,7 @@ class ParseFloatTest < Minitest::Test
   end
 
   def test_parse_float_times_opcall
-    result = Mjollnir.parse('1.17 * 1.17')
+    result = RefineTree.parse('1.17 * 1.17')
 
     expected = {
       'NODE_SCOPE' => {
@@ -100,7 +100,7 @@ class ParseFloatTest < Minitest::Test
   end
 
   def test_parse_float_div_opcall
-    result = Mjollnir.parse('1.17 / 1.17')
+    result = RefineTree.parse('1.17 / 1.17')
 
     expected = {
       'NODE_SCOPE' => {
@@ -127,7 +127,7 @@ class ParseFloatTest < Minitest::Test
   end
 
   def test_parse_float_remainder_opcall
-    result = Mjollnir.parse('1.17 % 1.17')
+    result = RefineTree.parse('1.17 % 1.17')
 
     expected = {
       'NODE_SCOPE' => {
@@ -154,7 +154,7 @@ class ParseFloatTest < Minitest::Test
   end
 
   def test_parse_float_call
-    result = Mjollnir.parse('1.17.to_i')
+    result = RefineTree.parse('1.17.to_i')
 
     expected = {
       'NODE_SCOPE' => {
@@ -175,7 +175,7 @@ class ParseFloatTest < Minitest::Test
   end
 
   def test_parse_float_call_with_arg
-    result = Mjollnir.parse('1.17.to_i(10)')
+    result = RefineTree.parse('1.17.to_i(10)')
 
     expected = {
       'NODE_SCOPE' => {

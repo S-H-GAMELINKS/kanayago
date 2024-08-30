@@ -68,7 +68,7 @@ namespace :ruby_parser do
   task :import do
     `git clone https://github.com/ruby/ruby.git tmp/ruby --depth=1`
 
-    dist = File.expand_path('ext/mjollnir', __dir__)
+    dist = File.expand_path('ext/refine_tree', __dir__)
     ruby_dir = File.expand_path('tmp/ruby', __dir__)
 
     directories = ['ccan', 'ccan/check_type', 'ccan/container', 'ccan/container_of', 'ccan/list', 'ccan/str',
@@ -119,11 +119,11 @@ namespace :ruby_parser do
   end
 
   task :build do
-    sh 'bundle exec lrama -oext/mjollnir/parse.c -Hext/mjollnir/parse.h ext/mjollnir/parse.tmp.y'
+    sh 'bundle exec lrama -oext/refine_tree/parse.c -Hext/refine_tree/parse.h ext/refine_tree/parse.tmp.y'
   end
 
   task :clean do
-    dist = File.expand_path('./ext/mjollnir')
+    dist = File.expand_path('./ext/refine_tree')
 
     COPY_TARGETS.each do |target|
       FileUtils.rm File.join(dist, target), force: true
@@ -146,10 +146,10 @@ end
 task build: ['ruby_parser:build', 'compile']
 task install: ['ruby_parser:build', 'compile']
 
-GEMSPEC = Gem::Specification.load('mjollnir.gemspec')
+GEMSPEC = Gem::Specification.load('refine_tree.gemspec')
 
-Rake::ExtensionTask.new('mjollnir', GEMSPEC) do |ext|
-  ext.lib_dir = 'lib/mjollnir'
+Rake::ExtensionTask.new('refine_tree', GEMSPEC) do |ext|
+  ext.lib_dir = 'lib/refine_tree'
 end
 
 Rake::TestTask.new(:test) do |t|

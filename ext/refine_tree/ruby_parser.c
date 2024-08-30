@@ -329,7 +329,7 @@ enc_mbc_to_codepoint(const char *p, const char *e, parser_encoding *enc)
 
 extern VALUE rb_eArgError;
 
-//　Add for Mjollnir
+//　Add for RefineTree
 static void *
 xmalloc_mul_add(size_t x, size_t y, size_t z)
 {
@@ -365,7 +365,7 @@ reg_check_preprocess(VALUE val)
 {
     return rb_reg_check_preprocess(val);
 }
-// End of Add for Mjollnir
+// End of Add for RefineTree
 
 static const rb_parser_config_t rb_global_parser_config = {
     .malloc = ruby_xmalloc,
@@ -378,9 +378,9 @@ static const rb_parser_config_t rb_global_parser_config = {
     .zalloc = zalloc,
     .rb_memmove = memmove2,
     .nonempty_memcpy = nonempty_memcpy,
-    .xmalloc_mul_add = xmalloc_mul_add, // use xmalloc_mul_add for Mjollnir
+    .xmalloc_mul_add = xmalloc_mul_add, // use xmalloc_mul_add for RefineTree
 
-    .compile_callback = suppress_tracing, // use suppress_tracing for Mjollnir
+    .compile_callback = suppress_tracing, // use suppress_tracing for RefineTree
     .reg_named_capture_assign = reg_named_capture_assign,
 
     .attr_get = rb_attr_get,
@@ -390,7 +390,7 @@ static const rb_parser_config_t rb_global_parser_config = {
     .ary_new_from_args = rb_ary_new_from_args,
     .ary_unshift = rb_ary_unshift,
 
-    .make_temporary_id = make_temporary_id, // use make_temporary_id for Mjollnir
+    .make_temporary_id = make_temporary_id, // use make_temporary_id for RefineTree
     .is_local_id = is_local_id2,
     .is_attrset_id = is_attrset_id2,
     .is_global_name_punct = is_global_name_punct,
@@ -427,7 +427,7 @@ static const rb_parser_config_t rb_global_parser_config = {
 
     .int2num = rb_int2num_inline,
 
-    .stderr_tty_p = stderr_tty_p, //use stderr_tty_p for Mjollnir
+    .stderr_tty_p = stderr_tty_p, //use stderr_tty_p for RefineTree
     .write_error_str = rb_write_error_str,
     .io_write = rb_io_write,
     .io_flush = rb_io_flush,
@@ -477,8 +477,8 @@ static const rb_parser_config_t rb_global_parser_config = {
     .gc_guard = gc_guard,
     .gc_mark = rb_gc_mark,
 
-    .reg_compile = reg_compile, // use reg_compile for Mjollnir
-    .reg_check_preprocess = reg_check_preprocess, // use reg_check_preprocess for Mjollnir
+    .reg_compile = reg_compile, // use reg_compile for RefineTree
+    .reg_check_preprocess = reg_check_preprocess, // use reg_check_preprocess for RefineTree
     .memcicmp = rb_memcicmp,
 
     .compile_warn = rb_compile_warn,
@@ -545,7 +545,7 @@ parser_memsize(const void *ptr)
     return rb_ruby_parser_memsize(parser->parser_params);
 }
 
-// Not static const for Mjollnir
+// Not static const for RefineTree
 const rb_data_type_t ruby_parser_data_type = {
     "parser",
     {
@@ -774,7 +774,7 @@ ast_free(void *ptr)
     rb_ast_free(ast);
 }
 
-// Not static const for Mjollnir
+// Not static const for RefineTree
 const rb_data_type_t ast_data_type = {
     "AST",
     {

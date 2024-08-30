@@ -2,16 +2,17 @@
 
 require 'test_helper'
 
-class ParseLasgnTest < Minitest::Test
-  def test_parse_lasgn
-    result = Mjollnir.parse('var = 117')
+class ParseConstDeclTest < Minitest::Test
+  def test_parse_const_decl
+    result = RefineTree.parse('S = 117')
 
     expected = {
       'NODE_SCOPE' => {
         'args' => nil,
         'body' => {
-          'NODE_LASGN' => {
-            'id' => :var,
+          'NODE_CDECL' => {
+            'vid' => :S,
+            'else' => nil,
             'value' => {
               'NODE_INTEGER' => 117
             }

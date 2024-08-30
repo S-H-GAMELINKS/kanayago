@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    mjollnir (0.1.0)
+    refine_tree (0.1.0)
 
 GEM
   remote: https://rubygems.org/
@@ -19,9 +19,9 @@ PLATFORMS
 DEPENDENCIES
   lrama (~> 0.6)
   minitest
-  mjollnir!
   rake (~> 13.0)
   rake-compiler
+  refine_tree!
 
 BUNDLED WITH
    2.6.0.dev

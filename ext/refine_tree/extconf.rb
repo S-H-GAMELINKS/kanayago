@@ -7,7 +7,7 @@ $objs = %w[
   parse
   parser_st
   ruby_parser
-  mjollnir
+  refine_tree
 ].map do |o|
   o + ".#{$OBJEXT}"
 end
@@ -15,7 +15,7 @@ end
 append_cflags('-fvisibility=hidden')
 append_cppflags('-DUNIVERSAL_PARSER=1')
 
-$INCFLAGS << ' -I' << File.expand_path('../mjollnir', __dir__)
+$INCFLAGS << ' -I' << File.expand_path('../refine_tree', __dir__)
 $INCFLAGS << ' -I' << File.expand_path('../..', __dir__)
 
-create_makefile('mjollnir/mjollnir')
+create_makefile('refine_tree/refine_tree')

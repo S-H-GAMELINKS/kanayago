@@ -4,7 +4,7 @@ require 'test_helper'
 
 class ParseIfTest < Minitest::Test
   def test_parse_if
-    result = Mjollnir.parse(<<~CODE)
+    result = RefineTree.parse(<<~CODE)
       v = 117
       if v
         p v

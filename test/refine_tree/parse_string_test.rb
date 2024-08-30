@@ -2,13 +2,13 @@
 
 class ParseStringTest < Minitest::Test
   def test_parse_string
-    result = Mjollnir.parse('"Mjollnir"')
+    result = RefineTree.parse('"RefineTree"')
 
     expected = {
       'NODE_SCOPE' => {
         'args' => nil,
         'body' => {
-          'NODE_STR' => 'Mjollnir'
+          'NODE_STR' => 'RefineTree'
         }
       }
     }
@@ -17,7 +17,7 @@ class ParseStringTest < Minitest::Test
   end
 
   def test_parse_string_plus_opcall
-    result = Mjollnir.parse('"Mjollnir" + ".parse"')
+    result = RefineTree.parse('"RefineTree" + ".parse"')
 
     expected = {
       'NODE_SCOPE' => {
@@ -25,7 +25,7 @@ class ParseStringTest < Minitest::Test
         'body' => {
           'NODE_OPCALL' => {
             'recv' => {
-              'NODE_STR' => 'Mjollnir'
+              'NODE_STR' => 'RefineTree'
             },
             'mid' => :+,
             'args' => {
@@ -42,7 +42,7 @@ class ParseStringTest < Minitest::Test
   end
 
   def test_parse_string_times_opcall
-    result = Mjollnir.parse('"Mjollnir" * 2')
+    result = RefineTree.parse('"RefineTree" * 2')
 
     expected = {
       'NODE_SCOPE' => {
@@ -50,7 +50,7 @@ class ParseStringTest < Minitest::Test
         'body' => {
           'NODE_OPCALL' => {
             'recv' => {
-              'NODE_STR' => 'Mjollnir'
+              'NODE_STR' => 'RefineTree'
             },
             'mid' => :*,
             'args' => {

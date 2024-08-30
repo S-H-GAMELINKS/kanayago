@@ -4,13 +4,13 @@ require 'test_helper'
 
 class ParseSymTest < Minitest::Test
   def test_parse_sym
-    result = Mjollnir.parse(':mjollnir')
+    result = RefineTree.parse(':refine_tree')
 
     expected = {
       'NODE_SCOPE' => {
         'args' => nil,
         'body' => {
-          'NODE_SYM' => :mjollnir
+          'NODE_SYM' => :refine_tree
         }
       }
     }

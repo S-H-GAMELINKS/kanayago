@@ -1,4 +1,4 @@
-# Mjollnir
+# RefineTree
 
 Trying to Make Ruby's Parser Available as a Gem.
 
@@ -13,28 +13,28 @@ RUBY_CONFIGURE_OPTS="cppflags=-DUNIVERSAL_PARSER" rbenv install ruby-dev
 Clone this repository.
 
 ```console
-git clone https://github.com/S-H-GAMELINKS/mjollnir.git
+git clone https://github.com/S-H-GAMELINKS/refine_tree.git
 ```
 
-Move `mjollnir` directory, and run `bundle install`.
+Move `refine_tree` directory, and run `bundle install`.
 
 ```console
-cd mjollnir && bundle install
+cd refine_tree && bundle install
 ```
 
-Finally, build `Mjollnir` gem  and install it.
+Finally, build `RefineTree` gem  and install it.
 
 ```console
 bundle exec rake build
-gem install pkg/mjollnir-0.1.0.gem
+gem install pkg/refine_tree-0.1.0.gem
 ```
 
 ## Usage
 
 ```ruby
-require 'mjollnir/mjollnir'
+require 'refine_tree/refine_tree'
 
-result = Mjollnir.parse('117 + 117')
+result = RefineTree.parse('117 + 117')
 
 p result
 # =>
@@ -68,7 +68,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/S-H-GAMELINKS/mjollnir.
+Bug reports and pull requests are welcome on GitHub at https://github.com/S-H-GAMELINKS/refine_tree.
 
 ## Referenced implementations
 

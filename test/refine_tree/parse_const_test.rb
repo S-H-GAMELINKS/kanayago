@@ -2,11 +2,28 @@
 
 require 'test_helper'
 
-class ParseLvarTest < Minitest::Test
-  def test_parse_lvar
-    result = Mjollnir.parse(<<~CODE)
-      v = 117
-      p v
+class ParseConstTest < Minitest::Test
+  def test_parse_const
+    result = RefineTree.parse('Class')
+
+    expected = {
+      'NODE_SCOPE' => {
+        'args' => nil,
+        'body' => {
+          'NODE_CONST' => {
+            'vid' => :Class
+          }
+        }
+      }
+    }
+
+    assert_equal expected, result
+  end
+
+  def test_parse_const_ref
+    result = RefineTree.parse(<<~CODE)
+      S = 117
+      p S
     CODE
 
     expected = {
@@ -15,8 +32,9 @@ class ParseLvarTest < Minitest::Test
         'body' => {
           'NODE_BLOCK' => [
             {
-              'NODE_LASGN' => {
-                'id' => :v,
+              'NODE_CDECL' => {
+                'vid' => :S,
+                'else' => nil,
                 'value' => {
                   'NODE_INTEGER' => 117
                 }
@@ -27,10 +45,8 @@ class ParseLvarTest < Minitest::Test
                 'mid' => :p,
                 'args' => {
                   'NODE_LIST' => [
-                    {
-                      'NODE_LVAR' => {
-                        'vid' => :v
-                      }
+                    'NODE_CONST' => {
+                      'vid' => :S
                     }
                   ]
                 }

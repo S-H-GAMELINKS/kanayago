@@ -4,14 +4,14 @@ require 'test_helper'
 
 class ParseIvarTest < Minitest::Test
   def test_parse_ivar
-    result = Mjollnir.parse('@mjollnir')
+    result = RefineTree.parse('@refine_tree')
 
     expected = {
       'NODE_SCOPE' => {
         'args' => nil,
         'body' => {
           'NODE_IVAR' => {
-            'vid' => :@mjollnir
+            'vid' => :@refine_tree
           }
         }
       }

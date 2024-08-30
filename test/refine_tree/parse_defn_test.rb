@@ -4,8 +4,8 @@ require 'test_helper'
 
 class ParseDefnTest < Minitest::Test
   def test_parse_defn
-    result = Mjollnir.parse(<<~CODE)
-      def mjollnir
+    result = RefineTree.parse(<<~CODE)
+      def refine_tree
         p 117
       end
     CODE
@@ -15,7 +15,7 @@ class ParseDefnTest < Minitest::Test
         'args' => nil,
         'body' => {
           'NODE_DEFN' => {
-            'mid' => :mjollnir,
+            'mid' => :refine_tree,
             'defn' => {
               'NODE_SCOPE' => {
                 'args' => {

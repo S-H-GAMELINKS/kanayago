@@ -2,7 +2,7 @@
 
 source 'https://rubygems.org'
 
-# Specify your gem's dependencies in mjollnir.gemspec
+# Specify your gem's dependencies in refine_tree.gemspec
 gemspec
 
 gem 'lrama', '~> 0.6'

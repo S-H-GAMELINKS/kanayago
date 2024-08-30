@@ -1,10 +1,10 @@
-#include "mjollnir.h"
+#include "refine_tree.h"
 #include "internal/ruby_parser.h"
 #include "ruby/ruby.h"
 #include "rubyparser.h"
 #include <stdio.h>
 
-VALUE rb_mMjollnir;
+VALUE rb_mRefineTree;
 
 static VALUE ast_to_hash(const NODE *);
 
@@ -393,8 +393,8 @@ parse(VALUE self, VALUE source)
 }
 
 RUBY_FUNC_EXPORTED void
-Init_mjollnir(void)
+Init_refine_tree(void)
 {
-    rb_mMjollnir = rb_define_module("Mjollnir");
-    rb_define_singleton_method(rb_mMjollnir, "parse", parse, 1);
+    rb_mRefineTree = rb_define_module("RefineTree");
+    rb_define_singleton_method(rb_mRefineTree, "parse", parse, 1);
 }

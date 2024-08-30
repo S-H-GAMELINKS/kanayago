@@ -4,8 +4,8 @@ require 'test_helper'
 
 class ParseClassTest < Minitest::Test
   def test_parse_class
-    result = Mjollnir.parse(<<~CODE)
-      class Mjollnir
+    result = RefineTree.parse(<<~CODE)
+      class RefineTree
       end
     CODE
 
@@ -16,7 +16,7 @@ class ParseClassTest < Minitest::Test
           'NODE_CLASS' => {
             'cpath' => {
               'NODE_COLON2' => {
-                'mid' => :Mjollnir,
+                'mid' => :RefineTree,
                 'head' => nil
               }
             },
