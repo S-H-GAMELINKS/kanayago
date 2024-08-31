@@ -7,14 +7,14 @@ class ParseConstDeclTest < Minitest::Test
     result = RefineTree.parse('S = 117')
 
     expected = {
-      'NODE_SCOPE' => {
-        'args' => nil,
-        'body' => {
-          'NODE_CDECL' => {
-            'vid' => :S,
-            'else' => nil,
-            'value' => {
-              'NODE_INTEGER' => 117
+      :NODE_SCOPE => {
+        :args => nil,
+        :body => {
+          :NODE_CDECL => {
+            :vid => :S,
+            :else => nil,
+            :value => {
+              :NODE_INTEGER => 117
             }
           }
         }

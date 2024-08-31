@@ -5,10 +5,10 @@ class ParseImaginaryTest < Minitest::Test
     result = RefineTree.parse('117i')
 
     expected = {
-      'NODE_SCOPE' => {
-        'args' => nil,
-        'body' => {
-          'NODE_IMAGINARY' => 0 + 117i
+      :NODE_SCOPE => {
+        :args => nil,
+        :body => {
+          :NODE_IMAGINARY => 0 + 117i
         }
       }
     }
@@ -20,18 +20,18 @@ class ParseImaginaryTest < Minitest::Test
     result = RefineTree.parse('117i + 117i')
 
     expected = {
-      'NODE_SCOPE' => {
-        'args' => nil,
-        'body' => {
-          'NODE_OPCALL' => {
-            'recv' => {
-              'NODE_IMAGINARY' => 0 + 117i
+      :NODE_SCOPE => {
+        :args => nil,
+        :body => {
+          :NODE_OPCALL => {
+            :recv => {
+              :NODE_IMAGINARY => 0 + 117i
             },
-            'mid' => :+,
-            'args' => {
-              'NODE_LIST' => [
+            :mid => :+,
+            :args => {
+              :NODE_LIST => [
                 {
-                  'NODE_IMAGINARY' => 0 + 117i
+                  :NODE_IMAGINARY => 0 + 117i
                 }
               ]
             }
@@ -47,18 +47,18 @@ class ParseImaginaryTest < Minitest::Test
     result = RefineTree.parse('117i - 117i')
 
     expected = {
-      'NODE_SCOPE' => {
-        'args' => nil,
-        'body' => {
-          'NODE_OPCALL' => {
-            'recv' => {
-              'NODE_IMAGINARY' => 0 + 117i
+      :NODE_SCOPE => {
+        :args => nil,
+        :body => {
+          :NODE_OPCALL => {
+            :recv => {
+              :NODE_IMAGINARY => 0 + 117i
             },
-            'mid' => :-,
-            'args' => {
-              'NODE_LIST' => [
+            :mid => :-,
+            :args => {
+              :NODE_LIST => [
                 {
-                  'NODE_IMAGINARY' => 0 + 117i
+                  :NODE_IMAGINARY => 0 + 117i
                 }
               ]
             }
@@ -74,18 +74,18 @@ class ParseImaginaryTest < Minitest::Test
     result = RefineTree.parse('117i * 117i')
 
     expected = {
-      'NODE_SCOPE' => {
-        'args' => nil,
-        'body' => {
-          'NODE_OPCALL' => {
-            'recv' => {
-              'NODE_IMAGINARY' => 0 + 117i
+      :NODE_SCOPE => {
+        :args => nil,
+        :body => {
+          :NODE_OPCALL => {
+            :recv => {
+              :NODE_IMAGINARY => 0 + 117i
             },
-            'mid' => :*,
-            'args' => {
-              'NODE_LIST' => [
+            :mid => :*,
+            :args => {
+              :NODE_LIST => [
                 {
-                  'NODE_IMAGINARY' => 0 + 117i
+                  :NODE_IMAGINARY => 0 + 117i
                 }
               ]
             }
@@ -101,18 +101,18 @@ class ParseImaginaryTest < Minitest::Test
     result = RefineTree.parse('117i / 117i')
 
     expected = {
-      'NODE_SCOPE' => {
-        'args' => nil,
-        'body' => {
-          'NODE_OPCALL' => {
-            'recv' => {
-              'NODE_IMAGINARY' => 0 + 117i
+      :NODE_SCOPE => {
+        :args => nil,
+        :body => {
+          :NODE_OPCALL => {
+            :recv => {
+              :NODE_IMAGINARY => 0 + 117i
             },
-            'mid' => :/,
-            'args' => {
-              'NODE_LIST' => [
+            :mid => :/,
+            :args => {
+              :NODE_LIST => [
                 {
-                  'NODE_IMAGINARY' => 0 + 117i
+                  :NODE_IMAGINARY => 0 + 117i
                 }
               ]
             }
@@ -128,18 +128,18 @@ class ParseImaginaryTest < Minitest::Test
     result = RefineTree.parse('117i % 117i')
 
     expected = {
-      'NODE_SCOPE' => {
-        'args' => nil,
-        'body' => {
-          'NODE_OPCALL' => {
-            'recv' => {
-              'NODE_IMAGINARY' => 0 + 117i
+      :NODE_SCOPE => {
+        :args => nil,
+        :body => {
+          :NODE_OPCALL => {
+            :recv => {
+              :NODE_IMAGINARY => 0 + 117i
             },
-            'mid' => :%,
-            'args' => {
-              'NODE_LIST' => [
+            :mid => :%,
+            :args => {
+              :NODE_LIST => [
                 {
-                  'NODE_IMAGINARY' => 0 + 117i
+                  :NODE_IMAGINARY => 0 + 117i
                 }
               ]
             }
@@ -155,15 +155,15 @@ class ParseImaginaryTest < Minitest::Test
     result = RefineTree.parse('117i.to_i')
 
     expected = {
-      'NODE_SCOPE' => {
-        'args' => nil,
-        'body' => {
-          'NODE_CALL' => {
-            'recv' => {
-              'NODE_IMAGINARY' => 0 + 117i
+      :NODE_SCOPE => {
+        :args => nil,
+        :body => {
+          :NODE_CALL => {
+            :recv => {
+              :NODE_IMAGINARY => 0 + 117i
             },
-            'mid' => :to_i,
-            'args' => nil
+            :mid => :to_i,
+            :args => nil
           }
         }
       }

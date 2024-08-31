@@ -7,11 +7,11 @@ class ParseConstTest < Minitest::Test
     result = RefineTree.parse('Class')
 
     expected = {
-      'NODE_SCOPE' => {
-        'args' => nil,
-        'body' => {
-          'NODE_CONST' => {
-            'vid' => :Class
+      :NODE_SCOPE => {
+        :args => nil,
+        :body => {
+          :NODE_CONST => {
+            :vid => :Class
           }
         }
       }
@@ -27,26 +27,26 @@ class ParseConstTest < Minitest::Test
     CODE
 
     expected = {
-      'NODE_SCOPE' => {
-        'args' => nil,
-        'body' => {
-          'NODE_BLOCK' => [
+      :NODE_SCOPE => {
+        :args => nil,
+        :body => {
+          :NODE_BLOCK => [
             {
-              'NODE_CDECL' => {
-                'vid' => :S,
-                'else' => nil,
-                'value' => {
-                  'NODE_INTEGER' => 117
+              :NODE_CDECL => {
+                :vid => :S,
+                :else => nil,
+                :value => {
+                  :NODE_INTEGER => 117
                 }
               }
             },
             {
-              'NODE_FCALL' => {
-                'mid' => :p,
-                'args' => {
-                  'NODE_LIST' => [
-                    'NODE_CONST' => {
-                      'vid' => :S
+              :NODE_FCALL => {
+                :mid => :p,
+                :args => {
+                  :NODE_LIST => [
+                    :NODE_CONST => {
+                      :vid => :S
                     }
                   ]
                 }

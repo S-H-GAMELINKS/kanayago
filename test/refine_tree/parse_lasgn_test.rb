@@ -7,13 +7,13 @@ class ParseLasgnTest < Minitest::Test
     result = RefineTree.parse('var = 117')
 
     expected = {
-      'NODE_SCOPE' => {
-        'args' => nil,
-        'body' => {
-          'NODE_LASGN' => {
-            'id' => :var,
-            'value' => {
-              'NODE_INTEGER' => 117
+      :NODE_SCOPE => {
+        :args => nil,
+        :body => {
+          :NODE_LASGN => {
+            :id => :var,
+            :value => {
+              :NODE_INTEGER => 117
             }
           }
         }

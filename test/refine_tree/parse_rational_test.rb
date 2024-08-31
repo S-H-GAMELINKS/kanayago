@@ -7,18 +7,18 @@ class ParseRationalTest < Minitest::Test
     result = RefineTree.parse('1/17r')
 
     expected = {
-      'NODE_SCOPE' => {
-        'args' => nil,
-        'body' => {
-          'NODE_OPCALL' => {
-            'recv' => {
-              'NODE_INTEGER' => 1
+      :NODE_SCOPE => {
+        :args => nil,
+        :body => {
+          :NODE_OPCALL => {
+            :recv => {
+              :NODE_INTEGER => 1
             },
-            'mid' => :/,
-            'args' => {
-              'NODE_LIST' => [
+            :mid => :/,
+            :args => {
+              :NODE_LIST => [
                 {
-                  'NODE_RATIONAL' => 17
+                  :NODE_RATIONAL => 17
                 }
               ]
             }
@@ -34,38 +34,38 @@ class ParseRationalTest < Minitest::Test
     result = RefineTree.parse('1/17r + 1/17r')
 
     expected = {
-      'NODE_SCOPE' => {
-        'args' => nil,
-        'body' => {
-          'NODE_OPCALL' => {
-            'recv' => {
-              'NODE_OPCALL' => {
-                'recv' => {
-                  'NODE_INTEGER' => 1
+      :NODE_SCOPE => {
+        :args => nil,
+        :body => {
+          :NODE_OPCALL => {
+            :recv => {
+              :NODE_OPCALL => {
+                :recv => {
+                  :NODE_INTEGER => 1
                 },
-                'mid' => :/,
-                'args' => {
-                  'NODE_LIST' => [
+                :mid => :/,
+                :args => {
+                  :NODE_LIST => [
                     {
-                      'NODE_RATIONAL' => 17
+                      :NODE_RATIONAL => 17
                     }
                   ]
                 }
               }
             },
-            'mid' => :+,
-            'args' => {
-              'NODE_LIST' => [
+            :mid => :+,
+            :args => {
+              :NODE_LIST => [
                 {
-                  'NODE_OPCALL' => {
-                    'recv' => {
-                      'NODE_INTEGER' => 1
+                  :NODE_OPCALL => {
+                    :recv => {
+                      :NODE_INTEGER => 1
                     },
-                    'mid' => :/,
-                    'args' => {
-                      'NODE_LIST' => [
+                    :mid => :/,
+                    :args => {
+                      :NODE_LIST => [
                         {
-                          'NODE_RATIONAL' => 17
+                          :NODE_RATIONAL => 17
                         }
                       ]
                     }
@@ -85,38 +85,38 @@ class ParseRationalTest < Minitest::Test
     result = RefineTree.parse('1/17r - 1/17r')
 
     expected = {
-      'NODE_SCOPE' => {
-        'args' => nil,
-        'body' => {
-          'NODE_OPCALL' => {
-            'recv' => {
-              'NODE_OPCALL' => {
-                'recv' => {
-                  'NODE_INTEGER' => 1
+      :NODE_SCOPE => {
+        :args => nil,
+        :body => {
+          :NODE_OPCALL => {
+            :recv => {
+              :NODE_OPCALL => {
+                :recv => {
+                  :NODE_INTEGER => 1
                 },
-                'mid' => :/,
-                'args' => {
-                  'NODE_LIST' => [
+                :mid => :/,
+                :args => {
+                  :NODE_LIST => [
                     {
-                      'NODE_RATIONAL' => 17
+                      :NODE_RATIONAL => 17
                     }
                   ]
                 }
               }
             },
-            'mid' => :-,
-            'args' => {
-              'NODE_LIST' => [
+            :mid => :-,
+            :args => {
+              :NODE_LIST => [
                 {
-                  'NODE_OPCALL' => {
-                    'recv' => {
-                      'NODE_INTEGER' => 1
+                  :NODE_OPCALL => {
+                    :recv => {
+                      :NODE_INTEGER => 1
                     },
-                    'mid' => :/,
-                    'args' => {
-                      'NODE_LIST' => [
+                    :mid => :/,
+                    :args => {
+                      :NODE_LIST => [
                         {
-                          'NODE_RATIONAL' => 17
+                          :NODE_RATIONAL => 17
                         }
                       ]
                     }
@@ -136,39 +136,39 @@ class ParseRationalTest < Minitest::Test
     result = RefineTree.parse('1/17r * 1/17r')
 
     expected = {
-      'NODE_SCOPE' => {
-        'args' => nil,
-        'body' => {
-          'NODE_OPCALL' => {
-            'recv' => {
-              'NODE_OPCALL' => {
-                'recv' => {
-                  'NODE_OPCALL' => {
-                    'recv' => {
-                      'NODE_INTEGER' => 1
+      :NODE_SCOPE => {
+        :args => nil,
+        :body => {
+          :NODE_OPCALL => {
+            :recv => {
+              :NODE_OPCALL => {
+                :recv => {
+                  :NODE_OPCALL => {
+                    :recv => {
+                      :NODE_INTEGER => 1
                     },
-                    'mid' => :/,
-                    'args' => {
-                      'NODE_LIST' => [
-                        'NODE_RATIONAL' => 17
+                    :mid => :/,
+                    :args => {
+                      :NODE_LIST => [
+                        :NODE_RATIONAL => 17
                       ]
                     }
                   }
                 },
-                'mid' => :*,
-                'args' => {
-                  'NODE_LIST' => [
+                :mid => :*,
+                :args => {
+                  :NODE_LIST => [
                     {
-                      'NODE_INTEGER' => 1
+                      :NODE_INTEGER => 1
                     }
                   ]
                 }
               }
             },
-            'mid' => :/,
-            'args' => {
-              'NODE_LIST' => [
-                'NODE_RATIONAL' => 17
+            :mid => :/,
+            :args => {
+              :NODE_LIST => [
+                :NODE_RATIONAL => 17
               ]
             }
           }
@@ -183,39 +183,39 @@ class ParseRationalTest < Minitest::Test
     result = RefineTree.parse('1/17r / 1/17r')
 
     expected = {
-      'NODE_SCOPE' => {
-        'args' => nil,
-        'body' => {
-          'NODE_OPCALL' => {
-            'recv' => {
-              'NODE_OPCALL' => {
-                'recv' => {
-                  'NODE_OPCALL' => {
-                    'recv' => {
-                      'NODE_INTEGER' => 1
+      :NODE_SCOPE => {
+        :args => nil,
+        :body => {
+          :NODE_OPCALL => {
+            :recv => {
+              :NODE_OPCALL => {
+                :recv => {
+                  :NODE_OPCALL => {
+                    :recv => {
+                      :NODE_INTEGER => 1
                     },
-                    'mid' => :/,
-                    'args' => {
-                      'NODE_LIST' => [
-                        'NODE_RATIONAL' => 17
+                    :mid => :/,
+                    :args => {
+                      :NODE_LIST => [
+                        :NODE_RATIONAL => 17
                       ]
                     }
                   }
                 },
-                'mid' => :/,
-                'args' => {
-                  'NODE_LIST' => [
+                :mid => :/,
+                :args => {
+                  :NODE_LIST => [
                     {
-                      'NODE_INTEGER' => 1
+                      :NODE_INTEGER => 1
                     }
                   ]
                 }
               }
             },
-            'mid' => :/,
-            'args' => {
-              'NODE_LIST' => [
-                'NODE_RATIONAL' => 17
+            :mid => :/,
+            :args => {
+              :NODE_LIST => [
+                :NODE_RATIONAL => 17
               ]
             }
           }
@@ -230,39 +230,39 @@ class ParseRationalTest < Minitest::Test
     result = RefineTree.parse('1/17r % 1/17r')
 
     expected = {
-      'NODE_SCOPE' => {
-        'args' => nil,
-        'body' => {
-          'NODE_OPCALL' => {
-            'recv' => {
-              'NODE_OPCALL' => {
-                'recv' => {
-                  'NODE_OPCALL' => {
-                    'recv' => {
-                      'NODE_INTEGER' => 1
+      :NODE_SCOPE => {
+        :args => nil,
+        :body => {
+          :NODE_OPCALL => {
+            :recv => {
+              :NODE_OPCALL => {
+                :recv => {
+                  :NODE_OPCALL => {
+                    :recv => {
+                      :NODE_INTEGER => 1
                     },
-                    'mid' => :/,
-                    'args' => {
-                      'NODE_LIST' => [
-                        'NODE_RATIONAL' => 17
+                    :mid => :/,
+                    :args => {
+                      :NODE_LIST => [
+                        :NODE_RATIONAL => 17
                       ]
                     }
                   }
                 },
-                'mid' => :%,
-                'args' => {
-                  'NODE_LIST' => [
+                :mid => :%,
+                :args => {
+                  :NODE_LIST => [
                     {
-                      'NODE_INTEGER' => 1
+                      :NODE_INTEGER => 1
                     }
                   ]
                 }
               }
             },
-            'mid' => :/,
-            'args' => {
-              'NODE_LIST' => [
-                'NODE_RATIONAL' => 17
+            :mid => :/,
+            :args => {
+              :NODE_LIST => [
+                :NODE_RATIONAL => 17
               ]
             }
           }
@@ -277,23 +277,23 @@ class ParseRationalTest < Minitest::Test
     result = RefineTree.parse('1/17r.to_i')
 
     expected = {
-      'NODE_SCOPE' => {
-        'args' => nil,
-        'body' => {
-          'NODE_OPCALL' => {
-            'recv' => {
-              'NODE_INTEGER' => 1
+      :NODE_SCOPE => {
+        :args => nil,
+        :body => {
+          :NODE_OPCALL => {
+            :recv => {
+              :NODE_INTEGER => 1
             },
-            'mid' => :/,
-            'args' => {
-              'NODE_LIST' => [
+            :mid => :/,
+            :args => {
+              :NODE_LIST => [
                 {
-                  'NODE_CALL' => {
-                    'recv' => {
-                      'NODE_RATIONAL' => 17
+                  :NODE_CALL => {
+                    :recv => {
+                      :NODE_RATIONAL => 17
                     },
-                    'mid' => :to_i,
-                    'args' => nil
+                    :mid => :to_i,
+                    :args => nil
                   }
                 }
               ]
@@ -310,26 +310,26 @@ class ParseRationalTest < Minitest::Test
     result = RefineTree.parse('1/17r.to_i(10)')
 
     expected = {
-      'NODE_SCOPE' => {
-        'args' => nil,
-        'body' => {
-          'NODE_OPCALL' => {
-            'recv' => {
-              'NODE_INTEGER' => 1
+      :NODE_SCOPE => {
+        :args => nil,
+        :body => {
+          :NODE_OPCALL => {
+            :recv => {
+              :NODE_INTEGER => 1
             },
-            'mid' => :/,
-            'args' => {
-              'NODE_LIST' => [
+            :mid => :/,
+            :args => {
+              :NODE_LIST => [
                 {
-                  'NODE_CALL' => {
-                    'recv' => {
-                      'NODE_RATIONAL' => 17
+                  :NODE_CALL => {
+                    :recv => {
+                      :NODE_RATIONAL => 17
                     },
-                    'mid' => :to_i,
-                    'args' => {
-                      'NODE_LIST' => [
+                    :mid => :to_i,
+                    :args => {
+                      :NODE_LIST => [
                         {
-                          'NODE_INTEGER' => 10
+                          :NODE_INTEGER => 10
                         }
                       ]
                     }

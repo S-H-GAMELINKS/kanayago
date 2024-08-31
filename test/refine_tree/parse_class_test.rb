@@ -10,23 +10,23 @@ class ParseClassTest < Minitest::Test
     CODE
 
     expected = {
-      'NODE_SCOPE' => {
-        'args' => nil,
-        'body' => {
-          'NODE_CLASS' => {
-            'cpath' => {
-              'NODE_COLON2' => {
-                'mid' => :RefineTree,
-                'head' => nil
+      :NODE_SCOPE => {
+        :args => nil,
+        :body => {
+          :NODE_CLASS => {
+            :cpath => {
+              :NODE_COLON2 => {
+                :mid => :RefineTree,
+                :head => nil
               }
             },
-            'super' => nil,
-            'body' => {
-              'NODE_SCOPE' => {
-                'args' => nil,
-                'body' => {
-                  'NODE_BEGIN' => {
-                    'body' => nil
+            :super => nil,
+            :body => {
+              :NODE_SCOPE => {
+                :args => nil,
+                :body => {
+                  :NODE_BEGIN => {
+                    :body => nil
                   }
                 }
               }

@@ -10,26 +10,26 @@ class ParseLvarTest < Minitest::Test
     CODE
 
     expected = {
-      'NODE_SCOPE' => {
-        'args' => nil,
-        'body' => {
-          'NODE_BLOCK' => [
+      :NODE_SCOPE => {
+        :args => nil,
+        :body => {
+          :NODE_BLOCK => [
             {
-              'NODE_LASGN' => {
-                'id' => :v,
-                'value' => {
-                  'NODE_INTEGER' => 117
+              :NODE_LASGN => {
+                :id => :v,
+                :value => {
+                  :NODE_INTEGER => 117
                 }
               }
             },
             {
-              'NODE_FCALL' => {
-                'mid' => :p,
-                'args' => {
-                  'NODE_LIST' => [
+              :NODE_FCALL => {
+                :mid => :p,
+                :args => {
+                  :NODE_LIST => [
                     {
-                      'NODE_LVAR' => {
-                        'vid' => :v
+                      :NODE_LVAR => {
+                        :vid => :v
                       }
                     }
                   ]

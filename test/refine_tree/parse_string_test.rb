@@ -5,10 +5,10 @@ class ParseStringTest < Minitest::Test
     result = RefineTree.parse('"RefineTree"')
 
     expected = {
-      'NODE_SCOPE' => {
-        'args' => nil,
-        'body' => {
-          'NODE_STR' => 'RefineTree'
+      :NODE_SCOPE => {
+        :args => nil,
+        :body => {
+          :NODE_STR => 'RefineTree'
         }
       }
     }
@@ -20,17 +20,17 @@ class ParseStringTest < Minitest::Test
     result = RefineTree.parse('"RefineTree" + ".parse"')
 
     expected = {
-      'NODE_SCOPE' => {
-        'args' => nil,
-        'body' => {
-          'NODE_OPCALL' => {
-            'recv' => {
-              'NODE_STR' => 'RefineTree'
+      :NODE_SCOPE => {
+        :args => nil,
+        :body => {
+          :NODE_OPCALL => {
+            :recv => {
+              :NODE_STR => 'RefineTree'
             },
-            'mid' => :+,
-            'args' => {
-              'NODE_LIST' => [
-                'NODE_STR' => '.parse'
+            :mid => :+,
+            :args => {
+              :NODE_LIST => [
+                :NODE_STR => '.parse'
               ]
             }
           }
@@ -45,18 +45,18 @@ class ParseStringTest < Minitest::Test
     result = RefineTree.parse('"RefineTree" * 2')
 
     expected = {
-      'NODE_SCOPE' => {
-        'args' => nil,
-        'body' => {
-          'NODE_OPCALL' => {
-            'recv' => {
-              'NODE_STR' => 'RefineTree'
+      :NODE_SCOPE => {
+        :args => nil,
+        :body => {
+          :NODE_OPCALL => {
+            :recv => {
+              :NODE_STR => 'RefineTree'
             },
-            'mid' => :*,
-            'args' => {
-              'NODE_LIST' => [
+            :mid => :*,
+            :args => {
+              :NODE_LIST => [
                 {
-                  'NODE_INTEGER' => 2
+                  :NODE_INTEGER => 2
                 }
               ]
             }

@@ -7,10 +7,10 @@ class ParseSymTest < Minitest::Test
     result = RefineTree.parse(':refine_tree')
 
     expected = {
-      'NODE_SCOPE' => {
-        'args' => nil,
-        'body' => {
-          'NODE_SYM' => :refine_tree
+      :NODE_SCOPE => {
+        :args => nil,
+        :body => {
+          :NODE_SYM => :refine_tree
         }
       }
     }
