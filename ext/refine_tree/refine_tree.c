@@ -396,5 +396,5 @@ RUBY_FUNC_EXPORTED void
 Init_refine_tree(void)
 {
     rb_mRefineTree = rb_define_module("RefineTree");
-    rb_define_singleton_method(rb_mRefineTree, "parse", parse, 1);
+    rb_define_module_function(rb_mRefineTree, "refine_tree_parse", parse, 1);
 }

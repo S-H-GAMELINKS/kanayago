@@ -4,6 +4,7 @@ require_relative 'refine_tree/version'
 require_relative 'refine_tree/refine_tree'
 
 module RefineTree
-  class Error < StandardError; end
-  # Your code goes here...
+  def self.parse(source)
+    refine_tree_parse(source)
+  end
 end
