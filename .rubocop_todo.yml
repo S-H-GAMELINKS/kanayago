@@ -30,8 +30,6 @@ Style/Documentation:
   Exclude:
     - 'spec/**/*'
     - 'test/**/*'
-    - 'lib/refine_tree.rb'
-    - 'lib/refine_tree/converter/prism.rb'
 
 # Offense count: 4
 # Configuration parameters: AllowedVariables.
