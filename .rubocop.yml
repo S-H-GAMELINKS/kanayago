@@ -1,6 +1,10 @@
 inherit_from: .rubocop_todo.yml
 
+RBS:
+  Enabled: true
+
 require:
   - rubocop-minitest
+  - rubocop-on-rbs
   - rubocop-rake
 
