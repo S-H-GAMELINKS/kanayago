@@ -118,6 +118,18 @@ node_if_to_hash(const NODE *node)
 }
 
 static VALUE
+node_unless_to_hash(const NODE *node)
+{
+    VALUE result = rb_hash_new();
+
+    rb_hash_aset(result, symbol("cond"), ast_to_hash(RNODE_UNLESS(node)->nd_cond));
+    rb_hash_aset(result, symbol("body"), ast_to_hash(RNODE_UNLESS(node)->nd_body));
+    rb_hash_aset(result, symbol("else"), ast_to_hash(RNODE_UNLESS(node)->nd_else));
+
+    return result;
+}
+
+static VALUE
 node_const_to_hash(const NODE *node)
 {
     VALUE result = rb_hash_new();
@@ -330,6 +342,11 @@ ast_to_hash(const NODE *node)
 	case NODE_IF: {
 	  VALUE result = rb_hash_new();
 	  rb_hash_aset(result, symbol("NODE_IF"), node_if_to_hash(node));
+	  return result;
+	}
+	case NODE_UNLESS: {
+	  VALUE result = rb_hash_new();
+	  rb_hash_aset(result, symbol("NODE_UNLESS"), node_unless_to_hash(node));
 	  return result;
 	}
 	case NODE_LIST: {
