@@ -47,6 +47,9 @@ jobs:
     - name: Build Mjollnir
       run: bundle exec rake compile
 
+    - name: Run RuboCop
+      run: bundle exec rubocop
+
     - name: Run tests
       run: bundle exec rake test
 
