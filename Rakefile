@@ -118,10 +118,12 @@ namespace :ruby_parser do
     `rm -rf tmp/ruby`
   end
 
+  desc 'build ruby parse.c and parse.h with lrama'
   task :build do
     sh 'bundle exec lrama -oext/refine_tree/parse.c -Hext/refine_tree/parse.h ext/refine_tree/parse.tmp.y'
   end
 
+  desc 'clean to ruby parser file'
   task :clean do
     dist = File.expand_path('./ext/refine_tree')
 
@@ -158,10 +160,12 @@ Rake::TestTask.new(:test) do |t|
   t.test_files = FileList['test/**/*_test.rb']
 end
 
+desc 'try to refine_tree code'
 task :run do
   sh 'ruby test.rb'
 end
 
+desc 'debug to refine_tree code in gdb'
 task :gdb do
   sh 'bundle exec gdb --args ruby test.rb'
 end
