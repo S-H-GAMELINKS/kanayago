@@ -4,7 +4,7 @@ require 'test_helper'
 
 class ParseConstDeclTest < Minitest::Test
   def test_parse_const_decl
-    result = RefineTree.parse('S = 117')
+    result = Kanayago.parse('S = 117')
 
     expected = {
       :NODE_SCOPE => {

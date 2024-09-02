@@ -4,7 +4,7 @@ require 'test_helper'
 
 class ParseFcallTest < Minitest::Test
   def test_parse_fcall
-    result = RefineTree.parse('p 117')
+    result = Kanayago.parse('p 117')
 
     expected = {
       :NODE_SCOPE => {

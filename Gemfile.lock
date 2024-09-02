@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    refine_tree (0.1.0)
+    kanayago (0.1.0)
 
 GEM
   remote: https://rubygems.org/
@@ -54,11 +54,11 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  kanayago!
   lrama (~> 0.6)
   minitest
   rake (~> 13.0)
   rake-compiler
-  refine_tree!
   rubocop
   rubocop-minitest
   rubocop-on-rbs

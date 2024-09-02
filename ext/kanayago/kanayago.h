@@ -1,5 +1,5 @@
-#ifndef REFINE_TREE_H
-#define REFINE_TREE_H 1
+#ifndef KANAYAGO_H
+#define KANAYAGO_H 1
 
 #include "node.h"
 #include "internal/ruby_parser.h"
@@ -13,9 +13,9 @@ VALUE rb_node_imaginary_literal_val(const NODE *);
 VALUE rb_node_str_string_val(const NODE *);
 VALUE rb_node_sym_string_val(const NODE *);
 
-// Add extern for RefineTree
+// Add extern for Kanayago
 extern const rb_data_type_t ruby_parser_data_type;
 extern const rb_data_type_t ast_data_type;
-// End for RefineTree
+// End for Kanayago
 
-#endif /* REFINE_TREE_H */
+#endif /* KANAYAGO_H */

@@ -56,5 +56,5 @@ jobs:
     - name: Run install
       run: |
         bundle exec rake build
-        gem install pkg/refine_tree-0.1.0.gem
+        gem install pkg/kanayago-0.1.0.gem
 

@@ -2,15 +2,15 @@
 
 require 'test_helper'
 
-class ParseFloatTest < Minitest::Test
-  def test_parse_float
-    result = RefineTree.parse('1.17')
+class ParseIntegerTest < Minitest::Test
+  def test_parse_integer
+    result = Kanayago.parse('1')
 
     expected = {
       :NODE_SCOPE => {
         :args => nil,
         :body => {
-          :NODE_FLOAT => 1.17
+          :NODE_INTEGER => 1
         }
       }
     }
@@ -18,8 +18,8 @@ class ParseFloatTest < Minitest::Test
     assert_equal expected, result
   end
 
-  def test_parse_float_plus_opcall
-    result = RefineTree.parse('1.17 + 1.17')
+  def test_parse_integer_plus_opcall
+    result = Kanayago.parse('1 + 1')
 
     expected = {
       :NODE_SCOPE => {
@@ -27,13 +27,13 @@ class ParseFloatTest < Minitest::Test
         :body => {
           :NODE_OPCALL => {
             :recv => {
-              :NODE_FLOAT => 1.17
+              :NODE_INTEGER => 1
             },
             :mid => :+,
             :args => {
               :NODE_LIST => [
                 {
-                  :NODE_FLOAT => 1.17
+                  :NODE_INTEGER => 1
                 }
               ]
             }
@@ -45,8 +45,8 @@ class ParseFloatTest < Minitest::Test
     assert_equal expected, result
   end
 
-  def test_parse_float_minus_opcall
-    result = RefineTree.parse('1.17 - 1.17')
+  def test_parse_integer_minus_opcall
+    result = Kanayago.parse('1 - 1')
 
     expected = {
       :NODE_SCOPE => {
@@ -54,13 +54,13 @@ class ParseFloatTest < Minitest::Test
         :body => {
           :NODE_OPCALL => {
             :recv => {
-              :NODE_FLOAT => 1.17
+              :NODE_INTEGER => 1
             },
             :mid => :-,
             :args => {
               :NODE_LIST => [
                 {
-                  :NODE_FLOAT => 1.17
+                  :NODE_INTEGER => 1
                 }
               ]
             }
@@ -72,8 +72,8 @@ class ParseFloatTest < Minitest::Test
     assert_equal expected, result
   end
 
-  def test_parse_float_times_opcall
-    result = RefineTree.parse('1.17 * 1.17')
+  def test_parse_integer_times_opcall
+    result = Kanayago.parse('1 * 1')
 
     expected = {
       :NODE_SCOPE => {
@@ -81,13 +81,13 @@ class ParseFloatTest < Minitest::Test
         :body => {
           :NODE_OPCALL => {
             :recv => {
-              :NODE_FLOAT => 1.17
+              :NODE_INTEGER => 1
             },
             :mid => :*,
             :args => {
               :NODE_LIST => [
                 {
-                  :NODE_FLOAT => 1.17
+                  :NODE_INTEGER => 1
                 }
               ]
             }
@@ -99,8 +99,8 @@ class ParseFloatTest < Minitest::Test
     assert_equal expected, result
   end
 
-  def test_parse_float_div_opcall
-    result = RefineTree.parse('1.17 / 1.17')
+  def test_parse_integer_div_opcall
+    result = Kanayago.parse('1 / 1')
 
     expected = {
       :NODE_SCOPE => {
@@ -108,13 +108,13 @@ class ParseFloatTest < Minitest::Test
         :body => {
           :NODE_OPCALL => {
             :recv => {
-              :NODE_FLOAT => 1.17
+              :NODE_INTEGER => 1
             },
             :mid => :/,
             :args => {
               :NODE_LIST => [
                 {
-                  :NODE_FLOAT => 1.17
+                  :NODE_INTEGER => 1
                 }
               ]
             }
@@ -126,8 +126,8 @@ class ParseFloatTest < Minitest::Test
     assert_equal expected, result
   end
 
-  def test_parse_float_remainder_opcall
-    result = RefineTree.parse('1.17 % 1.17')
+  def test_parse_integer_remainder_opcall
+    result = Kanayago.parse('1 % 1')
 
     expected = {
       :NODE_SCOPE => {
@@ -135,13 +135,13 @@ class ParseFloatTest < Minitest::Test
         :body => {
           :NODE_OPCALL => {
             :recv => {
-              :NODE_FLOAT => 1.17
+              :NODE_INTEGER => 1
             },
             :mid => :%,
             :args => {
               :NODE_LIST => [
                 {
-                  :NODE_FLOAT => 1.17
+                  :NODE_INTEGER => 1
                 }
               ]
             }
@@ -153,8 +153,8 @@ class ParseFloatTest < Minitest::Test
     assert_equal expected, result
   end
 
-  def test_parse_float_call
-    result = RefineTree.parse('1.17.to_i')
+  def test_parse_integer_call
+    result = Kanayago.parse('1.to_i')
 
     expected = {
       :NODE_SCOPE => {
@@ -162,7 +162,7 @@ class ParseFloatTest < Minitest::Test
         :body => {
           :NODE_CALL => {
             :recv => {
-              :NODE_FLOAT => 1.17
+              :NODE_INTEGER => 1
             },
             :mid => :to_i,
             :args => nil
@@ -174,8 +174,8 @@ class ParseFloatTest < Minitest::Test
     assert_equal expected, result
   end
 
-  def test_parse_float_call_with_arg
-    result = RefineTree.parse('1.17.to_i(10)')
+  def test_parse_integer_call_with_arg
+    result = Kanayago.parse('1.to_i(10)')
 
     expected = {
       :NODE_SCOPE => {
@@ -183,7 +183,7 @@ class ParseFloatTest < Minitest::Test
         :body => {
           :NODE_CALL => {
             :recv => {
-              :NODE_FLOAT => 1.17
+              :NODE_INTEGER => 1
             },
             :mid => :to_i,
             :args => {

@@ -4,7 +4,7 @@ require 'test_helper'
 
 class ParseLasgnTest < Minitest::Test
   def test_parse_lasgn
-    result = RefineTree.parse('var = 117')
+    result = Kanayago.parse('var = 117')
 
     expected = {
       :NODE_SCOPE => {

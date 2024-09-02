@@ -2,17 +2,15 @@
 
 require 'test_helper'
 
-class ParseIvarTest < Minitest::Test
-  def test_parse_ivar
-    result = RefineTree.parse('@refine_tree')
+class ParseSymTest < Minitest::Test
+  def test_parse_sym
+    result = Kanayago.parse(':kanayago')
 
     expected = {
       :NODE_SCOPE => {
         :args => nil,
         :body => {
-          :NODE_IVAR => {
-            :vid => :@refine_tree
-          }
+          :NODE_SYM => :kanayago
         }
       }
     }

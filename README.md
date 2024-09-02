@@ -1,4 +1,4 @@
-# RefineTree
+# Kanayago
 
 Trying to Make Ruby's Parser Available as a Gem.
 
@@ -13,28 +13,28 @@ RUBY_CONFIGURE_OPTS="cppflags=-DUNIVERSAL_PARSER" rbenv install ruby-dev
 Clone this repository.
 
 ```console
-git clone https://github.com/S-H-GAMELINKS/refine_tree.git
+git clone https://github.com/S-H-GAMELINKS/kanayago.git
 ```
 
-Move `refine_tree` directory, and run `bundle install`.
+Move `kanayago` directory, and run `bundle install`.
 
 ```console
-cd refine_tree && bundle install
+cd kanayago && bundle install
 ```
 
-Finally, build `RefineTree` gem  and install it.
+Finally, build `Kanayago` gem  and install it.
 
 ```console
 bundle exec rake build
-gem install pkg/refine_tree-0.1.0.gem
+gem install pkg/kanayago-0.1.0.gem
 ```
 
 ## Usage
 
 ```ruby
-require 'refine_tree/refine_tree'
+require 'kanayago/kanayago'
 
-result = RefineTree.parse('117 + 117')
+result = Kanayago.parse('117 + 117')
 
 p result
 # =>
@@ -68,7 +68,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/S-H-GAMELINKS/refine_tree.
+Bug reports and pull requests are welcome on GitHub at https://github.com/S-H-GAMELINKS/kanayago.
 
 ## Referenced implementations
 

@@ -2,7 +2,7 @@
 
 source 'https://rubygems.org'
 
-# Specify your gem's dependencies in refine_tree.gemspec
+# Specify your gem's dependencies in kanayago.gemspec
 gemspec
 
 gem 'lrama', '~> 0.6'

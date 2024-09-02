@@ -2,7 +2,7 @@
 
 class ParseImaginaryTest < Minitest::Test
   def test_parse_imaginary
-    result = RefineTree.parse('117i')
+    result = Kanayago.parse('117i')
 
     expected = {
       :NODE_SCOPE => {
@@ -17,7 +17,7 @@ class ParseImaginaryTest < Minitest::Test
   end
 
   def test_parse_imaginary_plus_opcall
-    result = RefineTree.parse('117i + 117i')
+    result = Kanayago.parse('117i + 117i')
 
     expected = {
       :NODE_SCOPE => {
@@ -44,7 +44,7 @@ class ParseImaginaryTest < Minitest::Test
   end
 
   def test_parse_imaginary_minus_opcall
-    result = RefineTree.parse('117i - 117i')
+    result = Kanayago.parse('117i - 117i')
 
     expected = {
       :NODE_SCOPE => {
@@ -71,7 +71,7 @@ class ParseImaginaryTest < Minitest::Test
   end
 
   def test_parse_imaginary_times_opcall
-    result = RefineTree.parse('117i * 117i')
+    result = Kanayago.parse('117i * 117i')
 
     expected = {
       :NODE_SCOPE => {
@@ -98,7 +98,7 @@ class ParseImaginaryTest < Minitest::Test
   end
 
   def test_parse_imaginary_div_opcall
-    result = RefineTree.parse('117i / 117i')
+    result = Kanayago.parse('117i / 117i')
 
     expected = {
       :NODE_SCOPE => {
@@ -125,7 +125,7 @@ class ParseImaginaryTest < Minitest::Test
   end
 
   def test_parse_imaginary_remainder_opcall
-    result = RefineTree.parse('117i % 117i')
+    result = Kanayago.parse('117i % 117i')
 
     expected = {
       :NODE_SCOPE => {
@@ -152,7 +152,7 @@ class ParseImaginaryTest < Minitest::Test
   end
 
   def test_parse_imaginary_call
-    result = RefineTree.parse('117i.to_i')
+    result = Kanayago.parse('117i.to_i')
 
     expected = {
       :NODE_SCOPE => {

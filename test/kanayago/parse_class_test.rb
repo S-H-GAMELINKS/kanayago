@@ -4,8 +4,8 @@ require 'test_helper'
 
 class ParseClassTest < Minitest::Test
   def test_parse_class
-    result = RefineTree.parse(<<~CODE)
-      class RefineTree
+    result = Kanayago.parse(<<~CODE)
+      class Kanayago
       end
     CODE
 
@@ -16,7 +16,7 @@ class ParseClassTest < Minitest::Test
           :NODE_CLASS => {
             :cpath => {
               :NODE_COLON2 => {
-                :mid => :RefineTree,
+                :mid => :Kanayago,
                 :head => nil
               }
             },

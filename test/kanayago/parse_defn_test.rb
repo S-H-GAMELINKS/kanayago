@@ -4,8 +4,8 @@ require 'test_helper'
 
 class ParseDefnTest < Minitest::Test
   def test_parse_defn
-    result = RefineTree.parse(<<~CODE)
-      def refine_tree
+    result = Kanayago.parse(<<~CODE)
+      def kanayago
         p 117
       end
     CODE
@@ -15,7 +15,7 @@ class ParseDefnTest < Minitest::Test
         :args => nil,
         :body => {
           :NODE_DEFN => {
-            :mid => :refine_tree,
+            :mid => :kanayago,
             :defn => {
               :NODE_SCOPE => {
                 :args => {

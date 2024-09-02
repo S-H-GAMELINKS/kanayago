@@ -35,7 +35,7 @@ Style/Documentation:
 # Configuration parameters: AllowedVariables.
 Style/GlobalVars:
   Exclude:
-    - 'ext/refine_tree/extconf.rb'
+    - 'ext/kanayago/extconf.rb'
 
 # Offense count: 508
 # This cop supports safe autocorrection (--autocorrect).
@@ -44,18 +44,18 @@ Style/GlobalVars:
 # SupportedShorthandSyntax: always, never, either, consistent, either_consistent
 Style/HashSyntax:
   Exclude:
-    - 'test/refine_tree/parse_class_test.rb'
-    - 'test/refine_tree/parse_const_decl_test.rb'
-    - 'test/refine_tree/parse_const_test.rb'
-    - 'test/refine_tree/parse_defn_test.rb'
-    - 'test/refine_tree/parse_fcall_test.rb'
-    - 'test/refine_tree/parse_float_test.rb'
-    - 'test/refine_tree/parse_if_test.rb'
-    - 'test/refine_tree/parse_imaginary_test.rb'
-    - 'test/refine_tree/parse_integer_test.rb'
-    - 'test/refine_tree/parse_ivar_test.rb'
-    - 'test/refine_tree/parse_lasgn_test.rb'
-    - 'test/refine_tree/parse_lvar_test.rb'
-    - 'test/refine_tree/parse_rational_test.rb'
-    - 'test/refine_tree/parse_string_test.rb'
-    - 'test/refine_tree/parse_sym_test.rb'
+    - 'test/kanayago/parse_class_test.rb'
+    - 'test/kanayago/parse_const_decl_test.rb'
+    - 'test/kanayago/parse_const_test.rb'
+    - 'test/kanayago/parse_defn_test.rb'
+    - 'test/kanayago/parse_fcall_test.rb'
+    - 'test/kanayago/parse_float_test.rb'
+    - 'test/kanayago/parse_if_test.rb'
+    - 'test/kanayago/parse_imaginary_test.rb'
+    - 'test/kanayago/parse_integer_test.rb'
+    - 'test/kanayago/parse_ivar_test.rb'
+    - 'test/kanayago/parse_lasgn_test.rb'
+    - 'test/kanayago/parse_lvar_test.rb'
+    - 'test/kanayago/parse_rational_test.rb'
+    - 'test/kanayago/parse_string_test.rb'
+    - 'test/kanayago/parse_sym_test.rb'

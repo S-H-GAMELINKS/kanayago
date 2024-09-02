@@ -4,7 +4,7 @@ require 'test_helper'
 
 class ParseUnlessTest < Minitest::Test
   def test_parse_unless
-    result = RefineTree.parse(<<~CODE)
+    result = Kanayago.parse(<<~CODE)
       v = 117
       unless v
         p v

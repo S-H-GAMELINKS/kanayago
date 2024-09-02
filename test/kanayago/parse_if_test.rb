@@ -4,7 +4,7 @@ require 'test_helper'
 
 class ParseIfTest < Minitest::Test
   def test_parse_if
-    result = RefineTree.parse(<<~CODE)
+    result = Kanayago.parse(<<~CODE)
       v = 117
       if v
         p v

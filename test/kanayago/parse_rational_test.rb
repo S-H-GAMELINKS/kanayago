@@ -4,7 +4,7 @@ require 'test_helper'
 
 class ParseRationalTest < Minitest::Test
   def test_parse_rational
-    result = RefineTree.parse('1/17r')
+    result = Kanayago.parse('1/17r')
 
     expected = {
       :NODE_SCOPE => {
@@ -31,7 +31,7 @@ class ParseRationalTest < Minitest::Test
   end
 
   def test_parse_rational_plus_opcall
-    result = RefineTree.parse('1/17r + 1/17r')
+    result = Kanayago.parse('1/17r + 1/17r')
 
     expected = {
       :NODE_SCOPE => {
@@ -82,7 +82,7 @@ class ParseRationalTest < Minitest::Test
   end
 
   def test_parse_rational_minus_opcall
-    result = RefineTree.parse('1/17r - 1/17r')
+    result = Kanayago.parse('1/17r - 1/17r')
 
     expected = {
       :NODE_SCOPE => {
@@ -133,7 +133,7 @@ class ParseRationalTest < Minitest::Test
   end
 
   def test_parse_rational_times_opcall
-    result = RefineTree.parse('1/17r * 1/17r')
+    result = Kanayago.parse('1/17r * 1/17r')
 
     expected = {
       :NODE_SCOPE => {
@@ -180,7 +180,7 @@ class ParseRationalTest < Minitest::Test
   end
 
   def test_parse_rational_div_opcall
-    result = RefineTree.parse('1/17r / 1/17r')
+    result = Kanayago.parse('1/17r / 1/17r')
 
     expected = {
       :NODE_SCOPE => {
@@ -227,7 +227,7 @@ class ParseRationalTest < Minitest::Test
   end
 
   def test_parse_rational_remainder_opcall
-    result = RefineTree.parse('1/17r % 1/17r')
+    result = Kanayago.parse('1/17r % 1/17r')
 
     expected = {
       :NODE_SCOPE => {
@@ -274,7 +274,7 @@ class ParseRationalTest < Minitest::Test
   end
 
   def test_parse_rational_call
-    result = RefineTree.parse('1/17r.to_i')
+    result = Kanayago.parse('1/17r.to_i')
 
     expected = {
       :NODE_SCOPE => {
@@ -307,7 +307,7 @@ class ParseRationalTest < Minitest::Test
   end
 
   def test_parse_rational_call_with_arg
-    result = RefineTree.parse('1/17r.to_i(10)')
+    result = Kanayago.parse('1/17r.to_i(10)')
 
     expected = {
       :NODE_SCOPE => {

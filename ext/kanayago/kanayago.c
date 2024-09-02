@@ -1,4 +1,4 @@
-#include "refine_tree.h"
+#include "kanayago.h"
 #include "internal/ruby_parser.h"
 #include "ruby/ruby.h"
 #include "rubyparser.h"
@@ -7,7 +7,7 @@
 #define symbol(arg) \
     ID2SYM(rb_intern((arg)))
 
-VALUE rb_mRefineTree;
+VALUE rb_mKanayago;
 
 static VALUE ast_to_hash(const NODE *);
 
@@ -413,8 +413,8 @@ parse(VALUE self, VALUE source)
 }
 
 RUBY_FUNC_EXPORTED void
-Init_refine_tree(void)
+Init_kanayago(void)
 {
-    rb_mRefineTree = rb_define_module("RefineTree");
-    rb_define_module_function(rb_mRefineTree, "refine_tree_parse", parse, 1);
+    rb_mKanayago = rb_define_module("Kanayago");
+    rb_define_module_function(rb_mKanayago, "kanayago_parse", parse, 1);
 }

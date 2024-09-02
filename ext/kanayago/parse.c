@@ -65,7 +65,7 @@
 
 
 /* First part of user prologue.  */
-#line 14 "ext/refine_tree/parse.tmp.y"
+#line 14 "ext/kanayago/parse.tmp.y"
 
 
 #if !YYPURE
@@ -2691,7 +2691,7 @@ rb_parser_ary_free(rb_parser_t *p, rb_parser_ary_t *ary)
 
 #endif /* !RIPPER */
 
-#line 2695 "ext/refine_tree/parse.c"
+#line 2695 "ext/kanayago/parse.c"
 
 # ifndef YY_CAST
 #  ifdef __cplusplus
@@ -2714,7 +2714,7 @@ rb_parser_ary_free(rb_parser_t *p, rb_parser_ary_t *ary)
 #  endif
 # endif
 
-#include "ext/refine_tree/parse.h"
+#include "ext/kanayago/parse.h"
 /* Symbol kind.  */
 enum yysymbol_kind_t
 {
@@ -7809,455 +7809,455 @@ yy_symbol_value_print (FILE *yyo,
 switch (yykind)
     {
     case YYSYMBOL_keyword_class: /* "'class'"  */
-#line 2652 "ext/refine_tree/parse.tmp.y"
+#line 2652 "ext/kanayago/parse.tmp.y"
          {
     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
 }
-#line 7817 "ext/refine_tree/parse.c"
+#line 7817 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_keyword_module: /* "'module'"  */
-#line 2652 "ext/refine_tree/parse.tmp.y"
+#line 2652 "ext/kanayago/parse.tmp.y"
          {
     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
 }
-#line 7825 "ext/refine_tree/parse.c"
+#line 7825 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_keyword_def: /* "'def'"  */
-#line 2652 "ext/refine_tree/parse.tmp.y"
+#line 2652 "ext/kanayago/parse.tmp.y"
          {
     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
 }
-#line 7833 "ext/refine_tree/parse.c"
+#line 7833 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_keyword_undef: /* "'undef'"  */
-#line 2652 "ext/refine_tree/parse.tmp.y"
+#line 2652 "ext/kanayago/parse.tmp.y"
          {
     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
 }
-#line 7841 "ext/refine_tree/parse.c"
+#line 7841 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_keyword_begin: /* "'begin'"  */
-#line 2652 "ext/refine_tree/parse.tmp.y"
+#line 2652 "ext/kanayago/parse.tmp.y"
          {
     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
 }
-#line 7849 "ext/refine_tree/parse.c"
+#line 7849 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_keyword_rescue: /* "'rescue'"  */
-#line 2652 "ext/refine_tree/parse.tmp.y"
+#line 2652 "ext/kanayago/parse.tmp.y"
          {
     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
 }
-#line 7857 "ext/refine_tree/parse.c"
+#line 7857 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_keyword_ensure: /* "'ensure'"  */
-#line 2652 "ext/refine_tree/parse.tmp.y"
+#line 2652 "ext/kanayago/parse.tmp.y"
          {
     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
 }
-#line 7865 "ext/refine_tree/parse.c"
+#line 7865 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_keyword_end: /* "'end'"  */
-#line 2652 "ext/refine_tree/parse.tmp.y"
+#line 2652 "ext/kanayago/parse.tmp.y"
          {
     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
 }
-#line 7873 "ext/refine_tree/parse.c"
+#line 7873 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_keyword_if: /* "'if'"  */
-#line 2652 "ext/refine_tree/parse.tmp.y"
+#line 2652 "ext/kanayago/parse.tmp.y"
          {
     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
 }
-#line 7881 "ext/refine_tree/parse.c"
+#line 7881 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_keyword_unless: /* "'unless'"  */
-#line 2652 "ext/refine_tree/parse.tmp.y"
+#line 2652 "ext/kanayago/parse.tmp.y"
          {
     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
 }
-#line 7889 "ext/refine_tree/parse.c"
+#line 7889 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_keyword_then: /* "'then'"  */
-#line 2652 "ext/refine_tree/parse.tmp.y"
+#line 2652 "ext/kanayago/parse.tmp.y"
          {
     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
 }
-#line 7897 "ext/refine_tree/parse.c"
+#line 7897 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_keyword_elsif: /* "'elsif'"  */
-#line 2652 "ext/refine_tree/parse.tmp.y"
+#line 2652 "ext/kanayago/parse.tmp.y"
          {
     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
 }
-#line 7905 "ext/refine_tree/parse.c"
+#line 7905 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_keyword_else: /* "'else'"  */
-#line 2652 "ext/refine_tree/parse.tmp.y"
+#line 2652 "ext/kanayago/parse.tmp.y"
          {
     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
 }
-#line 7913 "ext/refine_tree/parse.c"
+#line 7913 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_keyword_case: /* "'case'"  */
-#line 2652 "ext/refine_tree/parse.tmp.y"
+#line 2652 "ext/kanayago/parse.tmp.y"
          {
     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
 }
-#line 7921 "ext/refine_tree/parse.c"
+#line 7921 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_keyword_when: /* "'when'"  */
-#line 2652 "ext/refine_tree/parse.tmp.y"
+#line 2652 "ext/kanayago/parse.tmp.y"
          {
     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
 }
-#line 7929 "ext/refine_tree/parse.c"
+#line 7929 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_keyword_while: /* "'while'"  */
-#line 2652 "ext/refine_tree/parse.tmp.y"
+#line 2652 "ext/kanayago/parse.tmp.y"
          {
     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
 }
-#line 7937 "ext/refine_tree/parse.c"
+#line 7937 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_keyword_until: /* "'until'"  */
-#line 2652 "ext/refine_tree/parse.tmp.y"
+#line 2652 "ext/kanayago/parse.tmp.y"
          {
     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
 }
-#line 7945 "ext/refine_tree/parse.c"
+#line 7945 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_keyword_for: /* "'for'"  */
-#line 2652 "ext/refine_tree/parse.tmp.y"
+#line 2652 "ext/kanayago/parse.tmp.y"
          {
     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
 }
-#line 7953 "ext/refine_tree/parse.c"
+#line 7953 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_keyword_break: /* "'break'"  */
-#line 2652 "ext/refine_tree/parse.tmp.y"
+#line 2652 "ext/kanayago/parse.tmp.y"
          {
     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
 }
-#line 7961 "ext/refine_tree/parse.c"
+#line 7961 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_keyword_next: /* "'next'"  */
-#line 2652 "ext/refine_tree/parse.tmp.y"
+#line 2652 "ext/kanayago/parse.tmp.y"
          {
     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
 }
-#line 7969 "ext/refine_tree/parse.c"
+#line 7969 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_keyword_redo: /* "'redo'"  */
-#line 2652 "ext/refine_tree/parse.tmp.y"
+#line 2652 "ext/kanayago/parse.tmp.y"
          {
     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
 }
-#line 7977 "ext/refine_tree/parse.c"
+#line 7977 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_keyword_retry: /* "'retry'"  */
-#line 2652 "ext/refine_tree/parse.tmp.y"
+#line 2652 "ext/kanayago/parse.tmp.y"
          {
     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
 }
-#line 7985 "ext/refine_tree/parse.c"
+#line 7985 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_keyword_in: /* "'in'"  */
-#line 2652 "ext/refine_tree/parse.tmp.y"
+#line 2652 "ext/kanayago/parse.tmp.y"
          {
     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
 }
-#line 7993 "ext/refine_tree/parse.c"
+#line 7993 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_keyword_do: /* "'do'"  */
-#line 2652 "ext/refine_tree/parse.tmp.y"
+#line 2652 "ext/kanayago/parse.tmp.y"
          {
     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
 }
-#line 8001 "ext/refine_tree/parse.c"
+#line 8001 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_keyword_do_cond: /* "'do' for condition"  */
-#line 2652 "ext/refine_tree/parse.tmp.y"
+#line 2652 "ext/kanayago/parse.tmp.y"
          {
     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
 }
-#line 8009 "ext/refine_tree/parse.c"
+#line 8009 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_keyword_do_block: /* "'do' for block"  */
-#line 2652 "ext/refine_tree/parse.tmp.y"
+#line 2652 "ext/kanayago/parse.tmp.y"
          {
     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
 }
-#line 8017 "ext/refine_tree/parse.c"
+#line 8017 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_keyword_do_LAMBDA: /* "'do' for lambda"  */
-#line 2652 "ext/refine_tree/parse.tmp.y"
+#line 2652 "ext/kanayago/parse.tmp.y"
          {
     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
 }
-#line 8025 "ext/refine_tree/parse.c"
+#line 8025 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_keyword_return: /* "'return'"  */
-#line 2652 "ext/refine_tree/parse.tmp.y"
+#line 2652 "ext/kanayago/parse.tmp.y"
          {
     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
 }
-#line 8033 "ext/refine_tree/parse.c"
+#line 8033 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_keyword_yield: /* "'yield'"  */
-#line 2652 "ext/refine_tree/parse.tmp.y"
+#line 2652 "ext/kanayago/parse.tmp.y"
          {
     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
 }
-#line 8041 "ext/refine_tree/parse.c"
+#line 8041 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_keyword_super: /* "'super'"  */
-#line 2652 "ext/refine_tree/parse.tmp.y"
+#line 2652 "ext/kanayago/parse.tmp.y"
          {
     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
 }
-#line 8049 "ext/refine_tree/parse.c"
+#line 8049 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_keyword_self: /* "'self'"  */
-#line 2652 "ext/refine_tree/parse.tmp.y"
+#line 2652 "ext/kanayago/parse.tmp.y"
          {
     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
 }
-#line 8057 "ext/refine_tree/parse.c"
+#line 8057 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_keyword_nil: /* "'nil'"  */
-#line 2652 "ext/refine_tree/parse.tmp.y"
+#line 2652 "ext/kanayago/parse.tmp.y"
          {
     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
 }
-#line 8065 "ext/refine_tree/parse.c"
+#line 8065 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_keyword_true: /* "'true'"  */
-#line 2652 "ext/refine_tree/parse.tmp.y"
+#line 2652 "ext/kanayago/parse.tmp.y"
          {
     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
 }
-#line 8073 "ext/refine_tree/parse.c"
+#line 8073 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_keyword_false: /* "'false'"  */
-#line 2652 "ext/refine_tree/parse.tmp.y"
+#line 2652 "ext/kanayago/parse.tmp.y"
          {
     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
 }
-#line 8081 "ext/refine_tree/parse.c"
+#line 8081 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_keyword_and: /* "'and'"  */
-#line 2652 "ext/refine_tree/parse.tmp.y"
+#line 2652 "ext/kanayago/parse.tmp.y"
          {
     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
 }
-#line 8089 "ext/refine_tree/parse.c"
+#line 8089 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_keyword_or: /* "'or'"  */
-#line 2652 "ext/refine_tree/parse.tmp.y"
+#line 2652 "ext/kanayago/parse.tmp.y"
          {
     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
 }
-#line 8097 "ext/refine_tree/parse.c"
+#line 8097 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_keyword_not: /* "'not'"  */
-#line 2652 "ext/refine_tree/parse.tmp.y"
+#line 2652 "ext/kanayago/parse.tmp.y"
          {
     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
 }
-#line 8105 "ext/refine_tree/parse.c"
+#line 8105 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_modifier_if: /* "'if' modifier"  */
-#line 2652 "ext/refine_tree/parse.tmp.y"
+#line 2652 "ext/kanayago/parse.tmp.y"
          {
     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
 }
-#line 8113 "ext/refine_tree/parse.c"
+#line 8113 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_modifier_unless: /* "'unless' modifier"  */
-#line 2652 "ext/refine_tree/parse.tmp.y"
+#line 2652 "ext/kanayago/parse.tmp.y"
          {
     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
 }
-#line 8121 "ext/refine_tree/parse.c"
+#line 8121 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_modifier_while: /* "'while' modifier"  */
-#line 2652 "ext/refine_tree/parse.tmp.y"
+#line 2652 "ext/kanayago/parse.tmp.y"
          {
     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
 }
-#line 8129 "ext/refine_tree/parse.c"
+#line 8129 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_modifier_until: /* "'until' modifier"  */
-#line 2652 "ext/refine_tree/parse.tmp.y"
+#line 2652 "ext/kanayago/parse.tmp.y"
          {
     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
 }
-#line 8137 "ext/refine_tree/parse.c"
+#line 8137 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_modifier_rescue: /* "'rescue' modifier"  */
-#line 2652 "ext/refine_tree/parse.tmp.y"
+#line 2652 "ext/kanayago/parse.tmp.y"
          {
     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
 }
-#line 8145 "ext/refine_tree/parse.c"
+#line 8145 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_keyword_alias: /* "'alias'"  */
-#line 2652 "ext/refine_tree/parse.tmp.y"
+#line 2652 "ext/kanayago/parse.tmp.y"
          {
     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
 }
-#line 8153 "ext/refine_tree/parse.c"
+#line 8153 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_keyword_defined: /* "'defined?'"  */
-#line 2652 "ext/refine_tree/parse.tmp.y"
+#line 2652 "ext/kanayago/parse.tmp.y"
          {
     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
 }
-#line 8161 "ext/refine_tree/parse.c"
+#line 8161 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_keyword_BEGIN: /* "'BEGIN'"  */
-#line 2652 "ext/refine_tree/parse.tmp.y"
+#line 2652 "ext/kanayago/parse.tmp.y"
          {
     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
 }
-#line 8169 "ext/refine_tree/parse.c"
+#line 8169 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_keyword_END: /* "'END'"  */
-#line 2652 "ext/refine_tree/parse.tmp.y"
+#line 2652 "ext/kanayago/parse.tmp.y"
          {
     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
 }
-#line 8177 "ext/refine_tree/parse.c"
+#line 8177 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_keyword__LINE__: /* "'__LINE__'"  */
-#line 2652 "ext/refine_tree/parse.tmp.y"
+#line 2652 "ext/kanayago/parse.tmp.y"
          {
     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
 }
-#line 8185 "ext/refine_tree/parse.c"
+#line 8185 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_keyword__FILE__: /* "'__FILE__'"  */
-#line 2652 "ext/refine_tree/parse.tmp.y"
+#line 2652 "ext/kanayago/parse.tmp.y"
          {
     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
 }
-#line 8193 "ext/refine_tree/parse.c"
+#line 8193 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_keyword__ENCODING__: /* "'__ENCODING__'"  */
-#line 2652 "ext/refine_tree/parse.tmp.y"
+#line 2652 "ext/kanayago/parse.tmp.y"
          {
     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
 }
-#line 8201 "ext/refine_tree/parse.c"
+#line 8201 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_tIDENTIFIER: /* "local variable or method"  */
-#line 2652 "ext/refine_tree/parse.tmp.y"
+#line 2652 "ext/kanayago/parse.tmp.y"
          {
     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
 }
-#line 8209 "ext/refine_tree/parse.c"
+#line 8209 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_tFID: /* "method"  */
-#line 2652 "ext/refine_tree/parse.tmp.y"
+#line 2652 "ext/kanayago/parse.tmp.y"
          {
     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
 }
-#line 8217 "ext/refine_tree/parse.c"
+#line 8217 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_tGVAR: /* "global variable"  */
-#line 2652 "ext/refine_tree/parse.tmp.y"
+#line 2652 "ext/kanayago/parse.tmp.y"
          {
     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
 }
-#line 8225 "ext/refine_tree/parse.c"
+#line 8225 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_tIVAR: /* "instance variable"  */
-#line 2652 "ext/refine_tree/parse.tmp.y"
+#line 2652 "ext/kanayago/parse.tmp.y"
          {
     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
 }
-#line 8233 "ext/refine_tree/parse.c"
+#line 8233 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_tCONSTANT: /* "constant"  */
-#line 2652 "ext/refine_tree/parse.tmp.y"
+#line 2652 "ext/kanayago/parse.tmp.y"
          {
     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
 }
-#line 8241 "ext/refine_tree/parse.c"
+#line 8241 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_tCVAR: /* "class variable"  */
-#line 2652 "ext/refine_tree/parse.tmp.y"
+#line 2652 "ext/kanayago/parse.tmp.y"
          {
     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
 }
-#line 8249 "ext/refine_tree/parse.c"
+#line 8249 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_tLABEL: /* "label"  */
-#line 2652 "ext/refine_tree/parse.tmp.y"
+#line 2652 "ext/kanayago/parse.tmp.y"
          {
     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
 }
-#line 8257 "ext/refine_tree/parse.c"
+#line 8257 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_tINTEGER: /* "integer literal"  */
-#line 2655 "ext/refine_tree/parse.tmp.y"
+#line 2655 "ext/kanayago/parse.tmp.y"
          {
     switch (nd_type(RNODE(((*yyvaluep).node)))) {
       case NODE_INTEGER:
@@ -8276,11 +8276,11 @@ switch (yykind)
         break;
     }
 }
-#line 8280 "ext/refine_tree/parse.c"
+#line 8280 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_tFLOAT: /* "float literal"  */
-#line 2655 "ext/refine_tree/parse.tmp.y"
+#line 2655 "ext/kanayago/parse.tmp.y"
          {
     switch (nd_type(RNODE(((*yyvaluep).node)))) {
       case NODE_INTEGER:
@@ -8299,11 +8299,11 @@ switch (yykind)
         break;
     }
 }
-#line 8303 "ext/refine_tree/parse.c"
+#line 8303 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_tRATIONAL: /* "rational literal"  */
-#line 2655 "ext/refine_tree/parse.tmp.y"
+#line 2655 "ext/kanayago/parse.tmp.y"
          {
     switch (nd_type(RNODE(((*yyvaluep).node)))) {
       case NODE_INTEGER:
@@ -8322,11 +8322,11 @@ switch (yykind)
         break;
     }
 }
-#line 8326 "ext/refine_tree/parse.c"
+#line 8326 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_tIMAGINARY: /* "imaginary literal"  */
-#line 2655 "ext/refine_tree/parse.tmp.y"
+#line 2655 "ext/kanayago/parse.tmp.y"
          {
     switch (nd_type(RNODE(((*yyvaluep).node)))) {
       case NODE_INTEGER:
@@ -8345,11 +8345,11 @@ switch (yykind)
         break;
     }
 }
-#line 8349 "ext/refine_tree/parse.c"
+#line 8349 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_tCHAR: /* "char literal"  */
-#line 2655 "ext/refine_tree/parse.tmp.y"
+#line 2655 "ext/kanayago/parse.tmp.y"
          {
     switch (nd_type(RNODE(((*yyvaluep).node)))) {
       case NODE_INTEGER:
@@ -8368,27 +8368,27 @@ switch (yykind)
         break;
     }
 }
-#line 8372 "ext/refine_tree/parse.c"
+#line 8372 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_tNTH_REF: /* "numbered reference"  */
-#line 2673 "ext/refine_tree/parse.tmp.y"
+#line 2673 "ext/kanayago/parse.tmp.y"
          {
     rb_parser_printf(p, "$%ld", RNODE_NTH_REF(((*yyvaluep).node))->nd_nth);
 }
-#line 8380 "ext/refine_tree/parse.c"
+#line 8380 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_tBACK_REF: /* "back reference"  */
-#line 2676 "ext/refine_tree/parse.tmp.y"
+#line 2676 "ext/kanayago/parse.tmp.y"
          {
     rb_parser_printf(p, "$%c", (int)RNODE_BACK_REF(((*yyvaluep).node))->nd_nth);
 }
-#line 8388 "ext/refine_tree/parse.c"
+#line 8388 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_tSTRING_CONTENT: /* "literal content"  */
-#line 2655 "ext/refine_tree/parse.tmp.y"
+#line 2655 "ext/kanayago/parse.tmp.y"
          {
     switch (nd_type(RNODE(((*yyvaluep).node)))) {
       case NODE_INTEGER:
@@ -8407,83 +8407,83 @@ switch (yykind)
         break;
     }
 }
-#line 8411 "ext/refine_tree/parse.c"
+#line 8411 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_69_: /* '.'  */
-#line 2652 "ext/refine_tree/parse.tmp.y"
+#line 2652 "ext/kanayago/parse.tmp.y"
          {
     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
 }
-#line 8419 "ext/refine_tree/parse.c"
+#line 8419 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_70_backslash_: /* "backslash"  */
-#line 2652 "ext/refine_tree/parse.tmp.y"
+#line 2652 "ext/kanayago/parse.tmp.y"
          {
     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
 }
-#line 8427 "ext/refine_tree/parse.c"
+#line 8427 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_72_escaped_horizontal_tab_: /* "escaped horizontal tab"  */
-#line 2652 "ext/refine_tree/parse.tmp.y"
+#line 2652 "ext/kanayago/parse.tmp.y"
          {
     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
 }
-#line 8435 "ext/refine_tree/parse.c"
+#line 8435 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_73_escaped_form_feed_: /* "escaped form feed"  */
-#line 2652 "ext/refine_tree/parse.tmp.y"
+#line 2652 "ext/kanayago/parse.tmp.y"
          {
     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
 }
-#line 8443 "ext/refine_tree/parse.c"
+#line 8443 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_74_escaped_carriage_return_: /* "escaped carriage return"  */
-#line 2652 "ext/refine_tree/parse.tmp.y"
+#line 2652 "ext/kanayago/parse.tmp.y"
          {
     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
 }
-#line 8451 "ext/refine_tree/parse.c"
+#line 8451 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_75_escaped_vertical_tab_: /* "escaped vertical tab"  */
-#line 2652 "ext/refine_tree/parse.tmp.y"
+#line 2652 "ext/kanayago/parse.tmp.y"
          {
     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
 }
-#line 8459 "ext/refine_tree/parse.c"
+#line 8459 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_tANDDOT: /* "&."  */
-#line 2652 "ext/refine_tree/parse.tmp.y"
+#line 2652 "ext/kanayago/parse.tmp.y"
          {
     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
 }
-#line 8467 "ext/refine_tree/parse.c"
+#line 8467 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_tCOLON2: /* "::"  */
-#line 2652 "ext/refine_tree/parse.tmp.y"
+#line 2652 "ext/kanayago/parse.tmp.y"
          {
     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
 }
-#line 8475 "ext/refine_tree/parse.c"
+#line 8475 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_tOP_ASGN: /* "operator-assignment"  */
-#line 2652 "ext/refine_tree/parse.tmp.y"
+#line 2652 "ext/kanayago/parse.tmp.y"
          {
     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
 }
-#line 8483 "ext/refine_tree/parse.c"
+#line 8483 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_top_compstmt: /* top_compstmt  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -8492,11 +8492,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 8496 "ext/refine_tree/parse.c"
+#line 8496 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_top_stmts: /* top_stmts  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -8505,11 +8505,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 8509 "ext/refine_tree/parse.c"
+#line 8509 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_top_stmt: /* top_stmt  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -8518,11 +8518,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 8522 "ext/refine_tree/parse.c"
+#line 8522 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_block_open: /* block_open  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node_exits) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -8531,11 +8531,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node_exits)))));
     }
 }
-#line 8535 "ext/refine_tree/parse.c"
+#line 8535 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_begin_block: /* begin_block  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -8544,11 +8544,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 8548 "ext/refine_tree/parse.c"
+#line 8548 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_bodystmt: /* bodystmt  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -8557,11 +8557,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 8561 "ext/refine_tree/parse.c"
+#line 8561 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_compstmt: /* compstmt  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -8570,11 +8570,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 8574 "ext/refine_tree/parse.c"
+#line 8574 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_stmts: /* stmts  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -8583,11 +8583,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 8587 "ext/refine_tree/parse.c"
+#line 8587 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_stmt_or_begin: /* stmt_or_begin  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -8596,11 +8596,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 8600 "ext/refine_tree/parse.c"
+#line 8600 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_allow_exits: /* allow_exits  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node_exits) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -8609,11 +8609,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node_exits)))));
     }
 }
-#line 8613 "ext/refine_tree/parse.c"
+#line 8613 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_stmt: /* stmt  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -8622,11 +8622,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 8626 "ext/refine_tree/parse.c"
+#line 8626 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_command_asgn: /* command_asgn  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -8635,11 +8635,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 8639 "ext/refine_tree/parse.c"
+#line 8639 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_endless_command: /* endless_command  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -8648,11 +8648,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 8652 "ext/refine_tree/parse.c"
+#line 8652 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_command_rhs: /* command_rhs  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -8661,11 +8661,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 8665 "ext/refine_tree/parse.c"
+#line 8665 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_expr: /* expr  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -8674,19 +8674,19 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 8678 "ext/refine_tree/parse.c"
+#line 8678 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_def_name: /* def_name  */
-#line 2652 "ext/refine_tree/parse.tmp.y"
+#line 2652 "ext/kanayago/parse.tmp.y"
          {
     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
 }
-#line 8686 "ext/refine_tree/parse.c"
+#line 8686 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_defn_head: /* defn_head  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node_def_temp) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -8695,11 +8695,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node_def_temp)))));
     }
 }
-#line 8699 "ext/refine_tree/parse.c"
+#line 8699 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_defs_head: /* defs_head  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node_def_temp) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -8708,11 +8708,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node_def_temp)))));
     }
 }
-#line 8712 "ext/refine_tree/parse.c"
+#line 8712 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_expr_value: /* expr_value  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -8721,11 +8721,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 8725 "ext/refine_tree/parse.c"
+#line 8725 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_expr_value_do: /* expr_value_do  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -8734,11 +8734,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 8738 "ext/refine_tree/parse.c"
+#line 8738 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_command_call: /* command_call  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -8747,11 +8747,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 8751 "ext/refine_tree/parse.c"
+#line 8751 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_block_command: /* block_command  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -8760,11 +8760,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 8764 "ext/refine_tree/parse.c"
+#line 8764 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_cmd_brace_block: /* cmd_brace_block  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -8773,11 +8773,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 8777 "ext/refine_tree/parse.c"
+#line 8777 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_fcall: /* fcall  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node_fcall) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -8786,11 +8786,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node_fcall)))));
     }
 }
-#line 8790 "ext/refine_tree/parse.c"
+#line 8790 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_command: /* command  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -8799,11 +8799,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 8803 "ext/refine_tree/parse.c"
+#line 8803 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_mlhs: /* mlhs  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node_masgn) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -8812,11 +8812,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node_masgn)))));
     }
 }
-#line 8816 "ext/refine_tree/parse.c"
+#line 8816 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_mlhs_inner: /* mlhs_inner  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node_masgn) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -8825,11 +8825,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node_masgn)))));
     }
 }
-#line 8829 "ext/refine_tree/parse.c"
+#line 8829 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_mlhs_basic: /* mlhs_basic  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node_masgn) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -8838,11 +8838,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node_masgn)))));
     }
 }
-#line 8842 "ext/refine_tree/parse.c"
+#line 8842 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_mlhs_item: /* mlhs_item  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -8851,11 +8851,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 8855 "ext/refine_tree/parse.c"
+#line 8855 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_mlhs_head: /* mlhs_head  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -8864,11 +8864,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 8868 "ext/refine_tree/parse.c"
+#line 8868 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_mlhs_post: /* mlhs_post  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -8877,11 +8877,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 8881 "ext/refine_tree/parse.c"
+#line 8881 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_mlhs_node: /* mlhs_node  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -8890,11 +8890,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 8894 "ext/refine_tree/parse.c"
+#line 8894 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_lhs: /* lhs  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -8903,19 +8903,19 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 8907 "ext/refine_tree/parse.c"
+#line 8907 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_cname: /* cname  */
-#line 2652 "ext/refine_tree/parse.tmp.y"
+#line 2652 "ext/kanayago/parse.tmp.y"
          {
     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
 }
-#line 8915 "ext/refine_tree/parse.c"
+#line 8915 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_cpath: /* cpath  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -8924,19 +8924,19 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 8928 "ext/refine_tree/parse.c"
+#line 8928 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_fname: /* fname  */
-#line 2652 "ext/refine_tree/parse.tmp.y"
+#line 2652 "ext/kanayago/parse.tmp.y"
          {
     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
 }
-#line 8936 "ext/refine_tree/parse.c"
+#line 8936 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_fitem: /* fitem  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -8945,11 +8945,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 8949 "ext/refine_tree/parse.c"
+#line 8949 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_undef_list: /* undef_list  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -8958,27 +8958,27 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 8962 "ext/refine_tree/parse.c"
+#line 8962 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_op: /* op  */
-#line 2652 "ext/refine_tree/parse.tmp.y"
+#line 2652 "ext/kanayago/parse.tmp.y"
          {
     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
 }
-#line 8970 "ext/refine_tree/parse.c"
+#line 8970 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_reswords: /* reswords  */
-#line 2652 "ext/refine_tree/parse.tmp.y"
+#line 2652 "ext/kanayago/parse.tmp.y"
          {
     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
 }
-#line 8978 "ext/refine_tree/parse.c"
+#line 8978 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_arg: /* arg  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -8987,11 +8987,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 8991 "ext/refine_tree/parse.c"
+#line 8991 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_endless_arg: /* endless_arg  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -9000,19 +9000,19 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 9004 "ext/refine_tree/parse.c"
+#line 9004 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_relop: /* relop  */
-#line 2652 "ext/refine_tree/parse.tmp.y"
+#line 2652 "ext/kanayago/parse.tmp.y"
          {
     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
 }
-#line 9012 "ext/refine_tree/parse.c"
+#line 9012 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_rel_expr: /* rel_expr  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -9021,11 +9021,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 9025 "ext/refine_tree/parse.c"
+#line 9025 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_arg_value: /* arg_value  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -9034,11 +9034,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 9038 "ext/refine_tree/parse.c"
+#line 9038 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_aref_args: /* aref_args  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -9047,11 +9047,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 9051 "ext/refine_tree/parse.c"
+#line 9051 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_arg_rhs: /* arg_rhs  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -9060,11 +9060,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 9064 "ext/refine_tree/parse.c"
+#line 9064 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_paren_args: /* paren_args  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -9073,11 +9073,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 9077 "ext/refine_tree/parse.c"
+#line 9077 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_opt_paren_args: /* opt_paren_args  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -9086,11 +9086,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 9090 "ext/refine_tree/parse.c"
+#line 9090 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_opt_call_args: /* opt_call_args  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -9099,11 +9099,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 9103 "ext/refine_tree/parse.c"
+#line 9103 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_call_args: /* call_args  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -9112,11 +9112,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 9116 "ext/refine_tree/parse.c"
+#line 9116 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_command_args: /* command_args  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -9125,11 +9125,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 9129 "ext/refine_tree/parse.c"
+#line 9129 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_block_arg: /* block_arg  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node_block_pass) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -9138,11 +9138,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node_block_pass)))));
     }
 }
-#line 9142 "ext/refine_tree/parse.c"
+#line 9142 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_opt_block_arg: /* opt_block_arg  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node_block_pass) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -9151,11 +9151,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node_block_pass)))));
     }
 }
-#line 9155 "ext/refine_tree/parse.c"
+#line 9155 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_args: /* args  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -9164,11 +9164,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 9168 "ext/refine_tree/parse.c"
+#line 9168 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_arg_splat: /* arg_splat  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -9177,11 +9177,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 9181 "ext/refine_tree/parse.c"
+#line 9181 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_mrhs_arg: /* mrhs_arg  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -9190,11 +9190,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 9194 "ext/refine_tree/parse.c"
+#line 9194 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_mrhs: /* mrhs  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -9203,11 +9203,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 9207 "ext/refine_tree/parse.c"
+#line 9207 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_primary: /* primary  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -9216,11 +9216,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 9220 "ext/refine_tree/parse.c"
+#line 9220 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_primary_value: /* primary_value  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -9229,11 +9229,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 9233 "ext/refine_tree/parse.c"
+#line 9233 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_k_while: /* k_while  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node_exits) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -9242,11 +9242,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node_exits)))));
     }
 }
-#line 9246 "ext/refine_tree/parse.c"
+#line 9246 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_k_until: /* k_until  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node_exits) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -9255,11 +9255,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node_exits)))));
     }
 }
-#line 9259 "ext/refine_tree/parse.c"
+#line 9259 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_k_for: /* k_for  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node_exits) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -9268,11 +9268,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node_exits)))));
     }
 }
-#line 9272 "ext/refine_tree/parse.c"
+#line 9272 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_k_def: /* k_def  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node_def_temp) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -9281,11 +9281,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node_def_temp)))));
     }
 }
-#line 9285 "ext/refine_tree/parse.c"
+#line 9285 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_if_tail: /* if_tail  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -9294,11 +9294,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 9298 "ext/refine_tree/parse.c"
+#line 9298 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_opt_else: /* opt_else  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -9307,11 +9307,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 9311 "ext/refine_tree/parse.c"
+#line 9311 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_for_var: /* for_var  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -9320,11 +9320,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 9324 "ext/refine_tree/parse.c"
+#line 9324 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_f_marg: /* f_marg  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -9333,11 +9333,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 9337 "ext/refine_tree/parse.c"
+#line 9337 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_f_marg_list: /* f_marg_list  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -9346,11 +9346,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 9350 "ext/refine_tree/parse.c"
+#line 9350 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_f_margs: /* f_margs  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node_masgn) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -9359,11 +9359,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node_masgn)))));
     }
 }
-#line 9363 "ext/refine_tree/parse.c"
+#line 9363 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_f_rest_marg: /* f_rest_marg  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -9372,19 +9372,19 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 9376 "ext/refine_tree/parse.c"
+#line 9376 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_f_any_kwrest: /* f_any_kwrest  */
-#line 2652 "ext/refine_tree/parse.tmp.y"
+#line 2652 "ext/kanayago/parse.tmp.y"
          {
     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
 }
-#line 9384 "ext/refine_tree/parse.c"
+#line 9384 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_f_kwarg_f_block_kw: /* f_kwarg_f_block_kw  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node_kw_arg) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -9393,11 +9393,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node_kw_arg)))));
     }
 }
-#line 9397 "ext/refine_tree/parse.c"
+#line 9397 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_block_args_tail: /* block_args_tail  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node_args) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -9406,19 +9406,19 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node_args)))));
     }
 }
-#line 9410 "ext/refine_tree/parse.c"
+#line 9410 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_excessed_comma: /* excessed_comma  */
-#line 2652 "ext/refine_tree/parse.tmp.y"
+#line 2652 "ext/kanayago/parse.tmp.y"
          {
     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
 }
-#line 9418 "ext/refine_tree/parse.c"
+#line 9418 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_f_opt_primary_value: /* f_opt_primary_value  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node_opt_arg) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -9427,11 +9427,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node_opt_arg)))));
     }
 }
-#line 9431 "ext/refine_tree/parse.c"
+#line 9431 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_f_optarg_primary_value: /* f_optarg_primary_value  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node_opt_arg) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -9440,11 +9440,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node_opt_arg)))));
     }
 }
-#line 9444 "ext/refine_tree/parse.c"
+#line 9444 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_opt_args_tail_block_args_tail: /* opt_args_tail_block_args_tail  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node_args) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -9453,11 +9453,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node_args)))));
     }
 }
-#line 9457 "ext/refine_tree/parse.c"
+#line 9457 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_block_param: /* block_param  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node_args) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -9466,11 +9466,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node_args)))));
     }
 }
-#line 9470 "ext/refine_tree/parse.c"
+#line 9470 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_opt_block_param: /* opt_block_param  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node_args) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -9479,11 +9479,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node_args)))));
     }
 }
-#line 9483 "ext/refine_tree/parse.c"
+#line 9483 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_block_param_def: /* block_param_def  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node_args) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -9492,35 +9492,35 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node_args)))));
     }
 }
-#line 9496 "ext/refine_tree/parse.c"
+#line 9496 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_opt_bv_decl: /* opt_bv_decl  */
-#line 2652 "ext/refine_tree/parse.tmp.y"
+#line 2652 "ext/kanayago/parse.tmp.y"
          {
     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
 }
-#line 9504 "ext/refine_tree/parse.c"
+#line 9504 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_bv_decls: /* bv_decls  */
-#line 2652 "ext/refine_tree/parse.tmp.y"
+#line 2652 "ext/kanayago/parse.tmp.y"
          {
     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
 }
-#line 9512 "ext/refine_tree/parse.c"
+#line 9512 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_bvar: /* bvar  */
-#line 2652 "ext/refine_tree/parse.tmp.y"
+#line 2652 "ext/kanayago/parse.tmp.y"
          {
     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
 }
-#line 9520 "ext/refine_tree/parse.c"
+#line 9520 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_numparam: /* numparam  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -9529,19 +9529,19 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 9533 "ext/refine_tree/parse.c"
+#line 9533 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_it_id: /* it_id  */
-#line 2652 "ext/refine_tree/parse.tmp.y"
+#line 2652 "ext/kanayago/parse.tmp.y"
          {
     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
 }
-#line 9541 "ext/refine_tree/parse.c"
+#line 9541 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_lambda: /* lambda  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -9550,11 +9550,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 9554 "ext/refine_tree/parse.c"
+#line 9554 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_f_larglist: /* f_larglist  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node_args) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -9563,11 +9563,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node_args)))));
     }
 }
-#line 9567 "ext/refine_tree/parse.c"
+#line 9567 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_lambda_body: /* lambda_body  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -9576,11 +9576,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 9580 "ext/refine_tree/parse.c"
+#line 9580 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_do_block: /* do_block  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -9589,11 +9589,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 9593 "ext/refine_tree/parse.c"
+#line 9593 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_block_call: /* block_call  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -9602,11 +9602,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 9606 "ext/refine_tree/parse.c"
+#line 9606 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_method_call: /* method_call  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -9615,11 +9615,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 9619 "ext/refine_tree/parse.c"
+#line 9619 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_brace_block: /* brace_block  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -9628,11 +9628,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 9632 "ext/refine_tree/parse.c"
+#line 9632 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_brace_body: /* brace_body  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -9641,11 +9641,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 9645 "ext/refine_tree/parse.c"
+#line 9645 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_do_body: /* do_body  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -9654,11 +9654,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 9658 "ext/refine_tree/parse.c"
+#line 9658 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_case_args: /* case_args  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -9667,11 +9667,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 9671 "ext/refine_tree/parse.c"
+#line 9671 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_case_body: /* case_body  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -9680,11 +9680,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 9684 "ext/refine_tree/parse.c"
+#line 9684 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_cases: /* cases  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -9693,11 +9693,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 9697 "ext/refine_tree/parse.c"
+#line 9697 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_p_case_body: /* p_case_body  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -9706,11 +9706,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 9710 "ext/refine_tree/parse.c"
+#line 9710 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_p_cases: /* p_cases  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -9719,11 +9719,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 9723 "ext/refine_tree/parse.c"
+#line 9723 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_p_top_expr: /* p_top_expr  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -9732,11 +9732,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 9736 "ext/refine_tree/parse.c"
+#line 9736 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_p_top_expr_body: /* p_top_expr_body  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -9745,11 +9745,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 9749 "ext/refine_tree/parse.c"
+#line 9749 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_p_expr: /* p_expr  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -9758,11 +9758,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 9762 "ext/refine_tree/parse.c"
+#line 9762 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_p_as: /* p_as  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -9771,11 +9771,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 9775 "ext/refine_tree/parse.c"
+#line 9775 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_p_alt: /* p_alt  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -9784,11 +9784,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 9788 "ext/refine_tree/parse.c"
+#line 9788 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_p_expr_basic: /* p_expr_basic  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -9797,11 +9797,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 9801 "ext/refine_tree/parse.c"
+#line 9801 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_p_args: /* p_args  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -9810,11 +9810,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 9814 "ext/refine_tree/parse.c"
+#line 9814 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_p_args_head: /* p_args_head  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -9823,11 +9823,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 9827 "ext/refine_tree/parse.c"
+#line 9827 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_p_args_tail: /* p_args_tail  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -9836,11 +9836,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 9840 "ext/refine_tree/parse.c"
+#line 9840 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_p_find: /* p_find  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -9849,11 +9849,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 9853 "ext/refine_tree/parse.c"
+#line 9853 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_p_rest: /* p_rest  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -9862,11 +9862,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 9866 "ext/refine_tree/parse.c"
+#line 9866 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_p_args_post: /* p_args_post  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -9875,11 +9875,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 9879 "ext/refine_tree/parse.c"
+#line 9879 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_p_arg: /* p_arg  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -9888,11 +9888,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 9892 "ext/refine_tree/parse.c"
+#line 9892 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_p_kwargs: /* p_kwargs  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -9901,11 +9901,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 9905 "ext/refine_tree/parse.c"
+#line 9905 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_p_kwarg: /* p_kwarg  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -9914,11 +9914,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 9918 "ext/refine_tree/parse.c"
+#line 9918 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_p_kw: /* p_kw  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -9927,43 +9927,43 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 9931 "ext/refine_tree/parse.c"
+#line 9931 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_p_kw_label: /* p_kw_label  */
-#line 2652 "ext/refine_tree/parse.tmp.y"
+#line 2652 "ext/kanayago/parse.tmp.y"
          {
     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
 }
-#line 9939 "ext/refine_tree/parse.c"
+#line 9939 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_p_kwrest: /* p_kwrest  */
-#line 2652 "ext/refine_tree/parse.tmp.y"
+#line 2652 "ext/kanayago/parse.tmp.y"
          {
     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
 }
-#line 9947 "ext/refine_tree/parse.c"
+#line 9947 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_p_kwnorest: /* p_kwnorest  */
-#line 2652 "ext/refine_tree/parse.tmp.y"
+#line 2652 "ext/kanayago/parse.tmp.y"
          {
     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
 }
-#line 9955 "ext/refine_tree/parse.c"
+#line 9955 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_p_any_kwrest: /* p_any_kwrest  */
-#line 2652 "ext/refine_tree/parse.tmp.y"
+#line 2652 "ext/kanayago/parse.tmp.y"
          {
     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
 }
-#line 9963 "ext/refine_tree/parse.c"
+#line 9963 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_p_value: /* p_value  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -9972,11 +9972,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 9976 "ext/refine_tree/parse.c"
+#line 9976 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_p_primitive: /* p_primitive  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -9985,11 +9985,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 9989 "ext/refine_tree/parse.c"
+#line 9989 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_p_variable: /* p_variable  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -9998,11 +9998,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 10002 "ext/refine_tree/parse.c"
+#line 10002 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_p_var_ref: /* p_var_ref  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -10011,11 +10011,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 10015 "ext/refine_tree/parse.c"
+#line 10015 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_p_expr_ref: /* p_expr_ref  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -10024,11 +10024,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 10028 "ext/refine_tree/parse.c"
+#line 10028 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_p_const: /* p_const  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -10037,11 +10037,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 10041 "ext/refine_tree/parse.c"
+#line 10041 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_opt_rescue: /* opt_rescue  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -10050,11 +10050,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 10054 "ext/refine_tree/parse.c"
+#line 10054 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_exc_list: /* exc_list  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -10063,11 +10063,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 10067 "ext/refine_tree/parse.c"
+#line 10067 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_exc_var: /* exc_var  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -10076,11 +10076,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 10080 "ext/refine_tree/parse.c"
+#line 10080 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_opt_ensure: /* opt_ensure  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -10089,11 +10089,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 10093 "ext/refine_tree/parse.c"
+#line 10093 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_literal: /* literal  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -10102,11 +10102,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 10106 "ext/refine_tree/parse.c"
+#line 10106 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_strings: /* strings  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -10115,11 +10115,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 10119 "ext/refine_tree/parse.c"
+#line 10119 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_string: /* string  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -10128,11 +10128,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 10132 "ext/refine_tree/parse.c"
+#line 10132 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_string1: /* string1  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -10141,11 +10141,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 10145 "ext/refine_tree/parse.c"
+#line 10145 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_xstring: /* xstring  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -10154,11 +10154,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 10158 "ext/refine_tree/parse.c"
+#line 10158 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_regexp: /* regexp  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -10167,11 +10167,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 10171 "ext/refine_tree/parse.c"
+#line 10171 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_words_tWORDS_BEG_word_list: /* words_tWORDS_BEG_word_list  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -10180,11 +10180,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 10184 "ext/refine_tree/parse.c"
+#line 10184 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_words: /* words  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -10193,11 +10193,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 10197 "ext/refine_tree/parse.c"
+#line 10197 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_word_list: /* word_list  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -10206,11 +10206,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 10210 "ext/refine_tree/parse.c"
+#line 10210 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_word: /* word  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -10219,11 +10219,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 10223 "ext/refine_tree/parse.c"
+#line 10223 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_words_tSYMBOLS_BEG_symbol_list: /* words_tSYMBOLS_BEG_symbol_list  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -10232,11 +10232,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 10236 "ext/refine_tree/parse.c"
+#line 10236 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_symbols: /* symbols  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -10245,11 +10245,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 10249 "ext/refine_tree/parse.c"
+#line 10249 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_symbol_list: /* symbol_list  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -10258,11 +10258,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 10262 "ext/refine_tree/parse.c"
+#line 10262 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_words_tQWORDS_BEG_qword_list: /* words_tQWORDS_BEG_qword_list  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -10271,11 +10271,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 10275 "ext/refine_tree/parse.c"
+#line 10275 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_qwords: /* qwords  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -10284,11 +10284,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 10288 "ext/refine_tree/parse.c"
+#line 10288 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_words_tQSYMBOLS_BEG_qsym_list: /* words_tQSYMBOLS_BEG_qsym_list  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -10297,11 +10297,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 10301 "ext/refine_tree/parse.c"
+#line 10301 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_qsymbols: /* qsymbols  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -10310,11 +10310,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 10314 "ext/refine_tree/parse.c"
+#line 10314 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_qword_list: /* qword_list  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -10323,11 +10323,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 10327 "ext/refine_tree/parse.c"
+#line 10327 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_qsym_list: /* qsym_list  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -10336,11 +10336,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 10340 "ext/refine_tree/parse.c"
+#line 10340 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_string_contents: /* string_contents  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -10349,11 +10349,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 10353 "ext/refine_tree/parse.c"
+#line 10353 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_xstring_contents: /* xstring_contents  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -10362,11 +10362,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 10366 "ext/refine_tree/parse.c"
+#line 10366 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_regexp_contents: /* regexp_contents  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -10375,11 +10375,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 10379 "ext/refine_tree/parse.c"
+#line 10379 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_string_content: /* string_content  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -10388,11 +10388,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 10392 "ext/refine_tree/parse.c"
+#line 10392 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_string_dvar: /* string_dvar  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -10401,11 +10401,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 10405 "ext/refine_tree/parse.c"
+#line 10405 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_symbol: /* symbol  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -10414,11 +10414,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 10418 "ext/refine_tree/parse.c"
+#line 10418 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_ssym: /* ssym  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -10427,19 +10427,19 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 10431 "ext/refine_tree/parse.c"
+#line 10431 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_sym: /* sym  */
-#line 2652 "ext/refine_tree/parse.tmp.y"
+#line 2652 "ext/kanayago/parse.tmp.y"
          {
     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
 }
-#line 10439 "ext/refine_tree/parse.c"
+#line 10439 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_dsym: /* dsym  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -10448,11 +10448,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 10452 "ext/refine_tree/parse.c"
+#line 10452 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_numeric: /* numeric  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -10461,11 +10461,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 10465 "ext/refine_tree/parse.c"
+#line 10465 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_simple_numeric: /* simple_numeric  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -10474,35 +10474,35 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 10478 "ext/refine_tree/parse.c"
+#line 10478 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_nonlocal_var: /* nonlocal_var  */
-#line 2652 "ext/refine_tree/parse.tmp.y"
+#line 2652 "ext/kanayago/parse.tmp.y"
          {
     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
 }
-#line 10486 "ext/refine_tree/parse.c"
+#line 10486 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_user_variable: /* user_variable  */
-#line 2652 "ext/refine_tree/parse.tmp.y"
+#line 2652 "ext/kanayago/parse.tmp.y"
          {
     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
 }
-#line 10494 "ext/refine_tree/parse.c"
+#line 10494 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_keyword_variable: /* keyword_variable  */
-#line 2652 "ext/refine_tree/parse.tmp.y"
+#line 2652 "ext/kanayago/parse.tmp.y"
          {
     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
 }
-#line 10502 "ext/refine_tree/parse.c"
+#line 10502 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_var_ref: /* var_ref  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -10511,11 +10511,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 10515 "ext/refine_tree/parse.c"
+#line 10515 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_var_lhs: /* var_lhs  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -10524,11 +10524,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 10528 "ext/refine_tree/parse.c"
+#line 10528 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_backref: /* backref  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -10537,11 +10537,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 10541 "ext/refine_tree/parse.c"
+#line 10541 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_superclass: /* superclass  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -10550,11 +10550,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 10554 "ext/refine_tree/parse.c"
+#line 10554 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_f_opt_paren_args: /* f_opt_paren_args  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node_args) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -10563,11 +10563,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node_args)))));
     }
 }
-#line 10567 "ext/refine_tree/parse.c"
+#line 10567 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_f_paren_args: /* f_paren_args  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node_args) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -10576,11 +10576,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node_args)))));
     }
 }
-#line 10580 "ext/refine_tree/parse.c"
+#line 10580 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_f_arglist: /* f_arglist  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node_args) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -10589,11 +10589,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node_args)))));
     }
 }
-#line 10593 "ext/refine_tree/parse.c"
+#line 10593 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_f_kwarg_f_kw: /* f_kwarg_f_kw  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node_kw_arg) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -10602,11 +10602,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node_kw_arg)))));
     }
 }
-#line 10606 "ext/refine_tree/parse.c"
+#line 10606 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_args_tail: /* args_tail  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node_args) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -10615,11 +10615,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node_args)))));
     }
 }
-#line 10619 "ext/refine_tree/parse.c"
+#line 10619 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_f_opt_arg_value: /* f_opt_arg_value  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node_opt_arg) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -10628,11 +10628,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node_opt_arg)))));
     }
 }
-#line 10632 "ext/refine_tree/parse.c"
+#line 10632 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_f_optarg_arg_value: /* f_optarg_arg_value  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node_opt_arg) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -10641,11 +10641,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node_opt_arg)))));
     }
 }
-#line 10645 "ext/refine_tree/parse.c"
+#line 10645 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_opt_args_tail_args_tail: /* opt_args_tail_args_tail  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node_args) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -10654,11 +10654,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node_args)))));
     }
 }
-#line 10658 "ext/refine_tree/parse.c"
+#line 10658 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_f_args: /* f_args  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node_args) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -10667,43 +10667,43 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node_args)))));
     }
 }
-#line 10671 "ext/refine_tree/parse.c"
+#line 10671 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_args_forward: /* args_forward  */
-#line 2652 "ext/refine_tree/parse.tmp.y"
+#line 2652 "ext/kanayago/parse.tmp.y"
          {
     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
 }
-#line 10679 "ext/refine_tree/parse.c"
+#line 10679 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_f_bad_arg: /* f_bad_arg  */
-#line 2652 "ext/refine_tree/parse.tmp.y"
+#line 2652 "ext/kanayago/parse.tmp.y"
          {
     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
 }
-#line 10687 "ext/refine_tree/parse.c"
+#line 10687 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_f_norm_arg: /* f_norm_arg  */
-#line 2652 "ext/refine_tree/parse.tmp.y"
+#line 2652 "ext/kanayago/parse.tmp.y"
          {
     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
 }
-#line 10695 "ext/refine_tree/parse.c"
+#line 10695 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_f_arg_asgn: /* f_arg_asgn  */
-#line 2652 "ext/refine_tree/parse.tmp.y"
+#line 2652 "ext/kanayago/parse.tmp.y"
          {
     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
 }
-#line 10703 "ext/refine_tree/parse.c"
+#line 10703 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_f_arg_item: /* f_arg_item  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node_args_aux) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -10712,11 +10712,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node_args_aux)))));
     }
 }
-#line 10716 "ext/refine_tree/parse.c"
+#line 10716 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_f_arg: /* f_arg  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node_args_aux) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -10725,19 +10725,19 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node_args_aux)))));
     }
 }
-#line 10729 "ext/refine_tree/parse.c"
+#line 10729 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_f_label: /* f_label  */
-#line 2652 "ext/refine_tree/parse.tmp.y"
+#line 2652 "ext/kanayago/parse.tmp.y"
          {
     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
 }
-#line 10737 "ext/refine_tree/parse.c"
+#line 10737 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_f_kw: /* f_kw  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node_kw_arg) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -10746,11 +10746,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node_kw_arg)))));
     }
 }
-#line 10750 "ext/refine_tree/parse.c"
+#line 10750 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_f_block_kw: /* f_block_kw  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node_kw_arg) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -10759,51 +10759,51 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node_kw_arg)))));
     }
 }
-#line 10763 "ext/refine_tree/parse.c"
+#line 10763 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_f_no_kwarg: /* f_no_kwarg  */
-#line 2652 "ext/refine_tree/parse.tmp.y"
+#line 2652 "ext/kanayago/parse.tmp.y"
          {
     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
 }
-#line 10771 "ext/refine_tree/parse.c"
+#line 10771 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_f_kwrest: /* f_kwrest  */
-#line 2652 "ext/refine_tree/parse.tmp.y"
+#line 2652 "ext/kanayago/parse.tmp.y"
          {
     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
 }
-#line 10779 "ext/refine_tree/parse.c"
+#line 10779 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_f_rest_arg: /* f_rest_arg  */
-#line 2652 "ext/refine_tree/parse.tmp.y"
+#line 2652 "ext/kanayago/parse.tmp.y"
          {
     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
 }
-#line 10787 "ext/refine_tree/parse.c"
+#line 10787 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_f_block_arg: /* f_block_arg  */
-#line 2652 "ext/refine_tree/parse.tmp.y"
+#line 2652 "ext/kanayago/parse.tmp.y"
          {
     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
 }
-#line 10795 "ext/refine_tree/parse.c"
+#line 10795 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_opt_f_block_arg: /* opt_f_block_arg  */
-#line 2652 "ext/refine_tree/parse.tmp.y"
+#line 2652 "ext/kanayago/parse.tmp.y"
          {
     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
 }
-#line 10803 "ext/refine_tree/parse.c"
+#line 10803 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_singleton: /* singleton  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -10812,11 +10812,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 10816 "ext/refine_tree/parse.c"
+#line 10816 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_assoc_list: /* assoc_list  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -10825,11 +10825,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 10829 "ext/refine_tree/parse.c"
+#line 10829 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_assocs: /* assocs  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -10838,11 +10838,11 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 10842 "ext/refine_tree/parse.c"
+#line 10842 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_assoc: /* assoc  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -10851,59 +10851,59 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 10855 "ext/refine_tree/parse.c"
+#line 10855 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_operation: /* operation  */
-#line 2652 "ext/refine_tree/parse.tmp.y"
+#line 2652 "ext/kanayago/parse.tmp.y"
          {
     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
 }
-#line 10863 "ext/refine_tree/parse.c"
+#line 10863 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_operation2: /* operation2  */
-#line 2652 "ext/refine_tree/parse.tmp.y"
+#line 2652 "ext/kanayago/parse.tmp.y"
          {
     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
 }
-#line 10871 "ext/refine_tree/parse.c"
+#line 10871 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_operation3: /* operation3  */
-#line 2652 "ext/refine_tree/parse.tmp.y"
+#line 2652 "ext/kanayago/parse.tmp.y"
          {
     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
 }
-#line 10879 "ext/refine_tree/parse.c"
+#line 10879 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_dot_or_colon: /* dot_or_colon  */
-#line 2652 "ext/refine_tree/parse.tmp.y"
+#line 2652 "ext/kanayago/parse.tmp.y"
          {
     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
 }
-#line 10887 "ext/refine_tree/parse.c"
+#line 10887 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_call_op: /* call_op  */
-#line 2652 "ext/refine_tree/parse.tmp.y"
+#line 2652 "ext/kanayago/parse.tmp.y"
          {
     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
 }
-#line 10895 "ext/refine_tree/parse.c"
+#line 10895 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_call_op2: /* call_op2  */
-#line 2652 "ext/refine_tree/parse.tmp.y"
+#line 2652 "ext/kanayago/parse.tmp.y"
          {
     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
 }
-#line 10903 "ext/refine_tree/parse.c"
+#line 10903 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_none: /* none  */
-#line 2643 "ext/refine_tree/parse.tmp.y"
+#line 2643 "ext/kanayago/parse.tmp.y"
          {
     if ((NODE *)((*yyvaluep).node) == (NODE *)-1) {
         rb_parser_printf(p, "NODE_SPECIAL");
@@ -10912,7 +10912,7 @@ switch (yykind)
         rb_parser_printf(p, "%s", parser_node_name(nd_type(RNODE(((*yyvaluep).node)))));
     }
 }
-#line 10916 "ext/refine_tree/parse.c"
+#line 10916 "ext/kanayago/parse.c"
         break;
 
       default:
@@ -11315,19 +11315,19 @@ yydestruct (const char *yymsg,
   switch (yykind)
     {
     case YYSYMBOL_245_16: /* @16  */
-#line 2680 "ext/refine_tree/parse.tmp.y"
+#line 2680 "ext/kanayago/parse.tmp.y"
          {
     if (CASE_LABELS_ENABLED_P(((*yyvaluep).labels))) st_free_table(((*yyvaluep).labels));
 }
-#line 11323 "ext/refine_tree/parse.c"
+#line 11323 "ext/kanayago/parse.c"
         break;
 
     case YYSYMBOL_246_17: /* @17  */
-#line 2680 "ext/refine_tree/parse.tmp.y"
+#line 2680 "ext/kanayago/parse.tmp.y"
          {
     if (CASE_LABELS_ENABLED_P(((*yyvaluep).labels))) st_free_table(((*yyvaluep).labels));
 }
-#line 11331 "ext/refine_tree/parse.c"
+#line 11331 "ext/kanayago/parse.c"
         break;
 
       default:
@@ -11425,12 +11425,12 @@ YYLTYPE yylloc = yyloc_default;
 
 
         /* User initialization code.  */
-#line 2687 "ext/refine_tree/parse.tmp.y"
+#line 2687 "ext/kanayago/parse.tmp.y"
         {
     RUBY_SET_YYLLOC_OF_NONE(yylloc);
 }
 
-#line 11434 "ext/refine_tree/parse.c"
+#line 11434 "ext/kanayago/parse.c"
 
   yylsp[0] = yylloc;
   goto yysetstate;
@@ -11602,9 +11602,9 @@ yybackup:
   YY_IGNORE_MAYBE_UNINITIALIZED_END
   *++yylsp = yylloc;
         /* %after-shift code. */
-#line 2690 "ext/refine_tree/parse.tmp.y"
+#line 2690 "ext/kanayago/parse.tmp.y"
         {after_shift(p);}
-#line 11608 "ext/refine_tree/parse.c"
+#line 11608 "ext/kanayago/parse.c"
 
 
   /* Discard the shifted token.  */
@@ -11639,9 +11639,9 @@ yyreduce:
      GCC warning that YYVAL may be used uninitialized.  */
   yyval = yyvsp[1-yylen];
         /* %before-reduce function. */
-#line 2691 "ext/refine_tree/parse.tmp.y"
+#line 2691 "ext/kanayago/parse.tmp.y"
         {before_reduce(yylen, p);}
-#line 11645 "ext/refine_tree/parse.c"
+#line 11645 "ext/kanayago/parse.c"
 
 
   /* Default location. */
@@ -11651,18 +11651,18 @@ yyreduce:
   switch (yyn)
     {
   case 2: /* $@1: %empty  */
-#line 2988 "ext/refine_tree/parse.tmp.y"
+#line 2988 "ext/kanayago/parse.tmp.y"
             {
                         SET_LEX_STATE(EXPR_BEG);
                         local_push(p, ifndef_ripper(1)+0);
                         /* jumps are possible in the top-level loop. */
                         if (!ifndef_ripper(p->do_loop) + 0) init_block_exit(p);
                     }
-#line 11662 "ext/refine_tree/parse.c"
+#line 11662 "ext/kanayago/parse.c"
     break;
 
   case 3: /* program: $@1 top_compstmt  */
-#line 2995 "ext/refine_tree/parse.tmp.y"
+#line 2995 "ext/kanayago/parse.tmp.y"
                     {
                         if ((yyvsp[0].node) && !compile_for_eval) {
                             NODE *node = (yyvsp[0].node);
@@ -11680,70 +11680,70 @@ yyreduce:
                     /*% ripper[final]: program!($:2) %*/
                         local_pop(p);
                     }
-#line 11684 "ext/refine_tree/parse.c"
+#line 11684 "ext/kanayago/parse.c"
     break;
 
   case 6: /* top_compstmt: top_stmts option_terms  */
-#line 3015 "ext/refine_tree/parse.tmp.y"
+#line 3015 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = void_stmts(p, (yyvsp[-1].node));
                     }
-#line 11692 "ext/refine_tree/parse.c"
+#line 11692 "ext/kanayago/parse.c"
     break;
 
   case 7: /* top_stmts: none  */
-#line 3021 "ext/refine_tree/parse.tmp.y"
+#line 3021 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = NEW_BEGIN(0, &(yyloc));
                     /*% ripper: stmts_add!(stmts_new!, void_stmt!) %*/
                     }
-#line 11701 "ext/refine_tree/parse.c"
+#line 11701 "ext/kanayago/parse.c"
     break;
 
   case 8: /* top_stmts: top_stmt  */
-#line 3026 "ext/refine_tree/parse.tmp.y"
+#line 3026 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = newline_node((yyvsp[0].node));
                     /*% ripper: stmts_add!(stmts_new!, $:1) %*/
                     }
-#line 11710 "ext/refine_tree/parse.c"
+#line 11710 "ext/kanayago/parse.c"
     break;
 
   case 9: /* top_stmts: top_stmts terms top_stmt  */
-#line 3031 "ext/refine_tree/parse.tmp.y"
+#line 3031 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = block_append(p, (yyvsp[-2].node), newline_node((yyvsp[0].node)));
                     /*% ripper: stmts_add!($:1, $:3) %*/
                     }
-#line 11719 "ext/refine_tree/parse.c"
+#line 11719 "ext/kanayago/parse.c"
     break;
 
   case 10: /* top_stmt: stmt  */
-#line 3038 "ext/refine_tree/parse.tmp.y"
+#line 3038 "ext/kanayago/parse.tmp.y"
                     {
                         clear_block_exit(p, true);
                         (yyval.node) = (yyvsp[0].node);
                     }
-#line 11728 "ext/refine_tree/parse.c"
+#line 11728 "ext/kanayago/parse.c"
     break;
 
   case 11: /* top_stmt: "'BEGIN'" begin_block  */
-#line 3043 "ext/refine_tree/parse.tmp.y"
+#line 3043 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = (yyvsp[0].node);
                     /*% ripper: $:2 %*/
                     }
-#line 11737 "ext/refine_tree/parse.c"
+#line 11737 "ext/kanayago/parse.c"
     break;
 
   case 12: /* block_open: '{'  */
-#line 3049 "ext/refine_tree/parse.tmp.y"
+#line 3049 "ext/kanayago/parse.tmp.y"
                  {(yyval.node_exits) = init_block_exit(p);}
-#line 11743 "ext/refine_tree/parse.c"
+#line 11743 "ext/kanayago/parse.c"
     break;
 
   case 13: /* begin_block: block_open top_compstmt '}'  */
-#line 3052 "ext/refine_tree/parse.tmp.y"
+#line 3052 "ext/kanayago/parse.tmp.y"
                     {
                         restore_block_exit(p, (yyvsp[-2].node_exits));
                         p->eval_tree_begin = block_append(p, p->eval_tree_begin,
@@ -11751,153 +11751,153 @@ yyreduce:
                         (yyval.node) = NEW_BEGIN(0, &(yyloc));
                     /*% ripper: BEGIN!($:2) %*/
                     }
-#line 11755 "ext/refine_tree/parse.c"
+#line 11755 "ext/kanayago/parse.c"
     break;
 
   case 14: /* $@2: %empty  */
-#line 3065 "ext/refine_tree/parse.tmp.y"
+#line 3065 "ext/kanayago/parse.tmp.y"
                     {
                         if (!(yyvsp[-1].node)) yyerror1(&(yylsp[0]), "else without rescue is useless");
                         next_rescue_context(&p->ctxt, &(yyvsp[-2].ctxt), after_else);
                     }
-#line 11764 "ext/refine_tree/parse.c"
+#line 11764 "ext/kanayago/parse.c"
     break;
 
   case 15: /* $@3: %empty  */
-#line 3070 "ext/refine_tree/parse.tmp.y"
+#line 3070 "ext/kanayago/parse.tmp.y"
                     {
                         next_rescue_context(&p->ctxt, &(yyvsp[-4].ctxt), after_ensure);
                     }
-#line 11772 "ext/refine_tree/parse.c"
+#line 11772 "ext/kanayago/parse.c"
     break;
 
   case 16: /* bodystmt: compstmt lex_ctxt opt_rescue k_else $@2 compstmt $@3 opt_ensure  */
-#line 3074 "ext/refine_tree/parse.tmp.y"
+#line 3074 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = new_bodystmt(p, (yyvsp[-7].node), (yyvsp[-5].node), (yyvsp[-2].node), (yyvsp[0].node), &(yyloc));
                     /*% ripper: bodystmt!($:body, $:opt_rescue, $:elsebody, $:opt_ensure) %*/
                     }
-#line 11781 "ext/refine_tree/parse.c"
+#line 11781 "ext/kanayago/parse.c"
     break;
 
   case 17: /* $@4: %empty  */
-#line 3081 "ext/refine_tree/parse.tmp.y"
+#line 3081 "ext/kanayago/parse.tmp.y"
                     {
                         next_rescue_context(&p->ctxt, &(yyvsp[-1].ctxt), after_ensure);
                     }
-#line 11789 "ext/refine_tree/parse.c"
+#line 11789 "ext/kanayago/parse.c"
     break;
 
   case 18: /* bodystmt: compstmt lex_ctxt opt_rescue $@4 opt_ensure  */
-#line 3085 "ext/refine_tree/parse.tmp.y"
+#line 3085 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = new_bodystmt(p, (yyvsp[-4].node), (yyvsp[-2].node), 0, (yyvsp[0].node), &(yyloc));
                     /*% ripper: bodystmt!($:body, $:opt_rescue, Qnil, $:opt_ensure) %*/
                     }
-#line 11798 "ext/refine_tree/parse.c"
+#line 11798 "ext/kanayago/parse.c"
     break;
 
   case 19: /* compstmt: stmts option_terms  */
-#line 3092 "ext/refine_tree/parse.tmp.y"
+#line 3092 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = void_stmts(p, (yyvsp[-1].node));
                     }
-#line 11806 "ext/refine_tree/parse.c"
+#line 11806 "ext/kanayago/parse.c"
     break;
 
   case 20: /* stmts: none  */
-#line 3098 "ext/refine_tree/parse.tmp.y"
+#line 3098 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = NEW_BEGIN(0, &(yyloc));
                     /*% ripper: stmts_add!(stmts_new!, void_stmt!) %*/
                     }
-#line 11815 "ext/refine_tree/parse.c"
+#line 11815 "ext/kanayago/parse.c"
     break;
 
   case 21: /* stmts: stmt_or_begin  */
-#line 3103 "ext/refine_tree/parse.tmp.y"
+#line 3103 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = newline_node((yyvsp[0].node));
                     /*% ripper: stmts_add!(stmts_new!, $:1) %*/
                     }
-#line 11824 "ext/refine_tree/parse.c"
+#line 11824 "ext/kanayago/parse.c"
     break;
 
   case 22: /* stmts: stmts terms stmt_or_begin  */
-#line 3108 "ext/refine_tree/parse.tmp.y"
+#line 3108 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = block_append(p, (yyvsp[-2].node), newline_node((yyvsp[0].node)));
                     /*% ripper: stmts_add!($:1, $:3) %*/
                     }
-#line 11833 "ext/refine_tree/parse.c"
+#line 11833 "ext/kanayago/parse.c"
     break;
 
   case 23: /* stmt_or_begin: stmt  */
-#line 3115 "ext/refine_tree/parse.tmp.y"
+#line 3115 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = (yyvsp[0].node);
                     }
-#line 11841 "ext/refine_tree/parse.c"
+#line 11841 "ext/kanayago/parse.c"
     break;
 
   case 24: /* $@5: %empty  */
-#line 3119 "ext/refine_tree/parse.tmp.y"
+#line 3119 "ext/kanayago/parse.tmp.y"
                     {
                         yyerror1(&(yylsp[0]), "BEGIN is permitted only at toplevel");
                     }
-#line 11849 "ext/refine_tree/parse.c"
+#line 11849 "ext/kanayago/parse.c"
     break;
 
   case 25: /* stmt_or_begin: "'BEGIN'" $@5 begin_block  */
-#line 3123 "ext/refine_tree/parse.tmp.y"
+#line 3123 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = (yyvsp[0].node);
                     }
-#line 11857 "ext/refine_tree/parse.c"
+#line 11857 "ext/kanayago/parse.c"
     break;
 
   case 26: /* allow_exits: %empty  */
-#line 3128 "ext/refine_tree/parse.tmp.y"
+#line 3128 "ext/kanayago/parse.tmp.y"
               {(yyval.node_exits) = allow_block_exit(p);}
-#line 11863 "ext/refine_tree/parse.c"
+#line 11863 "ext/kanayago/parse.c"
     break;
 
   case 27: /* k_END: "'END'" lex_ctxt  */
-#line 3131 "ext/refine_tree/parse.tmp.y"
+#line 3131 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.ctxt) = (yyvsp[0].ctxt);
                         p->ctxt.in_rescue = before_rescue;
                     /*% ripper: $:2 %*/
                     }
-#line 11873 "ext/refine_tree/parse.c"
+#line 11873 "ext/kanayago/parse.c"
     break;
 
   case 28: /* $@6: %empty  */
-#line 3137 "ext/refine_tree/parse.tmp.y"
+#line 3137 "ext/kanayago/parse.tmp.y"
                             {SET_LEX_STATE(EXPR_FNAME|EXPR_FITEM);}
-#line 11879 "ext/refine_tree/parse.c"
+#line 11879 "ext/kanayago/parse.c"
     break;
 
   case 29: /* stmt: "'alias'" fitem $@6 fitem  */
-#line 3138 "ext/refine_tree/parse.tmp.y"
+#line 3138 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = NEW_ALIAS((yyvsp[-2].node), (yyvsp[0].node), &(yyloc));
                     /*% ripper: alias!($:2, $:4) %*/
                     }
-#line 11888 "ext/refine_tree/parse.c"
+#line 11888 "ext/kanayago/parse.c"
     break;
 
   case 30: /* stmt: "'alias'" "global variable" "global variable"  */
-#line 3143 "ext/refine_tree/parse.tmp.y"
+#line 3143 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = NEW_VALIAS((yyvsp[-1].id), (yyvsp[0].id), &(yyloc));
                     /*% ripper: var_alias!($:2, $:3) %*/
                     }
-#line 11897 "ext/refine_tree/parse.c"
+#line 11897 "ext/kanayago/parse.c"
     break;
 
   case 31: /* stmt: "'alias'" "global variable" "back reference"  */
-#line 3148 "ext/refine_tree/parse.tmp.y"
+#line 3148 "ext/kanayago/parse.tmp.y"
                     {
                         char buf[2];
                         buf[0] = '$';
@@ -11905,11 +11905,11 @@ yyreduce:
                         (yyval.node) = NEW_VALIAS((yyvsp[-1].id), rb_intern2(buf, 2), &(yyloc));
                     /*% ripper: var_alias!($:2, $:3) %*/
                     }
-#line 11909 "ext/refine_tree/parse.c"
+#line 11909 "ext/kanayago/parse.c"
     break;
 
   case 32: /* stmt: "'alias'" "global variable" "numbered reference"  */
-#line 3156 "ext/refine_tree/parse.tmp.y"
+#line 3156 "ext/kanayago/parse.tmp.y"
                     {
                         static const char mesg[] = "can't make alias for the number variables";
                     /*%%%*/
@@ -11918,41 +11918,41 @@ yyreduce:
                         (yyval.node) = NEW_ERROR(&(yyloc));
                     /*% ripper[error]: alias_error!(ERR_MESG(), $:3) %*/
                     }
-#line 11922 "ext/refine_tree/parse.c"
+#line 11922 "ext/kanayago/parse.c"
     break;
 
   case 33: /* stmt: "'undef'" undef_list  */
-#line 3165 "ext/refine_tree/parse.tmp.y"
+#line 3165 "ext/kanayago/parse.tmp.y"
                     {
                         nd_set_first_loc((yyvsp[0].node), (yylsp[-1]).beg_pos);
                         (yyval.node) = (yyvsp[0].node);
                     /*% ripper: undef!($:2) %*/
                     }
-#line 11932 "ext/refine_tree/parse.c"
+#line 11932 "ext/kanayago/parse.c"
     break;
 
   case 34: /* stmt: stmt "'if' modifier" expr_value  */
-#line 3171 "ext/refine_tree/parse.tmp.y"
+#line 3171 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = new_if(p, (yyvsp[0].node), remove_begin((yyvsp[-2].node)), 0, &(yyloc));
                         fixpos((yyval.node), (yyvsp[0].node));
                     /*% ripper: if_mod!($:3, $:1) %*/
                     }
-#line 11942 "ext/refine_tree/parse.c"
+#line 11942 "ext/kanayago/parse.c"
     break;
 
   case 35: /* stmt: stmt "'unless' modifier" expr_value  */
-#line 3177 "ext/refine_tree/parse.tmp.y"
+#line 3177 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = new_unless(p, (yyvsp[0].node), remove_begin((yyvsp[-2].node)), 0, &(yyloc), &(yylsp[-1]), &NULL_LOC, &NULL_LOC);
                         fixpos((yyval.node), (yyvsp[0].node));
                     /*% ripper: unless_mod!($:3, $:1) %*/
                     }
-#line 11952 "ext/refine_tree/parse.c"
+#line 11952 "ext/kanayago/parse.c"
     break;
 
   case 36: /* stmt: stmt "'while' modifier" expr_value  */
-#line 3183 "ext/refine_tree/parse.tmp.y"
+#line 3183 "ext/kanayago/parse.tmp.y"
                     {
                         clear_block_exit(p, false);
                         if ((yyvsp[-2].node) && nd_type_p((yyvsp[-2].node), NODE_BEGIN)) {
@@ -11963,11 +11963,11 @@ yyreduce:
                         }
                     /*% ripper: while_mod!($:3, $:1) %*/
                     }
-#line 11967 "ext/refine_tree/parse.c"
+#line 11967 "ext/kanayago/parse.c"
     break;
 
   case 37: /* stmt: stmt "'until' modifier" expr_value  */
-#line 3194 "ext/refine_tree/parse.tmp.y"
+#line 3194 "ext/kanayago/parse.tmp.y"
                     {
                         clear_block_exit(p, false);
                         if ((yyvsp[-2].node) && nd_type_p((yyvsp[-2].node), NODE_BEGIN)) {
@@ -11978,11 +11978,11 @@ yyreduce:
                         }
                     /*% ripper: until_mod!($:3, $:1) %*/
                     }
-#line 11982 "ext/refine_tree/parse.c"
+#line 11982 "ext/kanayago/parse.c"
     break;
 
   case 38: /* stmt: stmt "'rescue' modifier" after_rescue stmt  */
-#line 3205 "ext/refine_tree/parse.tmp.y"
+#line 3205 "ext/kanayago/parse.tmp.y"
                     {
                         p->ctxt.in_rescue = (yyvsp[-1].ctxt).in_rescue;
                         NODE *resq;
@@ -11991,11 +11991,11 @@ yyreduce:
                         (yyval.node) = NEW_RESCUE(remove_begin((yyvsp[-3].node)), resq, 0, &(yyloc));
                     /*% ripper: rescue_mod!($:1, $:4) %*/
                     }
-#line 11995 "ext/refine_tree/parse.c"
+#line 11995 "ext/kanayago/parse.c"
     break;
 
   case 39: /* stmt: k_END allow_exits '{' compstmt '}'  */
-#line 3214 "ext/refine_tree/parse.tmp.y"
+#line 3214 "ext/kanayago/parse.tmp.y"
                     {
                         if (p->ctxt.in_def) {
                             rb_warn0("END in method; use at_exit");
@@ -12008,30 +12008,30 @@ yyreduce:
                         }
                     /*% ripper: END!($:compstmt) %*/
                     }
-#line 12012 "ext/refine_tree/parse.c"
+#line 12012 "ext/kanayago/parse.c"
     break;
 
   case 41: /* stmt: mlhs '=' lex_ctxt command_call  */
-#line 3228 "ext/refine_tree/parse.tmp.y"
+#line 3228 "ext/kanayago/parse.tmp.y"
                     {
                         value_expr((yyvsp[0].node));
                         (yyval.node) = node_assign(p, (NODE *)(yyvsp[-3].node_masgn), (yyvsp[0].node), (yyvsp[-1].ctxt), &(yyloc));
                     /*% ripper: massign!($:1, $:4) %*/
                     }
-#line 12022 "ext/refine_tree/parse.c"
+#line 12022 "ext/kanayago/parse.c"
     break;
 
   case 42: /* stmt: lhs '=' lex_ctxt mrhs  */
-#line 3234 "ext/refine_tree/parse.tmp.y"
+#line 3234 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = node_assign(p, (yyvsp[-3].node), (yyvsp[0].node), (yyvsp[-1].ctxt), &(yyloc));
                     /*% ripper: assign!($:1, $:4) %*/
                     }
-#line 12031 "ext/refine_tree/parse.c"
+#line 12031 "ext/kanayago/parse.c"
     break;
 
   case 43: /* stmt: mlhs '=' lex_ctxt mrhs_arg "'rescue' modifier" after_rescue stmt  */
-#line 3240 "ext/refine_tree/parse.tmp.y"
+#line 3240 "ext/kanayago/parse.tmp.y"
                     {
                         p->ctxt.in_rescue = (yyvsp[-4].ctxt).in_rescue;
                         YYLTYPE loc = code_loc_gen(&(yylsp[-2]), &(yylsp[0]));
@@ -12041,94 +12041,94 @@ yyreduce:
                         (yyval.node) = node_assign(p, (NODE *)(yyvsp[-6].node_masgn), (yyvsp[-3].node), (yyvsp[-4].ctxt), &(yyloc));
                     /*% ripper: massign!($:1, rescue_mod!($:4, $:7)) %*/
                     }
-#line 12045 "ext/refine_tree/parse.c"
+#line 12045 "ext/kanayago/parse.c"
     break;
 
   case 44: /* stmt: mlhs '=' lex_ctxt mrhs_arg  */
-#line 3250 "ext/refine_tree/parse.tmp.y"
+#line 3250 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = node_assign(p, (NODE *)(yyvsp[-3].node_masgn), (yyvsp[0].node), (yyvsp[-1].ctxt), &(yyloc));
                     /*% ripper: massign!($:1, $:4) %*/
                     }
-#line 12054 "ext/refine_tree/parse.c"
+#line 12054 "ext/kanayago/parse.c"
     break;
 
   case 46: /* stmt: error  */
-#line 3256 "ext/refine_tree/parse.tmp.y"
+#line 3256 "ext/kanayago/parse.tmp.y"
                     {
                         (void)yynerrs;
                         (yyval.node) = NEW_ERROR(&(yyloc));
                     }
-#line 12063 "ext/refine_tree/parse.c"
+#line 12063 "ext/kanayago/parse.c"
     break;
 
   case 47: /* command_asgn: lhs '=' lex_ctxt command_rhs  */
-#line 3263 "ext/refine_tree/parse.tmp.y"
+#line 3263 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = node_assign(p, (yyvsp[-3].node), (yyvsp[0].node), (yyvsp[-1].ctxt), &(yyloc));
                     /*% ripper: assign!($:1, $:4) %*/
                     }
-#line 12072 "ext/refine_tree/parse.c"
+#line 12072 "ext/kanayago/parse.c"
     break;
 
   case 48: /* command_asgn: var_lhs "operator-assignment" lex_ctxt command_rhs  */
-#line 3268 "ext/refine_tree/parse.tmp.y"
+#line 3268 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = new_op_assign(p, (yyvsp[-3].node), (yyvsp[-2].id), (yyvsp[0].node), (yyvsp[-1].ctxt), &(yyloc));
                     /*% ripper: opassign!($:1, $:2, $:4) %*/
                     }
-#line 12081 "ext/refine_tree/parse.c"
+#line 12081 "ext/kanayago/parse.c"
     break;
 
   case 49: /* command_asgn: primary_value '[' opt_call_args rbracket "operator-assignment" lex_ctxt command_rhs  */
-#line 3273 "ext/refine_tree/parse.tmp.y"
+#line 3273 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = new_ary_op_assign(p, (yyvsp[-6].node), (yyvsp[-4].node), (yyvsp[-2].id), (yyvsp[0].node), &(yylsp[-4]), &(yyloc));
                     /*% ripper: opassign!(aref_field!($:1, $:3), $:5, $:7) %*/
 
                     }
-#line 12091 "ext/refine_tree/parse.c"
+#line 12091 "ext/kanayago/parse.c"
     break;
 
   case 50: /* command_asgn: primary_value call_op "local variable or method" "operator-assignment" lex_ctxt command_rhs  */
-#line 3279 "ext/refine_tree/parse.tmp.y"
+#line 3279 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = new_attr_op_assign(p, (yyvsp[-5].node), (yyvsp[-4].id), (yyvsp[-3].id), (yyvsp[-2].id), (yyvsp[0].node), &(yyloc));
                     /*% ripper: opassign!(field!($:1, $:2, $:3), $:4, $:6) %*/
                     }
-#line 12100 "ext/refine_tree/parse.c"
+#line 12100 "ext/kanayago/parse.c"
     break;
 
   case 51: /* command_asgn: primary_value call_op "constant" "operator-assignment" lex_ctxt command_rhs  */
-#line 3279 "ext/refine_tree/parse.tmp.y"
+#line 3279 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = new_attr_op_assign(p, (yyvsp[-5].node), (yyvsp[-4].id), (yyvsp[-3].id), (yyvsp[-2].id), (yyvsp[0].node), &(yyloc));
                     /*% ripper: opassign!(field!($:1, $:2, $:3), $:4, $:6) %*/
                     }
-#line 12109 "ext/refine_tree/parse.c"
+#line 12109 "ext/kanayago/parse.c"
     break;
 
   case 52: /* command_asgn: primary_value "::" "constant" "operator-assignment" lex_ctxt command_rhs  */
-#line 3284 "ext/refine_tree/parse.tmp.y"
+#line 3284 "ext/kanayago/parse.tmp.y"
                     {
                         YYLTYPE loc = code_loc_gen(&(yylsp[-5]), &(yylsp[-3]));
                         (yyval.node) = new_const_op_assign(p, NEW_COLON2((yyvsp[-5].node), (yyvsp[-3].id), &loc), (yyvsp[-2].id), (yyvsp[0].node), (yyvsp[-1].ctxt), &(yyloc));
                     /*% ripper: opassign!(const_path_field!($:1, $:3), $:4, $:6) %*/
                     }
-#line 12119 "ext/refine_tree/parse.c"
+#line 12119 "ext/kanayago/parse.c"
     break;
 
   case 53: /* command_asgn: primary_value "::" "local variable or method" "operator-assignment" lex_ctxt command_rhs  */
-#line 3290 "ext/refine_tree/parse.tmp.y"
+#line 3290 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = new_attr_op_assign(p, (yyvsp[-5].node), idCOLON2, (yyvsp[-3].id), (yyvsp[-2].id), (yyvsp[0].node), &(yyloc));
                     /*% ripper: opassign!(field!($:1, $:2, $:3), $:4, $:6) %*/
                     }
-#line 12128 "ext/refine_tree/parse.c"
+#line 12128 "ext/kanayago/parse.c"
     break;
 
   case 54: /* command_asgn: defn_head f_opt_paren_args '=' endless_command  */
-#line 3295 "ext/refine_tree/parse.tmp.y"
+#line 3295 "ext/kanayago/parse.tmp.y"
                     {
                         endless_method_name(p, (yyvsp[-3].node_def_temp)->nd_mid, &(yylsp[-3]));
                         restore_defun(p, (yyvsp[-3].node_def_temp));
@@ -12139,11 +12139,11 @@ yyreduce:
                     /*% ripper: def!($:head, $:args, $:$) %*/
                         local_pop(p);
                     }
-#line 12143 "ext/refine_tree/parse.c"
+#line 12143 "ext/kanayago/parse.c"
     break;
 
   case 55: /* command_asgn: defs_head f_opt_paren_args '=' endless_command  */
-#line 3306 "ext/refine_tree/parse.tmp.y"
+#line 3306 "ext/kanayago/parse.tmp.y"
                     {
                         endless_method_name(p, (yyvsp[-3].node_def_temp)->nd_mid, &(yylsp[-3]));
                         restore_defun(p, (yyvsp[-3].node_def_temp));
@@ -12154,49 +12154,49 @@ yyreduce:
                     /*% ripper: defs!(*$:head[0..2], $:args, $:$) %*/
                         local_pop(p);
                     }
-#line 12158 "ext/refine_tree/parse.c"
+#line 12158 "ext/kanayago/parse.c"
     break;
 
   case 56: /* command_asgn: backref "operator-assignment" lex_ctxt command_rhs  */
-#line 3317 "ext/refine_tree/parse.tmp.y"
+#line 3317 "ext/kanayago/parse.tmp.y"
                     {
                         VALUE MAYBE_UNUSED(e) = rb_backref_error(p, (yyvsp[-3].node));
                         (yyval.node) = NEW_ERROR(&(yyloc));
                     /*% ripper[error]: assign_error!(?e, opassign!(var_field!($:1), $:2, $:4)) %*/
                     }
-#line 12168 "ext/refine_tree/parse.c"
+#line 12168 "ext/kanayago/parse.c"
     break;
 
   case 58: /* endless_command: endless_command "'rescue' modifier" after_rescue arg  */
-#line 3326 "ext/refine_tree/parse.tmp.y"
+#line 3326 "ext/kanayago/parse.tmp.y"
                     {
                         p->ctxt.in_rescue = (yyvsp[-1].ctxt).in_rescue;
                         (yyval.node) = rescued_expr(p, (yyvsp[-3].node), (yyvsp[0].node), &(yylsp[-3]), &(yylsp[-2]), &(yylsp[0]));
                     /*% ripper: rescue_mod!($:1, $:4) %*/
                     }
-#line 12178 "ext/refine_tree/parse.c"
+#line 12178 "ext/kanayago/parse.c"
     break;
 
   case 61: /* endless_command: "'not'" option_'\n' endless_command  */
-#line 3332 "ext/refine_tree/parse.tmp.y"
+#line 3332 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = call_uni_op(p, method_cond(p, (yyvsp[0].node), &(yylsp[0])), METHOD_NOT, &(yylsp[-2]), &(yyloc));
                     /*% ripper: unary!(ID2VAL(idNOT), $:3) %*/
                     }
-#line 12187 "ext/refine_tree/parse.c"
+#line 12187 "ext/kanayago/parse.c"
     break;
 
   case 62: /* command_rhs: command_call  */
-#line 3339 "ext/refine_tree/parse.tmp.y"
+#line 3339 "ext/kanayago/parse.tmp.y"
                     {
                         value_expr((yyvsp[0].node));
                         (yyval.node) = (yyvsp[0].node);
                     }
-#line 12196 "ext/refine_tree/parse.c"
+#line 12196 "ext/kanayago/parse.c"
     break;
 
   case 63: /* command_rhs: command_call "'rescue' modifier" after_rescue stmt  */
-#line 3344 "ext/refine_tree/parse.tmp.y"
+#line 3344 "ext/kanayago/parse.tmp.y"
                     {
                         p->ctxt.in_rescue = (yyvsp[-1].ctxt).in_rescue;
                         YYLTYPE loc = code_loc_gen(&(yylsp[-2]), &(yylsp[0]));
@@ -12204,55 +12204,55 @@ yyreduce:
                         (yyval.node) = NEW_RESCUE((yyvsp[-3].node), NEW_RESBODY(0, 0, remove_begin((yyvsp[0].node)), 0, &loc), 0, &(yyloc));
                     /*% ripper: rescue_mod!($:1, $:4) %*/
                     }
-#line 12208 "ext/refine_tree/parse.c"
+#line 12208 "ext/kanayago/parse.c"
     break;
 
   case 66: /* expr: expr "'and'" expr  */
-#line 3356 "ext/refine_tree/parse.tmp.y"
+#line 3356 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = logop(p, idAND, (yyvsp[-2].node), (yyvsp[0].node), &(yylsp[-1]), &(yyloc));
                     /*% ripper: binary!($:1, ID2VAL(idAND), $:3) %*/
                     }
-#line 12217 "ext/refine_tree/parse.c"
+#line 12217 "ext/kanayago/parse.c"
     break;
 
   case 67: /* expr: expr "'or'" expr  */
-#line 3361 "ext/refine_tree/parse.tmp.y"
+#line 3361 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = logop(p, idOR, (yyvsp[-2].node), (yyvsp[0].node), &(yylsp[-1]), &(yyloc));
                     /*% ripper: binary!($:1, ID2VAL(idOR), $:3) %*/
                     }
-#line 12226 "ext/refine_tree/parse.c"
+#line 12226 "ext/kanayago/parse.c"
     break;
 
   case 68: /* expr: "'not'" option_'\n' expr  */
-#line 3366 "ext/refine_tree/parse.tmp.y"
+#line 3366 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = call_uni_op(p, method_cond(p, (yyvsp[0].node), &(yylsp[0])), METHOD_NOT, &(yylsp[-2]), &(yyloc));
                     /*% ripper: unary!(ID2VAL(idNOT), $:3) %*/
                     }
-#line 12235 "ext/refine_tree/parse.c"
+#line 12235 "ext/kanayago/parse.c"
     break;
 
   case 69: /* expr: '!' command_call  */
-#line 3371 "ext/refine_tree/parse.tmp.y"
+#line 3371 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = call_uni_op(p, method_cond(p, (yyvsp[0].node), &(yylsp[0])), '!', &(yylsp[-1]), &(yyloc));
                     /*% ripper: unary!(ID2VAL('\'!\''), $:2) %*/
                     }
-#line 12244 "ext/refine_tree/parse.c"
+#line 12244 "ext/kanayago/parse.c"
     break;
 
   case 70: /* $@7: %empty  */
-#line 3376 "ext/refine_tree/parse.tmp.y"
+#line 3376 "ext/kanayago/parse.tmp.y"
                     {
                         value_expr((yyvsp[-1].node));
                     }
-#line 12252 "ext/refine_tree/parse.c"
+#line 12252 "ext/kanayago/parse.c"
     break;
 
   case 71: /* expr: arg "=>" $@7 p_in_kwarg p_pvtbl p_pktbl p_top_expr_body  */
-#line 3381 "ext/refine_tree/parse.tmp.y"
+#line 3381 "ext/kanayago/parse.tmp.y"
                     {
                         pop_pktbl(p, (yyvsp[-1].tbl));
                         pop_pvtbl(p, (yyvsp[-2].tbl));
@@ -12260,19 +12260,19 @@ yyreduce:
                         (yyval.node) = NEW_CASE3((yyvsp[-6].node), NEW_IN((yyvsp[0].node), 0, 0, &(yylsp[0])), &(yyloc));
                     /*% ripper: case!($:arg, in!($:body, Qnil, Qnil)) %*/
                     }
-#line 12264 "ext/refine_tree/parse.c"
+#line 12264 "ext/kanayago/parse.c"
     break;
 
   case 72: /* $@8: %empty  */
-#line 3389 "ext/refine_tree/parse.tmp.y"
+#line 3389 "ext/kanayago/parse.tmp.y"
                     {
                         value_expr((yyvsp[-1].node));
                     }
-#line 12272 "ext/refine_tree/parse.c"
+#line 12272 "ext/kanayago/parse.c"
     break;
 
   case 73: /* expr: arg "'in'" $@8 p_in_kwarg p_pvtbl p_pktbl p_top_expr_body  */
-#line 3394 "ext/refine_tree/parse.tmp.y"
+#line 3394 "ext/kanayago/parse.tmp.y"
                     {
                         pop_pktbl(p, (yyvsp[-1].tbl));
                         pop_pvtbl(p, (yyvsp[-2].tbl));
@@ -12280,11 +12280,11 @@ yyreduce:
                         (yyval.node) = NEW_CASE3((yyvsp[-6].node), NEW_IN((yyvsp[0].node), NEW_TRUE(&(yylsp[0])), NEW_FALSE(&(yylsp[0])), &(yylsp[0])), &(yyloc));
                     /*% ripper: case!($:arg, in!($:body, Qnil, Qnil)) %*/
                     }
-#line 12284 "ext/refine_tree/parse.c"
+#line 12284 "ext/kanayago/parse.c"
     break;
 
   case 75: /* def_name: fname  */
-#line 3405 "ext/refine_tree/parse.tmp.y"
+#line 3405 "ext/kanayago/parse.tmp.y"
                     {
                         ID fname = (yyvsp[0].id);
                         numparam_name(p, fname);
@@ -12294,31 +12294,31 @@ yyreduce:
                         p->ctxt.cant_return = 0;
                         (yyval.id) = (yyvsp[0].id);
                     }
-#line 12298 "ext/refine_tree/parse.c"
+#line 12298 "ext/kanayago/parse.c"
     break;
 
   case 76: /* defn_head: k_def def_name  */
-#line 3417 "ext/refine_tree/parse.tmp.y"
+#line 3417 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node_def_temp) = def_head_save(p, (yyvsp[-1].node_def_temp));
                         (yyval.node_def_temp)->nd_mid = (yyvsp[0].id);
                         (yyval.node_def_temp)->nd_def = NEW_DEFN((yyvsp[0].id), 0, &(yyloc));
                     /*% ripper: $:def_name %*/
                     }
-#line 12309 "ext/refine_tree/parse.c"
+#line 12309 "ext/kanayago/parse.c"
     break;
 
   case 77: /* $@9: %empty  */
-#line 3426 "ext/refine_tree/parse.tmp.y"
+#line 3426 "ext/kanayago/parse.tmp.y"
                     {
                         SET_LEX_STATE(EXPR_FNAME);
                         p->ctxt.in_argdef = 1;
                     }
-#line 12318 "ext/refine_tree/parse.c"
+#line 12318 "ext/kanayago/parse.c"
     break;
 
   case 78: /* defs_head: k_def singleton dot_or_colon $@9 def_name  */
-#line 3431 "ext/refine_tree/parse.tmp.y"
+#line 3431 "ext/kanayago/parse.tmp.y"
                     {
                         SET_LEX_STATE(EXPR_ENDFN|EXPR_LABEL); /* force for args */
                         (yyval.node_def_temp) = def_head_save(p, (yyvsp[-4].node_def_temp));
@@ -12326,88 +12326,88 @@ yyreduce:
                         (yyval.node_def_temp)->nd_def = NEW_DEFS((yyvsp[-3].node), (yyvsp[0].id), 0, &(yyloc));
                     /*% ripper: [$:singleton, $:dot_or_colon, $:def_name] %*/
                     }
-#line 12330 "ext/refine_tree/parse.c"
+#line 12330 "ext/kanayago/parse.c"
     break;
 
   case 79: /* expr_value: expr  */
-#line 3441 "ext/refine_tree/parse.tmp.y"
+#line 3441 "ext/kanayago/parse.tmp.y"
                     {
                         value_expr((yyvsp[0].node));
                         (yyval.node) = (yyvsp[0].node);
                     }
-#line 12339 "ext/refine_tree/parse.c"
+#line 12339 "ext/kanayago/parse.c"
     break;
 
   case 80: /* expr_value: error  */
-#line 3446 "ext/refine_tree/parse.tmp.y"
+#line 3446 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = NEW_ERROR(&(yyloc));
                     }
-#line 12347 "ext/refine_tree/parse.c"
+#line 12347 "ext/kanayago/parse.c"
     break;
 
   case 81: /* $@10: %empty  */
-#line 3451 "ext/refine_tree/parse.tmp.y"
+#line 3451 "ext/kanayago/parse.tmp.y"
                 {COND_PUSH(1);}
-#line 12353 "ext/refine_tree/parse.c"
+#line 12353 "ext/kanayago/parse.c"
     break;
 
   case 82: /* $@11: %empty  */
-#line 3451 "ext/refine_tree/parse.tmp.y"
+#line 3451 "ext/kanayago/parse.tmp.y"
                                               {COND_POP();}
-#line 12359 "ext/refine_tree/parse.c"
+#line 12359 "ext/kanayago/parse.c"
     break;
 
   case 83: /* expr_value_do: $@10 expr_value do $@11  */
-#line 3452 "ext/refine_tree/parse.tmp.y"
+#line 3452 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = (yyvsp[-2].node);
                     /*% ripper: $:2 %*/
                     }
-#line 12368 "ext/refine_tree/parse.c"
+#line 12368 "ext/kanayago/parse.c"
     break;
 
   case 87: /* block_command: block_call call_op2 operation2 command_args  */
-#line 3464 "ext/refine_tree/parse.tmp.y"
+#line 3464 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = new_qcall(p, (yyvsp[-2].id), (yyvsp[-3].node), (yyvsp[-1].id), (yyvsp[0].node), &(yylsp[-1]), &(yyloc));
                     /*% ripper: method_add_arg!(call!($:1, $:2, $:3), $:4) %*/
                     }
-#line 12377 "ext/refine_tree/parse.c"
+#line 12377 "ext/kanayago/parse.c"
     break;
 
   case 88: /* cmd_brace_block: "{ arg" brace_body '}'  */
-#line 3471 "ext/refine_tree/parse.tmp.y"
+#line 3471 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = (yyvsp[-1].node);
                         set_embraced_location((yyval.node), &(yylsp[-2]), &(yylsp[0]));
                     /*% ripper: $:2 %*/
                     }
-#line 12387 "ext/refine_tree/parse.c"
+#line 12387 "ext/kanayago/parse.c"
     break;
 
   case 89: /* fcall: operation  */
-#line 3479 "ext/refine_tree/parse.tmp.y"
+#line 3479 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node_fcall) = NEW_FCALL((yyvsp[0].id), 0, &(yyloc));
                     /*% ripper: $:1 %*/
                     }
-#line 12396 "ext/refine_tree/parse.c"
+#line 12396 "ext/kanayago/parse.c"
     break;
 
   case 90: /* command: fcall command_args  */
-#line 3486 "ext/refine_tree/parse.tmp.y"
+#line 3486 "ext/kanayago/parse.tmp.y"
                     {
                         (yyvsp[-1].node_fcall)->nd_args = (yyvsp[0].node);
                         nd_set_last_loc((yyvsp[-1].node_fcall), (yylsp[0]).end_pos);
                         (yyval.node) = (NODE *)(yyvsp[-1].node_fcall);
                     /*% ripper: command!($:1, $:2) %*/
                     }
-#line 12407 "ext/refine_tree/parse.c"
+#line 12407 "ext/kanayago/parse.c"
     break;
 
   case 91: /* command: fcall command_args cmd_brace_block  */
-#line 3493 "ext/refine_tree/parse.tmp.y"
+#line 3493 "ext/kanayago/parse.tmp.y"
                     {
                         block_dup_check(p, (yyvsp[-1].node), (yyvsp[0].node));
                         (yyvsp[-2].node_fcall)->nd_args = (yyvsp[-1].node);
@@ -12416,427 +12416,427 @@ yyreduce:
                         nd_set_last_loc((yyvsp[-2].node_fcall), (yylsp[-1]).end_pos);
                     /*% ripper: method_add_block!(command!($:1, $:2), $:3) %*/
                     }
-#line 12420 "ext/refine_tree/parse.c"
+#line 12420 "ext/kanayago/parse.c"
     break;
 
   case 92: /* command: primary_value call_op operation2 command_args  */
-#line 3502 "ext/refine_tree/parse.tmp.y"
+#line 3502 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = new_command_qcall(p, (yyvsp[-2].id), (yyvsp[-3].node), (yyvsp[-1].id), (yyvsp[0].node), 0, &(yylsp[-1]), &(yyloc));
                     /*% ripper: command_call!($:1, $:2, $:3, $:4) %*/
                     }
-#line 12429 "ext/refine_tree/parse.c"
+#line 12429 "ext/kanayago/parse.c"
     break;
 
   case 93: /* command: primary_value call_op operation2 command_args cmd_brace_block  */
-#line 3507 "ext/refine_tree/parse.tmp.y"
+#line 3507 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = new_command_qcall(p, (yyvsp[-3].id), (yyvsp[-4].node), (yyvsp[-2].id), (yyvsp[-1].node), (yyvsp[0].node), &(yylsp[-2]), &(yyloc));
                     /*% ripper: method_add_block!(command_call!($:1, $:2, $:3, $:4), $:5) %*/
                     }
-#line 12438 "ext/refine_tree/parse.c"
+#line 12438 "ext/kanayago/parse.c"
     break;
 
   case 94: /* command: primary_value "::" operation2 command_args  */
-#line 3512 "ext/refine_tree/parse.tmp.y"
+#line 3512 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = new_command_qcall(p, idCOLON2, (yyvsp[-3].node), (yyvsp[-1].id), (yyvsp[0].node), 0, &(yylsp[-1]), &(yyloc));
                     /*% ripper: command_call!($:1, $:2, $:3, $:4) %*/
                     }
-#line 12447 "ext/refine_tree/parse.c"
+#line 12447 "ext/kanayago/parse.c"
     break;
 
   case 95: /* command: primary_value "::" operation2 command_args cmd_brace_block  */
-#line 3517 "ext/refine_tree/parse.tmp.y"
+#line 3517 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = new_command_qcall(p, idCOLON2, (yyvsp[-4].node), (yyvsp[-2].id), (yyvsp[-1].node), (yyvsp[0].node), &(yylsp[-2]), &(yyloc));
                     /*% ripper: method_add_block!(command_call!($:1, $:2, $:3, $:4), $:5) %*/
                    }
-#line 12456 "ext/refine_tree/parse.c"
+#line 12456 "ext/kanayago/parse.c"
     break;
 
   case 96: /* command: primary_value "::" "constant" '{' brace_body '}'  */
-#line 3522 "ext/refine_tree/parse.tmp.y"
+#line 3522 "ext/kanayago/parse.tmp.y"
                     {
                         set_embraced_location((yyvsp[-1].node), &(yylsp[-2]), &(yylsp[0]));
                         (yyval.node) = new_command_qcall(p, idCOLON2, (yyvsp[-5].node), (yyvsp[-3].id), 0, (yyvsp[-1].node), &(yylsp[-3]), &(yyloc));
                     /*% ripper: method_add_block!(command_call!($:1, $:2, $:3, Qnil), $:5) %*/
                    }
-#line 12466 "ext/refine_tree/parse.c"
+#line 12466 "ext/kanayago/parse.c"
     break;
 
   case 97: /* command: "'super'" command_args  */
-#line 3528 "ext/refine_tree/parse.tmp.y"
+#line 3528 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = NEW_SUPER((yyvsp[0].node), &(yyloc));
                         fixpos((yyval.node), (yyvsp[0].node));
                     /*% ripper: super!($:2) %*/
                     }
-#line 12476 "ext/refine_tree/parse.c"
+#line 12476 "ext/kanayago/parse.c"
     break;
 
   case 98: /* command: k_yield command_args  */
-#line 3534 "ext/refine_tree/parse.tmp.y"
+#line 3534 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = new_yield(p, (yyvsp[0].node), &(yyloc));
                         fixpos((yyval.node), (yyvsp[0].node));
                     /*% ripper: yield!($:2) %*/
                     }
-#line 12486 "ext/refine_tree/parse.c"
+#line 12486 "ext/kanayago/parse.c"
     break;
 
   case 99: /* command: k_return call_args  */
-#line 3540 "ext/refine_tree/parse.tmp.y"
+#line 3540 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = NEW_RETURN(ret_args(p, (yyvsp[0].node)), &(yyloc));
                     /*% ripper: return!($:2) %*/
                     }
-#line 12495 "ext/refine_tree/parse.c"
+#line 12495 "ext/kanayago/parse.c"
     break;
 
   case 100: /* command: "'break'" call_args  */
-#line 3545 "ext/refine_tree/parse.tmp.y"
+#line 3545 "ext/kanayago/parse.tmp.y"
                     {
                         NODE *args = 0;
                         args = ret_args(p, (yyvsp[0].node));
                         (yyval.node) = add_block_exit(p, NEW_BREAK(args, &(yyloc)));
                     /*% ripper: break!($:2) %*/
                     }
-#line 12506 "ext/refine_tree/parse.c"
+#line 12506 "ext/kanayago/parse.c"
     break;
 
   case 101: /* command: "'next'" call_args  */
-#line 3552 "ext/refine_tree/parse.tmp.y"
+#line 3552 "ext/kanayago/parse.tmp.y"
                     {
                         NODE *args = 0;
                         args = ret_args(p, (yyvsp[0].node));
                         (yyval.node) = add_block_exit(p, NEW_NEXT(args, &(yyloc)));
                     /*% ripper: next!($:2) %*/
                     }
-#line 12517 "ext/refine_tree/parse.c"
+#line 12517 "ext/kanayago/parse.c"
     break;
 
   case 103: /* mlhs: "(" mlhs_inner rparen  */
-#line 3562 "ext/refine_tree/parse.tmp.y"
+#line 3562 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node_masgn) = (yyvsp[-1].node_masgn);
                     /*% ripper: mlhs_paren!($:2) %*/
                     }
-#line 12526 "ext/refine_tree/parse.c"
+#line 12526 "ext/kanayago/parse.c"
     break;
 
   case 105: /* mlhs_inner: "(" mlhs_inner rparen  */
-#line 3570 "ext/refine_tree/parse.tmp.y"
+#line 3570 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node_masgn) = NEW_MASGN(NEW_LIST((NODE *)(yyvsp[-1].node_masgn), &(yyloc)), 0, &(yyloc));
                     /*% ripper: mlhs_paren!($:2) %*/
                     }
-#line 12535 "ext/refine_tree/parse.c"
+#line 12535 "ext/kanayago/parse.c"
     break;
 
   case 106: /* mlhs_basic: mlhs_head  */
-#line 3577 "ext/refine_tree/parse.tmp.y"
+#line 3577 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node_masgn) = NEW_MASGN((yyvsp[0].node), 0, &(yyloc));
                     /*% ripper: $:1 %*/
                     }
-#line 12544 "ext/refine_tree/parse.c"
+#line 12544 "ext/kanayago/parse.c"
     break;
 
   case 107: /* mlhs_basic: mlhs_head mlhs_item  */
-#line 3582 "ext/refine_tree/parse.tmp.y"
+#line 3582 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node_masgn) = NEW_MASGN(list_append(p, (yyvsp[-1].node), (yyvsp[0].node)), 0, &(yyloc));
                     /*% ripper: mlhs_add!($:1, $:2) %*/
                     }
-#line 12553 "ext/refine_tree/parse.c"
+#line 12553 "ext/kanayago/parse.c"
     break;
 
   case 108: /* mlhs_basic: mlhs_head "*" mlhs_node  */
-#line 3587 "ext/refine_tree/parse.tmp.y"
+#line 3587 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node_masgn) = NEW_MASGN((yyvsp[-2].node), (yyvsp[0].node), &(yyloc));
                     /*% ripper: mlhs_add_star!($:1, $:3) %*/
                     }
-#line 12562 "ext/refine_tree/parse.c"
+#line 12562 "ext/kanayago/parse.c"
     break;
 
   case 109: /* mlhs_basic: mlhs_head "*" mlhs_node ',' mlhs_post  */
-#line 3592 "ext/refine_tree/parse.tmp.y"
+#line 3592 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node_masgn) = NEW_MASGN((yyvsp[-4].node), NEW_POSTARG((yyvsp[-2].node),(yyvsp[0].node),&(yyloc)), &(yyloc));
                     /*% ripper: mlhs_add_post!(mlhs_add_star!($:1, $:3), $:5) %*/
                     }
-#line 12571 "ext/refine_tree/parse.c"
+#line 12571 "ext/kanayago/parse.c"
     break;
 
   case 110: /* mlhs_basic: mlhs_head "*"  */
-#line 3597 "ext/refine_tree/parse.tmp.y"
+#line 3597 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node_masgn) = NEW_MASGN((yyvsp[-1].node), NODE_SPECIAL_NO_NAME_REST, &(yyloc));
                     /*% ripper: mlhs_add_star!($:1, Qnil) %*/
                     }
-#line 12580 "ext/refine_tree/parse.c"
+#line 12580 "ext/kanayago/parse.c"
     break;
 
   case 111: /* mlhs_basic: mlhs_head "*" ',' mlhs_post  */
-#line 3602 "ext/refine_tree/parse.tmp.y"
+#line 3602 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node_masgn) = NEW_MASGN((yyvsp[-3].node), NEW_POSTARG(NODE_SPECIAL_NO_NAME_REST, (yyvsp[0].node), &(yyloc)), &(yyloc));
                     /*% ripper: mlhs_add_post!(mlhs_add_star!($:1, Qnil), $:4) %*/
                     }
-#line 12589 "ext/refine_tree/parse.c"
+#line 12589 "ext/kanayago/parse.c"
     break;
 
   case 112: /* mlhs_basic: "*" mlhs_node  */
-#line 3607 "ext/refine_tree/parse.tmp.y"
+#line 3607 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node_masgn) = NEW_MASGN(0, (yyvsp[0].node), &(yyloc));
                     /*% ripper: mlhs_add_star!(mlhs_new!, $:2) %*/
                     }
-#line 12598 "ext/refine_tree/parse.c"
+#line 12598 "ext/kanayago/parse.c"
     break;
 
   case 113: /* mlhs_basic: "*" mlhs_node ',' mlhs_post  */
-#line 3612 "ext/refine_tree/parse.tmp.y"
+#line 3612 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node_masgn) = NEW_MASGN(0, NEW_POSTARG((yyvsp[-2].node),(yyvsp[0].node),&(yyloc)), &(yyloc));
                     /*% ripper: mlhs_add_post!(mlhs_add_star!(mlhs_new!, $:2), $:4) %*/
                     }
-#line 12607 "ext/refine_tree/parse.c"
+#line 12607 "ext/kanayago/parse.c"
     break;
 
   case 114: /* mlhs_basic: "*"  */
-#line 3617 "ext/refine_tree/parse.tmp.y"
+#line 3617 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node_masgn) = NEW_MASGN(0, NODE_SPECIAL_NO_NAME_REST, &(yyloc));
                     /*% ripper: mlhs_add_star!(mlhs_new!, Qnil) %*/
                     }
-#line 12616 "ext/refine_tree/parse.c"
+#line 12616 "ext/kanayago/parse.c"
     break;
 
   case 115: /* mlhs_basic: "*" ',' mlhs_post  */
-#line 3622 "ext/refine_tree/parse.tmp.y"
+#line 3622 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node_masgn) = NEW_MASGN(0, NEW_POSTARG(NODE_SPECIAL_NO_NAME_REST, (yyvsp[0].node), &(yyloc)), &(yyloc));
                     /*% ripper: mlhs_add_post!(mlhs_add_star!(mlhs_new!, Qnil), $:3) %*/
                     }
-#line 12625 "ext/refine_tree/parse.c"
+#line 12625 "ext/kanayago/parse.c"
     break;
 
   case 117: /* mlhs_item: "(" mlhs_inner rparen  */
-#line 3630 "ext/refine_tree/parse.tmp.y"
+#line 3630 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = (NODE *)(yyvsp[-1].node_masgn);
                     /*% ripper: mlhs_paren!($:2) %*/
                     }
-#line 12634 "ext/refine_tree/parse.c"
+#line 12634 "ext/kanayago/parse.c"
     break;
 
   case 118: /* mlhs_head: mlhs_item ','  */
-#line 3637 "ext/refine_tree/parse.tmp.y"
+#line 3637 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = NEW_LIST((yyvsp[-1].node), &(yylsp[-1]));
                     /*% ripper: mlhs_add!(mlhs_new!, $:1) %*/
                     }
-#line 12643 "ext/refine_tree/parse.c"
+#line 12643 "ext/kanayago/parse.c"
     break;
 
   case 119: /* mlhs_head: mlhs_head mlhs_item ','  */
-#line 3642 "ext/refine_tree/parse.tmp.y"
+#line 3642 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = list_append(p, (yyvsp[-2].node), (yyvsp[-1].node));
                     /*% ripper: mlhs_add!($:1, $:2) %*/
                     }
-#line 12652 "ext/refine_tree/parse.c"
+#line 12652 "ext/kanayago/parse.c"
     break;
 
   case 120: /* mlhs_post: mlhs_item  */
-#line 3649 "ext/refine_tree/parse.tmp.y"
+#line 3649 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = NEW_LIST((yyvsp[0].node), &(yyloc));
                     /*% ripper: mlhs_add!(mlhs_new!, $:1) %*/
                     }
-#line 12661 "ext/refine_tree/parse.c"
+#line 12661 "ext/kanayago/parse.c"
     break;
 
   case 121: /* mlhs_post: mlhs_post ',' mlhs_item  */
-#line 3654 "ext/refine_tree/parse.tmp.y"
+#line 3654 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = list_append(p, (yyvsp[-2].node), (yyvsp[0].node));
                     /*% ripper: mlhs_add!($:1, $:3) %*/
                     }
-#line 12670 "ext/refine_tree/parse.c"
+#line 12670 "ext/kanayago/parse.c"
     break;
 
   case 122: /* mlhs_node: user_variable  */
-#line 3661 "ext/refine_tree/parse.tmp.y"
+#line 3661 "ext/kanayago/parse.tmp.y"
                     {
                     /*% ripper: var_field!($:1) %*/
                         (yyval.node) = assignable(p, (yyvsp[0].id), 0, &(yyloc));
                     }
-#line 12679 "ext/refine_tree/parse.c"
+#line 12679 "ext/kanayago/parse.c"
     break;
 
   case 123: /* mlhs_node: keyword_variable  */
-#line 3666 "ext/refine_tree/parse.tmp.y"
+#line 3666 "ext/kanayago/parse.tmp.y"
                     {
                     /*% ripper: var_field!($:1) %*/
                         (yyval.node) = assignable(p, (yyvsp[0].id), 0, &(yyloc));
                     }
-#line 12688 "ext/refine_tree/parse.c"
+#line 12688 "ext/kanayago/parse.c"
     break;
 
   case 124: /* mlhs_node: primary_value '[' opt_call_args rbracket  */
-#line 3671 "ext/refine_tree/parse.tmp.y"
+#line 3671 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = aryset(p, (yyvsp[-3].node), (yyvsp[-1].node), &(yyloc));
                     /*% ripper: aref_field!($:1, $:3) %*/
                     }
-#line 12697 "ext/refine_tree/parse.c"
+#line 12697 "ext/kanayago/parse.c"
     break;
 
   case 125: /* mlhs_node: primary_value call_op "local variable or method"  */
-#line 3676 "ext/refine_tree/parse.tmp.y"
+#line 3676 "ext/kanayago/parse.tmp.y"
                     {
                         anddot_multiple_assignment_check(p, &(yylsp[-1]), (yyvsp[-1].id));
                         (yyval.node) = attrset(p, (yyvsp[-2].node), (yyvsp[-1].id), (yyvsp[0].id), &(yyloc));
                     /*% ripper: field!($:1, $:2, $:3) %*/
                     }
-#line 12707 "ext/refine_tree/parse.c"
+#line 12707 "ext/kanayago/parse.c"
     break;
 
   case 126: /* mlhs_node: primary_value "::" "local variable or method"  */
-#line 3682 "ext/refine_tree/parse.tmp.y"
+#line 3682 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = attrset(p, (yyvsp[-2].node), idCOLON2, (yyvsp[0].id), &(yyloc));
                     /*% ripper: const_path_field!($:1, $:3) %*/
                     }
-#line 12716 "ext/refine_tree/parse.c"
+#line 12716 "ext/kanayago/parse.c"
     break;
 
   case 127: /* mlhs_node: primary_value call_op "constant"  */
-#line 3687 "ext/refine_tree/parse.tmp.y"
+#line 3687 "ext/kanayago/parse.tmp.y"
                     {
                         anddot_multiple_assignment_check(p, &(yylsp[-1]), (yyvsp[-1].id));
                         (yyval.node) = attrset(p, (yyvsp[-2].node), (yyvsp[-1].id), (yyvsp[0].id), &(yyloc));
                     /*% ripper: field!($:1, $:2, $:3) %*/
                     }
-#line 12726 "ext/refine_tree/parse.c"
+#line 12726 "ext/kanayago/parse.c"
     break;
 
   case 128: /* mlhs_node: primary_value "::" "constant"  */
-#line 3693 "ext/refine_tree/parse.tmp.y"
+#line 3693 "ext/kanayago/parse.tmp.y"
                     {
                     /*% ripper: const_path_field!($:1, $:3) %*/
                         (yyval.node) = const_decl(p, NEW_COLON2((yyvsp[-2].node), (yyvsp[0].id), &(yyloc)), &(yyloc));
                     }
-#line 12735 "ext/refine_tree/parse.c"
+#line 12735 "ext/kanayago/parse.c"
     break;
 
   case 129: /* mlhs_node: ":: at EXPR_BEG" "constant"  */
-#line 3698 "ext/refine_tree/parse.tmp.y"
+#line 3698 "ext/kanayago/parse.tmp.y"
                     {
                     /*% ripper: top_const_field!($:2) %*/
                         (yyval.node) = const_decl(p, NEW_COLON3((yyvsp[0].id), &(yyloc)), &(yyloc));
                     }
-#line 12744 "ext/refine_tree/parse.c"
+#line 12744 "ext/kanayago/parse.c"
     break;
 
   case 130: /* mlhs_node: backref  */
-#line 3703 "ext/refine_tree/parse.tmp.y"
+#line 3703 "ext/kanayago/parse.tmp.y"
                     {
                         VALUE MAYBE_UNUSED(e) = rb_backref_error(p, (yyvsp[0].node));
                         (yyval.node) = NEW_ERROR(&(yyloc));
                     /*% ripper[error]: assign_error!(?e, var_field!($:1)) %*/
                     }
-#line 12754 "ext/refine_tree/parse.c"
+#line 12754 "ext/kanayago/parse.c"
     break;
 
   case 131: /* lhs: user_variable  */
-#line 3711 "ext/refine_tree/parse.tmp.y"
+#line 3711 "ext/kanayago/parse.tmp.y"
                     {
                     /*% ripper: var_field!($:1) %*/
                         (yyval.node) = assignable(p, (yyvsp[0].id), 0, &(yyloc));
                     }
-#line 12763 "ext/refine_tree/parse.c"
+#line 12763 "ext/kanayago/parse.c"
     break;
 
   case 132: /* lhs: keyword_variable  */
-#line 3716 "ext/refine_tree/parse.tmp.y"
+#line 3716 "ext/kanayago/parse.tmp.y"
                     {
                     /*% ripper: var_field!($:1) %*/
                         (yyval.node) = assignable(p, (yyvsp[0].id), 0, &(yyloc));
                     }
-#line 12772 "ext/refine_tree/parse.c"
+#line 12772 "ext/kanayago/parse.c"
     break;
 
   case 133: /* lhs: primary_value '[' opt_call_args rbracket  */
-#line 3721 "ext/refine_tree/parse.tmp.y"
+#line 3721 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = aryset(p, (yyvsp[-3].node), (yyvsp[-1].node), &(yyloc));
                     /*% ripper: aref_field!($:1, $:3) %*/
                     }
-#line 12781 "ext/refine_tree/parse.c"
+#line 12781 "ext/kanayago/parse.c"
     break;
 
   case 134: /* lhs: primary_value call_op "local variable or method"  */
-#line 3726 "ext/refine_tree/parse.tmp.y"
+#line 3726 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = attrset(p, (yyvsp[-2].node), (yyvsp[-1].id), (yyvsp[0].id), &(yyloc));
                     /*% ripper: field!($:1, $:2, $:3) %*/
                     }
-#line 12790 "ext/refine_tree/parse.c"
+#line 12790 "ext/kanayago/parse.c"
     break;
 
   case 135: /* lhs: primary_value "::" "local variable or method"  */
-#line 3731 "ext/refine_tree/parse.tmp.y"
+#line 3731 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = attrset(p, (yyvsp[-2].node), idCOLON2, (yyvsp[0].id), &(yyloc));
                     /*% ripper: field!($:1, $:2, $:3) %*/
                     }
-#line 12799 "ext/refine_tree/parse.c"
+#line 12799 "ext/kanayago/parse.c"
     break;
 
   case 136: /* lhs: primary_value call_op "constant"  */
-#line 3736 "ext/refine_tree/parse.tmp.y"
+#line 3736 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = attrset(p, (yyvsp[-2].node), (yyvsp[-1].id), (yyvsp[0].id), &(yyloc));
                     /*% ripper: field!($:1, $:2, $:3) %*/
                     }
-#line 12808 "ext/refine_tree/parse.c"
+#line 12808 "ext/kanayago/parse.c"
     break;
 
   case 137: /* lhs: primary_value "::" "constant"  */
-#line 3741 "ext/refine_tree/parse.tmp.y"
+#line 3741 "ext/kanayago/parse.tmp.y"
                     {
                     /*% ripper: const_path_field!($:1, $:3) %*/
                         (yyval.node) = const_decl(p, NEW_COLON2((yyvsp[-2].node), (yyvsp[0].id), &(yyloc)), &(yyloc));
                     }
-#line 12817 "ext/refine_tree/parse.c"
+#line 12817 "ext/kanayago/parse.c"
     break;
 
   case 138: /* lhs: ":: at EXPR_BEG" "constant"  */
-#line 3746 "ext/refine_tree/parse.tmp.y"
+#line 3746 "ext/kanayago/parse.tmp.y"
                     {
                     /*% ripper: top_const_field!($:2) %*/
                         (yyval.node) = const_decl(p, NEW_COLON3((yyvsp[0].id), &(yyloc)), &(yyloc));
                     }
-#line 12826 "ext/refine_tree/parse.c"
+#line 12826 "ext/kanayago/parse.c"
     break;
 
   case 139: /* lhs: backref  */
-#line 3751 "ext/refine_tree/parse.tmp.y"
+#line 3751 "ext/kanayago/parse.tmp.y"
                     {
                         VALUE MAYBE_UNUSED(e) = rb_backref_error(p, (yyvsp[0].node));
                         (yyval.node) = NEW_ERROR(&(yyloc));
                     /*% ripper[error]: assign_error!(?e, var_field!($:1)) %*/
                     }
-#line 12836 "ext/refine_tree/parse.c"
+#line 12836 "ext/kanayago/parse.c"
     break;
 
   case 140: /* cname: "local variable or method"  */
-#line 3759 "ext/refine_tree/parse.tmp.y"
+#line 3759 "ext/kanayago/parse.tmp.y"
                     {
                         static const char mesg[] = "class/module name must be CONSTANT";
                     /*%%%*/
@@ -12844,644 +12844,644 @@ yyreduce:
                     /*% %*/
                     /*% ripper[error]: class_name_error!(ERR_MESG(), $:1) %*/
                     }
-#line 12848 "ext/refine_tree/parse.c"
+#line 12848 "ext/kanayago/parse.c"
     break;
 
   case 142: /* cpath: ":: at EXPR_BEG" cname  */
-#line 3770 "ext/refine_tree/parse.tmp.y"
+#line 3770 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = NEW_COLON3((yyvsp[0].id), &(yyloc));
                     /*% ripper: top_const_ref!($:2) %*/
                     }
-#line 12857 "ext/refine_tree/parse.c"
+#line 12857 "ext/kanayago/parse.c"
     break;
 
   case 143: /* cpath: cname  */
-#line 3775 "ext/refine_tree/parse.tmp.y"
+#line 3775 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = NEW_COLON2(0, (yyvsp[0].id), &(yyloc));
                     /*% ripper: const_ref!($:1) %*/
                     }
-#line 12866 "ext/refine_tree/parse.c"
+#line 12866 "ext/kanayago/parse.c"
     break;
 
   case 144: /* cpath: primary_value "::" cname  */
-#line 3780 "ext/refine_tree/parse.tmp.y"
+#line 3780 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = NEW_COLON2((yyvsp[-2].node), (yyvsp[0].id), &(yyloc));
                     /*% ripper: const_path_ref!($:1, $:3) %*/
                     }
-#line 12875 "ext/refine_tree/parse.c"
+#line 12875 "ext/kanayago/parse.c"
     break;
 
   case 148: /* fname: op  */
-#line 3789 "ext/refine_tree/parse.tmp.y"
+#line 3789 "ext/kanayago/parse.tmp.y"
                     {
                         SET_LEX_STATE(EXPR_ENDFN);
                         (yyval.id) = (yyvsp[0].id);
                     }
-#line 12884 "ext/refine_tree/parse.c"
+#line 12884 "ext/kanayago/parse.c"
     break;
 
   case 150: /* fitem: fname  */
-#line 3797 "ext/refine_tree/parse.tmp.y"
+#line 3797 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = NEW_SYM(rb_id2str((yyvsp[0].id)), &(yyloc));
                     /*% ripper: symbol_literal!($:1) %*/
                     }
-#line 12893 "ext/refine_tree/parse.c"
+#line 12893 "ext/kanayago/parse.c"
     break;
 
   case 152: /* undef_list: fitem  */
-#line 3805 "ext/refine_tree/parse.tmp.y"
+#line 3805 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = NEW_UNDEF((yyvsp[0].node), &(yyloc));
                     /*% ripper: rb_ary_new3(1, $:1) %*/
                     }
-#line 12902 "ext/refine_tree/parse.c"
+#line 12902 "ext/kanayago/parse.c"
     break;
 
   case 153: /* $@12: %empty  */
-#line 3809 "ext/refine_tree/parse.tmp.y"
+#line 3809 "ext/kanayago/parse.tmp.y"
                                  {SET_LEX_STATE(EXPR_FNAME|EXPR_FITEM);}
-#line 12908 "ext/refine_tree/parse.c"
+#line 12908 "ext/kanayago/parse.c"
     break;
 
   case 154: /* undef_list: undef_list ',' $@12 fitem  */
-#line 3810 "ext/refine_tree/parse.tmp.y"
+#line 3810 "ext/kanayago/parse.tmp.y"
                     {
                         nd_set_last_loc((yyvsp[-3].node), (yylsp[0]).end_pos);
                         rb_parser_ary_push_node(p, RNODE_UNDEF((yyvsp[-3].node))->nd_undefs, (yyvsp[0].node));
                     /*% ripper: rb_ary_push($:1, $:4) %*/
                     }
-#line 12918 "ext/refine_tree/parse.c"
+#line 12918 "ext/kanayago/parse.c"
     break;
 
   case 155: /* op: '|'  */
-#line 3817 "ext/refine_tree/parse.tmp.y"
+#line 3817 "ext/kanayago/parse.tmp.y"
            { (yyval.id) = '|'; }
-#line 12924 "ext/refine_tree/parse.c"
+#line 12924 "ext/kanayago/parse.c"
     break;
 
   case 156: /* op: '^'  */
-#line 3818 "ext/refine_tree/parse.tmp.y"
+#line 3818 "ext/kanayago/parse.tmp.y"
                        { (yyval.id) = '^'; }
-#line 12930 "ext/refine_tree/parse.c"
+#line 12930 "ext/kanayago/parse.c"
     break;
 
   case 157: /* op: '&'  */
-#line 3819 "ext/refine_tree/parse.tmp.y"
+#line 3819 "ext/kanayago/parse.tmp.y"
                        { (yyval.id) = '&'; }
-#line 12936 "ext/refine_tree/parse.c"
+#line 12936 "ext/kanayago/parse.c"
     break;
 
   case 158: /* op: "<=>"  */
-#line 3820 "ext/refine_tree/parse.tmp.y"
+#line 3820 "ext/kanayago/parse.tmp.y"
                         { (yyval.id) = tCMP; }
-#line 12942 "ext/refine_tree/parse.c"
+#line 12942 "ext/kanayago/parse.c"
     break;
 
   case 159: /* op: "=="  */
-#line 3821 "ext/refine_tree/parse.tmp.y"
+#line 3821 "ext/kanayago/parse.tmp.y"
                        { (yyval.id) = tEQ; }
-#line 12948 "ext/refine_tree/parse.c"
+#line 12948 "ext/kanayago/parse.c"
     break;
 
   case 160: /* op: "==="  */
-#line 3822 "ext/refine_tree/parse.tmp.y"
+#line 3822 "ext/kanayago/parse.tmp.y"
                         { (yyval.id) = tEQQ; }
-#line 12954 "ext/refine_tree/parse.c"
+#line 12954 "ext/kanayago/parse.c"
     break;
 
   case 161: /* op: "=~"  */
-#line 3823 "ext/refine_tree/parse.tmp.y"
+#line 3823 "ext/kanayago/parse.tmp.y"
                          { (yyval.id) = tMATCH; }
-#line 12960 "ext/refine_tree/parse.c"
+#line 12960 "ext/kanayago/parse.c"
     break;
 
   case 162: /* op: "!~"  */
-#line 3824 "ext/refine_tree/parse.tmp.y"
+#line 3824 "ext/kanayago/parse.tmp.y"
                           { (yyval.id) = tNMATCH; }
-#line 12966 "ext/refine_tree/parse.c"
+#line 12966 "ext/kanayago/parse.c"
     break;
 
   case 163: /* op: '>'  */
-#line 3825 "ext/refine_tree/parse.tmp.y"
+#line 3825 "ext/kanayago/parse.tmp.y"
                        { (yyval.id) = '>'; }
-#line 12972 "ext/refine_tree/parse.c"
+#line 12972 "ext/kanayago/parse.c"
     break;
 
   case 164: /* op: ">="  */
-#line 3826 "ext/refine_tree/parse.tmp.y"
+#line 3826 "ext/kanayago/parse.tmp.y"
                         { (yyval.id) = tGEQ; }
-#line 12978 "ext/refine_tree/parse.c"
+#line 12978 "ext/kanayago/parse.c"
     break;
 
   case 165: /* op: '<'  */
-#line 3827 "ext/refine_tree/parse.tmp.y"
+#line 3827 "ext/kanayago/parse.tmp.y"
                        { (yyval.id) = '<'; }
-#line 12984 "ext/refine_tree/parse.c"
+#line 12984 "ext/kanayago/parse.c"
     break;
 
   case 166: /* op: "<="  */
-#line 3828 "ext/refine_tree/parse.tmp.y"
+#line 3828 "ext/kanayago/parse.tmp.y"
                         { (yyval.id) = tLEQ; }
-#line 12990 "ext/refine_tree/parse.c"
+#line 12990 "ext/kanayago/parse.c"
     break;
 
   case 167: /* op: "!="  */
-#line 3829 "ext/refine_tree/parse.tmp.y"
+#line 3829 "ext/kanayago/parse.tmp.y"
                         { (yyval.id) = tNEQ; }
-#line 12996 "ext/refine_tree/parse.c"
+#line 12996 "ext/kanayago/parse.c"
     break;
 
   case 168: /* op: "<<"  */
-#line 3830 "ext/refine_tree/parse.tmp.y"
+#line 3830 "ext/kanayago/parse.tmp.y"
                          { (yyval.id) = tLSHFT; }
-#line 13002 "ext/refine_tree/parse.c"
+#line 13002 "ext/kanayago/parse.c"
     break;
 
   case 169: /* op: ">>"  */
-#line 3831 "ext/refine_tree/parse.tmp.y"
+#line 3831 "ext/kanayago/parse.tmp.y"
                          { (yyval.id) = tRSHFT; }
-#line 13008 "ext/refine_tree/parse.c"
+#line 13008 "ext/kanayago/parse.c"
     break;
 
   case 170: /* op: '+'  */
-#line 3832 "ext/refine_tree/parse.tmp.y"
+#line 3832 "ext/kanayago/parse.tmp.y"
                        { (yyval.id) = '+'; }
-#line 13014 "ext/refine_tree/parse.c"
+#line 13014 "ext/kanayago/parse.c"
     break;
 
   case 171: /* op: '-'  */
-#line 3833 "ext/refine_tree/parse.tmp.y"
+#line 3833 "ext/kanayago/parse.tmp.y"
                        { (yyval.id) = '-'; }
-#line 13020 "ext/refine_tree/parse.c"
+#line 13020 "ext/kanayago/parse.c"
     break;
 
   case 172: /* op: '*'  */
-#line 3834 "ext/refine_tree/parse.tmp.y"
+#line 3834 "ext/kanayago/parse.tmp.y"
                        { (yyval.id) = '*'; }
-#line 13026 "ext/refine_tree/parse.c"
+#line 13026 "ext/kanayago/parse.c"
     break;
 
   case 173: /* op: "*"  */
-#line 3835 "ext/refine_tree/parse.tmp.y"
+#line 3835 "ext/kanayago/parse.tmp.y"
                          { (yyval.id) = '*'; }
-#line 13032 "ext/refine_tree/parse.c"
+#line 13032 "ext/kanayago/parse.c"
     break;
 
   case 174: /* op: '/'  */
-#line 3836 "ext/refine_tree/parse.tmp.y"
+#line 3836 "ext/kanayago/parse.tmp.y"
                        { (yyval.id) = '/'; }
-#line 13038 "ext/refine_tree/parse.c"
+#line 13038 "ext/kanayago/parse.c"
     break;
 
   case 175: /* op: '%'  */
-#line 3837 "ext/refine_tree/parse.tmp.y"
+#line 3837 "ext/kanayago/parse.tmp.y"
                        { (yyval.id) = '%'; }
-#line 13044 "ext/refine_tree/parse.c"
+#line 13044 "ext/kanayago/parse.c"
     break;
 
   case 176: /* op: "**"  */
-#line 3838 "ext/refine_tree/parse.tmp.y"
+#line 3838 "ext/kanayago/parse.tmp.y"
                         { (yyval.id) = tPOW; }
-#line 13050 "ext/refine_tree/parse.c"
+#line 13050 "ext/kanayago/parse.c"
     break;
 
   case 177: /* op: "**arg"  */
-#line 3839 "ext/refine_tree/parse.tmp.y"
+#line 3839 "ext/kanayago/parse.tmp.y"
                          { (yyval.id) = tDSTAR; }
-#line 13056 "ext/refine_tree/parse.c"
+#line 13056 "ext/kanayago/parse.c"
     break;
 
   case 178: /* op: '!'  */
-#line 3840 "ext/refine_tree/parse.tmp.y"
+#line 3840 "ext/kanayago/parse.tmp.y"
                        { (yyval.id) = '!'; }
-#line 13062 "ext/refine_tree/parse.c"
+#line 13062 "ext/kanayago/parse.c"
     break;
 
   case 179: /* op: '~'  */
-#line 3841 "ext/refine_tree/parse.tmp.y"
+#line 3841 "ext/kanayago/parse.tmp.y"
                        { (yyval.id) = '~'; }
-#line 13068 "ext/refine_tree/parse.c"
+#line 13068 "ext/kanayago/parse.c"
     break;
 
   case 180: /* op: "unary+"  */
-#line 3842 "ext/refine_tree/parse.tmp.y"
+#line 3842 "ext/kanayago/parse.tmp.y"
                          { (yyval.id) = tUPLUS; }
-#line 13074 "ext/refine_tree/parse.c"
+#line 13074 "ext/kanayago/parse.c"
     break;
 
   case 181: /* op: "unary-"  */
-#line 3843 "ext/refine_tree/parse.tmp.y"
+#line 3843 "ext/kanayago/parse.tmp.y"
                           { (yyval.id) = tUMINUS; }
-#line 13080 "ext/refine_tree/parse.c"
+#line 13080 "ext/kanayago/parse.c"
     break;
 
   case 182: /* op: "[]"  */
-#line 3844 "ext/refine_tree/parse.tmp.y"
+#line 3844 "ext/kanayago/parse.tmp.y"
                          { (yyval.id) = tAREF; }
-#line 13086 "ext/refine_tree/parse.c"
+#line 13086 "ext/kanayago/parse.c"
     break;
 
   case 183: /* op: "[]="  */
-#line 3845 "ext/refine_tree/parse.tmp.y"
+#line 3845 "ext/kanayago/parse.tmp.y"
                          { (yyval.id) = tASET; }
-#line 13092 "ext/refine_tree/parse.c"
+#line 13092 "ext/kanayago/parse.c"
     break;
 
   case 184: /* op: '`'  */
-#line 3846 "ext/refine_tree/parse.tmp.y"
+#line 3846 "ext/kanayago/parse.tmp.y"
                        { (yyval.id) = '`'; }
-#line 13098 "ext/refine_tree/parse.c"
+#line 13098 "ext/kanayago/parse.c"
     break;
 
   case 226: /* arg: lhs '=' lex_ctxt arg_rhs  */
-#line 3864 "ext/refine_tree/parse.tmp.y"
+#line 3864 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = node_assign(p, (yyvsp[-3].node), (yyvsp[0].node), (yyvsp[-1].ctxt), &(yyloc));
                     /*% ripper: assign!($:1, $:4) %*/
                     }
-#line 13107 "ext/refine_tree/parse.c"
+#line 13107 "ext/kanayago/parse.c"
     break;
 
   case 227: /* arg: var_lhs "operator-assignment" lex_ctxt arg_rhs  */
-#line 3869 "ext/refine_tree/parse.tmp.y"
+#line 3869 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = new_op_assign(p, (yyvsp[-3].node), (yyvsp[-2].id), (yyvsp[0].node), (yyvsp[-1].ctxt), &(yyloc));
                     /*% ripper: opassign!($:1, $:2, $:4) %*/
                     }
-#line 13116 "ext/refine_tree/parse.c"
+#line 13116 "ext/kanayago/parse.c"
     break;
 
   case 228: /* arg: primary_value '[' opt_call_args rbracket "operator-assignment" lex_ctxt arg_rhs  */
-#line 3874 "ext/refine_tree/parse.tmp.y"
+#line 3874 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = new_ary_op_assign(p, (yyvsp[-6].node), (yyvsp[-4].node), (yyvsp[-2].id), (yyvsp[0].node), &(yylsp[-4]), &(yyloc));
                     /*% ripper: opassign!(aref_field!($:1, $:3), $:5, $:7) %*/
                     }
-#line 13125 "ext/refine_tree/parse.c"
+#line 13125 "ext/kanayago/parse.c"
     break;
 
   case 229: /* arg: primary_value call_op "local variable or method" "operator-assignment" lex_ctxt arg_rhs  */
-#line 3879 "ext/refine_tree/parse.tmp.y"
+#line 3879 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = new_attr_op_assign(p, (yyvsp[-5].node), (yyvsp[-4].id), (yyvsp[-3].id), (yyvsp[-2].id), (yyvsp[0].node), &(yyloc));
                     /*% ripper: opassign!(field!($:1, $:2, $:3), $:4, $:6) %*/
                     }
-#line 13134 "ext/refine_tree/parse.c"
+#line 13134 "ext/kanayago/parse.c"
     break;
 
   case 230: /* arg: primary_value call_op "constant" "operator-assignment" lex_ctxt arg_rhs  */
-#line 3884 "ext/refine_tree/parse.tmp.y"
+#line 3884 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = new_attr_op_assign(p, (yyvsp[-5].node), (yyvsp[-4].id), (yyvsp[-3].id), (yyvsp[-2].id), (yyvsp[0].node), &(yyloc));
                     /*% ripper: opassign!(field!($:1, $:2, $:3), $:4, $:6) %*/
                     }
-#line 13143 "ext/refine_tree/parse.c"
+#line 13143 "ext/kanayago/parse.c"
     break;
 
   case 231: /* arg: primary_value "::" "local variable or method" "operator-assignment" lex_ctxt arg_rhs  */
-#line 3889 "ext/refine_tree/parse.tmp.y"
+#line 3889 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = new_attr_op_assign(p, (yyvsp[-5].node), idCOLON2, (yyvsp[-3].id), (yyvsp[-2].id), (yyvsp[0].node), &(yyloc));
                     /*% ripper: opassign!(field!($:1, $:2, $:3), $:4, $:6) %*/
                     }
-#line 13152 "ext/refine_tree/parse.c"
+#line 13152 "ext/kanayago/parse.c"
     break;
 
   case 232: /* arg: primary_value "::" "constant" "operator-assignment" lex_ctxt arg_rhs  */
-#line 3894 "ext/refine_tree/parse.tmp.y"
+#line 3894 "ext/kanayago/parse.tmp.y"
                     {
                         YYLTYPE loc = code_loc_gen(&(yylsp[-5]), &(yylsp[-3]));
                         (yyval.node) = new_const_op_assign(p, NEW_COLON2((yyvsp[-5].node), (yyvsp[-3].id), &loc), (yyvsp[-2].id), (yyvsp[0].node), (yyvsp[-1].ctxt), &(yyloc));
                     /*% ripper: opassign!(const_path_field!($:1, $:3), $:4, $:6) %*/
                     }
-#line 13162 "ext/refine_tree/parse.c"
+#line 13162 "ext/kanayago/parse.c"
     break;
 
   case 233: /* arg: ":: at EXPR_BEG" "constant" "operator-assignment" lex_ctxt arg_rhs  */
-#line 3900 "ext/refine_tree/parse.tmp.y"
+#line 3900 "ext/kanayago/parse.tmp.y"
                     {
                         YYLTYPE loc = code_loc_gen(&(yylsp[-4]), &(yylsp[-3]));
                         (yyval.node) = new_const_op_assign(p, NEW_COLON3((yyvsp[-3].id), &loc), (yyvsp[-2].id), (yyvsp[0].node), (yyvsp[-1].ctxt), &(yyloc));
                     /*% ripper: opassign!(top_const_field!($:2), $:3, $:5) %*/
                     }
-#line 13172 "ext/refine_tree/parse.c"
+#line 13172 "ext/kanayago/parse.c"
     break;
 
   case 234: /* arg: backref "operator-assignment" lex_ctxt arg_rhs  */
-#line 3906 "ext/refine_tree/parse.tmp.y"
+#line 3906 "ext/kanayago/parse.tmp.y"
                     {
                         VALUE MAYBE_UNUSED(e) = rb_backref_error(p, (yyvsp[-3].node));
                         (yyval.node) = NEW_ERROR(&(yyloc));
                     /*% ripper[error]: assign_error!(?e, opassign!(var_field!($:1), $:2, $:4)) %*/
                     }
-#line 13182 "ext/refine_tree/parse.c"
+#line 13182 "ext/kanayago/parse.c"
     break;
 
   case 235: /* arg: arg ".." arg  */
-#line 3912 "ext/refine_tree/parse.tmp.y"
+#line 3912 "ext/kanayago/parse.tmp.y"
                     {
                         value_expr((yyvsp[-2].node));
                         value_expr((yyvsp[0].node));
                         (yyval.node) = NEW_DOT2((yyvsp[-2].node), (yyvsp[0].node), &(yyloc));
                     /*% ripper: dot2!($:1, $:3) %*/
                     }
-#line 13193 "ext/refine_tree/parse.c"
+#line 13193 "ext/kanayago/parse.c"
     break;
 
   case 236: /* arg: arg "..." arg  */
-#line 3919 "ext/refine_tree/parse.tmp.y"
+#line 3919 "ext/kanayago/parse.tmp.y"
                     {
                         value_expr((yyvsp[-2].node));
                         value_expr((yyvsp[0].node));
                         (yyval.node) = NEW_DOT3((yyvsp[-2].node), (yyvsp[0].node), &(yyloc));
                     /*% ripper: dot3!($:1, $:3) %*/
                     }
-#line 13204 "ext/refine_tree/parse.c"
+#line 13204 "ext/kanayago/parse.c"
     break;
 
   case 237: /* arg: arg ".."  */
-#line 3926 "ext/refine_tree/parse.tmp.y"
+#line 3926 "ext/kanayago/parse.tmp.y"
                     {
                         value_expr((yyvsp[-1].node));
                         (yyval.node) = NEW_DOT2((yyvsp[-1].node), new_nil_at(p, &(yylsp[0]).end_pos), &(yyloc));
                     /*% ripper: dot2!($:1, Qnil) %*/
                     }
-#line 13214 "ext/refine_tree/parse.c"
+#line 13214 "ext/kanayago/parse.c"
     break;
 
   case 238: /* arg: arg "..."  */
-#line 3932 "ext/refine_tree/parse.tmp.y"
+#line 3932 "ext/kanayago/parse.tmp.y"
                     {
                         value_expr((yyvsp[-1].node));
                         (yyval.node) = NEW_DOT3((yyvsp[-1].node), new_nil_at(p, &(yylsp[0]).end_pos), &(yyloc));
                     /*% ripper: dot3!($:1, Qnil) %*/
                     }
-#line 13224 "ext/refine_tree/parse.c"
+#line 13224 "ext/kanayago/parse.c"
     break;
 
   case 239: /* arg: "(.." arg  */
-#line 3938 "ext/refine_tree/parse.tmp.y"
+#line 3938 "ext/kanayago/parse.tmp.y"
                     {
                         value_expr((yyvsp[0].node));
                         (yyval.node) = NEW_DOT2(new_nil_at(p, &(yylsp[-1]).beg_pos), (yyvsp[0].node), &(yyloc));
                     /*% ripper: dot2!(Qnil, $:2) %*/
                     }
-#line 13234 "ext/refine_tree/parse.c"
+#line 13234 "ext/kanayago/parse.c"
     break;
 
   case 240: /* arg: "(..." arg  */
-#line 3944 "ext/refine_tree/parse.tmp.y"
+#line 3944 "ext/kanayago/parse.tmp.y"
                     {
                         value_expr((yyvsp[0].node));
                         (yyval.node) = NEW_DOT3(new_nil_at(p, &(yylsp[-1]).beg_pos), (yyvsp[0].node), &(yyloc));
                     /*% ripper: dot3!(Qnil, $:2) %*/
                     }
-#line 13244 "ext/refine_tree/parse.c"
+#line 13244 "ext/kanayago/parse.c"
     break;
 
   case 241: /* arg: arg '+' arg  */
-#line 3950 "ext/refine_tree/parse.tmp.y"
+#line 3950 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = call_bin_op(p, (yyvsp[-2].node), '+', (yyvsp[0].node), &(yylsp[-1]), &(yyloc));
                     /*% ripper: binary!($:1, ID2VAL('\'+\''), $:3) %*/
                     }
-#line 13253 "ext/refine_tree/parse.c"
+#line 13253 "ext/kanayago/parse.c"
     break;
 
   case 242: /* arg: arg '-' arg  */
-#line 3955 "ext/refine_tree/parse.tmp.y"
+#line 3955 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = call_bin_op(p, (yyvsp[-2].node), '-', (yyvsp[0].node), &(yylsp[-1]), &(yyloc));
                     /*% ripper: binary!($:1, ID2VAL('\'-\''), $:3) %*/
                     }
-#line 13262 "ext/refine_tree/parse.c"
+#line 13262 "ext/kanayago/parse.c"
     break;
 
   case 243: /* arg: arg '*' arg  */
-#line 3960 "ext/refine_tree/parse.tmp.y"
+#line 3960 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = call_bin_op(p, (yyvsp[-2].node), '*', (yyvsp[0].node), &(yylsp[-1]), &(yyloc));
                     /*% ripper: binary!($:1, ID2VAL('\'*\''), $:3) %*/
                     }
-#line 13271 "ext/refine_tree/parse.c"
+#line 13271 "ext/kanayago/parse.c"
     break;
 
   case 244: /* arg: arg '/' arg  */
-#line 3965 "ext/refine_tree/parse.tmp.y"
+#line 3965 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = call_bin_op(p, (yyvsp[-2].node), '/', (yyvsp[0].node), &(yylsp[-1]), &(yyloc));
                     /*% ripper: binary!($:1, ID2VAL('\'/\''), $:3) %*/
                     }
-#line 13280 "ext/refine_tree/parse.c"
+#line 13280 "ext/kanayago/parse.c"
     break;
 
   case 245: /* arg: arg '%' arg  */
-#line 3970 "ext/refine_tree/parse.tmp.y"
+#line 3970 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = call_bin_op(p, (yyvsp[-2].node), '%', (yyvsp[0].node), &(yylsp[-1]), &(yyloc));
                     /*% ripper: binary!($:1, ID2VAL('\'%\''), $:3) %*/
                     }
-#line 13289 "ext/refine_tree/parse.c"
+#line 13289 "ext/kanayago/parse.c"
     break;
 
   case 246: /* arg: arg "**" arg  */
-#line 3975 "ext/refine_tree/parse.tmp.y"
+#line 3975 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = call_bin_op(p, (yyvsp[-2].node), idPow, (yyvsp[0].node), &(yylsp[-1]), &(yyloc));
                     /*% ripper: binary!($:1, ID2VAL(idPow), $:3) %*/
                     }
-#line 13298 "ext/refine_tree/parse.c"
+#line 13298 "ext/kanayago/parse.c"
     break;
 
   case 247: /* arg: tUMINUS_NUM simple_numeric "**" arg  */
-#line 3980 "ext/refine_tree/parse.tmp.y"
+#line 3980 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = call_uni_op(p, call_bin_op(p, (yyvsp[-2].node), idPow, (yyvsp[0].node), &(yylsp[-2]), &(yyloc)), idUMinus, &(yylsp[-3]), &(yyloc));
                     /*% ripper: unary!(ID2VAL(idUMinus), binary!($:2, ID2VAL(idPow), $:4)) %*/
                     }
-#line 13307 "ext/refine_tree/parse.c"
+#line 13307 "ext/kanayago/parse.c"
     break;
 
   case 248: /* arg: "unary+" arg  */
-#line 3985 "ext/refine_tree/parse.tmp.y"
+#line 3985 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = call_uni_op(p, (yyvsp[0].node), idUPlus, &(yylsp[-1]), &(yyloc));
                     /*% ripper: unary!(ID2VAL(idUPlus), $:2) %*/
                     }
-#line 13316 "ext/refine_tree/parse.c"
+#line 13316 "ext/kanayago/parse.c"
     break;
 
   case 249: /* arg: "unary-" arg  */
-#line 3990 "ext/refine_tree/parse.tmp.y"
+#line 3990 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = call_uni_op(p, (yyvsp[0].node), idUMinus, &(yylsp[-1]), &(yyloc));
                     /*% ripper: unary!(ID2VAL(idUMinus), $:2) %*/
                     }
-#line 13325 "ext/refine_tree/parse.c"
+#line 13325 "ext/kanayago/parse.c"
     break;
 
   case 250: /* arg: arg '|' arg  */
-#line 3995 "ext/refine_tree/parse.tmp.y"
+#line 3995 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = call_bin_op(p, (yyvsp[-2].node), '|', (yyvsp[0].node), &(yylsp[-1]), &(yyloc));
                     /*% ripper: binary!($:1, ID2VAL('\'|\''), $:3) %*/
                     }
-#line 13334 "ext/refine_tree/parse.c"
+#line 13334 "ext/kanayago/parse.c"
     break;
 
   case 251: /* arg: arg '^' arg  */
-#line 4000 "ext/refine_tree/parse.tmp.y"
+#line 4000 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = call_bin_op(p, (yyvsp[-2].node), '^', (yyvsp[0].node), &(yylsp[-1]), &(yyloc));
                     /*% ripper: binary!($:1, ID2VAL('\'^\''), $:3) %*/
                     }
-#line 13343 "ext/refine_tree/parse.c"
+#line 13343 "ext/kanayago/parse.c"
     break;
 
   case 252: /* arg: arg '&' arg  */
-#line 4005 "ext/refine_tree/parse.tmp.y"
+#line 4005 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = call_bin_op(p, (yyvsp[-2].node), '&', (yyvsp[0].node), &(yylsp[-1]), &(yyloc));
                     /*% ripper: binary!($:1, ID2VAL('\'&\''), $:3) %*/
                     }
-#line 13352 "ext/refine_tree/parse.c"
+#line 13352 "ext/kanayago/parse.c"
     break;
 
   case 253: /* arg: arg "<=>" arg  */
-#line 4010 "ext/refine_tree/parse.tmp.y"
+#line 4010 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = call_bin_op(p, (yyvsp[-2].node), idCmp, (yyvsp[0].node), &(yylsp[-1]), &(yyloc));
                     /*% ripper: binary!($:1, ID2VAL(idCmp), $:3) %*/
                     }
-#line 13361 "ext/refine_tree/parse.c"
+#line 13361 "ext/kanayago/parse.c"
     break;
 
   case 255: /* arg: arg "==" arg  */
-#line 4016 "ext/refine_tree/parse.tmp.y"
+#line 4016 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = call_bin_op(p, (yyvsp[-2].node), idEq, (yyvsp[0].node), &(yylsp[-1]), &(yyloc));
                     /*% ripper: binary!($:1, ID2VAL(idEq), $:3) %*/
                     }
-#line 13370 "ext/refine_tree/parse.c"
+#line 13370 "ext/kanayago/parse.c"
     break;
 
   case 256: /* arg: arg "===" arg  */
-#line 4021 "ext/refine_tree/parse.tmp.y"
+#line 4021 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = call_bin_op(p, (yyvsp[-2].node), idEqq, (yyvsp[0].node), &(yylsp[-1]), &(yyloc));
                     /*% ripper: binary!($:1, ID2VAL(idEqq), $:3) %*/
                     }
-#line 13379 "ext/refine_tree/parse.c"
+#line 13379 "ext/kanayago/parse.c"
     break;
 
   case 257: /* arg: arg "!=" arg  */
-#line 4026 "ext/refine_tree/parse.tmp.y"
+#line 4026 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = call_bin_op(p, (yyvsp[-2].node), idNeq, (yyvsp[0].node), &(yylsp[-1]), &(yyloc));
                     /*% ripper: binary!($:1, ID2VAL(idNeq), $:3) %*/
                     }
-#line 13388 "ext/refine_tree/parse.c"
+#line 13388 "ext/kanayago/parse.c"
     break;
 
   case 258: /* arg: arg "=~" arg  */
-#line 4031 "ext/refine_tree/parse.tmp.y"
+#line 4031 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = match_op(p, (yyvsp[-2].node), (yyvsp[0].node), &(yylsp[-1]), &(yyloc));
                     /*% ripper: binary!($:1, ID2VAL(idEqTilde), $:3) %*/
                     }
-#line 13397 "ext/refine_tree/parse.c"
+#line 13397 "ext/kanayago/parse.c"
     break;
 
   case 259: /* arg: arg "!~" arg  */
-#line 4036 "ext/refine_tree/parse.tmp.y"
+#line 4036 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = call_bin_op(p, (yyvsp[-2].node), idNeqTilde, (yyvsp[0].node), &(yylsp[-1]), &(yyloc));
                     /*% ripper: binary!($:1, ID2VAL(idNeqTilde), $:3) %*/
                     }
-#line 13406 "ext/refine_tree/parse.c"
+#line 13406 "ext/kanayago/parse.c"
     break;
 
   case 260: /* arg: '!' arg  */
-#line 4041 "ext/refine_tree/parse.tmp.y"
+#line 4041 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = call_uni_op(p, method_cond(p, (yyvsp[0].node), &(yylsp[0])), '!', &(yylsp[-1]), &(yyloc));
                     /*% ripper: unary!(ID2VAL('\'!\''), $:2) %*/
                     }
-#line 13415 "ext/refine_tree/parse.c"
+#line 13415 "ext/kanayago/parse.c"
     break;
 
   case 261: /* arg: '~' arg  */
-#line 4046 "ext/refine_tree/parse.tmp.y"
+#line 4046 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = call_uni_op(p, (yyvsp[0].node), '~', &(yylsp[-1]), &(yyloc));
                     /*% ripper: unary!(ID2VAL('\'~\''), $:2) %*/
                     }
-#line 13424 "ext/refine_tree/parse.c"
+#line 13424 "ext/kanayago/parse.c"
     break;
 
   case 262: /* arg: arg "<<" arg  */
-#line 4051 "ext/refine_tree/parse.tmp.y"
+#line 4051 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = call_bin_op(p, (yyvsp[-2].node), idLTLT, (yyvsp[0].node), &(yylsp[-1]), &(yyloc));
                     /*% ripper: binary!($:1, ID2VAL(idLTLT), $:3) %*/
                     }
-#line 13433 "ext/refine_tree/parse.c"
+#line 13433 "ext/kanayago/parse.c"
     break;
 
   case 263: /* arg: arg ">>" arg  */
-#line 4056 "ext/refine_tree/parse.tmp.y"
+#line 4056 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = call_bin_op(p, (yyvsp[-2].node), idGTGT, (yyvsp[0].node), &(yylsp[-1]), &(yyloc));
                     /*% ripper: binary!($:1, ID2VAL(idGTGT), $:3) %*/
                     }
-#line 13442 "ext/refine_tree/parse.c"
+#line 13442 "ext/kanayago/parse.c"
     break;
 
   case 264: /* arg: arg "&&" arg  */
-#line 4061 "ext/refine_tree/parse.tmp.y"
+#line 4061 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = logop(p, idANDOP, (yyvsp[-2].node), (yyvsp[0].node), &(yylsp[-1]), &(yyloc));
                     /*% ripper: binary!($:1, ID2VAL(idANDOP), $:3) %*/
                     }
-#line 13451 "ext/refine_tree/parse.c"
+#line 13451 "ext/kanayago/parse.c"
     break;
 
   case 265: /* arg: arg "||" arg  */
-#line 4066 "ext/refine_tree/parse.tmp.y"
+#line 4066 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = logop(p, idOROP, (yyvsp[-2].node), (yyvsp[0].node), &(yylsp[-1]), &(yyloc));
                     /*% ripper: binary!($:1, ID2VAL(idOROP), $:3) %*/
                     }
-#line 13460 "ext/refine_tree/parse.c"
+#line 13460 "ext/kanayago/parse.c"
     break;
 
   case 266: /* arg: "'defined?'" option_'\n' begin_defined arg  */
-#line 4071 "ext/refine_tree/parse.tmp.y"
+#line 4071 "ext/kanayago/parse.tmp.y"
                     {
                         p->ctxt.in_defined = (yyvsp[-1].ctxt).in_defined;
                         (yyval.node) = new_defined(p, (yyvsp[0].node), &(yyloc));
                     /*% ripper: defined!($:4) %*/
                     }
-#line 13470 "ext/refine_tree/parse.c"
+#line 13470 "ext/kanayago/parse.c"
     break;
 
   case 267: /* arg: arg '?' arg option_'\n' ':' arg  */
-#line 4077 "ext/refine_tree/parse.tmp.y"
+#line 4077 "ext/kanayago/parse.tmp.y"
                     {
                         value_expr((yyvsp[-5].node));
                         (yyval.node) = new_if(p, (yyvsp[-5].node), (yyvsp[-3].node), (yyvsp[0].node), &(yyloc));
                         fixpos((yyval.node), (yyvsp[-5].node));
                     /*% ripper: ifop!($:1, $:3, $:6) %*/
                     }
-#line 13481 "ext/refine_tree/parse.c"
+#line 13481 "ext/kanayago/parse.c"
     break;
 
   case 268: /* arg: defn_head f_opt_paren_args '=' endless_arg  */
-#line 4084 "ext/refine_tree/parse.tmp.y"
+#line 4084 "ext/kanayago/parse.tmp.y"
                     {
                         endless_method_name(p, (yyvsp[-3].node_def_temp)->nd_mid, &(yylsp[-3]));
                         restore_defun(p, (yyvsp[-3].node_def_temp));
@@ -13492,11 +13492,11 @@ yyreduce:
                     /*% ripper: def!($:head, $:args, $:$) %*/
                         local_pop(p);
                     }
-#line 13496 "ext/refine_tree/parse.c"
+#line 13496 "ext/kanayago/parse.c"
     break;
 
   case 269: /* arg: defs_head f_opt_paren_args '=' endless_arg  */
-#line 4095 "ext/refine_tree/parse.tmp.y"
+#line 4095 "ext/kanayago/parse.tmp.y"
                     {
                         endless_method_name(p, (yyvsp[-3].node_def_temp)->nd_mid, &(yylsp[-3]));
                         restore_defun(p, (yyvsp[-3].node_def_temp));
@@ -13507,171 +13507,171 @@ yyreduce:
                     /*% ripper: defs!(*$:head[0..2], $:args, $:$) %*/
                         local_pop(p);
                     }
-#line 13511 "ext/refine_tree/parse.c"
+#line 13511 "ext/kanayago/parse.c"
     break;
 
   case 270: /* arg: primary  */
-#line 4106 "ext/refine_tree/parse.tmp.y"
+#line 4106 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = (yyvsp[0].node);
                     }
-#line 13519 "ext/refine_tree/parse.c"
+#line 13519 "ext/kanayago/parse.c"
     break;
 
   case 272: /* endless_arg: endless_arg "'rescue' modifier" after_rescue arg  */
-#line 4113 "ext/refine_tree/parse.tmp.y"
+#line 4113 "ext/kanayago/parse.tmp.y"
                     {
                         p->ctxt.in_rescue = (yyvsp[-1].ctxt).in_rescue;
                         (yyval.node) = rescued_expr(p, (yyvsp[-3].node), (yyvsp[0].node), &(yylsp[-3]), &(yylsp[-2]), &(yylsp[0]));
                     /*% ripper: rescue_mod!($:1, $:4) %*/
                     }
-#line 13529 "ext/refine_tree/parse.c"
+#line 13529 "ext/kanayago/parse.c"
     break;
 
   case 273: /* endless_arg: "'not'" option_'\n' endless_arg  */
-#line 4119 "ext/refine_tree/parse.tmp.y"
+#line 4119 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = call_uni_op(p, method_cond(p, (yyvsp[0].node), &(yylsp[0])), METHOD_NOT, &(yylsp[-2]), &(yyloc));
                     /*% ripper: unary!(ID2VAL(idNOT), $:3) %*/
                     }
-#line 13538 "ext/refine_tree/parse.c"
+#line 13538 "ext/kanayago/parse.c"
     break;
 
   case 274: /* relop: '>'  */
-#line 4125 "ext/refine_tree/parse.tmp.y"
+#line 4125 "ext/kanayago/parse.tmp.y"
               {(yyval.id) = '>';}
-#line 13544 "ext/refine_tree/parse.c"
+#line 13544 "ext/kanayago/parse.c"
     break;
 
   case 275: /* relop: '<'  */
-#line 4126 "ext/refine_tree/parse.tmp.y"
+#line 4126 "ext/kanayago/parse.tmp.y"
                        {(yyval.id) = '<';}
-#line 13550 "ext/refine_tree/parse.c"
+#line 13550 "ext/kanayago/parse.c"
     break;
 
   case 276: /* relop: ">="  */
-#line 4127 "ext/refine_tree/parse.tmp.y"
+#line 4127 "ext/kanayago/parse.tmp.y"
                        {(yyval.id) = idGE;}
-#line 13556 "ext/refine_tree/parse.c"
+#line 13556 "ext/kanayago/parse.c"
     break;
 
   case 277: /* relop: "<="  */
-#line 4128 "ext/refine_tree/parse.tmp.y"
+#line 4128 "ext/kanayago/parse.tmp.y"
                        {(yyval.id) = idLE;}
-#line 13562 "ext/refine_tree/parse.c"
+#line 13562 "ext/kanayago/parse.c"
     break;
 
   case 278: /* rel_expr: arg relop arg  */
-#line 4132 "ext/refine_tree/parse.tmp.y"
+#line 4132 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = call_bin_op(p, (yyvsp[-2].node), (yyvsp[-1].id), (yyvsp[0].node), &(yylsp[-1]), &(yyloc));
                     /*% ripper: binary!($:1, ID2VAL($2), $:3) %*/
                     }
-#line 13571 "ext/refine_tree/parse.c"
+#line 13571 "ext/kanayago/parse.c"
     break;
 
   case 279: /* rel_expr: rel_expr relop arg  */
-#line 4137 "ext/refine_tree/parse.tmp.y"
+#line 4137 "ext/kanayago/parse.tmp.y"
                     {
                         rb_warning1("comparison '%s' after comparison", WARN_ID((yyvsp[-1].id)));
                         (yyval.node) = call_bin_op(p, (yyvsp[-2].node), (yyvsp[-1].id), (yyvsp[0].node), &(yylsp[-1]), &(yyloc));
                     /*% ripper: binary!($:1, ID2VAL($2), $:3) %*/
                     }
-#line 13581 "ext/refine_tree/parse.c"
+#line 13581 "ext/kanayago/parse.c"
     break;
 
   case 280: /* lex_ctxt: none  */
-#line 4145 "ext/refine_tree/parse.tmp.y"
+#line 4145 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.ctxt) = p->ctxt;
                     }
-#line 13589 "ext/refine_tree/parse.c"
+#line 13589 "ext/kanayago/parse.c"
     break;
 
   case 281: /* begin_defined: lex_ctxt  */
-#line 4151 "ext/refine_tree/parse.tmp.y"
+#line 4151 "ext/kanayago/parse.tmp.y"
                     {
                         p->ctxt.in_defined = 1;
                         (yyval.ctxt) = (yyvsp[0].ctxt);
                     }
-#line 13598 "ext/refine_tree/parse.c"
+#line 13598 "ext/kanayago/parse.c"
     break;
 
   case 282: /* after_rescue: lex_ctxt  */
-#line 4158 "ext/refine_tree/parse.tmp.y"
+#line 4158 "ext/kanayago/parse.tmp.y"
                     {
                         p->ctxt.in_rescue = after_rescue;
                         (yyval.ctxt) = (yyvsp[0].ctxt);
                     }
-#line 13607 "ext/refine_tree/parse.c"
+#line 13607 "ext/kanayago/parse.c"
     break;
 
   case 283: /* arg_value: arg  */
-#line 4165 "ext/refine_tree/parse.tmp.y"
+#line 4165 "ext/kanayago/parse.tmp.y"
                     {
                         value_expr((yyvsp[0].node));
                         (yyval.node) = (yyvsp[0].node);
                     }
-#line 13616 "ext/refine_tree/parse.c"
+#line 13616 "ext/kanayago/parse.c"
     break;
 
   case 285: /* aref_args: args trailer  */
-#line 4173 "ext/refine_tree/parse.tmp.y"
+#line 4173 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = (yyvsp[-1].node);
                     }
-#line 13624 "ext/refine_tree/parse.c"
+#line 13624 "ext/kanayago/parse.c"
     break;
 
   case 286: /* aref_args: args ',' assocs trailer  */
-#line 4177 "ext/refine_tree/parse.tmp.y"
+#line 4177 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = (yyvsp[-1].node) ? arg_append(p, (yyvsp[-3].node), new_hash(p, (yyvsp[-1].node), &(yylsp[-1])), &(yyloc)) : (yyvsp[-3].node);
                     /*% ripper: args_add!($:1, bare_assoc_hash!($:3)) %*/
                     }
-#line 13633 "ext/refine_tree/parse.c"
+#line 13633 "ext/kanayago/parse.c"
     break;
 
   case 287: /* aref_args: assocs trailer  */
-#line 4182 "ext/refine_tree/parse.tmp.y"
+#line 4182 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = (yyvsp[-1].node) ? NEW_LIST(new_hash(p, (yyvsp[-1].node), &(yylsp[-1])), &(yyloc)) : 0;
                     /*% ripper: args_add!(args_new!, bare_assoc_hash!($:1)) %*/
                     }
-#line 13642 "ext/refine_tree/parse.c"
+#line 13642 "ext/kanayago/parse.c"
     break;
 
   case 288: /* arg_rhs: arg  */
-#line 4189 "ext/refine_tree/parse.tmp.y"
+#line 4189 "ext/kanayago/parse.tmp.y"
                     {
                         value_expr((yyvsp[0].node));
                         (yyval.node) = (yyvsp[0].node);
                     }
-#line 13651 "ext/refine_tree/parse.c"
+#line 13651 "ext/kanayago/parse.c"
     break;
 
   case 289: /* arg_rhs: arg "'rescue' modifier" after_rescue arg  */
-#line 4194 "ext/refine_tree/parse.tmp.y"
+#line 4194 "ext/kanayago/parse.tmp.y"
                     {
                         p->ctxt.in_rescue = (yyvsp[-1].ctxt).in_rescue;
                         value_expr((yyvsp[-3].node));
                         (yyval.node) = rescued_expr(p, (yyvsp[-3].node), (yyvsp[0].node), &(yylsp[-3]), &(yylsp[-2]), &(yylsp[0]));
                     /*% ripper: rescue_mod!($:1, $:4) %*/
                     }
-#line 13662 "ext/refine_tree/parse.c"
+#line 13662 "ext/kanayago/parse.c"
     break;
 
   case 290: /* paren_args: '(' opt_call_args rparen  */
-#line 4203 "ext/refine_tree/parse.tmp.y"
+#line 4203 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = (yyvsp[-1].node);
                     /*% ripper: arg_paren!($:2) %*/
                     }
-#line 13671 "ext/refine_tree/parse.c"
+#line 13671 "ext/kanayago/parse.c"
     break;
 
   case 291: /* paren_args: '(' args ',' args_forward rparen  */
-#line 4208 "ext/refine_tree/parse.tmp.y"
+#line 4208 "ext/kanayago/parse.tmp.y"
                     {
                         if (!check_forwarding_args(p)) {
                             (yyval.node) = 0;
@@ -13681,11 +13681,11 @@ yyreduce:
                         /*% ripper: arg_paren!(args_add!($:2, $:4)) %*/
                         }
                     }
-#line 13685 "ext/refine_tree/parse.c"
+#line 13685 "ext/kanayago/parse.c"
     break;
 
   case 292: /* paren_args: '(' args_forward rparen  */
-#line 4218 "ext/refine_tree/parse.tmp.y"
+#line 4218 "ext/kanayago/parse.tmp.y"
                     {
                         if (!check_forwarding_args(p)) {
                             (yyval.node) = 0;
@@ -13695,84 +13695,84 @@ yyreduce:
                         /*% ripper: arg_paren!($:2) %*/
                         }
                     }
-#line 13699 "ext/refine_tree/parse.c"
+#line 13699 "ext/kanayago/parse.c"
     break;
 
   case 294: /* opt_paren_args: paren_args  */
-#line 4231 "ext/refine_tree/parse.tmp.y"
+#line 4231 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = (yyvsp[0].node) ? (yyvsp[0].node) : NODE_SPECIAL_EMPTY_ARGS;
                     }
-#line 13707 "ext/refine_tree/parse.c"
+#line 13707 "ext/kanayago/parse.c"
     break;
 
   case 297: /* opt_call_args: args ','  */
-#line 4239 "ext/refine_tree/parse.tmp.y"
+#line 4239 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = (yyvsp[-1].node);
                     }
-#line 13715 "ext/refine_tree/parse.c"
+#line 13715 "ext/kanayago/parse.c"
     break;
 
   case 298: /* opt_call_args: args ',' assocs ','  */
-#line 4243 "ext/refine_tree/parse.tmp.y"
+#line 4243 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = (yyvsp[-1].node) ? arg_append(p, (yyvsp[-3].node), new_hash(p, (yyvsp[-1].node), &(yylsp[-1])), &(yyloc)) : (yyvsp[-3].node);
                     /*% ripper: args_add!($:1, bare_assoc_hash!($:3)) %*/
                     }
-#line 13724 "ext/refine_tree/parse.c"
+#line 13724 "ext/kanayago/parse.c"
     break;
 
   case 299: /* opt_call_args: assocs ','  */
-#line 4248 "ext/refine_tree/parse.tmp.y"
+#line 4248 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = (yyvsp[-1].node) ? NEW_LIST(new_hash(p, (yyvsp[-1].node), &(yylsp[-1])), &(yylsp[-1])) : 0;
                     /*% ripper: args_add!(args_new!, bare_assoc_hash!($:1)) %*/
                     }
-#line 13733 "ext/refine_tree/parse.c"
+#line 13733 "ext/kanayago/parse.c"
     break;
 
   case 300: /* call_args: command  */
-#line 4255 "ext/refine_tree/parse.tmp.y"
+#line 4255 "ext/kanayago/parse.tmp.y"
                     {
                         value_expr((yyvsp[0].node));
                         (yyval.node) = NEW_LIST((yyvsp[0].node), &(yyloc));
                     /*% ripper: args_add!(args_new!, $:1) %*/
                     }
-#line 13743 "ext/refine_tree/parse.c"
+#line 13743 "ext/kanayago/parse.c"
     break;
 
   case 301: /* call_args: args opt_block_arg  */
-#line 4261 "ext/refine_tree/parse.tmp.y"
+#line 4261 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = arg_blk_pass((yyvsp[-1].node), (yyvsp[0].node_block_pass));
                     /*% ripper: args_add_block!($:1, $:2) %*/
                     }
-#line 13752 "ext/refine_tree/parse.c"
+#line 13752 "ext/kanayago/parse.c"
     break;
 
   case 302: /* call_args: assocs opt_block_arg  */
-#line 4266 "ext/refine_tree/parse.tmp.y"
+#line 4266 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = (yyvsp[-1].node) ? NEW_LIST(new_hash(p, (yyvsp[-1].node), &(yylsp[-1])), &(yylsp[-1])) : 0;
                         (yyval.node) = arg_blk_pass((yyval.node), (yyvsp[0].node_block_pass));
                     /*% ripper: args_add_block!(args_add!(args_new!, bare_assoc_hash!($:1)), $:2) %*/
                     }
-#line 13762 "ext/refine_tree/parse.c"
+#line 13762 "ext/kanayago/parse.c"
     break;
 
   case 303: /* call_args: args ',' assocs opt_block_arg  */
-#line 4272 "ext/refine_tree/parse.tmp.y"
+#line 4272 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = (yyvsp[-1].node) ? arg_append(p, (yyvsp[-3].node), new_hash(p, (yyvsp[-1].node), &(yylsp[-1])), &(yyloc)) : (yyvsp[-3].node);
                         (yyval.node) = arg_blk_pass((yyval.node), (yyvsp[0].node_block_pass));
                     /*% ripper: args_add_block!(args_add!($:1, bare_assoc_hash!($:3)), $:4) %*/
                     }
-#line 13772 "ext/refine_tree/parse.c"
+#line 13772 "ext/kanayago/parse.c"
     break;
 
   case 305: /* $@13: %empty  */
-#line 4281 "ext/refine_tree/parse.tmp.y"
+#line 4281 "ext/kanayago/parse.tmp.y"
                  {
                         /* If call_args starts with a open paren '(' or '[',
                          * look-ahead reading of the letters calls CMDARG_PUSH(0),
@@ -13790,11 +13790,11 @@ yyreduce:
                         CMDARG_PUSH(1);
                         if (lookahead) CMDARG_PUSH(0);
                     }
-#line 13794 "ext/refine_tree/parse.c"
+#line 13794 "ext/kanayago/parse.c"
     break;
 
   case 306: /* command_args: $@13 call_args  */
-#line 4299 "ext/refine_tree/parse.tmp.y"
+#line 4299 "ext/kanayago/parse.tmp.y"
                     {
                         /* call_args can be followed by tLBRACE_ARG (that does CMDARG_PUSH(0) in the lexer)
                          * but the push must be done after CMDARG_POP() in the parser.
@@ -13813,147 +13813,147 @@ yyreduce:
                         (yyval.node) = (yyvsp[0].node);
                     /*% ripper: $:2 %*/
                     }
-#line 13817 "ext/refine_tree/parse.c"
+#line 13817 "ext/kanayago/parse.c"
     break;
 
   case 307: /* block_arg: "&" arg_value  */
-#line 4320 "ext/refine_tree/parse.tmp.y"
+#line 4320 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node_block_pass) = NEW_BLOCK_PASS((yyvsp[0].node), &(yyloc));
                     /*% ripper: $:2 %*/
                     }
-#line 13826 "ext/refine_tree/parse.c"
+#line 13826 "ext/kanayago/parse.c"
     break;
 
   case 308: /* block_arg: "&"  */
-#line 4325 "ext/refine_tree/parse.tmp.y"
+#line 4325 "ext/kanayago/parse.tmp.y"
                     {
                         forwarding_arg_check(p, idFWD_BLOCK, idFWD_ALL, "block");
                         (yyval.node_block_pass) = NEW_BLOCK_PASS(NEW_LVAR(idFWD_BLOCK, &(yylsp[0])), &(yyloc));
                     /*% ripper: Qnil %*/
                     }
-#line 13836 "ext/refine_tree/parse.c"
+#line 13836 "ext/kanayago/parse.c"
     break;
 
   case 309: /* opt_block_arg: ',' block_arg  */
-#line 4333 "ext/refine_tree/parse.tmp.y"
+#line 4333 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node_block_pass) = (yyvsp[0].node_block_pass);
                     /*% ripper: $:2 %*/
                     }
-#line 13845 "ext/refine_tree/parse.c"
+#line 13845 "ext/kanayago/parse.c"
     break;
 
   case 310: /* opt_block_arg: none  */
-#line 4338 "ext/refine_tree/parse.tmp.y"
+#line 4338 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node_block_pass) = 0;
                     /*% ripper: Qfalse %*/
                     }
-#line 13854 "ext/refine_tree/parse.c"
+#line 13854 "ext/kanayago/parse.c"
     break;
 
   case 311: /* args: arg_value  */
-#line 4346 "ext/refine_tree/parse.tmp.y"
+#line 4346 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = NEW_LIST((yyvsp[0].node), &(yyloc));
                     /*% ripper: args_add!(args_new!, $:1) %*/
                     }
-#line 13863 "ext/refine_tree/parse.c"
+#line 13863 "ext/kanayago/parse.c"
     break;
 
   case 312: /* args: arg_splat  */
-#line 4351 "ext/refine_tree/parse.tmp.y"
+#line 4351 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = NEW_SPLAT((yyvsp[0].node), &(yyloc));
                     /*% ripper: args_add_star!(args_new!, $:arg_splat) %*/
                     }
-#line 13872 "ext/refine_tree/parse.c"
+#line 13872 "ext/kanayago/parse.c"
     break;
 
   case 313: /* args: args ',' arg_value  */
-#line 4356 "ext/refine_tree/parse.tmp.y"
+#line 4356 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = last_arg_append(p, (yyvsp[-2].node), (yyvsp[0].node), &(yyloc));
                     /*% ripper: args_add!($:1, $:3) %*/
                     }
-#line 13881 "ext/refine_tree/parse.c"
+#line 13881 "ext/kanayago/parse.c"
     break;
 
   case 314: /* args: args ',' arg_splat  */
-#line 4361 "ext/refine_tree/parse.tmp.y"
+#line 4361 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = rest_arg_append(p, (yyvsp[-2].node), (yyvsp[0].node), &(yyloc));
                     /*% ripper: args_add_star!($:1, $:3) %*/
                     }
-#line 13890 "ext/refine_tree/parse.c"
+#line 13890 "ext/kanayago/parse.c"
     break;
 
   case 315: /* arg_splat: "*" arg_value  */
-#line 4369 "ext/refine_tree/parse.tmp.y"
+#line 4369 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = (yyvsp[0].node);
                     /*% ripper: $:2 %*/
                     }
-#line 13899 "ext/refine_tree/parse.c"
+#line 13899 "ext/kanayago/parse.c"
     break;
 
   case 316: /* arg_splat: "*"  */
-#line 4374 "ext/refine_tree/parse.tmp.y"
+#line 4374 "ext/kanayago/parse.tmp.y"
                     {
                         forwarding_arg_check(p, idFWD_REST, idFWD_ALL, "rest");
                         (yyval.node) = NEW_LVAR(idFWD_REST, &(yylsp[0]));
                     /*% ripper: Qnil %*/
                     }
-#line 13909 "ext/refine_tree/parse.c"
+#line 13909 "ext/kanayago/parse.c"
     break;
 
   case 319: /* mrhs: args ',' arg_value  */
-#line 4388 "ext/refine_tree/parse.tmp.y"
+#line 4388 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = last_arg_append(p, (yyvsp[-2].node), (yyvsp[0].node), &(yyloc));
                     /*% ripper: mrhs_add!(mrhs_new_from_args!($:1), $:3) %*/
                     }
-#line 13918 "ext/refine_tree/parse.c"
+#line 13918 "ext/kanayago/parse.c"
     break;
 
   case 320: /* mrhs: args ',' "*" arg_value  */
-#line 4393 "ext/refine_tree/parse.tmp.y"
+#line 4393 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = rest_arg_append(p, (yyvsp[-3].node), (yyvsp[0].node), &(yyloc));
                     /*% ripper: mrhs_add_star!(mrhs_new_from_args!($:1), $:4) %*/
                     }
-#line 13927 "ext/refine_tree/parse.c"
+#line 13927 "ext/kanayago/parse.c"
     break;
 
   case 321: /* mrhs: "*" arg_value  */
-#line 4398 "ext/refine_tree/parse.tmp.y"
+#line 4398 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = NEW_SPLAT((yyvsp[0].node), &(yyloc));
                     /*% ripper: mrhs_add_star!(mrhs_new!, $:2) %*/
                     }
-#line 13936 "ext/refine_tree/parse.c"
+#line 13936 "ext/kanayago/parse.c"
     break;
 
   case 332: /* primary: "method"  */
-#line 4415 "ext/refine_tree/parse.tmp.y"
+#line 4415 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = (NODE *)NEW_FCALL((yyvsp[0].id), 0, &(yyloc));
                     /*% ripper: method_add_arg!(fcall!($:1), args_new!) %*/
                     }
-#line 13945 "ext/refine_tree/parse.c"
+#line 13945 "ext/kanayago/parse.c"
     break;
 
   case 333: /* $@14: %empty  */
-#line 4420 "ext/refine_tree/parse.tmp.y"
+#line 4420 "ext/kanayago/parse.tmp.y"
                     {
                         CMDARG_PUSH(0);
                     }
-#line 13953 "ext/refine_tree/parse.c"
+#line 13953 "ext/kanayago/parse.c"
     break;
 
   case 334: /* primary: k_begin $@14 bodystmt k_end  */
-#line 4425 "ext/refine_tree/parse.tmp.y"
+#line 4425 "ext/kanayago/parse.tmp.y"
                     {
                         CMDARG_POP();
                         set_line_body((yyvsp[-1].node), (yylsp[-3]).end_pos.lineno);
@@ -13961,208 +13961,208 @@ yyreduce:
                         nd_set_line((yyval.node), (yylsp[-3]).end_pos.lineno);
                     /*% ripper: begin!($:3) %*/
                     }
-#line 13965 "ext/refine_tree/parse.c"
+#line 13965 "ext/kanayago/parse.c"
     break;
 
   case 335: /* $@15: %empty  */
-#line 4432 "ext/refine_tree/parse.tmp.y"
+#line 4432 "ext/kanayago/parse.tmp.y"
                                        {SET_LEX_STATE(EXPR_ENDARG);}
-#line 13971 "ext/refine_tree/parse.c"
+#line 13971 "ext/kanayago/parse.c"
     break;
 
   case 336: /* primary: "( arg" compstmt $@15 ')'  */
-#line 4433 "ext/refine_tree/parse.tmp.y"
+#line 4433 "ext/kanayago/parse.tmp.y"
                     {
                         if (nd_type_p((yyvsp[-2].node), NODE_SELF)) RNODE_SELF((yyvsp[-2].node))->nd_state = 0;
                         (yyval.node) = (yyvsp[-2].node);
                     /*% ripper: paren!($:2) %*/
                     }
-#line 13981 "ext/refine_tree/parse.c"
+#line 13981 "ext/kanayago/parse.c"
     break;
 
   case 337: /* primary: "(" compstmt ')'  */
-#line 4439 "ext/refine_tree/parse.tmp.y"
+#line 4439 "ext/kanayago/parse.tmp.y"
                     {
                         if (nd_type_p((yyvsp[-1].node), NODE_SELF)) RNODE_SELF((yyvsp[-1].node))->nd_state = 0;
                         (yyval.node) = NEW_BLOCK((yyvsp[-1].node), &(yyloc));
                     /*% ripper: paren!($:2) %*/
                     }
-#line 13991 "ext/refine_tree/parse.c"
+#line 13991 "ext/kanayago/parse.c"
     break;
 
   case 338: /* primary: primary_value "::" "constant"  */
-#line 4445 "ext/refine_tree/parse.tmp.y"
+#line 4445 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = NEW_COLON2((yyvsp[-2].node), (yyvsp[0].id), &(yyloc));
                     /*% ripper: const_path_ref!($:1, $:3) %*/
                     }
-#line 14000 "ext/refine_tree/parse.c"
+#line 14000 "ext/kanayago/parse.c"
     break;
 
   case 339: /* primary: ":: at EXPR_BEG" "constant"  */
-#line 4450 "ext/refine_tree/parse.tmp.y"
+#line 4450 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = NEW_COLON3((yyvsp[0].id), &(yyloc));
                     /*% ripper: top_const_ref!($:2) %*/
                     }
-#line 14009 "ext/refine_tree/parse.c"
+#line 14009 "ext/kanayago/parse.c"
     break;
 
   case 340: /* primary: "[" aref_args ']'  */
-#line 4455 "ext/refine_tree/parse.tmp.y"
+#line 4455 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = make_list((yyvsp[-1].node), &(yyloc));
                     /*% ripper: array!($:2) %*/
                     }
-#line 14018 "ext/refine_tree/parse.c"
+#line 14018 "ext/kanayago/parse.c"
     break;
 
   case 341: /* primary: "{" assoc_list '}'  */
-#line 4460 "ext/refine_tree/parse.tmp.y"
+#line 4460 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = new_hash(p, (yyvsp[-1].node), &(yyloc));
                         RNODE_HASH((yyval.node))->nd_brace = TRUE;
                     /*% ripper: hash!($:2) %*/
                     }
-#line 14028 "ext/refine_tree/parse.c"
+#line 14028 "ext/kanayago/parse.c"
     break;
 
   case 342: /* primary: k_return  */
-#line 4466 "ext/refine_tree/parse.tmp.y"
+#line 4466 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = NEW_RETURN(0, &(yyloc));
                     /*% ripper: return0! %*/
                     }
-#line 14037 "ext/refine_tree/parse.c"
+#line 14037 "ext/kanayago/parse.c"
     break;
 
   case 343: /* primary: k_yield '(' call_args rparen  */
-#line 4471 "ext/refine_tree/parse.tmp.y"
+#line 4471 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = new_yield(p, (yyvsp[-1].node), &(yyloc));
                     /*% ripper: yield!(paren!($:3)) %*/
                     }
-#line 14046 "ext/refine_tree/parse.c"
+#line 14046 "ext/kanayago/parse.c"
     break;
 
   case 344: /* primary: k_yield '(' rparen  */
-#line 4476 "ext/refine_tree/parse.tmp.y"
+#line 4476 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = NEW_YIELD(0, &(yyloc));
                     /*% ripper: yield!(paren!(args_new!)) %*/
                     }
-#line 14055 "ext/refine_tree/parse.c"
+#line 14055 "ext/kanayago/parse.c"
     break;
 
   case 345: /* primary: k_yield  */
-#line 4481 "ext/refine_tree/parse.tmp.y"
+#line 4481 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = NEW_YIELD(0, &(yyloc));
                     /*% ripper: yield0! %*/
                     }
-#line 14064 "ext/refine_tree/parse.c"
+#line 14064 "ext/kanayago/parse.c"
     break;
 
   case 346: /* primary: "'defined?'" option_'\n' '(' begin_defined expr rparen  */
-#line 4486 "ext/refine_tree/parse.tmp.y"
+#line 4486 "ext/kanayago/parse.tmp.y"
                     {
                         p->ctxt.in_defined = (yyvsp[-2].ctxt).in_defined;
                         (yyval.node) = new_defined(p, (yyvsp[-1].node), &(yyloc));
                     /*% ripper: defined!($:5) %*/
                     }
-#line 14074 "ext/refine_tree/parse.c"
+#line 14074 "ext/kanayago/parse.c"
     break;
 
   case 347: /* primary: "'not'" '(' expr rparen  */
-#line 4492 "ext/refine_tree/parse.tmp.y"
+#line 4492 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = call_uni_op(p, method_cond(p, (yyvsp[-1].node), &(yylsp[-1])), METHOD_NOT, &(yylsp[-3]), &(yyloc));
                     /*% ripper: unary!(ID2VAL(idNOT), $:3) %*/
                     }
-#line 14083 "ext/refine_tree/parse.c"
+#line 14083 "ext/kanayago/parse.c"
     break;
 
   case 348: /* primary: "'not'" '(' rparen  */
-#line 4497 "ext/refine_tree/parse.tmp.y"
+#line 4497 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = call_uni_op(p, method_cond(p, new_nil(&(yylsp[-1])), &(yylsp[-1])), METHOD_NOT, &(yylsp[-2]), &(yyloc));
                     /*% ripper: unary!(ID2VAL(idNOT), Qnil) %*/
                     }
-#line 14092 "ext/refine_tree/parse.c"
+#line 14092 "ext/kanayago/parse.c"
     break;
 
   case 349: /* primary: fcall brace_block  */
-#line 4502 "ext/refine_tree/parse.tmp.y"
+#line 4502 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = method_add_block(p, (NODE *)(yyvsp[-1].node_fcall), (yyvsp[0].node), &(yyloc));
                     /*% ripper: method_add_block!(method_add_arg!(fcall!($:1), args_new!), $:2) %*/
                     }
-#line 14101 "ext/refine_tree/parse.c"
+#line 14101 "ext/kanayago/parse.c"
     break;
 
   case 351: /* primary: method_call brace_block  */
-#line 4508 "ext/refine_tree/parse.tmp.y"
+#line 4508 "ext/kanayago/parse.tmp.y"
                     {
                         block_dup_check(p, get_nd_args(p, (yyvsp[-1].node)), (yyvsp[0].node));
                         (yyval.node) = method_add_block(p, (yyvsp[-1].node), (yyvsp[0].node), &(yyloc));
                     /*% ripper: method_add_block!($:1, $:2) %*/
                     }
-#line 14111 "ext/refine_tree/parse.c"
+#line 14111 "ext/kanayago/parse.c"
     break;
 
   case 353: /* primary: k_if expr_value then compstmt if_tail k_end  */
-#line 4518 "ext/refine_tree/parse.tmp.y"
+#line 4518 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = new_if(p, (yyvsp[-4].node), (yyvsp[-2].node), (yyvsp[-1].node), &(yyloc));
                         fixpos((yyval.node), (yyvsp[-4].node));
                     /*% ripper: if!($:2, $:4, $:5) %*/
                     }
-#line 14121 "ext/refine_tree/parse.c"
+#line 14121 "ext/kanayago/parse.c"
     break;
 
   case 354: /* primary: k_unless expr_value then compstmt opt_else k_end  */
-#line 4527 "ext/refine_tree/parse.tmp.y"
+#line 4527 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = new_unless(p, (yyvsp[-4].node), (yyvsp[-2].node), (yyvsp[-1].node), &(yyloc), &(yylsp[-5]), &(yylsp[-3]), &(yylsp[0]));
                         fixpos((yyval.node), (yyvsp[-4].node));
                     /*% ripper: unless!($:2, $:4, $:5) %*/
                     }
-#line 14131 "ext/refine_tree/parse.c"
+#line 14131 "ext/kanayago/parse.c"
     break;
 
   case 355: /* primary: k_while expr_value_do compstmt k_end  */
-#line 4535 "ext/refine_tree/parse.tmp.y"
+#line 4535 "ext/kanayago/parse.tmp.y"
                     {
                         restore_block_exit(p, (yyvsp[-3].node_exits));
                         (yyval.node) = NEW_WHILE(cond(p, (yyvsp[-2].node), &(yylsp[-2])), (yyvsp[-1].node), 1, &(yyloc));
                         fixpos((yyval.node), (yyvsp[-2].node));
                     /*% ripper: while!($:2, $:3) %*/
                     }
-#line 14142 "ext/refine_tree/parse.c"
+#line 14142 "ext/kanayago/parse.c"
     break;
 
   case 356: /* primary: k_until expr_value_do compstmt k_end  */
-#line 4544 "ext/refine_tree/parse.tmp.y"
+#line 4544 "ext/kanayago/parse.tmp.y"
                     {
                         restore_block_exit(p, (yyvsp[-3].node_exits));
                         (yyval.node) = NEW_UNTIL(cond(p, (yyvsp[-2].node), &(yylsp[-2])), (yyvsp[-1].node), 1, &(yyloc));
                         fixpos((yyval.node), (yyvsp[-2].node));
                     /*% ripper: until!($:2, $:3) %*/
                     }
-#line 14153 "ext/refine_tree/parse.c"
+#line 14153 "ext/kanayago/parse.c"
     break;
 
   case 357: /* @16: %empty  */
-#line 4551 "ext/refine_tree/parse.tmp.y"
+#line 4551 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.labels) = p->case_labels;
                         p->case_labels = CHECK_LITERAL_WHEN;
                     }
-#line 14162 "ext/refine_tree/parse.c"
+#line 14162 "ext/kanayago/parse.c"
     break;
 
   case 358: /* primary: k_case expr_value option_terms @16 case_body k_end  */
-#line 4557 "ext/refine_tree/parse.tmp.y"
+#line 4557 "ext/kanayago/parse.tmp.y"
                     {
                         if (CASE_LABELS_ENABLED_P(p->case_labels)) st_free_table(p->case_labels);
                         p->case_labels = (yyvsp[-2].labels);
@@ -14170,40 +14170,40 @@ yyreduce:
                         fixpos((yyval.node), (yyvsp[-4].node));
                     /*% ripper: case!($:2, $:5) %*/
                     }
-#line 14174 "ext/refine_tree/parse.c"
+#line 14174 "ext/kanayago/parse.c"
     break;
 
   case 359: /* @17: %empty  */
-#line 4565 "ext/refine_tree/parse.tmp.y"
+#line 4565 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.labels) = p->case_labels;
                         p->case_labels = 0;
                     }
-#line 14183 "ext/refine_tree/parse.c"
+#line 14183 "ext/kanayago/parse.c"
     break;
 
   case 360: /* primary: k_case option_terms @17 case_body k_end  */
-#line 4571 "ext/refine_tree/parse.tmp.y"
+#line 4571 "ext/kanayago/parse.tmp.y"
                     {
                         if (p->case_labels) st_free_table(p->case_labels);
                         p->case_labels = (yyvsp[-2].labels);
                         (yyval.node) = NEW_CASE2((yyvsp[-1].node), &(yyloc));
                     /*% ripper: case!(Qnil, $:4) %*/
                     }
-#line 14194 "ext/refine_tree/parse.c"
+#line 14194 "ext/kanayago/parse.c"
     break;
 
   case 361: /* primary: k_case expr_value option_terms p_case_body k_end  */
-#line 4580 "ext/refine_tree/parse.tmp.y"
+#line 4580 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = NEW_CASE3((yyvsp[-3].node), (yyvsp[-1].node), &(yyloc));
                     /*% ripper: case!($:2, $:4) %*/
                     }
-#line 14203 "ext/refine_tree/parse.c"
+#line 14203 "ext/kanayago/parse.c"
     break;
 
   case 362: /* primary: k_for for_var "'in'" expr_value_do compstmt k_end  */
-#line 4587 "ext/refine_tree/parse.tmp.y"
+#line 4587 "ext/kanayago/parse.tmp.y"
                     {
                         restore_block_exit(p, (yyvsp[-5].node_exits));
                         /*
@@ -14243,19 +14243,19 @@ yyreduce:
                         fixpos((yyval.node), (yyvsp[-4].node));
                     /*% ripper: for!($:2, $:4, $:5) %*/
                     }
-#line 14247 "ext/refine_tree/parse.c"
+#line 14247 "ext/kanayago/parse.c"
     break;
 
   case 363: /* $@18: %empty  */
-#line 4627 "ext/refine_tree/parse.tmp.y"
+#line 4627 "ext/kanayago/parse.tmp.y"
                     {
                         begin_definition("class", &(yylsp[-2]), &(yylsp[-1]));
                     }
-#line 14255 "ext/refine_tree/parse.c"
+#line 14255 "ext/kanayago/parse.c"
     break;
 
   case 364: /* primary: k_class cpath superclass $@18 bodystmt k_end  */
-#line 4632 "ext/refine_tree/parse.tmp.y"
+#line 4632 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = NEW_CLASS((yyvsp[-4].node), (yyvsp[-1].node), (yyvsp[-3].node), &(yyloc));
                         nd_set_line(RNODE_CLASS((yyval.node))->nd_body, (yylsp[0]).end_pos.lineno);
@@ -14267,19 +14267,19 @@ yyreduce:
                         p->ctxt.cant_return = (yyvsp[-5].ctxt).cant_return;
                         p->ctxt.shareable_constant_value = (yyvsp[-5].ctxt).shareable_constant_value;
                     }
-#line 14271 "ext/refine_tree/parse.c"
+#line 14271 "ext/kanayago/parse.c"
     break;
 
   case 365: /* $@19: %empty  */
-#line 4644 "ext/refine_tree/parse.tmp.y"
+#line 4644 "ext/kanayago/parse.tmp.y"
                     {
                         begin_definition("", &(yylsp[-2]), &(yylsp[-1]));
                     }
-#line 14279 "ext/refine_tree/parse.c"
+#line 14279 "ext/kanayago/parse.c"
     break;
 
   case 366: /* primary: k_class "<<" expr_value $@19 term bodystmt k_end  */
-#line 4650 "ext/refine_tree/parse.tmp.y"
+#line 4650 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = NEW_SCLASS((yyvsp[-4].node), (yyvsp[-1].node), &(yyloc));
                         nd_set_line(RNODE_SCLASS((yyval.node))->nd_body, (yylsp[0]).end_pos.lineno);
@@ -14292,19 +14292,19 @@ yyreduce:
                         p->ctxt.cant_return = (yyvsp[-6].ctxt).cant_return;
                         p->ctxt.shareable_constant_value = (yyvsp[-6].ctxt).shareable_constant_value;
                     }
-#line 14296 "ext/refine_tree/parse.c"
+#line 14296 "ext/kanayago/parse.c"
     break;
 
   case 367: /* $@20: %empty  */
-#line 4663 "ext/refine_tree/parse.tmp.y"
+#line 4663 "ext/kanayago/parse.tmp.y"
                     {
                         begin_definition("module", &(yylsp[-1]), &(yylsp[0]));
                     }
-#line 14304 "ext/refine_tree/parse.c"
+#line 14304 "ext/kanayago/parse.c"
     break;
 
   case 368: /* primary: k_module cpath $@20 bodystmt k_end  */
-#line 4668 "ext/refine_tree/parse.tmp.y"
+#line 4668 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = NEW_MODULE((yyvsp[-3].node), (yyvsp[-1].node), &(yyloc));
                         nd_set_line(RNODE_MODULE((yyval.node))->nd_body, (yylsp[0]).end_pos.lineno);
@@ -14316,19 +14316,19 @@ yyreduce:
                         p->ctxt.cant_return = (yyvsp[-4].ctxt).cant_return;
                         p->ctxt.shareable_constant_value = (yyvsp[-4].ctxt).shareable_constant_value;
                     }
-#line 14320 "ext/refine_tree/parse.c"
+#line 14320 "ext/kanayago/parse.c"
     break;
 
   case 369: /* $@21: %empty  */
-#line 4681 "ext/refine_tree/parse.tmp.y"
+#line 4681 "ext/kanayago/parse.tmp.y"
                     {
                         push_end_expect_token_locations(p, &(yylsp[-1]).beg_pos);
                     }
-#line 14328 "ext/refine_tree/parse.c"
+#line 14328 "ext/kanayago/parse.c"
     break;
 
   case 370: /* primary: defn_head f_arglist $@21 bodystmt k_end  */
-#line 4686 "ext/refine_tree/parse.tmp.y"
+#line 4686 "ext/kanayago/parse.tmp.y"
                     {
                         restore_defun(p, (yyvsp[-4].node_def_temp));
                         (yyvsp[-1].node) = new_scope_body(p, (yyvsp[-3].node_args), (yyvsp[-1].node), &(yyloc));
@@ -14337,19 +14337,19 @@ yyreduce:
                     /*% ripper: def!($:head, $:args, $:bodystmt) %*/
                         local_pop(p);
                     }
-#line 14341 "ext/refine_tree/parse.c"
+#line 14341 "ext/kanayago/parse.c"
     break;
 
   case 371: /* $@22: %empty  */
-#line 4696 "ext/refine_tree/parse.tmp.y"
+#line 4696 "ext/kanayago/parse.tmp.y"
                     {
                         push_end_expect_token_locations(p, &(yylsp[-1]).beg_pos);
                     }
-#line 14349 "ext/refine_tree/parse.c"
+#line 14349 "ext/kanayago/parse.c"
     break;
 
   case 372: /* primary: defs_head f_arglist $@22 bodystmt k_end  */
-#line 4701 "ext/refine_tree/parse.tmp.y"
+#line 4701 "ext/kanayago/parse.tmp.y"
                     {
                         restore_defun(p, (yyvsp[-4].node_def_temp));
                         (yyvsp[-1].node) = new_scope_body(p, (yyvsp[-3].node_args), (yyvsp[-1].node), &(yyloc));
@@ -14358,38 +14358,38 @@ yyreduce:
                     /*% ripper: defs!(*$:head[0..2], $:args, $:bodystmt) %*/
                         local_pop(p);
                     }
-#line 14362 "ext/refine_tree/parse.c"
+#line 14362 "ext/kanayago/parse.c"
     break;
 
   case 373: /* primary: "'break'"  */
-#line 4710 "ext/refine_tree/parse.tmp.y"
+#line 4710 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = add_block_exit(p, NEW_BREAK(0, &(yyloc)));
                     /*% ripper: break!(args_new!) %*/
                     }
-#line 14371 "ext/refine_tree/parse.c"
+#line 14371 "ext/kanayago/parse.c"
     break;
 
   case 374: /* primary: "'next'"  */
-#line 4715 "ext/refine_tree/parse.tmp.y"
+#line 4715 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = add_block_exit(p, NEW_NEXT(0, &(yyloc)));
                     /*% ripper: next!(args_new!) %*/
                     }
-#line 14380 "ext/refine_tree/parse.c"
+#line 14380 "ext/kanayago/parse.c"
     break;
 
   case 375: /* primary: "'redo'"  */
-#line 4720 "ext/refine_tree/parse.tmp.y"
+#line 4720 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = add_block_exit(p, NEW_REDO(&(yyloc)));
                     /*% ripper: redo! %*/
                     }
-#line 14389 "ext/refine_tree/parse.c"
+#line 14389 "ext/kanayago/parse.c"
     break;
 
   case 376: /* primary: "'retry'"  */
-#line 4725 "ext/refine_tree/parse.tmp.y"
+#line 4725 "ext/kanayago/parse.tmp.y"
                     {
                         if (!p->ctxt.in_defined) {
                             switch (p->ctxt.in_rescue) {
@@ -14402,29 +14402,29 @@ yyreduce:
                         (yyval.node) = NEW_RETRY(&(yyloc));
                     /*% ripper: retry! %*/
                     }
-#line 14406 "ext/refine_tree/parse.c"
+#line 14406 "ext/kanayago/parse.c"
     break;
 
   case 377: /* primary_value: primary  */
-#line 4740 "ext/refine_tree/parse.tmp.y"
+#line 4740 "ext/kanayago/parse.tmp.y"
                     {
                         value_expr((yyvsp[0].node));
                         (yyval.node) = (yyvsp[0].node);
                     }
-#line 14415 "ext/refine_tree/parse.c"
+#line 14415 "ext/kanayago/parse.c"
     break;
 
   case 378: /* k_begin: "'begin'"  */
-#line 4747 "ext/refine_tree/parse.tmp.y"
+#line 4747 "ext/kanayago/parse.tmp.y"
                     {
                         token_info_push(p, "begin", &(yyloc));
                         push_end_expect_token_locations(p, &(yylsp[0]).beg_pos);
                     }
-#line 14424 "ext/refine_tree/parse.c"
+#line 14424 "ext/kanayago/parse.c"
     break;
 
   case 379: /* k_if: "'if'"  */
-#line 4754 "ext/refine_tree/parse.tmp.y"
+#line 4754 "ext/kanayago/parse.tmp.y"
                     {
                         WARN_EOL("if");
                         token_info_push(p, "if", &(yyloc));
@@ -14440,136 +14440,136 @@ yyreduce:
                         }
                         push_end_expect_token_locations(p, &(yylsp[0]).beg_pos);
                     }
-#line 14444 "ext/refine_tree/parse.c"
+#line 14444 "ext/kanayago/parse.c"
     break;
 
   case 380: /* k_unless: "'unless'"  */
-#line 4772 "ext/refine_tree/parse.tmp.y"
+#line 4772 "ext/kanayago/parse.tmp.y"
                     {
                         token_info_push(p, "unless", &(yyloc));
                         push_end_expect_token_locations(p, &(yylsp[0]).beg_pos);
                     }
-#line 14453 "ext/refine_tree/parse.c"
+#line 14453 "ext/kanayago/parse.c"
     break;
 
   case 381: /* k_while: "'while'" allow_exits  */
-#line 4779 "ext/refine_tree/parse.tmp.y"
+#line 4779 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node_exits) = (yyvsp[0].node_exits);
                         token_info_push(p, "while", &(yyloc));
                         push_end_expect_token_locations(p, &(yylsp[-1]).beg_pos);
                     }
-#line 14463 "ext/refine_tree/parse.c"
+#line 14463 "ext/kanayago/parse.c"
     break;
 
   case 382: /* k_until: "'until'" allow_exits  */
-#line 4787 "ext/refine_tree/parse.tmp.y"
+#line 4787 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node_exits) = (yyvsp[0].node_exits);
                         token_info_push(p, "until", &(yyloc));
                         push_end_expect_token_locations(p, &(yylsp[-1]).beg_pos);
                     }
-#line 14473 "ext/refine_tree/parse.c"
+#line 14473 "ext/kanayago/parse.c"
     break;
 
   case 383: /* k_case: "'case'"  */
-#line 4795 "ext/refine_tree/parse.tmp.y"
+#line 4795 "ext/kanayago/parse.tmp.y"
                     {
                         token_info_push(p, "case", &(yyloc));
                         push_end_expect_token_locations(p, &(yylsp[0]).beg_pos);
                     }
-#line 14482 "ext/refine_tree/parse.c"
+#line 14482 "ext/kanayago/parse.c"
     break;
 
   case 384: /* k_for: "'for'" allow_exits  */
-#line 4802 "ext/refine_tree/parse.tmp.y"
+#line 4802 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node_exits) = (yyvsp[0].node_exits);
                         token_info_push(p, "for", &(yyloc));
                         push_end_expect_token_locations(p, &(yylsp[-1]).beg_pos);
                     }
-#line 14492 "ext/refine_tree/parse.c"
+#line 14492 "ext/kanayago/parse.c"
     break;
 
   case 385: /* k_class: "'class'"  */
-#line 4810 "ext/refine_tree/parse.tmp.y"
+#line 4810 "ext/kanayago/parse.tmp.y"
                     {
                         token_info_push(p, "class", &(yyloc));
                         (yyval.ctxt) = p->ctxt;
                         p->ctxt.in_rescue = before_rescue;
                         push_end_expect_token_locations(p, &(yylsp[0]).beg_pos);
                     }
-#line 14503 "ext/refine_tree/parse.c"
+#line 14503 "ext/kanayago/parse.c"
     break;
 
   case 386: /* k_module: "'module'"  */
-#line 4819 "ext/refine_tree/parse.tmp.y"
+#line 4819 "ext/kanayago/parse.tmp.y"
                     {
                         token_info_push(p, "module", &(yyloc));
                         (yyval.ctxt) = p->ctxt;
                         p->ctxt.in_rescue = before_rescue;
                         push_end_expect_token_locations(p, &(yylsp[0]).beg_pos);
                     }
-#line 14514 "ext/refine_tree/parse.c"
+#line 14514 "ext/kanayago/parse.c"
     break;
 
   case 387: /* k_def: "'def'"  */
-#line 4828 "ext/refine_tree/parse.tmp.y"
+#line 4828 "ext/kanayago/parse.tmp.y"
                     {
                         token_info_push(p, "def", &(yyloc));
                         (yyval.node_def_temp) = NEW_DEF_TEMP(&(yyloc));
                         p->ctxt.in_argdef = 1;
                     }
-#line 14524 "ext/refine_tree/parse.c"
+#line 14524 "ext/kanayago/parse.c"
     break;
 
   case 388: /* k_do: "'do'"  */
-#line 4836 "ext/refine_tree/parse.tmp.y"
+#line 4836 "ext/kanayago/parse.tmp.y"
                     {
                         token_info_push(p, "do", &(yyloc));
                         push_end_expect_token_locations(p, &(yylsp[0]).beg_pos);
                     }
-#line 14533 "ext/refine_tree/parse.c"
+#line 14533 "ext/kanayago/parse.c"
     break;
 
   case 389: /* k_do_block: "'do' for block"  */
-#line 4843 "ext/refine_tree/parse.tmp.y"
+#line 4843 "ext/kanayago/parse.tmp.y"
                     {
                         token_info_push(p, "do", &(yyloc));
                         push_end_expect_token_locations(p, &(yylsp[0]).beg_pos);
                     }
-#line 14542 "ext/refine_tree/parse.c"
+#line 14542 "ext/kanayago/parse.c"
     break;
 
   case 390: /* k_rescue: "'rescue'"  */
-#line 4850 "ext/refine_tree/parse.tmp.y"
+#line 4850 "ext/kanayago/parse.tmp.y"
                     {
                         token_info_warn(p, "rescue", p->token_info, 1, &(yyloc));
                         (yyval.ctxt) = p->ctxt;
                         p->ctxt.in_rescue = after_rescue;
                     }
-#line 14552 "ext/refine_tree/parse.c"
+#line 14552 "ext/kanayago/parse.c"
     break;
 
   case 391: /* k_ensure: "'ensure'"  */
-#line 4858 "ext/refine_tree/parse.tmp.y"
+#line 4858 "ext/kanayago/parse.tmp.y"
                     {
                         token_info_warn(p, "ensure", p->token_info, 1, &(yyloc));
                         (yyval.ctxt) = p->ctxt;
                     }
-#line 14561 "ext/refine_tree/parse.c"
+#line 14561 "ext/kanayago/parse.c"
     break;
 
   case 392: /* k_when: "'when'"  */
-#line 4865 "ext/refine_tree/parse.tmp.y"
+#line 4865 "ext/kanayago/parse.tmp.y"
                     {
                         token_info_warn(p, "when", p->token_info, 0, &(yyloc));
                     }
-#line 14569 "ext/refine_tree/parse.c"
+#line 14569 "ext/kanayago/parse.c"
     break;
 
   case 393: /* k_else: "'else'"  */
-#line 4871 "ext/refine_tree/parse.tmp.y"
+#line 4871 "ext/kanayago/parse.tmp.y"
                     {
                         token_info *ptinfo_beg = p->token_info;
                         int same = ptinfo_beg && strcmp(ptinfo_beg->token, "case") != 0;
@@ -14582,544 +14582,544 @@ yyreduce:
                             if (!e.nonspc) *ptinfo_beg = e;
                         }
                     }
-#line 14586 "ext/refine_tree/parse.c"
+#line 14586 "ext/kanayago/parse.c"
     break;
 
   case 394: /* k_elsif: "'elsif'"  */
-#line 4886 "ext/refine_tree/parse.tmp.y"
+#line 4886 "ext/kanayago/parse.tmp.y"
                     {
                         WARN_EOL("elsif");
                         token_info_warn(p, "elsif", p->token_info, 1, &(yyloc));
                     }
-#line 14595 "ext/refine_tree/parse.c"
+#line 14595 "ext/kanayago/parse.c"
     break;
 
   case 395: /* k_end: "'end'"  */
-#line 4893 "ext/refine_tree/parse.tmp.y"
+#line 4893 "ext/kanayago/parse.tmp.y"
                     {
                         token_info_pop(p, "end", &(yyloc));
                         pop_end_expect_token_locations(p);
                     }
-#line 14604 "ext/refine_tree/parse.c"
+#line 14604 "ext/kanayago/parse.c"
     break;
 
   case 396: /* k_end: "dummy end"  */
-#line 4898 "ext/refine_tree/parse.tmp.y"
+#line 4898 "ext/kanayago/parse.tmp.y"
                     {
                         compile_error(p, "syntax error, unexpected end-of-input");
                     }
-#line 14612 "ext/refine_tree/parse.c"
+#line 14612 "ext/kanayago/parse.c"
     break;
 
   case 397: /* k_return: "'return'"  */
-#line 4904 "ext/refine_tree/parse.tmp.y"
+#line 4904 "ext/kanayago/parse.tmp.y"
                     {
                         if (p->ctxt.cant_return && !dyna_in_block(p))
                             yyerror1(&(yylsp[0]), "Invalid return in class/module body");
                     }
-#line 14621 "ext/refine_tree/parse.c"
+#line 14621 "ext/kanayago/parse.c"
     break;
 
   case 398: /* k_yield: "'yield'"  */
-#line 4911 "ext/refine_tree/parse.tmp.y"
+#line 4911 "ext/kanayago/parse.tmp.y"
                     {
                         if (!p->ctxt.in_defined && !p->ctxt.in_def && !compile_for_eval)
                             yyerror1(&(yylsp[0]), "Invalid yield");
                     }
-#line 14630 "ext/refine_tree/parse.c"
+#line 14630 "ext/kanayago/parse.c"
     break;
 
   case 405: /* if_tail: k_elsif expr_value then compstmt if_tail  */
-#line 4930 "ext/refine_tree/parse.tmp.y"
+#line 4930 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = new_if(p, (yyvsp[-3].node), (yyvsp[-1].node), (yyvsp[0].node), &(yyloc));
                         fixpos((yyval.node), (yyvsp[-3].node));
                     /*% ripper: elsif!($:2, $:4, $:5) %*/
                     }
-#line 14640 "ext/refine_tree/parse.c"
+#line 14640 "ext/kanayago/parse.c"
     break;
 
   case 407: /* opt_else: k_else compstmt  */
-#line 4939 "ext/refine_tree/parse.tmp.y"
+#line 4939 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = (yyvsp[0].node);
                     /*% ripper: else!($:2) %*/
                     }
-#line 14649 "ext/refine_tree/parse.c"
+#line 14649 "ext/kanayago/parse.c"
     break;
 
   case 410: /* f_marg: f_norm_arg  */
-#line 4950 "ext/refine_tree/parse.tmp.y"
+#line 4950 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = assignable(p, (yyvsp[0].id), 0, &(yyloc));
                         mark_lvar_used(p, (yyval.node));
                     }
-#line 14658 "ext/refine_tree/parse.c"
+#line 14658 "ext/kanayago/parse.c"
     break;
 
   case 411: /* f_marg: "(" f_margs rparen  */
-#line 4955 "ext/refine_tree/parse.tmp.y"
+#line 4955 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = (NODE *)(yyvsp[-1].node_masgn);
                     /*% ripper: mlhs_paren!($:2) %*/
                     }
-#line 14667 "ext/refine_tree/parse.c"
+#line 14667 "ext/kanayago/parse.c"
     break;
 
   case 412: /* f_marg_list: f_marg  */
-#line 4962 "ext/refine_tree/parse.tmp.y"
+#line 4962 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = NEW_LIST((yyvsp[0].node), &(yyloc));
                     /*% ripper: mlhs_add!(mlhs_new!, $:1) %*/
                     }
-#line 14676 "ext/refine_tree/parse.c"
+#line 14676 "ext/kanayago/parse.c"
     break;
 
   case 413: /* f_marg_list: f_marg_list ',' f_marg  */
-#line 4967 "ext/refine_tree/parse.tmp.y"
+#line 4967 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = list_append(p, (yyvsp[-2].node), (yyvsp[0].node));
                     /*% ripper: mlhs_add!($:1, $:3) %*/
                     }
-#line 14685 "ext/refine_tree/parse.c"
+#line 14685 "ext/kanayago/parse.c"
     break;
 
   case 414: /* f_margs: f_marg_list  */
-#line 4974 "ext/refine_tree/parse.tmp.y"
+#line 4974 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node_masgn) = NEW_MASGN((yyvsp[0].node), 0, &(yyloc));
                     /*% ripper: $:1 %*/
                     }
-#line 14694 "ext/refine_tree/parse.c"
+#line 14694 "ext/kanayago/parse.c"
     break;
 
   case 415: /* f_margs: f_marg_list ',' f_rest_marg  */
-#line 4979 "ext/refine_tree/parse.tmp.y"
+#line 4979 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node_masgn) = NEW_MASGN((yyvsp[-2].node), (yyvsp[0].node), &(yyloc));
                     /*% ripper: mlhs_add_star!($:1, $:3) %*/
                     }
-#line 14703 "ext/refine_tree/parse.c"
+#line 14703 "ext/kanayago/parse.c"
     break;
 
   case 416: /* f_margs: f_marg_list ',' f_rest_marg ',' f_marg_list  */
-#line 4984 "ext/refine_tree/parse.tmp.y"
+#line 4984 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node_masgn) = NEW_MASGN((yyvsp[-4].node), NEW_POSTARG((yyvsp[-2].node), (yyvsp[0].node), &(yyloc)), &(yyloc));
                     /*% ripper: mlhs_add_post!(mlhs_add_star!($:1, $:3), $:5) %*/
                     }
-#line 14712 "ext/refine_tree/parse.c"
+#line 14712 "ext/kanayago/parse.c"
     break;
 
   case 417: /* f_margs: f_rest_marg  */
-#line 4989 "ext/refine_tree/parse.tmp.y"
+#line 4989 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node_masgn) = NEW_MASGN(0, (yyvsp[0].node), &(yyloc));
                     /*% ripper: mlhs_add_star!(mlhs_new!, $:1) %*/
                     }
-#line 14721 "ext/refine_tree/parse.c"
+#line 14721 "ext/kanayago/parse.c"
     break;
 
   case 418: /* f_margs: f_rest_marg ',' f_marg_list  */
-#line 4994 "ext/refine_tree/parse.tmp.y"
+#line 4994 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node_masgn) = NEW_MASGN(0, NEW_POSTARG((yyvsp[-2].node), (yyvsp[0].node), &(yyloc)), &(yyloc));
                     /*% ripper: mlhs_add_post!(mlhs_add_star!(mlhs_new!, $:1), $:3) %*/
                     }
-#line 14730 "ext/refine_tree/parse.c"
+#line 14730 "ext/kanayago/parse.c"
     break;
 
   case 419: /* f_rest_marg: "*" f_norm_arg  */
-#line 5001 "ext/refine_tree/parse.tmp.y"
+#line 5001 "ext/kanayago/parse.tmp.y"
                     {
                     /*% ripper: $:2 %*/
                         (yyval.node) = assignable(p, (yyvsp[0].id), 0, &(yyloc));
                         mark_lvar_used(p, (yyval.node));
                     }
-#line 14740 "ext/refine_tree/parse.c"
+#line 14740 "ext/kanayago/parse.c"
     break;
 
   case 420: /* f_rest_marg: "*"  */
-#line 5007 "ext/refine_tree/parse.tmp.y"
+#line 5007 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = NODE_SPECIAL_NO_NAME_REST;
                     /*% ripper: Qnil %*/
                     }
-#line 14749 "ext/refine_tree/parse.c"
+#line 14749 "ext/kanayago/parse.c"
     break;
 
   case 422: /* f_any_kwrest: f_no_kwarg  */
-#line 5015 "ext/refine_tree/parse.tmp.y"
+#line 5015 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.id) = idNil;
                     /*% ripper: ID2VAL(idNil) %*/
                     }
-#line 14758 "ext/refine_tree/parse.c"
+#line 14758 "ext/kanayago/parse.c"
     break;
 
   case 423: /* $@23: %empty  */
-#line 5021 "ext/refine_tree/parse.tmp.y"
+#line 5021 "ext/kanayago/parse.tmp.y"
         {p->ctxt.in_argdef = 0;}
-#line 14764 "ext/refine_tree/parse.c"
+#line 14764 "ext/kanayago/parse.c"
     break;
 
   case 425: /* f_kwarg_f_block_kw: f_block_kw  */
-#line 2957 "ext/refine_tree/parse.tmp.y"
+#line 2957 "ext/kanayago/parse.tmp.y"
                                     {
                                         (yyval.node_kw_arg) = (yyvsp[0].node_kw_arg);
                                     /*% ripper: rb_ary_new3(1, $:1) %*/
                                     }
-#line 14773 "ext/refine_tree/parse.c"
+#line 14773 "ext/kanayago/parse.c"
     break;
 
   case 426: /* f_kwarg_f_block_kw: f_kwarg_f_block_kw ',' f_block_kw  */
-#line 2962 "ext/refine_tree/parse.tmp.y"
+#line 2962 "ext/kanayago/parse.tmp.y"
                                     {
                                         (yyval.node_kw_arg) = kwd_append((yyvsp[-2].node_kw_arg), (yyvsp[0].node_kw_arg));
                                     /*% ripper: rb_ary_push($:1, $:3) %*/
                                     }
-#line 14782 "ext/refine_tree/parse.c"
+#line 14782 "ext/kanayago/parse.c"
     break;
 
   case 427: /* block_args_tail: f_kwarg_f_block_kw ',' f_kwrest opt_f_block_arg  */
-#line 5024 "ext/refine_tree/parse.tmp.y"
+#line 5024 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node_args) = new_args_tail(p, (yyvsp[-3].node_kw_arg), (yyvsp[-1].id), (yyvsp[0].id), &(yylsp[-1]));
                     /*% ripper: [$:1, $:3, $:4] %*/
                     }
-#line 14791 "ext/refine_tree/parse.c"
+#line 14791 "ext/kanayago/parse.c"
     break;
 
   case 428: /* block_args_tail: f_kwarg_f_block_kw opt_f_block_arg  */
-#line 5029 "ext/refine_tree/parse.tmp.y"
+#line 5029 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node_args) = new_args_tail(p, (yyvsp[-1].node_kw_arg), 0, (yyvsp[0].id), &(yylsp[-1]));
                     /*% ripper: [$:1, Qnil, $:2] %*/
                     }
-#line 14800 "ext/refine_tree/parse.c"
+#line 14800 "ext/kanayago/parse.c"
     break;
 
   case 429: /* block_args_tail: f_any_kwrest opt_f_block_arg  */
-#line 5034 "ext/refine_tree/parse.tmp.y"
+#line 5034 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node_args) = new_args_tail(p, 0, (yyvsp[-1].id), (yyvsp[0].id), &(yylsp[-1]));
                     /*% ripper: [Qnil, $:1, $:2] %*/
                     }
-#line 14809 "ext/refine_tree/parse.c"
+#line 14809 "ext/kanayago/parse.c"
     break;
 
   case 430: /* block_args_tail: f_block_arg  */
-#line 5039 "ext/refine_tree/parse.tmp.y"
+#line 5039 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node_args) = new_args_tail(p, 0, 0, (yyvsp[0].id), &(yylsp[0]));
                     /*% ripper: [Qnil, Qnil, $:1] %*/
                     }
-#line 14818 "ext/refine_tree/parse.c"
+#line 14818 "ext/kanayago/parse.c"
     break;
 
   case 431: /* excessed_comma: ','  */
-#line 5046 "ext/refine_tree/parse.tmp.y"
+#line 5046 "ext/kanayago/parse.tmp.y"
                     {
                         /* magic number for rest_id in iseq_set_arguments() */
                         (yyval.id) = NODE_SPECIAL_EXCESSIVE_COMMA;
                     /*% ripper: excessed_comma! %*/
                     }
-#line 14828 "ext/refine_tree/parse.c"
+#line 14828 "ext/kanayago/parse.c"
     break;
 
   case 432: /* f_opt_primary_value: f_arg_asgn f_eq primary_value  */
-#line 2937 "ext/refine_tree/parse.tmp.y"
+#line 2937 "ext/kanayago/parse.tmp.y"
                                     {
                                         p->ctxt.in_argdef = 1;
                                         (yyval.node_opt_arg) = NEW_OPT_ARG(assignable(p, (yyvsp[-2].id), (yyvsp[0].node), &(yyloc)), &(yyloc));
                                     /*% ripper: [$:$, $:3] %*/
                                     }
-#line 14838 "ext/refine_tree/parse.c"
+#line 14838 "ext/kanayago/parse.c"
     break;
 
   case 433: /* f_optarg_primary_value: f_opt_primary_value  */
-#line 2945 "ext/refine_tree/parse.tmp.y"
+#line 2945 "ext/kanayago/parse.tmp.y"
                                         {
                                             (yyval.node_opt_arg) = (yyvsp[0].node_opt_arg);
                                         /*% ripper: rb_ary_new3(1, $:1) %*/
                                         }
-#line 14847 "ext/refine_tree/parse.c"
+#line 14847 "ext/kanayago/parse.c"
     break;
 
   case 434: /* f_optarg_primary_value: f_optarg_primary_value ',' f_opt_primary_value  */
-#line 2950 "ext/refine_tree/parse.tmp.y"
+#line 2950 "ext/kanayago/parse.tmp.y"
                                         {
                                             (yyval.node_opt_arg) = opt_arg_append((yyvsp[-2].node_opt_arg), (yyvsp[0].node_opt_arg));
                                         /*% ripper: rb_ary_push($:1, $:3) %*/
                                         }
-#line 14856 "ext/refine_tree/parse.c"
+#line 14856 "ext/kanayago/parse.c"
     break;
 
   case 435: /* opt_args_tail_block_args_tail: ',' block_args_tail  */
-#line 2969 "ext/refine_tree/parse.tmp.y"
+#line 2969 "ext/kanayago/parse.tmp.y"
                                         {
                                             (yyval.node_args) = (yyvsp[0].node_args);
                                         /*% ripper: $:2 %*/
                                         }
-#line 14865 "ext/refine_tree/parse.c"
+#line 14865 "ext/kanayago/parse.c"
     break;
 
   case 436: /* opt_args_tail_block_args_tail: %empty  */
-#line 2974 "ext/refine_tree/parse.tmp.y"
+#line 2974 "ext/kanayago/parse.tmp.y"
                                         {
                                             (yyval.node_args) = new_args_tail(p, 0, 0, 0, &(yylsp[0]));
                                         /*% ripper: [Qnil, Qnil, Qnil] %*/
                                         }
-#line 14874 "ext/refine_tree/parse.c"
+#line 14874 "ext/kanayago/parse.c"
     break;
 
   case 437: /* block_param: f_arg ',' f_optarg_primary_value ',' f_rest_arg opt_args_tail_block_args_tail  */
-#line 5054 "ext/refine_tree/parse.tmp.y"
+#line 5054 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node_args) = new_args(p, (yyvsp[-5].node_args_aux), (yyvsp[-3].node_opt_arg), (yyvsp[-1].id), 0, (yyvsp[0].node_args), &(yyloc));
                     /*% ripper: params!($:1, $:3, $:5, Qnil, *$:6[0..2]) %*/
                     }
-#line 14883 "ext/refine_tree/parse.c"
+#line 14883 "ext/kanayago/parse.c"
     break;
 
   case 438: /* block_param: f_arg ',' f_optarg_primary_value ',' f_rest_arg ',' f_arg opt_args_tail_block_args_tail  */
-#line 5059 "ext/refine_tree/parse.tmp.y"
+#line 5059 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node_args) = new_args(p, (yyvsp[-7].node_args_aux), (yyvsp[-5].node_opt_arg), (yyvsp[-3].id), (yyvsp[-1].node_args_aux), (yyvsp[0].node_args), &(yyloc));
                     /*% ripper: params!($:1, $:3, $:5, $:7, *$:8[0..2]) %*/
                     }
-#line 14892 "ext/refine_tree/parse.c"
+#line 14892 "ext/kanayago/parse.c"
     break;
 
   case 439: /* block_param: f_arg ',' f_optarg_primary_value opt_args_tail_block_args_tail  */
-#line 5064 "ext/refine_tree/parse.tmp.y"
+#line 5064 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node_args) = new_args(p, (yyvsp[-3].node_args_aux), (yyvsp[-1].node_opt_arg), 0, 0, (yyvsp[0].node_args), &(yyloc));
                     /*% ripper: params!($:1, $:3, Qnil, Qnil, *$:4[0..2]) %*/
                     }
-#line 14901 "ext/refine_tree/parse.c"
+#line 14901 "ext/kanayago/parse.c"
     break;
 
   case 440: /* block_param: f_arg ',' f_optarg_primary_value ',' f_arg opt_args_tail_block_args_tail  */
-#line 5069 "ext/refine_tree/parse.tmp.y"
+#line 5069 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node_args) = new_args(p, (yyvsp[-5].node_args_aux), (yyvsp[-3].node_opt_arg), 0, (yyvsp[-1].node_args_aux), (yyvsp[0].node_args), &(yyloc));
                     /*% ripper: params!($:1, $:3, Qnil, $:5, *$:6[0..2]) %*/
                     }
-#line 14910 "ext/refine_tree/parse.c"
+#line 14910 "ext/kanayago/parse.c"
     break;
 
   case 441: /* block_param: f_arg ',' f_rest_arg opt_args_tail_block_args_tail  */
-#line 5074 "ext/refine_tree/parse.tmp.y"
+#line 5074 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node_args) = new_args(p, (yyvsp[-3].node_args_aux), 0, (yyvsp[-1].id), 0, (yyvsp[0].node_args), &(yyloc));
                     /*% ripper: params!($:1, Qnil, $:3, Qnil, *$:4[0..2]) %*/
                     }
-#line 14919 "ext/refine_tree/parse.c"
+#line 14919 "ext/kanayago/parse.c"
     break;
 
   case 442: /* block_param: f_arg excessed_comma  */
-#line 5079 "ext/refine_tree/parse.tmp.y"
+#line 5079 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node_args) = new_args_tail(p, 0, 0, 0, &(yylsp[0]));
                         (yyval.node_args) = new_args(p, (yyvsp[-1].node_args_aux), 0, (yyvsp[0].id), 0, (yyval.node_args), &(yyloc));
                     /*% ripper: params!($:1, Qnil, $:2, Qnil, Qnil, Qnil, Qnil) %*/
                     }
-#line 14929 "ext/refine_tree/parse.c"
+#line 14929 "ext/kanayago/parse.c"
     break;
 
   case 443: /* block_param: f_arg ',' f_rest_arg ',' f_arg opt_args_tail_block_args_tail  */
-#line 5085 "ext/refine_tree/parse.tmp.y"
+#line 5085 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node_args) = new_args(p, (yyvsp[-5].node_args_aux), 0, (yyvsp[-3].id), (yyvsp[-1].node_args_aux), (yyvsp[0].node_args), &(yyloc));
                     /*% ripper: params!($:1, Qnil, $:3, $:5, *$:6[0..2]) %*/
                     }
-#line 14938 "ext/refine_tree/parse.c"
+#line 14938 "ext/kanayago/parse.c"
     break;
 
   case 444: /* block_param: f_arg opt_args_tail_block_args_tail  */
-#line 5090 "ext/refine_tree/parse.tmp.y"
+#line 5090 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node_args) = new_args(p, (yyvsp[-1].node_args_aux), 0, 0, 0, (yyvsp[0].node_args), &(yyloc));
                     /*% ripper: params!($:1, Qnil, Qnil, Qnil, *$:2[0..2]) %*/
                     }
-#line 14947 "ext/refine_tree/parse.c"
+#line 14947 "ext/kanayago/parse.c"
     break;
 
   case 445: /* block_param: f_optarg_primary_value ',' f_rest_arg opt_args_tail_block_args_tail  */
-#line 5095 "ext/refine_tree/parse.tmp.y"
+#line 5095 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node_args) = new_args(p, 0, (yyvsp[-3].node_opt_arg), (yyvsp[-1].id), 0, (yyvsp[0].node_args), &(yyloc));
                     /*% ripper: params!(Qnil, $:1, $:3, Qnil, *$:4[0..2]) %*/
                     }
-#line 14956 "ext/refine_tree/parse.c"
+#line 14956 "ext/kanayago/parse.c"
     break;
 
   case 446: /* block_param: f_optarg_primary_value ',' f_rest_arg ',' f_arg opt_args_tail_block_args_tail  */
-#line 5100 "ext/refine_tree/parse.tmp.y"
+#line 5100 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node_args) = new_args(p, 0, (yyvsp[-5].node_opt_arg), (yyvsp[-3].id), (yyvsp[-1].node_args_aux), (yyvsp[0].node_args), &(yyloc));
                     /*% ripper: params!(Qnil, $:1, $:3, $:5, *$:6[0..2]) %*/
                     }
-#line 14965 "ext/refine_tree/parse.c"
+#line 14965 "ext/kanayago/parse.c"
     break;
 
   case 447: /* block_param: f_optarg_primary_value opt_args_tail_block_args_tail  */
-#line 5105 "ext/refine_tree/parse.tmp.y"
+#line 5105 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node_args) = new_args(p, 0, (yyvsp[-1].node_opt_arg), 0, 0, (yyvsp[0].node_args), &(yyloc));
                     /*% ripper: params!(Qnil, $:1, Qnil, Qnil, *$:2[0..2]) %*/
                     }
-#line 14974 "ext/refine_tree/parse.c"
+#line 14974 "ext/kanayago/parse.c"
     break;
 
   case 448: /* block_param: f_optarg_primary_value ',' f_arg opt_args_tail_block_args_tail  */
-#line 5110 "ext/refine_tree/parse.tmp.y"
+#line 5110 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node_args) = new_args(p, 0, (yyvsp[-3].node_opt_arg), 0, (yyvsp[-1].node_args_aux), (yyvsp[0].node_args), &(yyloc));
                     /*% ripper: params!(Qnil, $:1, Qnil, $:3, *$:4[0..2]) %*/
                     }
-#line 14983 "ext/refine_tree/parse.c"
+#line 14983 "ext/kanayago/parse.c"
     break;
 
   case 449: /* block_param: f_rest_arg opt_args_tail_block_args_tail  */
-#line 5115 "ext/refine_tree/parse.tmp.y"
+#line 5115 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node_args) = new_args(p, 0, 0, (yyvsp[-1].id), 0, (yyvsp[0].node_args), &(yyloc));
                     /*% ripper: params!(Qnil, Qnil, $:1, Qnil, *$:2[0..2]) %*/
                     }
-#line 14992 "ext/refine_tree/parse.c"
+#line 14992 "ext/kanayago/parse.c"
     break;
 
   case 450: /* block_param: f_rest_arg ',' f_arg opt_args_tail_block_args_tail  */
-#line 5120 "ext/refine_tree/parse.tmp.y"
+#line 5120 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node_args) = new_args(p, 0, 0, (yyvsp[-3].id), (yyvsp[-1].node_args_aux), (yyvsp[0].node_args), &(yyloc));
                     /*% ripper: params!(Qnil, Qnil, $:1, $:3, *$:4[0..2]) %*/
                     }
-#line 15001 "ext/refine_tree/parse.c"
+#line 15001 "ext/kanayago/parse.c"
     break;
 
   case 451: /* block_param: block_args_tail  */
-#line 5125 "ext/refine_tree/parse.tmp.y"
+#line 5125 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node_args) = new_args(p, 0, 0, 0, 0, (yyvsp[0].node_args), &(yyloc));
                     /*% ripper: params!(Qnil, Qnil, Qnil, Qnil, *$:1[0..2]) %*/
                     }
-#line 15010 "ext/refine_tree/parse.c"
+#line 15010 "ext/kanayago/parse.c"
     break;
 
   case 453: /* opt_block_param: block_param_def  */
-#line 5133 "ext/refine_tree/parse.tmp.y"
+#line 5133 "ext/kanayago/parse.tmp.y"
                     {
                         p->command_start = TRUE;
                     }
-#line 15018 "ext/refine_tree/parse.c"
+#line 15018 "ext/kanayago/parse.c"
     break;
 
   case 454: /* block_param_def: '|' opt_bv_decl '|'  */
-#line 5139 "ext/refine_tree/parse.tmp.y"
+#line 5139 "ext/kanayago/parse.tmp.y"
                     {
                         p->max_numparam = ORDINAL_PARAM;
                         p->ctxt.in_argdef = 0;
                         (yyval.node_args) = 0;
                     /*% ripper: block_var!(params!(Qnil,Qnil,Qnil,Qnil,Qnil,Qnil,Qnil), $:2) %*/
                     }
-#line 15029 "ext/refine_tree/parse.c"
+#line 15029 "ext/kanayago/parse.c"
     break;
 
   case 455: /* block_param_def: '|' block_param opt_bv_decl '|'  */
-#line 5146 "ext/refine_tree/parse.tmp.y"
+#line 5146 "ext/kanayago/parse.tmp.y"
                     {
                         p->max_numparam = ORDINAL_PARAM;
                         p->ctxt.in_argdef = 0;
                         (yyval.node_args) = (yyvsp[-2].node_args);
                     /*% ripper: block_var!($:2, $:3) %*/
                     }
-#line 15040 "ext/refine_tree/parse.c"
+#line 15040 "ext/kanayago/parse.c"
     break;
 
   case 456: /* opt_bv_decl: option_'\n'  */
-#line 5156 "ext/refine_tree/parse.tmp.y"
+#line 5156 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.id) = 0;
                     /*% ripper: Qfalse %*/
                     }
-#line 15049 "ext/refine_tree/parse.c"
+#line 15049 "ext/kanayago/parse.c"
     break;
 
   case 457: /* opt_bv_decl: option_'\n' ';' bv_decls option_'\n'  */
-#line 5161 "ext/refine_tree/parse.tmp.y"
+#line 5161 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.id) = 0;
                     /*% ripper: $:3 %*/
                     }
-#line 15058 "ext/refine_tree/parse.c"
+#line 15058 "ext/kanayago/parse.c"
     break;
 
   case 460: /* bvar: "local variable or method"  */
-#line 5174 "ext/refine_tree/parse.tmp.y"
+#line 5174 "ext/kanayago/parse.tmp.y"
                     {
                         new_bv(p, (yyvsp[0].id));
                     /*% ripper: $:1 %*/
                     }
-#line 15067 "ext/refine_tree/parse.c"
+#line 15067 "ext/kanayago/parse.c"
     break;
 
   case 461: /* bvar: f_bad_arg  */
-#line 5179 "ext/refine_tree/parse.tmp.y"
+#line 5179 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.id) = 0;
                     }
-#line 15075 "ext/refine_tree/parse.c"
+#line 15075 "ext/kanayago/parse.c"
     break;
 
   case 462: /* max_numparam: %empty  */
-#line 5184 "ext/refine_tree/parse.tmp.y"
+#line 5184 "ext/kanayago/parse.tmp.y"
                  {
                         (yyval.num) = p->max_numparam;
                         p->max_numparam = 0;
                     }
-#line 15084 "ext/refine_tree/parse.c"
+#line 15084 "ext/kanayago/parse.c"
     break;
 
   case 463: /* numparam: %empty  */
-#line 5190 "ext/refine_tree/parse.tmp.y"
+#line 5190 "ext/kanayago/parse.tmp.y"
              {
                         (yyval.node) = numparam_push(p);
                     }
-#line 15092 "ext/refine_tree/parse.c"
+#line 15092 "ext/kanayago/parse.c"
     break;
 
   case 464: /* it_id: %empty  */
-#line 5195 "ext/refine_tree/parse.tmp.y"
+#line 5195 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.id) = p->it_id;
                         p->it_id = 0;
                     }
-#line 15101 "ext/refine_tree/parse.c"
+#line 15101 "ext/kanayago/parse.c"
     break;
 
   case 465: /* @24: %empty  */
-#line 5202 "ext/refine_tree/parse.tmp.y"
+#line 5202 "ext/kanayago/parse.tmp.y"
                     {
                         token_info_push(p, "->", &(yylsp[0]));
                         (yyval.vars) = dyna_push(p);
                         p->lex.lpar_beg = p->lex.paren_nest;
                     }
-#line 15111 "ext/refine_tree/parse.c"
+#line 15111 "ext/kanayago/parse.c"
     break;
 
   case 466: /* $@25: %empty  */
-#line 5209 "ext/refine_tree/parse.tmp.y"
+#line 5209 "ext/kanayago/parse.tmp.y"
                     {
                         CMDARG_PUSH(0);
                     }
-#line 15119 "ext/refine_tree/parse.c"
+#line 15119 "ext/kanayago/parse.c"
     break;
 
   case 467: /* lambda: "->" @24 max_numparam numparam it_id allow_exits f_larglist $@25 lambda_body  */
-#line 5213 "ext/refine_tree/parse.tmp.y"
+#line 5213 "ext/kanayago/parse.tmp.y"
                     {
                         int max_numparam = p->max_numparam;
                         ID it_id = p->it_id;
@@ -15140,70 +15140,70 @@ yyreduce:
                         numparam_pop(p, (yyvsp[-5].node));
                         dyna_pop(p, (yyvsp[-7].vars));
                     }
-#line 15144 "ext/refine_tree/parse.c"
+#line 15144 "ext/kanayago/parse.c"
     break;
 
   case 468: /* f_larglist: '(' f_args opt_bv_decl ')'  */
-#line 5236 "ext/refine_tree/parse.tmp.y"
+#line 5236 "ext/kanayago/parse.tmp.y"
                     {
                         p->ctxt.in_argdef = 0;
                         (yyval.node_args) = (yyvsp[-2].node_args);
                         p->max_numparam = ORDINAL_PARAM;
                     /*% ripper: paren!($:2) %*/
                     }
-#line 15155 "ext/refine_tree/parse.c"
+#line 15155 "ext/kanayago/parse.c"
     break;
 
   case 469: /* f_larglist: f_args  */
-#line 5243 "ext/refine_tree/parse.tmp.y"
+#line 5243 "ext/kanayago/parse.tmp.y"
                     {
                         p->ctxt.in_argdef = 0;
                         if (!args_info_empty_p(&(yyvsp[0].node_args)->nd_ainfo))
                             p->max_numparam = ORDINAL_PARAM;
                         (yyval.node_args) = (yyvsp[0].node_args);
                     }
-#line 15166 "ext/refine_tree/parse.c"
+#line 15166 "ext/kanayago/parse.c"
     break;
 
   case 470: /* lambda_body: tLAMBEG compstmt '}'  */
-#line 5252 "ext/refine_tree/parse.tmp.y"
+#line 5252 "ext/kanayago/parse.tmp.y"
                     {
                         token_info_pop(p, "}", &(yylsp[0]));
                         (yyval.node) = (yyvsp[-1].node);
                     /*% ripper: $:2 %*/
                     }
-#line 15176 "ext/refine_tree/parse.c"
+#line 15176 "ext/kanayago/parse.c"
     break;
 
   case 471: /* $@26: %empty  */
-#line 5258 "ext/refine_tree/parse.tmp.y"
+#line 5258 "ext/kanayago/parse.tmp.y"
                     {
                         push_end_expect_token_locations(p, &(yylsp[0]).beg_pos);
                     }
-#line 15184 "ext/refine_tree/parse.c"
+#line 15184 "ext/kanayago/parse.c"
     break;
 
   case 472: /* lambda_body: "'do' for lambda" $@26 bodystmt k_end  */
-#line 5262 "ext/refine_tree/parse.tmp.y"
+#line 5262 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = (yyvsp[-1].node);
                     /*% ripper: $:3 %*/
                     }
-#line 15193 "ext/refine_tree/parse.c"
+#line 15193 "ext/kanayago/parse.c"
     break;
 
   case 473: /* do_block: k_do_block do_body k_end  */
-#line 5269 "ext/refine_tree/parse.tmp.y"
+#line 5269 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = (yyvsp[-1].node);
                         set_embraced_location((yyval.node), &(yylsp[-2]), &(yylsp[0]));
                     /*% ripper: $:2 %*/
                     }
-#line 15203 "ext/refine_tree/parse.c"
+#line 15203 "ext/kanayago/parse.c"
     break;
 
   case 474: /* block_call: command do_block  */
-#line 5277 "ext/refine_tree/parse.tmp.y"
+#line 5277 "ext/kanayago/parse.tmp.y"
                     {
                         if (nd_type_p((yyvsp[-1].node), NODE_YIELD)) {
                             compile_error(p, "block given to yield");
@@ -15215,11 +15215,11 @@ yyreduce:
                         fixpos((yyval.node), (yyvsp[-1].node));
                     /*% ripper: method_add_block!($:1, $:2) %*/
                     }
-#line 15219 "ext/refine_tree/parse.c"
+#line 15219 "ext/kanayago/parse.c"
     break;
 
   case 475: /* block_call: block_call call_op2 operation2 opt_paren_args  */
-#line 5289 "ext/refine_tree/parse.tmp.y"
+#line 5289 "ext/kanayago/parse.tmp.y"
                     {
                         bool has_args = (yyvsp[0].node) != 0;
                         if (NODE_EMPTY_ARGS_P((yyvsp[0].node))) (yyvsp[0].node) = 0;
@@ -15229,11 +15229,11 @@ yyreduce:
                         /*% ripper: method_add_arg!($:$, $:4) %*/
                         }
                     }
-#line 15233 "ext/refine_tree/parse.c"
+#line 15233 "ext/kanayago/parse.c"
     break;
 
   case 476: /* block_call: block_call call_op2 operation2 opt_paren_args brace_block  */
-#line 5299 "ext/refine_tree/parse.tmp.y"
+#line 5299 "ext/kanayago/parse.tmp.y"
                     {
                         if (NODE_EMPTY_ARGS_P((yyvsp[-1].node))) (yyvsp[-1].node) = 0;
                         (yyval.node) = new_command_qcall(p, (yyvsp[-3].id), (yyvsp[-4].node), (yyvsp[-2].id), (yyvsp[-1].node), (yyvsp[0].node), &(yylsp[-2]), &(yyloc));
@@ -15242,31 +15242,31 @@ yyreduce:
                         /*% ripper: method_add_block!($:$, $:5) %*/
                         }
                     }
-#line 15246 "ext/refine_tree/parse.c"
+#line 15246 "ext/kanayago/parse.c"
     break;
 
   case 477: /* block_call: block_call call_op2 operation2 command_args do_block  */
-#line 5308 "ext/refine_tree/parse.tmp.y"
+#line 5308 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = new_command_qcall(p, (yyvsp[-3].id), (yyvsp[-4].node), (yyvsp[-2].id), (yyvsp[-1].node), (yyvsp[0].node), &(yylsp[-2]), &(yyloc));
                     /*% ripper: method_add_block!(command_call!($:1, $:2, $:3, $:4), $:5) %*/
                     }
-#line 15255 "ext/refine_tree/parse.c"
+#line 15255 "ext/kanayago/parse.c"
     break;
 
   case 478: /* method_call: fcall paren_args  */
-#line 5315 "ext/refine_tree/parse.tmp.y"
+#line 5315 "ext/kanayago/parse.tmp.y"
                     {
                         (yyvsp[-1].node_fcall)->nd_args = (yyvsp[0].node);
                         (yyval.node) = (NODE *)(yyvsp[-1].node_fcall);
                         nd_set_last_loc((yyvsp[-1].node_fcall), (yylsp[0]).end_pos);
                     /*% ripper: method_add_arg!(fcall!($:1), $:2) %*/
                     }
-#line 15266 "ext/refine_tree/parse.c"
+#line 15266 "ext/kanayago/parse.c"
     break;
 
   case 479: /* method_call: primary_value call_op operation2 opt_paren_args  */
-#line 5322 "ext/refine_tree/parse.tmp.y"
+#line 5322 "ext/kanayago/parse.tmp.y"
                     {
                         bool has_args = (yyvsp[0].node) != 0;
                         if (NODE_EMPTY_ARGS_P((yyvsp[0].node))) (yyvsp[0].node) = 0;
@@ -15277,104 +15277,104 @@ yyreduce:
                         /*% ripper: method_add_arg!($:$, $:4) %*/
                         }
                     }
-#line 15281 "ext/refine_tree/parse.c"
+#line 15281 "ext/kanayago/parse.c"
     break;
 
   case 480: /* method_call: primary_value "::" operation2 paren_args  */
-#line 5333 "ext/refine_tree/parse.tmp.y"
+#line 5333 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = new_qcall(p, idCOLON2, (yyvsp[-3].node), (yyvsp[-1].id), (yyvsp[0].node), &(yylsp[-1]), &(yyloc));
                         nd_set_line((yyval.node), (yylsp[-1]).end_pos.lineno);
                     /*% ripper: method_add_arg!(call!($:1, $:2, $:3), $:4) %*/
                     }
-#line 15291 "ext/refine_tree/parse.c"
+#line 15291 "ext/kanayago/parse.c"
     break;
 
   case 481: /* method_call: primary_value "::" operation3  */
-#line 5339 "ext/refine_tree/parse.tmp.y"
+#line 5339 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = new_qcall(p, idCOLON2, (yyvsp[-2].node), (yyvsp[0].id), 0, &(yylsp[0]), &(yyloc));
                     /*% ripper: call!($:1, $:2, $:3) %*/
                     }
-#line 15300 "ext/refine_tree/parse.c"
+#line 15300 "ext/kanayago/parse.c"
     break;
 
   case 482: /* method_call: primary_value call_op paren_args  */
-#line 5344 "ext/refine_tree/parse.tmp.y"
+#line 5344 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = new_qcall(p, (yyvsp[-1].id), (yyvsp[-2].node), idCall, (yyvsp[0].node), &(yylsp[-1]), &(yyloc));
                         nd_set_line((yyval.node), (yylsp[-1]).end_pos.lineno);
                     /*% ripper: method_add_arg!(call!($:1, $:2, ID2VAL(idCall)), $:3) %*/
                     }
-#line 15310 "ext/refine_tree/parse.c"
+#line 15310 "ext/kanayago/parse.c"
     break;
 
   case 483: /* method_call: primary_value "::" paren_args  */
-#line 5350 "ext/refine_tree/parse.tmp.y"
+#line 5350 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = new_qcall(p, idCOLON2, (yyvsp[-2].node), idCall, (yyvsp[0].node), &(yylsp[-1]), &(yyloc));
                         nd_set_line((yyval.node), (yylsp[-1]).end_pos.lineno);
                     /*% ripper: method_add_arg!(call!($:1, $:2, ID2VAL(idCall)), $:3) %*/
                     }
-#line 15320 "ext/refine_tree/parse.c"
+#line 15320 "ext/kanayago/parse.c"
     break;
 
   case 484: /* method_call: "'super'" paren_args  */
-#line 5356 "ext/refine_tree/parse.tmp.y"
+#line 5356 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = NEW_SUPER((yyvsp[0].node), &(yyloc));
                     /*% ripper: super!($:2) %*/
                     }
-#line 15329 "ext/refine_tree/parse.c"
+#line 15329 "ext/kanayago/parse.c"
     break;
 
   case 485: /* method_call: "'super'"  */
-#line 5361 "ext/refine_tree/parse.tmp.y"
+#line 5361 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = NEW_ZSUPER(&(yyloc));
                     /*% ripper: zsuper! %*/
                     }
-#line 15338 "ext/refine_tree/parse.c"
+#line 15338 "ext/kanayago/parse.c"
     break;
 
   case 486: /* method_call: primary_value '[' opt_call_args rbracket  */
-#line 5366 "ext/refine_tree/parse.tmp.y"
+#line 5366 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = NEW_CALL((yyvsp[-3].node), tAREF, (yyvsp[-1].node), &(yyloc));
                         fixpos((yyval.node), (yyvsp[-3].node));
                     /*% ripper: aref!($:1, $:3) %*/
                     }
-#line 15348 "ext/refine_tree/parse.c"
+#line 15348 "ext/kanayago/parse.c"
     break;
 
   case 487: /* brace_block: '{' brace_body '}'  */
-#line 5374 "ext/refine_tree/parse.tmp.y"
+#line 5374 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = (yyvsp[-1].node);
                         set_embraced_location((yyval.node), &(yylsp[-2]), &(yylsp[0]));
                     /*% ripper: $:2 %*/
                     }
-#line 15358 "ext/refine_tree/parse.c"
+#line 15358 "ext/kanayago/parse.c"
     break;
 
   case 488: /* brace_block: k_do do_body k_end  */
-#line 5380 "ext/refine_tree/parse.tmp.y"
+#line 5380 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = (yyvsp[-1].node);
                         set_embraced_location((yyval.node), &(yylsp[-2]), &(yylsp[0]));
                     /*% ripper: $:2 %*/
                     }
-#line 15368 "ext/refine_tree/parse.c"
+#line 15368 "ext/kanayago/parse.c"
     break;
 
   case 489: /* @27: %empty  */
-#line 5387 "ext/refine_tree/parse.tmp.y"
+#line 5387 "ext/kanayago/parse.tmp.y"
              {(yyval.vars) = dyna_push(p);}
-#line 15374 "ext/refine_tree/parse.c"
+#line 15374 "ext/kanayago/parse.c"
     break;
 
   case 490: /* brace_body: @27 max_numparam numparam it_id allow_exits opt_block_param compstmt  */
-#line 5390 "ext/refine_tree/parse.tmp.y"
+#line 5390 "ext/kanayago/parse.tmp.y"
                     {
                         int max_numparam = p->max_numparam;
                         ID it_id = p->it_id;
@@ -15387,20 +15387,20 @@ yyreduce:
                         numparam_pop(p, (yyvsp[-4].node));
                         dyna_pop(p, (yyvsp[-6].vars));
                     }
-#line 15391 "ext/refine_tree/parse.c"
+#line 15391 "ext/kanayago/parse.c"
     break;
 
   case 491: /* @28: %empty  */
-#line 5404 "ext/refine_tree/parse.tmp.y"
+#line 5404 "ext/kanayago/parse.tmp.y"
              {
                         (yyval.vars) = dyna_push(p);
                         CMDARG_PUSH(0);
                     }
-#line 15400 "ext/refine_tree/parse.c"
+#line 15400 "ext/kanayago/parse.c"
     break;
 
   case 492: /* do_body: @28 max_numparam numparam it_id allow_exits opt_block_param bodystmt  */
-#line 5410 "ext/refine_tree/parse.tmp.y"
+#line 5410 "ext/kanayago/parse.tmp.y"
                     {
                         int max_numparam = p->max_numparam;
                         ID it_id = p->it_id;
@@ -15414,541 +15414,541 @@ yyreduce:
                         numparam_pop(p, (yyvsp[-4].node));
                         dyna_pop(p, (yyvsp[-6].vars));
                     }
-#line 15418 "ext/refine_tree/parse.c"
+#line 15418 "ext/kanayago/parse.c"
     break;
 
   case 493: /* case_args: arg_value  */
-#line 5426 "ext/refine_tree/parse.tmp.y"
+#line 5426 "ext/kanayago/parse.tmp.y"
                     {
                         check_literal_when(p, (yyvsp[0].node), &(yylsp[0]));
                         (yyval.node) = NEW_LIST((yyvsp[0].node), &(yyloc));
                     /*% ripper: args_add!(args_new!, $:1) %*/
                     }
-#line 15428 "ext/refine_tree/parse.c"
+#line 15428 "ext/kanayago/parse.c"
     break;
 
   case 494: /* case_args: "*" arg_value  */
-#line 5432 "ext/refine_tree/parse.tmp.y"
+#line 5432 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = NEW_SPLAT((yyvsp[0].node), &(yyloc));
                     /*% ripper: args_add_star!(args_new!, $:2) %*/
                     }
-#line 15437 "ext/refine_tree/parse.c"
+#line 15437 "ext/kanayago/parse.c"
     break;
 
   case 495: /* case_args: case_args ',' arg_value  */
-#line 5437 "ext/refine_tree/parse.tmp.y"
+#line 5437 "ext/kanayago/parse.tmp.y"
                     {
                         check_literal_when(p, (yyvsp[0].node), &(yylsp[0]));
                         (yyval.node) = last_arg_append(p, (yyvsp[-2].node), (yyvsp[0].node), &(yyloc));
                     /*% ripper: args_add!($:1, $:3) %*/
                     }
-#line 15447 "ext/refine_tree/parse.c"
+#line 15447 "ext/kanayago/parse.c"
     break;
 
   case 496: /* case_args: case_args ',' "*" arg_value  */
-#line 5443 "ext/refine_tree/parse.tmp.y"
+#line 5443 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = rest_arg_append(p, (yyvsp[-3].node), (yyvsp[0].node), &(yyloc));
                     /*% ripper: args_add_star!($:1, $:4) %*/
                     }
-#line 15456 "ext/refine_tree/parse.c"
+#line 15456 "ext/kanayago/parse.c"
     break;
 
   case 497: /* case_body: k_when case_args then compstmt cases  */
-#line 5452 "ext/refine_tree/parse.tmp.y"
+#line 5452 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = NEW_WHEN((yyvsp[-3].node), (yyvsp[-1].node), (yyvsp[0].node), &(yyloc));
                         fixpos((yyval.node), (yyvsp[-3].node));
                     /*% ripper: when!($:2, $:4, $:5) %*/
                     }
-#line 15466 "ext/refine_tree/parse.c"
+#line 15466 "ext/kanayago/parse.c"
     break;
 
   case 500: /* p_pvtbl: %empty  */
-#line 5463 "ext/refine_tree/parse.tmp.y"
+#line 5463 "ext/kanayago/parse.tmp.y"
            {(yyval.tbl) = p->pvtbl; p->pvtbl = st_init_numtable();}
-#line 15472 "ext/refine_tree/parse.c"
+#line 15472 "ext/kanayago/parse.c"
     break;
 
   case 501: /* p_pktbl: %empty  */
-#line 5464 "ext/refine_tree/parse.tmp.y"
+#line 5464 "ext/kanayago/parse.tmp.y"
            {(yyval.tbl) = p->pktbl; p->pktbl = 0;}
-#line 15478 "ext/refine_tree/parse.c"
+#line 15478 "ext/kanayago/parse.c"
     break;
 
   case 502: /* p_in_kwarg: %empty  */
-#line 5466 "ext/refine_tree/parse.tmp.y"
+#line 5466 "ext/kanayago/parse.tmp.y"
                {
                         (yyval.ctxt) = p->ctxt;
                         SET_LEX_STATE(EXPR_BEG|EXPR_LABEL);
                         p->command_start = FALSE;
                         p->ctxt.in_kwarg = 1;
                     }
-#line 15489 "ext/refine_tree/parse.c"
+#line 15489 "ext/kanayago/parse.c"
     break;
 
   case 503: /* $@29: %empty  */
-#line 5477 "ext/refine_tree/parse.tmp.y"
+#line 5477 "ext/kanayago/parse.tmp.y"
                     {
                         pop_pktbl(p, (yyvsp[-2].tbl));
                         pop_pvtbl(p, (yyvsp[-3].tbl));
                         p->ctxt.in_kwarg = (yyvsp[-4].ctxt).in_kwarg;
                     }
-#line 15499 "ext/refine_tree/parse.c"
+#line 15499 "ext/kanayago/parse.c"
     break;
 
   case 504: /* p_case_body: "'in'" p_in_kwarg p_pvtbl p_pktbl p_top_expr then $@29 compstmt p_cases  */
-#line 5484 "ext/refine_tree/parse.tmp.y"
+#line 5484 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = NEW_IN((yyvsp[-4].node), (yyvsp[-1].node), (yyvsp[0].node), &(yyloc));
                     /*% ripper: in!($:expr, $:compstmt, $:cases) %*/
                     }
-#line 15508 "ext/refine_tree/parse.c"
+#line 15508 "ext/kanayago/parse.c"
     break;
 
   case 508: /* p_top_expr: p_top_expr_body "'if' modifier" expr_value  */
-#line 5496 "ext/refine_tree/parse.tmp.y"
+#line 5496 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = new_if(p, (yyvsp[0].node), (yyvsp[-2].node), 0, &(yyloc));
                         fixpos((yyval.node), (yyvsp[0].node));
                     /*% ripper: if_mod!($:3, $:1) %*/
                     }
-#line 15518 "ext/refine_tree/parse.c"
+#line 15518 "ext/kanayago/parse.c"
     break;
 
   case 509: /* p_top_expr: p_top_expr_body "'unless' modifier" expr_value  */
-#line 5502 "ext/refine_tree/parse.tmp.y"
+#line 5502 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = new_unless(p, (yyvsp[0].node), (yyvsp[-2].node), 0, &(yyloc), &(yylsp[-1]), &NULL_LOC, &NULL_LOC);
                         fixpos((yyval.node), (yyvsp[0].node));
                     /*% ripper: unless_mod!($:3, $:1) %*/
                     }
-#line 15528 "ext/refine_tree/parse.c"
+#line 15528 "ext/kanayago/parse.c"
     break;
 
   case 511: /* p_top_expr_body: p_expr ','  */
-#line 5511 "ext/refine_tree/parse.tmp.y"
+#line 5511 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = new_array_pattern_tail(p, 0, 1, 0, 0, &(yyloc));
                         (yyval.node) = new_array_pattern(p, 0, (yyvsp[-1].node), (yyval.node), &(yyloc));
                     /*% ripper: aryptn!(Qnil, [$:1], Qnil, Qnil) %*/
                     }
-#line 15538 "ext/refine_tree/parse.c"
+#line 15538 "ext/kanayago/parse.c"
     break;
 
   case 512: /* p_top_expr_body: p_expr ',' p_args  */
-#line 5517 "ext/refine_tree/parse.tmp.y"
+#line 5517 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = new_array_pattern(p, 0, (yyvsp[-2].node), (yyvsp[0].node), &(yyloc));
                         nd_set_first_loc((yyval.node), (yylsp[-2]).beg_pos);
                     /*% ripper: aryptn!(Qnil, aryptn_pre_args(p, $:1, $:3[0]), *$:3[1..2]) %*/
                     }
-#line 15548 "ext/refine_tree/parse.c"
+#line 15548 "ext/kanayago/parse.c"
     break;
 
   case 513: /* p_top_expr_body: p_find  */
-#line 5523 "ext/refine_tree/parse.tmp.y"
+#line 5523 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = new_find_pattern(p, 0, (yyvsp[0].node), &(yyloc));
                     /*% ripper: fndptn!(Qnil, *$:1[0..2]) %*/
                     }
-#line 15557 "ext/refine_tree/parse.c"
+#line 15557 "ext/kanayago/parse.c"
     break;
 
   case 514: /* p_top_expr_body: p_args_tail  */
-#line 5528 "ext/refine_tree/parse.tmp.y"
+#line 5528 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = new_array_pattern(p, 0, 0, (yyvsp[0].node), &(yyloc));
                     /*% ripper: aryptn!(Qnil, *$:1[0..2]) %*/
                     }
-#line 15566 "ext/refine_tree/parse.c"
+#line 15566 "ext/kanayago/parse.c"
     break;
 
   case 515: /* p_top_expr_body: p_kwargs  */
-#line 5533 "ext/refine_tree/parse.tmp.y"
+#line 5533 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = new_hash_pattern(p, 0, (yyvsp[0].node), &(yyloc));
                     /*% ripper: hshptn!(Qnil, *$:1[0..1]) %*/
                     }
-#line 15575 "ext/refine_tree/parse.c"
+#line 15575 "ext/kanayago/parse.c"
     break;
 
   case 517: /* p_as: p_expr "=>" p_variable  */
-#line 5543 "ext/refine_tree/parse.tmp.y"
+#line 5543 "ext/kanayago/parse.tmp.y"
                     {
                         NODE *n = NEW_LIST((yyvsp[-2].node), &(yyloc));
                         n = list_append(p, n, (yyvsp[0].node));
                         (yyval.node) = new_hash(p, n, &(yyloc));
                     /*% ripper: binary!($:1, ID2VAL((id_assoc)), $:3) %*/
                     }
-#line 15586 "ext/refine_tree/parse.c"
+#line 15586 "ext/kanayago/parse.c"
     break;
 
   case 519: /* p_alt: p_alt '|' p_expr_basic  */
-#line 5553 "ext/refine_tree/parse.tmp.y"
+#line 5553 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = NEW_OR((yyvsp[-2].node), (yyvsp[0].node), &(yyloc));
                     /*% ripper: binary!($:1, ID2VAL(idOr), $:3) %*/
                     }
-#line 15595 "ext/refine_tree/parse.c"
+#line 15595 "ext/kanayago/parse.c"
     break;
 
   case 521: /* p_lparen: '(' p_pktbl  */
-#line 5561 "ext/refine_tree/parse.tmp.y"
+#line 5561 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.tbl) = (yyvsp[0].tbl);
                     /*% ripper: $:2 %*/
                     }
-#line 15604 "ext/refine_tree/parse.c"
+#line 15604 "ext/kanayago/parse.c"
     break;
 
   case 522: /* p_lbracket: '[' p_pktbl  */
-#line 5568 "ext/refine_tree/parse.tmp.y"
+#line 5568 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.tbl) = (yyvsp[0].tbl);
                     /*% ripper: $:2 %*/
                     }
-#line 15613 "ext/refine_tree/parse.c"
+#line 15613 "ext/kanayago/parse.c"
     break;
 
   case 525: /* p_expr_basic: p_const p_lparen p_args rparen  */
-#line 5577 "ext/refine_tree/parse.tmp.y"
+#line 5577 "ext/kanayago/parse.tmp.y"
                     {
                         pop_pktbl(p, (yyvsp[-2].tbl));
                         (yyval.node) = new_array_pattern(p, (yyvsp[-3].node), 0, (yyvsp[-1].node), &(yyloc));
                         nd_set_first_loc((yyval.node), (yylsp[-3]).beg_pos);
                     /*% ripper: aryptn!($:p_const, *$:p_args[0..2]) %*/
                     }
-#line 15624 "ext/refine_tree/parse.c"
+#line 15624 "ext/kanayago/parse.c"
     break;
 
   case 526: /* p_expr_basic: p_const p_lparen p_find rparen  */
-#line 5584 "ext/refine_tree/parse.tmp.y"
+#line 5584 "ext/kanayago/parse.tmp.y"
                     {
                         pop_pktbl(p, (yyvsp[-2].tbl));
                         (yyval.node) = new_find_pattern(p, (yyvsp[-3].node), (yyvsp[-1].node), &(yyloc));
                         nd_set_first_loc((yyval.node), (yylsp[-3]).beg_pos);
                     /*% ripper: fndptn!($:p_const, *$:p_find[0..2]) %*/
                     }
-#line 15635 "ext/refine_tree/parse.c"
+#line 15635 "ext/kanayago/parse.c"
     break;
 
   case 527: /* p_expr_basic: p_const p_lparen p_kwargs rparen  */
-#line 5591 "ext/refine_tree/parse.tmp.y"
+#line 5591 "ext/kanayago/parse.tmp.y"
                     {
                         pop_pktbl(p, (yyvsp[-2].tbl));
                         (yyval.node) = new_hash_pattern(p, (yyvsp[-3].node), (yyvsp[-1].node), &(yyloc));
                         nd_set_first_loc((yyval.node), (yylsp[-3]).beg_pos);
                     /*% ripper: hshptn!($:p_const, *$:p_kwargs[0..1]) %*/
                     }
-#line 15646 "ext/refine_tree/parse.c"
+#line 15646 "ext/kanayago/parse.c"
     break;
 
   case 528: /* p_expr_basic: p_const '(' rparen  */
-#line 5598 "ext/refine_tree/parse.tmp.y"
+#line 5598 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = new_array_pattern_tail(p, 0, 0, 0, 0, &(yyloc));
                         (yyval.node) = new_array_pattern(p, (yyvsp[-2].node), 0, (yyval.node), &(yyloc));
                         /*% ripper: aryptn!($:p_const, Qnil, Qnil, Qnil) %*/
                     }
-#line 15656 "ext/refine_tree/parse.c"
+#line 15656 "ext/kanayago/parse.c"
     break;
 
   case 529: /* p_expr_basic: p_const p_lbracket p_args rbracket  */
-#line 5604 "ext/refine_tree/parse.tmp.y"
+#line 5604 "ext/kanayago/parse.tmp.y"
                     {
                         pop_pktbl(p, (yyvsp[-2].tbl));
                         (yyval.node) = new_array_pattern(p, (yyvsp[-3].node), 0, (yyvsp[-1].node), &(yyloc));
                         nd_set_first_loc((yyval.node), (yylsp[-3]).beg_pos);
                     /*% ripper: aryptn!($:p_const, *$:p_args[0..2]) %*/
                     }
-#line 15667 "ext/refine_tree/parse.c"
+#line 15667 "ext/kanayago/parse.c"
     break;
 
   case 530: /* p_expr_basic: p_const p_lbracket p_find rbracket  */
-#line 5611 "ext/refine_tree/parse.tmp.y"
+#line 5611 "ext/kanayago/parse.tmp.y"
                     {
                         pop_pktbl(p, (yyvsp[-2].tbl));
                         (yyval.node) = new_find_pattern(p, (yyvsp[-3].node), (yyvsp[-1].node), &(yyloc));
                         nd_set_first_loc((yyval.node), (yylsp[-3]).beg_pos);
                     /*% ripper: fndptn!($:p_const, *$:p_find[0..2]) %*/
                     }
-#line 15678 "ext/refine_tree/parse.c"
+#line 15678 "ext/kanayago/parse.c"
     break;
 
   case 531: /* p_expr_basic: p_const p_lbracket p_kwargs rbracket  */
-#line 5618 "ext/refine_tree/parse.tmp.y"
+#line 5618 "ext/kanayago/parse.tmp.y"
                     {
                         pop_pktbl(p, (yyvsp[-2].tbl));
                         (yyval.node) = new_hash_pattern(p, (yyvsp[-3].node), (yyvsp[-1].node), &(yyloc));
                         nd_set_first_loc((yyval.node), (yylsp[-3]).beg_pos);
                     /*% ripper: hshptn!($:p_const, *$:p_kwargs[0..1]) %*/
                     }
-#line 15689 "ext/refine_tree/parse.c"
+#line 15689 "ext/kanayago/parse.c"
     break;
 
   case 532: /* p_expr_basic: p_const '[' rbracket  */
-#line 5625 "ext/refine_tree/parse.tmp.y"
+#line 5625 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = new_array_pattern_tail(p, 0, 0, 0, 0, &(yyloc));
                         (yyval.node) = new_array_pattern(p, (yyvsp[-2].node), 0, (yyval.node), &(yyloc));
                     /*% ripper: aryptn!($:1, Qnil, Qnil, Qnil) %*/
                     }
-#line 15699 "ext/refine_tree/parse.c"
+#line 15699 "ext/kanayago/parse.c"
     break;
 
   case 533: /* p_expr_basic: "[" p_args rbracket  */
-#line 5631 "ext/refine_tree/parse.tmp.y"
+#line 5631 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = new_array_pattern(p, 0, 0, (yyvsp[-1].node), &(yyloc));
                     /*% ripper: aryptn!(Qnil, *$:p_args[0..2]) %*/
                     }
-#line 15708 "ext/refine_tree/parse.c"
+#line 15708 "ext/kanayago/parse.c"
     break;
 
   case 534: /* p_expr_basic: "[" p_find rbracket  */
-#line 5636 "ext/refine_tree/parse.tmp.y"
+#line 5636 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = new_find_pattern(p, 0, (yyvsp[-1].node), &(yyloc));
                     /*% ripper: fndptn!(Qnil, *$:p_find[0..2]) %*/
                     }
-#line 15717 "ext/refine_tree/parse.c"
+#line 15717 "ext/kanayago/parse.c"
     break;
 
   case 535: /* p_expr_basic: "[" rbracket  */
-#line 5641 "ext/refine_tree/parse.tmp.y"
+#line 5641 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = new_array_pattern_tail(p, 0, 0, 0, 0, &(yyloc));
                         (yyval.node) = new_array_pattern(p, 0, 0, (yyval.node), &(yyloc));
                     /*% ripper: aryptn!(Qnil, Qnil, Qnil, Qnil) %*/
                     }
-#line 15727 "ext/refine_tree/parse.c"
+#line 15727 "ext/kanayago/parse.c"
     break;
 
   case 536: /* $@30: %empty  */
-#line 5647 "ext/refine_tree/parse.tmp.y"
+#line 5647 "ext/kanayago/parse.tmp.y"
                     {
                         p->ctxt.in_kwarg = 0;
                     }
-#line 15735 "ext/refine_tree/parse.c"
+#line 15735 "ext/kanayago/parse.c"
     break;
 
   case 537: /* p_expr_basic: "{" p_pktbl lex_ctxt $@30 p_kwargs rbrace  */
-#line 5651 "ext/refine_tree/parse.tmp.y"
+#line 5651 "ext/kanayago/parse.tmp.y"
                     {
                         pop_pktbl(p, (yyvsp[-4].tbl));
                         p->ctxt.in_kwarg = (yyvsp[-3].ctxt).in_kwarg;
                         (yyval.node) = new_hash_pattern(p, 0, (yyvsp[-1].node), &(yyloc));
                     /*% ripper: hshptn!(Qnil, *$:p_kwargs[0..1]) %*/
                     }
-#line 15746 "ext/refine_tree/parse.c"
+#line 15746 "ext/kanayago/parse.c"
     break;
 
   case 538: /* p_expr_basic: "{" rbrace  */
-#line 5658 "ext/refine_tree/parse.tmp.y"
+#line 5658 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = new_hash_pattern_tail(p, 0, 0, &(yyloc));
                         (yyval.node) = new_hash_pattern(p, 0, (yyval.node), &(yyloc));
                     /*% ripper: hshptn!(Qnil, Qnil, Qnil) %*/
                     }
-#line 15756 "ext/refine_tree/parse.c"
+#line 15756 "ext/kanayago/parse.c"
     break;
 
   case 539: /* p_expr_basic: "(" p_pktbl p_expr rparen  */
-#line 5664 "ext/refine_tree/parse.tmp.y"
+#line 5664 "ext/kanayago/parse.tmp.y"
                     {
                         pop_pktbl(p, (yyvsp[-2].tbl));
                         (yyval.node) = (yyvsp[-1].node);
                     /*% ripper: $:p_expr %*/
                     }
-#line 15766 "ext/refine_tree/parse.c"
+#line 15766 "ext/kanayago/parse.c"
     break;
 
   case 540: /* p_args: p_expr  */
-#line 5672 "ext/refine_tree/parse.tmp.y"
+#line 5672 "ext/kanayago/parse.tmp.y"
                     {
                         NODE *pre_args = NEW_LIST((yyvsp[0].node), &(yyloc));
                         (yyval.node) = new_array_pattern_tail(p, pre_args, 0, 0, 0, &(yyloc));
                     /*% ripper: [[$:1], Qnil, Qnil] %*/
                     }
-#line 15776 "ext/refine_tree/parse.c"
+#line 15776 "ext/kanayago/parse.c"
     break;
 
   case 541: /* p_args: p_args_head  */
-#line 5678 "ext/refine_tree/parse.tmp.y"
+#line 5678 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = new_array_pattern_tail(p, (yyvsp[0].node), 1, 0, 0, &(yyloc));
                     /*% ripper: [$:1, Qnil, Qnil] %*/
                     }
-#line 15785 "ext/refine_tree/parse.c"
+#line 15785 "ext/kanayago/parse.c"
     break;
 
   case 542: /* p_args: p_args_head p_arg  */
-#line 5683 "ext/refine_tree/parse.tmp.y"
+#line 5683 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = new_array_pattern_tail(p, list_concat((yyvsp[-1].node), (yyvsp[0].node)), 0, 0, 0, &(yyloc));
                     /*% ripper: [rb_ary_concat($:1, $:2), Qnil, Qnil] %*/
                     }
-#line 15794 "ext/refine_tree/parse.c"
+#line 15794 "ext/kanayago/parse.c"
     break;
 
   case 543: /* p_args: p_args_head p_rest  */
-#line 5688 "ext/refine_tree/parse.tmp.y"
+#line 5688 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = new_array_pattern_tail(p, (yyvsp[-1].node), 1, (yyvsp[0].node), 0, &(yyloc));
                     /*% ripper: [$:1, $:2, Qnil] %*/
                     }
-#line 15803 "ext/refine_tree/parse.c"
+#line 15803 "ext/kanayago/parse.c"
     break;
 
   case 544: /* p_args: p_args_head p_rest ',' p_args_post  */
-#line 5693 "ext/refine_tree/parse.tmp.y"
+#line 5693 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = new_array_pattern_tail(p, (yyvsp[-3].node), 1, (yyvsp[-2].node), (yyvsp[0].node), &(yyloc));
                     /*% ripper: [$:1, $:2, $:4] %*/
                     }
-#line 15812 "ext/refine_tree/parse.c"
+#line 15812 "ext/kanayago/parse.c"
     break;
 
   case 546: /* p_args_head: p_arg ','  */
-#line 5701 "ext/refine_tree/parse.tmp.y"
+#line 5701 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = (yyvsp[-1].node);
                     }
-#line 15820 "ext/refine_tree/parse.c"
+#line 15820 "ext/kanayago/parse.c"
     break;
 
   case 547: /* p_args_head: p_args_head p_arg ','  */
-#line 5705 "ext/refine_tree/parse.tmp.y"
+#line 5705 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = list_concat((yyvsp[-2].node), (yyvsp[-1].node));
                     /*% ripper: rb_ary_concat($:1, $:2) %*/
                     }
-#line 15829 "ext/refine_tree/parse.c"
+#line 15829 "ext/kanayago/parse.c"
     break;
 
   case 548: /* p_args_tail: p_rest  */
-#line 5712 "ext/refine_tree/parse.tmp.y"
+#line 5712 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = new_array_pattern_tail(p, 0, 1, (yyvsp[0].node), 0, &(yyloc));
                     /*% ripper: [Qnil, $:1, Qnil] %*/
                     }
-#line 15838 "ext/refine_tree/parse.c"
+#line 15838 "ext/kanayago/parse.c"
     break;
 
   case 549: /* p_args_tail: p_rest ',' p_args_post  */
-#line 5717 "ext/refine_tree/parse.tmp.y"
+#line 5717 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = new_array_pattern_tail(p, 0, 1, (yyvsp[-2].node), (yyvsp[0].node), &(yyloc));
                     /*% ripper: [Qnil, $:1, $:3] %*/
                     }
-#line 15847 "ext/refine_tree/parse.c"
+#line 15847 "ext/kanayago/parse.c"
     break;
 
   case 550: /* p_find: p_rest ',' p_args_post ',' p_rest  */
-#line 5724 "ext/refine_tree/parse.tmp.y"
+#line 5724 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = new_find_pattern_tail(p, (yyvsp[-4].node), (yyvsp[-2].node), (yyvsp[0].node), &(yyloc));
                     /*% ripper: [$:1, $:3, $:5] %*/
                     }
-#line 15856 "ext/refine_tree/parse.c"
+#line 15856 "ext/kanayago/parse.c"
     break;
 
   case 551: /* p_rest: "*" "local variable or method"  */
-#line 5732 "ext/refine_tree/parse.tmp.y"
+#line 5732 "ext/kanayago/parse.tmp.y"
                     {
                         error_duplicate_pattern_variable(p, (yyvsp[0].id), &(yylsp[0]));
                     /*% ripper: var_field!($:2) %*/
                         (yyval.node) = assignable(p, (yyvsp[0].id), 0, &(yyloc));
                     }
-#line 15866 "ext/refine_tree/parse.c"
+#line 15866 "ext/kanayago/parse.c"
     break;
 
   case 552: /* p_rest: "*"  */
-#line 5738 "ext/refine_tree/parse.tmp.y"
+#line 5738 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = 0;
                     /*% ripper: var_field!(Qnil) %*/
                     }
-#line 15875 "ext/refine_tree/parse.c"
+#line 15875 "ext/kanayago/parse.c"
     break;
 
   case 554: /* p_args_post: p_args_post ',' p_arg  */
-#line 5746 "ext/refine_tree/parse.tmp.y"
+#line 5746 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = list_concat((yyvsp[-2].node), (yyvsp[0].node));
                     /*% ripper: rb_ary_concat($:1, $:3) %*/
                     }
-#line 15884 "ext/refine_tree/parse.c"
+#line 15884 "ext/kanayago/parse.c"
     break;
 
   case 555: /* p_arg: p_expr  */
-#line 5753 "ext/refine_tree/parse.tmp.y"
+#line 5753 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = NEW_LIST((yyvsp[0].node), &(yyloc));
                     /*% ripper: [$:1] %*/
                     }
-#line 15893 "ext/refine_tree/parse.c"
+#line 15893 "ext/kanayago/parse.c"
     break;
 
   case 556: /* p_kwargs: p_kwarg ',' p_any_kwrest  */
-#line 5760 "ext/refine_tree/parse.tmp.y"
+#line 5760 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) =  new_hash_pattern_tail(p, new_unique_key_hash(p, (yyvsp[-2].node), &(yyloc)), (yyvsp[0].id), &(yyloc));
                     /*% ripper: [$:1, $:3] %*/
                     }
-#line 15902 "ext/refine_tree/parse.c"
+#line 15902 "ext/kanayago/parse.c"
     break;
 
   case 557: /* p_kwargs: p_kwarg  */
-#line 5765 "ext/refine_tree/parse.tmp.y"
+#line 5765 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) =  new_hash_pattern_tail(p, new_unique_key_hash(p, (yyvsp[0].node), &(yyloc)), 0, &(yyloc));
                     /*% ripper: [$:1, Qnil] %*/
                     }
-#line 15911 "ext/refine_tree/parse.c"
+#line 15911 "ext/kanayago/parse.c"
     break;
 
   case 558: /* p_kwargs: p_kwarg ','  */
-#line 5770 "ext/refine_tree/parse.tmp.y"
+#line 5770 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) =  new_hash_pattern_tail(p, new_unique_key_hash(p, (yyvsp[-1].node), &(yyloc)), 0, &(yyloc));
                     /*% ripper: [$:1, Qnil] %*/
                     }
-#line 15920 "ext/refine_tree/parse.c"
+#line 15920 "ext/kanayago/parse.c"
     break;
 
   case 559: /* p_kwargs: p_any_kwrest  */
-#line 5775 "ext/refine_tree/parse.tmp.y"
+#line 5775 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) =  new_hash_pattern_tail(p, new_hash(p, 0, &(yyloc)), (yyvsp[0].id), &(yyloc));
                     /*% ripper: [[], $:1] %*/
                     }
-#line 15929 "ext/refine_tree/parse.c"
+#line 15929 "ext/kanayago/parse.c"
     break;
 
   case 561: /* p_kwarg: p_kwarg ',' p_kw  */
-#line 5784 "ext/refine_tree/parse.tmp.y"
+#line 5784 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = list_concat((yyvsp[-2].node), (yyvsp[0].node));
                     /*% ripper: rb_ary_push($:1, $:3) %*/
                     }
-#line 15938 "ext/refine_tree/parse.c"
+#line 15938 "ext/kanayago/parse.c"
     break;
 
   case 562: /* p_kw: p_kw_label p_expr  */
-#line 5791 "ext/refine_tree/parse.tmp.y"
+#line 5791 "ext/kanayago/parse.tmp.y"
                     {
                         error_duplicate_pattern_key(p, (yyvsp[-1].id), &(yylsp[-1]));
                         (yyval.node) = list_append(p, NEW_LIST(NEW_SYM(rb_id2str((yyvsp[-1].id)), &(yylsp[-1])), &(yyloc)), (yyvsp[0].node));
                     /*% ripper: [$:1, $:2] %*/
                     }
-#line 15948 "ext/refine_tree/parse.c"
+#line 15948 "ext/kanayago/parse.c"
     break;
 
   case 563: /* p_kw: p_kw_label  */
-#line 5797 "ext/refine_tree/parse.tmp.y"
+#line 5797 "ext/kanayago/parse.tmp.y"
                     {
                         error_duplicate_pattern_key(p, (yyvsp[0].id), &(yylsp[0]));
                         if ((yyvsp[0].id) && !is_local_id((yyvsp[0].id))) {
@@ -15958,11 +15958,11 @@ yyreduce:
                         (yyval.node) = list_append(p, NEW_LIST(NEW_SYM(rb_id2str((yyvsp[0].id)), &(yyloc)), &(yyloc)), assignable(p, (yyvsp[0].id), 0, &(yyloc)));
                     /*% ripper: [$:1, Qnil] %*/
                     }
-#line 15962 "ext/refine_tree/parse.c"
+#line 15962 "ext/kanayago/parse.c"
     break;
 
   case 565: /* p_kw_label: "string literal" string_contents tLABEL_END  */
-#line 5810 "ext/refine_tree/parse.tmp.y"
+#line 5810 "ext/kanayago/parse.tmp.y"
                     {
                         YYLTYPE loc = code_loc_gen(&(yylsp[-2]), &(yylsp[0]));
                         if (!(yyvsp[-1].node) || nd_type_p((yyvsp[-1].node), NODE_STR)) {
@@ -15975,127 +15975,127 @@ yyreduce:
                         }
                     /*% ripper: $:2 %*/
                     }
-#line 15979 "ext/refine_tree/parse.c"
+#line 15979 "ext/kanayago/parse.c"
     break;
 
   case 566: /* p_kwrest: kwrest_mark "local variable or method"  */
-#line 5825 "ext/refine_tree/parse.tmp.y"
+#line 5825 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.id) = (yyvsp[0].id);
                     /*% ripper: var_field!($:2) %*/
                     }
-#line 15988 "ext/refine_tree/parse.c"
+#line 15988 "ext/kanayago/parse.c"
     break;
 
   case 567: /* p_kwrest: kwrest_mark  */
-#line 5830 "ext/refine_tree/parse.tmp.y"
+#line 5830 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.id) = 0;
                     /*% ripper: Qnil %*/
                     }
-#line 15997 "ext/refine_tree/parse.c"
+#line 15997 "ext/kanayago/parse.c"
     break;
 
   case 568: /* p_kwnorest: kwrest_mark "'nil'"  */
-#line 5837 "ext/refine_tree/parse.tmp.y"
+#line 5837 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.id) = 0;
                     }
-#line 16005 "ext/refine_tree/parse.c"
+#line 16005 "ext/kanayago/parse.c"
     break;
 
   case 570: /* p_any_kwrest: p_kwnorest  */
-#line 5844 "ext/refine_tree/parse.tmp.y"
+#line 5844 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.id) = idNil;
                     /*% ripper: var_field!(ID2VAL(idNil)) %*/
                     }
-#line 16014 "ext/refine_tree/parse.c"
+#line 16014 "ext/kanayago/parse.c"
     break;
 
   case 572: /* p_value: p_primitive ".." p_primitive  */
-#line 5852 "ext/refine_tree/parse.tmp.y"
+#line 5852 "ext/kanayago/parse.tmp.y"
                     {
                         value_expr((yyvsp[-2].node));
                         value_expr((yyvsp[0].node));
                         (yyval.node) = NEW_DOT2((yyvsp[-2].node), (yyvsp[0].node), &(yyloc));
                     /*% ripper: dot2!($:1, $:3) %*/
                     }
-#line 16025 "ext/refine_tree/parse.c"
+#line 16025 "ext/kanayago/parse.c"
     break;
 
   case 573: /* p_value: p_primitive "..." p_primitive  */
-#line 5859 "ext/refine_tree/parse.tmp.y"
+#line 5859 "ext/kanayago/parse.tmp.y"
                     {
                         value_expr((yyvsp[-2].node));
                         value_expr((yyvsp[0].node));
                         (yyval.node) = NEW_DOT3((yyvsp[-2].node), (yyvsp[0].node), &(yyloc));
                     /*% ripper: dot3!($:1, $:3) %*/
                     }
-#line 16036 "ext/refine_tree/parse.c"
+#line 16036 "ext/kanayago/parse.c"
     break;
 
   case 574: /* p_value: p_primitive ".."  */
-#line 5866 "ext/refine_tree/parse.tmp.y"
+#line 5866 "ext/kanayago/parse.tmp.y"
                     {
                         value_expr((yyvsp[-1].node));
                         (yyval.node) = NEW_DOT2((yyvsp[-1].node), new_nil_at(p, &(yylsp[0]).end_pos), &(yyloc));
                     /*% ripper: dot2!($:1, Qnil) %*/
                     }
-#line 16046 "ext/refine_tree/parse.c"
+#line 16046 "ext/kanayago/parse.c"
     break;
 
   case 575: /* p_value: p_primitive "..."  */
-#line 5872 "ext/refine_tree/parse.tmp.y"
+#line 5872 "ext/kanayago/parse.tmp.y"
                     {
                         value_expr((yyvsp[-1].node));
                         (yyval.node) = NEW_DOT3((yyvsp[-1].node), new_nil_at(p, &(yylsp[0]).end_pos), &(yyloc));
                     /*% ripper: dot3!($:1, Qnil) %*/
                     }
-#line 16056 "ext/refine_tree/parse.c"
+#line 16056 "ext/kanayago/parse.c"
     break;
 
   case 579: /* p_value: "(.." p_primitive  */
-#line 5881 "ext/refine_tree/parse.tmp.y"
+#line 5881 "ext/kanayago/parse.tmp.y"
                     {
                         value_expr((yyvsp[0].node));
                         (yyval.node) = NEW_DOT2(new_nil_at(p, &(yylsp[-1]).beg_pos), (yyvsp[0].node), &(yyloc));
                     /*% ripper: dot2!(Qnil, $:2) %*/
                     }
-#line 16066 "ext/refine_tree/parse.c"
+#line 16066 "ext/kanayago/parse.c"
     break;
 
   case 580: /* p_value: "(..." p_primitive  */
-#line 5887 "ext/refine_tree/parse.tmp.y"
+#line 5887 "ext/kanayago/parse.tmp.y"
                     {
                         value_expr((yyvsp[0].node));
                         (yyval.node) = NEW_DOT3(new_nil_at(p, &(yylsp[-1]).beg_pos), (yyvsp[0].node), &(yyloc));
                     /*% ripper: dot3!(Qnil, $:2) %*/
                     }
-#line 16076 "ext/refine_tree/parse.c"
+#line 16076 "ext/kanayago/parse.c"
     break;
 
   case 589: /* p_primitive: keyword_variable  */
-#line 5903 "ext/refine_tree/parse.tmp.y"
+#line 5903 "ext/kanayago/parse.tmp.y"
                     {
                         if (!((yyval.node) = gettable(p, (yyvsp[0].id), &(yyloc)))) (yyval.node) = NEW_ERROR(&(yyloc));
                     /*% ripper: var_ref!($:1) %*/
                     }
-#line 16085 "ext/refine_tree/parse.c"
+#line 16085 "ext/kanayago/parse.c"
     break;
 
   case 591: /* p_variable: "local variable or method"  */
-#line 5911 "ext/refine_tree/parse.tmp.y"
+#line 5911 "ext/kanayago/parse.tmp.y"
                     {
                         error_duplicate_pattern_variable(p, (yyvsp[0].id), &(yylsp[0]));
                     /*% ripper: var_field!($:1) %*/
                         (yyval.node) = assignable(p, (yyvsp[0].id), 0, &(yyloc));
                     }
-#line 16095 "ext/refine_tree/parse.c"
+#line 16095 "ext/kanayago/parse.c"
     break;
 
   case 592: /* p_var_ref: '^' "local variable or method"  */
-#line 5919 "ext/refine_tree/parse.tmp.y"
+#line 5919 "ext/kanayago/parse.tmp.y"
                     {
                         NODE *n = gettable(p, (yyvsp[0].id), &(yyloc));
                         if (!n) {
@@ -16107,56 +16107,56 @@ yyreduce:
                         (yyval.node) = n;
                     /*% ripper: var_ref!($:2) %*/
                     }
-#line 16111 "ext/refine_tree/parse.c"
+#line 16111 "ext/kanayago/parse.c"
     break;
 
   case 593: /* p_var_ref: '^' nonlocal_var  */
-#line 5931 "ext/refine_tree/parse.tmp.y"
+#line 5931 "ext/kanayago/parse.tmp.y"
                     {
                         if (!((yyval.node) = gettable(p, (yyvsp[0].id), &(yyloc)))) (yyval.node) = NEW_ERROR(&(yyloc));
                     /*% ripper: var_ref!($:2) %*/
                     }
-#line 16120 "ext/refine_tree/parse.c"
+#line 16120 "ext/kanayago/parse.c"
     break;
 
   case 594: /* p_expr_ref: '^' "(" expr_value rparen  */
-#line 5938 "ext/refine_tree/parse.tmp.y"
+#line 5938 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = NEW_BLOCK((yyvsp[-1].node), &(yyloc));
                     /*% ripper: begin!($:3) %*/
                     }
-#line 16129 "ext/refine_tree/parse.c"
+#line 16129 "ext/kanayago/parse.c"
     break;
 
   case 595: /* p_const: ":: at EXPR_BEG" cname  */
-#line 5945 "ext/refine_tree/parse.tmp.y"
+#line 5945 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = NEW_COLON3((yyvsp[0].id), &(yyloc));
                     /*% ripper: top_const_ref!($:2) %*/
                     }
-#line 16138 "ext/refine_tree/parse.c"
+#line 16138 "ext/kanayago/parse.c"
     break;
 
   case 596: /* p_const: p_const "::" cname  */
-#line 5950 "ext/refine_tree/parse.tmp.y"
+#line 5950 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = NEW_COLON2((yyvsp[-2].node), (yyvsp[0].id), &(yyloc));
                     /*% ripper: const_path_ref!($:1, $:3) %*/
                     }
-#line 16147 "ext/refine_tree/parse.c"
+#line 16147 "ext/kanayago/parse.c"
     break;
 
   case 597: /* p_const: "constant"  */
-#line 5955 "ext/refine_tree/parse.tmp.y"
+#line 5955 "ext/kanayago/parse.tmp.y"
                    {
                         (yyval.node) = gettable(p, (yyvsp[0].id), &(yyloc));
                     /*% ripper: var_ref!($:1) %*/
                    }
-#line 16156 "ext/refine_tree/parse.c"
+#line 16156 "ext/kanayago/parse.c"
     break;
 
   case 598: /* opt_rescue: k_rescue exc_list exc_var then compstmt opt_rescue  */
-#line 5964 "ext/refine_tree/parse.tmp.y"
+#line 5964 "ext/kanayago/parse.tmp.y"
                     {
                         NODE *err = (yyvsp[-3].node);
                         if ((yyvsp[-3].node)) {
@@ -16175,47 +16175,47 @@ yyreduce:
                         }
                     /*% ripper: rescue!($:2, $:3, $:5, $:6) %*/
                     }
-#line 16179 "ext/refine_tree/parse.c"
+#line 16179 "ext/kanayago/parse.c"
     break;
 
   case 600: /* exc_list: arg_value  */
-#line 5986 "ext/refine_tree/parse.tmp.y"
+#line 5986 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = NEW_LIST((yyvsp[0].node), &(yyloc));
                     /*% ripper: rb_ary_new3(1, $:1) %*/
                     }
-#line 16188 "ext/refine_tree/parse.c"
+#line 16188 "ext/kanayago/parse.c"
     break;
 
   case 601: /* exc_list: mrhs  */
-#line 5991 "ext/refine_tree/parse.tmp.y"
+#line 5991 "ext/kanayago/parse.tmp.y"
                     {
                         if (!((yyval.node) = splat_array((yyvsp[0].node)))) (yyval.node) = (yyvsp[0].node);
                     }
-#line 16196 "ext/refine_tree/parse.c"
+#line 16196 "ext/kanayago/parse.c"
     break;
 
   case 603: /* exc_var: "=>" lhs  */
-#line 5998 "ext/refine_tree/parse.tmp.y"
+#line 5998 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = (yyvsp[0].node);
                     /*% ripper: $:2 %*/
                     }
-#line 16205 "ext/refine_tree/parse.c"
+#line 16205 "ext/kanayago/parse.c"
     break;
 
   case 605: /* opt_ensure: k_ensure compstmt  */
-#line 6006 "ext/refine_tree/parse.tmp.y"
+#line 6006 "ext/kanayago/parse.tmp.y"
                     {
                         p->ctxt.in_rescue = (yyvsp[-1].ctxt).in_rescue;
                         (yyval.node) = (yyvsp[0].node);
                     /*% ripper: ensure!($:2) %*/
                     }
-#line 16215 "ext/refine_tree/parse.c"
+#line 16215 "ext/kanayago/parse.c"
     break;
 
   case 609: /* strings: string  */
-#line 6019 "ext/refine_tree/parse.tmp.y"
+#line 6019 "ext/kanayago/parse.tmp.y"
                     {
                         NODE *node = (yyvsp[0].node);
                         if (!node) {
@@ -16227,20 +16227,20 @@ yyreduce:
                         (yyval.node) = node;
                     /*% ripper: $:1 %*/
                     }
-#line 16231 "ext/refine_tree/parse.c"
+#line 16231 "ext/kanayago/parse.c"
     break;
 
   case 612: /* string: string string1  */
-#line 6035 "ext/refine_tree/parse.tmp.y"
+#line 6035 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = literal_concat(p, (yyvsp[-1].node), (yyvsp[0].node), &(yyloc));
                     /*% ripper: string_concat!($:1, $:2) %*/
                     }
-#line 16240 "ext/refine_tree/parse.c"
+#line 16240 "ext/kanayago/parse.c"
     break;
 
   case 613: /* string1: "string literal" string_contents "terminator"  */
-#line 6042 "ext/refine_tree/parse.tmp.y"
+#line 6042 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = heredoc_dedent(p, (yyvsp[-1].node));
                         if ((yyval.node)) nd_set_loc((yyval.node), &(yyloc));
@@ -16251,11 +16251,11 @@ yyreduce:
                         }
                     /*% ripper: string_literal!($:$) %*/
                     }
-#line 16255 "ext/refine_tree/parse.c"
+#line 16255 "ext/kanayago/parse.c"
     break;
 
   case 614: /* xstring: "backtick literal" xstring_contents "terminator"  */
-#line 6055 "ext/refine_tree/parse.tmp.y"
+#line 6055 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = new_xstring(p, heredoc_dedent(p, (yyvsp[-1].node)), &(yyloc));
                     /*% ripper: $:2 %*/
@@ -16265,182 +16265,182 @@ yyreduce:
                         }
                     /*% ripper: xstring_literal!($:$) %*/
                     }
-#line 16269 "ext/refine_tree/parse.c"
+#line 16269 "ext/kanayago/parse.c"
     break;
 
   case 615: /* regexp: "regexp literal" regexp_contents tREGEXP_END  */
-#line 6067 "ext/refine_tree/parse.tmp.y"
+#line 6067 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = new_regexp(p, (yyvsp[-1].node), (yyvsp[0].num), &(yyloc));
                     /*% ripper: regexp_literal!($:2, $:3) %*/
                     }
-#line 16278 "ext/refine_tree/parse.c"
+#line 16278 "ext/kanayago/parse.c"
     break;
 
   case 618: /* words_tWORDS_BEG_word_list: "word list" nonempty_list_' ' word_list "terminator"  */
-#line 2981 "ext/refine_tree/parse.tmp.y"
+#line 2981 "ext/kanayago/parse.tmp.y"
                                 {
                                     (yyval.node) = make_list((yyvsp[-1].node), &(yyloc));
                                 /*% ripper: array!($:3) %*/
                                 }
-#line 16287 "ext/refine_tree/parse.c"
+#line 16287 "ext/kanayago/parse.c"
     break;
 
   case 620: /* word_list: %empty  */
-#line 6077 "ext/refine_tree/parse.tmp.y"
+#line 6077 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = 0;
                     /*% ripper: words_new! %*/
                     }
-#line 16296 "ext/refine_tree/parse.c"
+#line 16296 "ext/kanayago/parse.c"
     break;
 
   case 621: /* word_list: word_list word nonempty_list_' '  */
-#line 6082 "ext/refine_tree/parse.tmp.y"
+#line 6082 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = list_append(p, (yyvsp[-2].node), evstr2dstr(p, (yyvsp[-1].node)));
                     /*% ripper: words_add!($:1, $:2) %*/
                     }
-#line 16305 "ext/refine_tree/parse.c"
+#line 16305 "ext/kanayago/parse.c"
     break;
 
   case 623: /* word: word string_content  */
-#line 6091 "ext/refine_tree/parse.tmp.y"
+#line 6091 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = literal_concat(p, (yyvsp[-1].node), (yyvsp[0].node), &(yyloc));
                     /*% ripper: word_add!($:1, $:2) %*/
                     }
-#line 16314 "ext/refine_tree/parse.c"
+#line 16314 "ext/kanayago/parse.c"
     break;
 
   case 624: /* words_tSYMBOLS_BEG_symbol_list: "symbol list" nonempty_list_' ' symbol_list "terminator"  */
-#line 2981 "ext/refine_tree/parse.tmp.y"
+#line 2981 "ext/kanayago/parse.tmp.y"
                                 {
                                     (yyval.node) = make_list((yyvsp[-1].node), &(yyloc));
                                 /*% ripper: array!($:3) %*/
                                 }
-#line 16323 "ext/refine_tree/parse.c"
+#line 16323 "ext/kanayago/parse.c"
     break;
 
   case 626: /* symbol_list: %empty  */
-#line 6101 "ext/refine_tree/parse.tmp.y"
+#line 6101 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = 0;
                     /*% ripper: symbols_new! %*/
                     }
-#line 16332 "ext/refine_tree/parse.c"
+#line 16332 "ext/kanayago/parse.c"
     break;
 
   case 627: /* symbol_list: symbol_list word nonempty_list_' '  */
-#line 6106 "ext/refine_tree/parse.tmp.y"
+#line 6106 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = symbol_append(p, (yyvsp[-2].node), evstr2dstr(p, (yyvsp[-1].node)));
                     /*% ripper: symbols_add!($:1, $:2) %*/
                     }
-#line 16341 "ext/refine_tree/parse.c"
+#line 16341 "ext/kanayago/parse.c"
     break;
 
   case 628: /* words_tQWORDS_BEG_qword_list: "verbatim word list" nonempty_list_' ' qword_list "terminator"  */
-#line 2981 "ext/refine_tree/parse.tmp.y"
+#line 2981 "ext/kanayago/parse.tmp.y"
                                 {
                                     (yyval.node) = make_list((yyvsp[-1].node), &(yyloc));
                                 /*% ripper: array!($:3) %*/
                                 }
-#line 16350 "ext/refine_tree/parse.c"
+#line 16350 "ext/kanayago/parse.c"
     break;
 
   case 630: /* words_tQSYMBOLS_BEG_qsym_list: "verbatim symbol list" nonempty_list_' ' qsym_list "terminator"  */
-#line 2981 "ext/refine_tree/parse.tmp.y"
+#line 2981 "ext/kanayago/parse.tmp.y"
                                 {
                                     (yyval.node) = make_list((yyvsp[-1].node), &(yyloc));
                                 /*% ripper: array!($:3) %*/
                                 }
-#line 16359 "ext/refine_tree/parse.c"
+#line 16359 "ext/kanayago/parse.c"
     break;
 
   case 632: /* qword_list: %empty  */
-#line 6119 "ext/refine_tree/parse.tmp.y"
+#line 6119 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = 0;
                     /*% ripper: qwords_new! %*/
                     }
-#line 16368 "ext/refine_tree/parse.c"
+#line 16368 "ext/kanayago/parse.c"
     break;
 
   case 633: /* qword_list: qword_list "literal content" nonempty_list_' '  */
-#line 6124 "ext/refine_tree/parse.tmp.y"
+#line 6124 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = list_append(p, (yyvsp[-2].node), (yyvsp[-1].node));
                     /*% ripper: qwords_add!($:1, $:2) %*/
                     }
-#line 16377 "ext/refine_tree/parse.c"
+#line 16377 "ext/kanayago/parse.c"
     break;
 
   case 634: /* qsym_list: %empty  */
-#line 6131 "ext/refine_tree/parse.tmp.y"
+#line 6131 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = 0;
                     /*% ripper: qsymbols_new! %*/
                     }
-#line 16386 "ext/refine_tree/parse.c"
+#line 16386 "ext/kanayago/parse.c"
     break;
 
   case 635: /* qsym_list: qsym_list "literal content" nonempty_list_' '  */
-#line 6136 "ext/refine_tree/parse.tmp.y"
+#line 6136 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = symbol_append(p, (yyvsp[-2].node), (yyvsp[-1].node));
                     /*% ripper: qsymbols_add!($:1, $:2) %*/
                     }
-#line 16395 "ext/refine_tree/parse.c"
+#line 16395 "ext/kanayago/parse.c"
     break;
 
   case 636: /* string_contents: %empty  */
-#line 6143 "ext/refine_tree/parse.tmp.y"
+#line 6143 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = 0;
                     /*% ripper: string_content! %*/
                     }
-#line 16404 "ext/refine_tree/parse.c"
+#line 16404 "ext/kanayago/parse.c"
     break;
 
   case 637: /* string_contents: string_contents string_content  */
-#line 6148 "ext/refine_tree/parse.tmp.y"
+#line 6148 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = literal_concat(p, (yyvsp[-1].node), (yyvsp[0].node), &(yyloc));
                     /*% ripper: string_add!($:1, $:2) %*/
                     }
-#line 16413 "ext/refine_tree/parse.c"
+#line 16413 "ext/kanayago/parse.c"
     break;
 
   case 638: /* xstring_contents: %empty  */
-#line 6155 "ext/refine_tree/parse.tmp.y"
+#line 6155 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = 0;
                     /*% ripper: xstring_new! %*/
                     }
-#line 16422 "ext/refine_tree/parse.c"
+#line 16422 "ext/kanayago/parse.c"
     break;
 
   case 639: /* xstring_contents: xstring_contents string_content  */
-#line 6160 "ext/refine_tree/parse.tmp.y"
+#line 6160 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = literal_concat(p, (yyvsp[-1].node), (yyvsp[0].node), &(yyloc));
                     /*% ripper: xstring_add!($:1, $:2) %*/
                     }
-#line 16431 "ext/refine_tree/parse.c"
+#line 16431 "ext/kanayago/parse.c"
     break;
 
   case 640: /* regexp_contents: %empty  */
-#line 6167 "ext/refine_tree/parse.tmp.y"
+#line 6167 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = 0;
                     /*% ripper: regexp_new! %*/
                     }
-#line 16440 "ext/refine_tree/parse.c"
+#line 16440 "ext/kanayago/parse.c"
     break;
 
   case 641: /* regexp_contents: regexp_contents string_content  */
-#line 6172 "ext/refine_tree/parse.tmp.y"
+#line 6172 "ext/kanayago/parse.tmp.y"
                     {
                         NODE *head = (yyvsp[-1].node), *tail = (yyvsp[0].node);
                         if (!head) {
@@ -16464,33 +16464,33 @@ yyreduce:
                         }
                     /*% ripper: regexp_add!($:1, $:2) %*/
                     }
-#line 16468 "ext/refine_tree/parse.c"
+#line 16468 "ext/kanayago/parse.c"
     break;
 
   case 643: /* @31: %empty  */
-#line 6200 "ext/refine_tree/parse.tmp.y"
+#line 6200 "ext/kanayago/parse.tmp.y"
                     {
                         /* need to backup p->lex.strterm so that a string literal `%&foo,#$&,bar&` can be parsed */
                         (yyval.strterm) = p->lex.strterm;
                         p->lex.strterm = 0;
                         SET_LEX_STATE(EXPR_BEG);
                     }
-#line 16479 "ext/refine_tree/parse.c"
+#line 16479 "ext/kanayago/parse.c"
     break;
 
   case 644: /* string_content: tSTRING_DVAR @31 string_dvar  */
-#line 6207 "ext/refine_tree/parse.tmp.y"
+#line 6207 "ext/kanayago/parse.tmp.y"
                     {
                         p->lex.strterm = (yyvsp[-1].strterm);
                         (yyval.node) = NEW_EVSTR((yyvsp[0].node), &(yyloc));
                         nd_set_line((yyval.node), (yylsp[0]).end_pos.lineno);
                     /*% ripper: string_dvar!($:3) %*/
                     }
-#line 16490 "ext/refine_tree/parse.c"
+#line 16490 "ext/kanayago/parse.c"
     break;
 
   case 645: /* @32: %empty  */
-#line 6214 "ext/refine_tree/parse.tmp.y"
+#line 6214 "ext/kanayago/parse.tmp.y"
                     {
                         CMDARG_PUSH(0);
                         COND_PUSH(0);
@@ -16499,29 +16499,29 @@ yyreduce:
                         p->lex.strterm = 0;
                         SET_LEX_STATE(EXPR_BEG);
                     }
-#line 16503 "ext/refine_tree/parse.c"
+#line 16503 "ext/kanayago/parse.c"
     break;
 
   case 646: /* @33: %empty  */
-#line 6222 "ext/refine_tree/parse.tmp.y"
+#line 6222 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.num) = p->lex.brace_nest;
                         p->lex.brace_nest = 0;
                     }
-#line 16512 "ext/refine_tree/parse.c"
+#line 16512 "ext/kanayago/parse.c"
     break;
 
   case 647: /* @34: %empty  */
-#line 6226 "ext/refine_tree/parse.tmp.y"
+#line 6226 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.num) = p->heredoc_indent;
                         p->heredoc_indent = 0;
                     }
-#line 16521 "ext/refine_tree/parse.c"
+#line 16521 "ext/kanayago/parse.c"
     break;
 
   case 648: /* string_content: "'#{'" @32 @33 @34 compstmt string_dend  */
-#line 6231 "ext/refine_tree/parse.tmp.y"
+#line 6231 "ext/kanayago/parse.tmp.y"
                     {
                         COND_POP();
                         CMDARG_POP();
@@ -16534,20 +16534,20 @@ yyreduce:
                         (yyval.node) = new_evstr(p, (yyvsp[-1].node), &(yyloc));
                     /*% ripper: string_embexpr!($:compstmt) %*/
                     }
-#line 16538 "ext/refine_tree/parse.c"
+#line 16538 "ext/kanayago/parse.c"
     break;
 
   case 651: /* string_dvar: nonlocal_var  */
-#line 6250 "ext/refine_tree/parse.tmp.y"
+#line 6250 "ext/kanayago/parse.tmp.y"
                     {
                         if (!((yyval.node) = gettable(p, (yyvsp[0].id), &(yyloc)))) (yyval.node) = NEW_ERROR(&(yyloc));
                     /*% ripper: var_ref!($:1) %*/
                     }
-#line 16547 "ext/refine_tree/parse.c"
+#line 16547 "ext/kanayago/parse.c"
     break;
 
   case 655: /* ssym: "symbol literal" sym  */
-#line 6262 "ext/refine_tree/parse.tmp.y"
+#line 6262 "ext/kanayago/parse.tmp.y"
                     {
                         SET_LEX_STATE(EXPR_END);
                         VALUE str = rb_id2str((yyvsp[0].id));
@@ -16561,73 +16561,73 @@ yyreduce:
                         (yyval.node) = NEW_SYM(str, &(yyloc));
                     /*% ripper: symbol_literal!(symbol!($:2)) %*/
                     }
-#line 16565 "ext/refine_tree/parse.c"
+#line 16565 "ext/kanayago/parse.c"
     break;
 
   case 658: /* dsym: "symbol literal" string_contents "terminator"  */
-#line 6282 "ext/refine_tree/parse.tmp.y"
+#line 6282 "ext/kanayago/parse.tmp.y"
                     {
                         SET_LEX_STATE(EXPR_END);
                         (yyval.node) = dsym_node(p, (yyvsp[-1].node), &(yyloc));
                     /*% ripper: dyna_symbol!($:2) %*/
                     }
-#line 16575 "ext/refine_tree/parse.c"
+#line 16575 "ext/kanayago/parse.c"
     break;
 
   case 660: /* numeric: tUMINUS_NUM simple_numeric  */
-#line 6291 "ext/refine_tree/parse.tmp.y"
+#line 6291 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = (yyvsp[0].node);
                         negate_lit(p, (yyval.node));
                     /*% ripper: unary!(ID2VAL(idUMinus), $:2) %*/
                     }
-#line 16585 "ext/refine_tree/parse.c"
+#line 16585 "ext/kanayago/parse.c"
     break;
 
   case 671: /* keyword_variable: "'nil'"  */
-#line 6313 "ext/refine_tree/parse.tmp.y"
+#line 6313 "ext/kanayago/parse.tmp.y"
                               {(yyval.id) = KWD2EID(nil, (yyvsp[0].id));}
-#line 16591 "ext/refine_tree/parse.c"
+#line 16591 "ext/kanayago/parse.c"
     break;
 
   case 672: /* keyword_variable: "'self'"  */
-#line 6314 "ext/refine_tree/parse.tmp.y"
+#line 6314 "ext/kanayago/parse.tmp.y"
                                {(yyval.id) = KWD2EID(self, (yyvsp[0].id));}
-#line 16597 "ext/refine_tree/parse.c"
+#line 16597 "ext/kanayago/parse.c"
     break;
 
   case 673: /* keyword_variable: "'true'"  */
-#line 6315 "ext/refine_tree/parse.tmp.y"
+#line 6315 "ext/kanayago/parse.tmp.y"
                                {(yyval.id) = KWD2EID(true, (yyvsp[0].id));}
-#line 16603 "ext/refine_tree/parse.c"
+#line 16603 "ext/kanayago/parse.c"
     break;
 
   case 674: /* keyword_variable: "'false'"  */
-#line 6316 "ext/refine_tree/parse.tmp.y"
+#line 6316 "ext/kanayago/parse.tmp.y"
                                 {(yyval.id) = KWD2EID(false, (yyvsp[0].id));}
-#line 16609 "ext/refine_tree/parse.c"
+#line 16609 "ext/kanayago/parse.c"
     break;
 
   case 675: /* keyword_variable: "'__FILE__'"  */
-#line 6317 "ext/refine_tree/parse.tmp.y"
+#line 6317 "ext/kanayago/parse.tmp.y"
                                   {(yyval.id) = KWD2EID(_FILE__, (yyvsp[0].id));}
-#line 16615 "ext/refine_tree/parse.c"
+#line 16615 "ext/kanayago/parse.c"
     break;
 
   case 676: /* keyword_variable: "'__LINE__'"  */
-#line 6318 "ext/refine_tree/parse.tmp.y"
+#line 6318 "ext/kanayago/parse.tmp.y"
                                   {(yyval.id) = KWD2EID(_LINE__, (yyvsp[0].id));}
-#line 16621 "ext/refine_tree/parse.c"
+#line 16621 "ext/kanayago/parse.c"
     break;
 
   case 677: /* keyword_variable: "'__ENCODING__'"  */
-#line 6319 "ext/refine_tree/parse.tmp.y"
+#line 6319 "ext/kanayago/parse.tmp.y"
                                       {(yyval.id) = KWD2EID(_ENCODING__, (yyvsp[0].id));}
-#line 16627 "ext/refine_tree/parse.c"
+#line 16627 "ext/kanayago/parse.c"
     break;
 
   case 678: /* var_ref: user_variable  */
-#line 6323 "ext/refine_tree/parse.tmp.y"
+#line 6323 "ext/kanayago/parse.tmp.y"
                     {
                         if (!((yyval.node) = gettable(p, (yyvsp[0].id), &(yyloc)))) (yyval.node) = NEW_ERROR(&(yyloc));
                         if (ifdef_ripper(id_is_var(p, (yyvsp[0].id)), false)) {
@@ -16637,76 +16637,76 @@ yyreduce:
                         /*% ripper: vcall!($:1) %*/
                         }
                     }
-#line 16641 "ext/refine_tree/parse.c"
+#line 16641 "ext/kanayago/parse.c"
     break;
 
   case 679: /* var_ref: keyword_variable  */
-#line 6333 "ext/refine_tree/parse.tmp.y"
+#line 6333 "ext/kanayago/parse.tmp.y"
                     {
                         if (!((yyval.node) = gettable(p, (yyvsp[0].id), &(yyloc)))) (yyval.node) = NEW_ERROR(&(yyloc));
                     /*% ripper: var_ref!($:1) %*/
                     }
-#line 16650 "ext/refine_tree/parse.c"
+#line 16650 "ext/kanayago/parse.c"
     break;
 
   case 680: /* var_lhs: user_variable  */
-#line 6340 "ext/refine_tree/parse.tmp.y"
+#line 6340 "ext/kanayago/parse.tmp.y"
                     {
                     /*% ripper: var_field!($:1) %*/
                         (yyval.node) = assignable(p, (yyvsp[0].id), 0, &(yyloc));
                     }
-#line 16659 "ext/refine_tree/parse.c"
+#line 16659 "ext/kanayago/parse.c"
     break;
 
   case 681: /* var_lhs: keyword_variable  */
-#line 6345 "ext/refine_tree/parse.tmp.y"
+#line 6345 "ext/kanayago/parse.tmp.y"
                     {
                     /*% ripper: var_field!($:1) %*/
                         (yyval.node) = assignable(p, (yyvsp[0].id), 0, &(yyloc));
                     }
-#line 16668 "ext/refine_tree/parse.c"
+#line 16668 "ext/kanayago/parse.c"
     break;
 
   case 684: /* $@35: %empty  */
-#line 6356 "ext/refine_tree/parse.tmp.y"
+#line 6356 "ext/kanayago/parse.tmp.y"
                     {
                         SET_LEX_STATE(EXPR_BEG);
                         p->command_start = TRUE;
                     }
-#line 16677 "ext/refine_tree/parse.c"
+#line 16677 "ext/kanayago/parse.c"
     break;
 
   case 685: /* superclass: '<' $@35 expr_value term  */
-#line 6361 "ext/refine_tree/parse.tmp.y"
+#line 6361 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = (yyvsp[-1].node);
                     /*% ripper: $:3 %*/
                     }
-#line 16686 "ext/refine_tree/parse.c"
+#line 16686 "ext/kanayago/parse.c"
     break;
 
   case 686: /* superclass: %empty  */
-#line 6366 "ext/refine_tree/parse.tmp.y"
+#line 6366 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = 0;
                     /*% ripper: Qnil %*/
                     }
-#line 16695 "ext/refine_tree/parse.c"
+#line 16695 "ext/kanayago/parse.c"
     break;
 
   case 688: /* f_opt_paren_args: none  */
-#line 6374 "ext/refine_tree/parse.tmp.y"
+#line 6374 "ext/kanayago/parse.tmp.y"
                     {
                         p->ctxt.in_argdef = 0;
                         (yyval.node_args) = new_args_tail(p, 0, 0, 0, &(yylsp[-1]));
                         (yyval.node_args) = new_args(p, 0, 0, 0, 0, (yyval.node_args), &(yylsp[-1]));
                     /*% ripper: params!(Qnil, Qnil, Qnil, Qnil, Qnil, Qnil, Qnil) %*/
                     }
-#line 16706 "ext/refine_tree/parse.c"
+#line 16706 "ext/kanayago/parse.c"
     break;
 
   case 689: /* f_paren_args: '(' f_args rparen  */
-#line 6383 "ext/refine_tree/parse.tmp.y"
+#line 6383 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node_args) = (yyvsp[-1].node_args);
                     /*% ripper: paren!($:2) %*/
@@ -16714,22 +16714,22 @@ yyreduce:
                         p->command_start = TRUE;
                         p->ctxt.in_argdef = 0;
                     }
-#line 16718 "ext/refine_tree/parse.c"
+#line 16718 "ext/kanayago/parse.c"
     break;
 
   case 691: /* @36: %empty  */
-#line 6393 "ext/refine_tree/parse.tmp.y"
+#line 6393 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.ctxt) = p->ctxt;
                         p->ctxt.in_kwarg = 1;
                         p->ctxt.in_argdef = 1;
                         SET_LEX_STATE(p->lex.state|EXPR_LABEL); /* force for args */
                     }
-#line 16729 "ext/refine_tree/parse.c"
+#line 16729 "ext/kanayago/parse.c"
     break;
 
   case 692: /* f_arglist: @36 f_args term  */
-#line 6400 "ext/refine_tree/parse.tmp.y"
+#line 6400 "ext/kanayago/parse.tmp.y"
                     {
                         p->ctxt.in_kwarg = (yyvsp[-2].ctxt).in_kwarg;
                         p->ctxt.in_argdef = 0;
@@ -16738,258 +16738,258 @@ yyreduce:
                         p->command_start = TRUE;
                     /*% ripper: $:2 %*/
                     }
-#line 16742 "ext/refine_tree/parse.c"
+#line 16742 "ext/kanayago/parse.c"
     break;
 
   case 693: /* f_kwarg_f_kw: f_kw  */
-#line 2957 "ext/refine_tree/parse.tmp.y"
+#line 2957 "ext/kanayago/parse.tmp.y"
                                     {
                                         (yyval.node_kw_arg) = (yyvsp[0].node_kw_arg);
                                     /*% ripper: rb_ary_new3(1, $:1) %*/
                                     }
-#line 16751 "ext/refine_tree/parse.c"
+#line 16751 "ext/kanayago/parse.c"
     break;
 
   case 694: /* f_kwarg_f_kw: f_kwarg_f_kw ',' f_kw  */
-#line 2962 "ext/refine_tree/parse.tmp.y"
+#line 2962 "ext/kanayago/parse.tmp.y"
                                     {
                                         (yyval.node_kw_arg) = kwd_append((yyvsp[-2].node_kw_arg), (yyvsp[0].node_kw_arg));
                                     /*% ripper: rb_ary_push($:1, $:3) %*/
                                     }
-#line 16760 "ext/refine_tree/parse.c"
+#line 16760 "ext/kanayago/parse.c"
     break;
 
   case 695: /* args_tail: f_kwarg_f_kw ',' f_kwrest opt_f_block_arg  */
-#line 6411 "ext/refine_tree/parse.tmp.y"
+#line 6411 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node_args) = new_args_tail(p, (yyvsp[-3].node_kw_arg), (yyvsp[-1].id), (yyvsp[0].id), &(yylsp[-1]));
                     /*% ripper: [$:1, $:3, $:4] %*/
                     }
-#line 16769 "ext/refine_tree/parse.c"
+#line 16769 "ext/kanayago/parse.c"
     break;
 
   case 696: /* args_tail: f_kwarg_f_kw opt_f_block_arg  */
-#line 6416 "ext/refine_tree/parse.tmp.y"
+#line 6416 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node_args) = new_args_tail(p, (yyvsp[-1].node_kw_arg), 0, (yyvsp[0].id), &(yylsp[-1]));
                     /*% ripper: [$:1, Qnil, $:2] %*/
                     }
-#line 16778 "ext/refine_tree/parse.c"
+#line 16778 "ext/kanayago/parse.c"
     break;
 
   case 697: /* args_tail: f_any_kwrest opt_f_block_arg  */
-#line 6421 "ext/refine_tree/parse.tmp.y"
+#line 6421 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node_args) = new_args_tail(p, 0, (yyvsp[-1].id), (yyvsp[0].id), &(yylsp[-1]));
                     /*% ripper: [Qnil, $:1, $:2] %*/
                     }
-#line 16787 "ext/refine_tree/parse.c"
+#line 16787 "ext/kanayago/parse.c"
     break;
 
   case 698: /* args_tail: f_block_arg  */
-#line 6426 "ext/refine_tree/parse.tmp.y"
+#line 6426 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node_args) = new_args_tail(p, 0, 0, (yyvsp[0].id), &(yylsp[0]));
                     /*% ripper: [Qnil, Qnil, $:1] %*/
                     }
-#line 16796 "ext/refine_tree/parse.c"
+#line 16796 "ext/kanayago/parse.c"
     break;
 
   case 699: /* args_tail: args_forward  */
-#line 6431 "ext/refine_tree/parse.tmp.y"
+#line 6431 "ext/kanayago/parse.tmp.y"
                     {
                         add_forwarding_args(p);
                         (yyval.node_args) = new_args_tail(p, 0, (yyvsp[0].id), arg_FWD_BLOCK, &(yylsp[0]));
                         (yyval.node_args)->nd_ainfo.forwarding = 1;
                     /*% ripper: [Qnil, $:1, Qnil] %*/
                     }
-#line 16807 "ext/refine_tree/parse.c"
+#line 16807 "ext/kanayago/parse.c"
     break;
 
   case 700: /* f_opt_arg_value: f_arg_asgn f_eq arg_value  */
-#line 2937 "ext/refine_tree/parse.tmp.y"
+#line 2937 "ext/kanayago/parse.tmp.y"
                                     {
                                         p->ctxt.in_argdef = 1;
                                         (yyval.node_opt_arg) = NEW_OPT_ARG(assignable(p, (yyvsp[-2].id), (yyvsp[0].node), &(yyloc)), &(yyloc));
                                     /*% ripper: [$:$, $:3] %*/
                                     }
-#line 16817 "ext/refine_tree/parse.c"
+#line 16817 "ext/kanayago/parse.c"
     break;
 
   case 701: /* f_optarg_arg_value: f_opt_arg_value  */
-#line 2945 "ext/refine_tree/parse.tmp.y"
+#line 2945 "ext/kanayago/parse.tmp.y"
                                         {
                                             (yyval.node_opt_arg) = (yyvsp[0].node_opt_arg);
                                         /*% ripper: rb_ary_new3(1, $:1) %*/
                                         }
-#line 16826 "ext/refine_tree/parse.c"
+#line 16826 "ext/kanayago/parse.c"
     break;
 
   case 702: /* f_optarg_arg_value: f_optarg_arg_value ',' f_opt_arg_value  */
-#line 2950 "ext/refine_tree/parse.tmp.y"
+#line 2950 "ext/kanayago/parse.tmp.y"
                                         {
                                             (yyval.node_opt_arg) = opt_arg_append((yyvsp[-2].node_opt_arg), (yyvsp[0].node_opt_arg));
                                         /*% ripper: rb_ary_push($:1, $:3) %*/
                                         }
-#line 16835 "ext/refine_tree/parse.c"
+#line 16835 "ext/kanayago/parse.c"
     break;
 
   case 703: /* opt_args_tail_args_tail: ',' args_tail  */
-#line 2969 "ext/refine_tree/parse.tmp.y"
+#line 2969 "ext/kanayago/parse.tmp.y"
                                         {
                                             (yyval.node_args) = (yyvsp[0].node_args);
                                         /*% ripper: $:2 %*/
                                         }
-#line 16844 "ext/refine_tree/parse.c"
+#line 16844 "ext/kanayago/parse.c"
     break;
 
   case 704: /* opt_args_tail_args_tail: %empty  */
-#line 2974 "ext/refine_tree/parse.tmp.y"
+#line 2974 "ext/kanayago/parse.tmp.y"
                                         {
                                             (yyval.node_args) = new_args_tail(p, 0, 0, 0, &(yylsp[0]));
                                         /*% ripper: [Qnil, Qnil, Qnil] %*/
                                         }
-#line 16853 "ext/refine_tree/parse.c"
+#line 16853 "ext/kanayago/parse.c"
     break;
 
   case 705: /* f_args: f_arg ',' f_optarg_arg_value ',' f_rest_arg opt_args_tail_args_tail  */
-#line 6440 "ext/refine_tree/parse.tmp.y"
+#line 6440 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node_args) = new_args(p, (yyvsp[-5].node_args_aux), (yyvsp[-3].node_opt_arg), (yyvsp[-1].id), 0, (yyvsp[0].node_args), &(yyloc));
                     /*% ripper: params!($:1, $:3, $:5, Qnil, *$:6[0..2]) %*/
                     }
-#line 16862 "ext/refine_tree/parse.c"
+#line 16862 "ext/kanayago/parse.c"
     break;
 
   case 706: /* f_args: f_arg ',' f_optarg_arg_value ',' f_rest_arg ',' f_arg opt_args_tail_args_tail  */
-#line 6445 "ext/refine_tree/parse.tmp.y"
+#line 6445 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node_args) = new_args(p, (yyvsp[-7].node_args_aux), (yyvsp[-5].node_opt_arg), (yyvsp[-3].id), (yyvsp[-1].node_args_aux), (yyvsp[0].node_args), &(yyloc));
                     /*% ripper: params!($:1, $:3, $:5, $:7, *$:8[0..2]) %*/
                     }
-#line 16871 "ext/refine_tree/parse.c"
+#line 16871 "ext/kanayago/parse.c"
     break;
 
   case 707: /* f_args: f_arg ',' f_optarg_arg_value opt_args_tail_args_tail  */
-#line 6450 "ext/refine_tree/parse.tmp.y"
+#line 6450 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node_args) = new_args(p, (yyvsp[-3].node_args_aux), (yyvsp[-1].node_opt_arg), 0, 0, (yyvsp[0].node_args), &(yyloc));
                     /*% ripper: params!($:1, $:3, Qnil, Qnil, *$:4[0..2]) %*/
                     }
-#line 16880 "ext/refine_tree/parse.c"
+#line 16880 "ext/kanayago/parse.c"
     break;
 
   case 708: /* f_args: f_arg ',' f_optarg_arg_value ',' f_arg opt_args_tail_args_tail  */
-#line 6455 "ext/refine_tree/parse.tmp.y"
+#line 6455 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node_args) = new_args(p, (yyvsp[-5].node_args_aux), (yyvsp[-3].node_opt_arg), 0, (yyvsp[-1].node_args_aux), (yyvsp[0].node_args), &(yyloc));
                     /*% ripper: params!($:1, $:3, Qnil, $:5, *$:6[0..2]) %*/
                     }
-#line 16889 "ext/refine_tree/parse.c"
+#line 16889 "ext/kanayago/parse.c"
     break;
 
   case 709: /* f_args: f_arg ',' f_rest_arg opt_args_tail_args_tail  */
-#line 6460 "ext/refine_tree/parse.tmp.y"
+#line 6460 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node_args) = new_args(p, (yyvsp[-3].node_args_aux), 0, (yyvsp[-1].id), 0, (yyvsp[0].node_args), &(yyloc));
                     /*% ripper: params!($:1, Qnil, $:3, Qnil, *$:4[0..2]) %*/
                     }
-#line 16898 "ext/refine_tree/parse.c"
+#line 16898 "ext/kanayago/parse.c"
     break;
 
   case 710: /* f_args: f_arg ',' f_rest_arg ',' f_arg opt_args_tail_args_tail  */
-#line 6465 "ext/refine_tree/parse.tmp.y"
+#line 6465 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node_args) = new_args(p, (yyvsp[-5].node_args_aux), 0, (yyvsp[-3].id), (yyvsp[-1].node_args_aux), (yyvsp[0].node_args), &(yyloc));
                     /*% ripper: params!($:1, Qnil, $:3, $:5, *$:6[0..2]) %*/
                     }
-#line 16907 "ext/refine_tree/parse.c"
+#line 16907 "ext/kanayago/parse.c"
     break;
 
   case 711: /* f_args: f_arg opt_args_tail_args_tail  */
-#line 6470 "ext/refine_tree/parse.tmp.y"
+#line 6470 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node_args) = new_args(p, (yyvsp[-1].node_args_aux), 0, 0, 0, (yyvsp[0].node_args), &(yyloc));
                     /*% ripper: params!($:1, Qnil, Qnil, Qnil, *$:2[0..2]) %*/
                     }
-#line 16916 "ext/refine_tree/parse.c"
+#line 16916 "ext/kanayago/parse.c"
     break;
 
   case 712: /* f_args: f_optarg_arg_value ',' f_rest_arg opt_args_tail_args_tail  */
-#line 6475 "ext/refine_tree/parse.tmp.y"
+#line 6475 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node_args) = new_args(p, 0, (yyvsp[-3].node_opt_arg), (yyvsp[-1].id), 0, (yyvsp[0].node_args), &(yyloc));
                     /*% ripper: params!(Qnil, $:1, $:3, Qnil, *$:4[0..2]) %*/
                     }
-#line 16925 "ext/refine_tree/parse.c"
+#line 16925 "ext/kanayago/parse.c"
     break;
 
   case 713: /* f_args: f_optarg_arg_value ',' f_rest_arg ',' f_arg opt_args_tail_args_tail  */
-#line 6480 "ext/refine_tree/parse.tmp.y"
+#line 6480 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node_args) = new_args(p, 0, (yyvsp[-5].node_opt_arg), (yyvsp[-3].id), (yyvsp[-1].node_args_aux), (yyvsp[0].node_args), &(yyloc));
                     /*% ripper: params!(Qnil, $:1, $:3, $:5, *$:6[0..2]) %*/
                     }
-#line 16934 "ext/refine_tree/parse.c"
+#line 16934 "ext/kanayago/parse.c"
     break;
 
   case 714: /* f_args: f_optarg_arg_value opt_args_tail_args_tail  */
-#line 6485 "ext/refine_tree/parse.tmp.y"
+#line 6485 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node_args) = new_args(p, 0, (yyvsp[-1].node_opt_arg), 0, 0, (yyvsp[0].node_args), &(yyloc));
                     /*% ripper: params!(Qnil, $:1, Qnil, Qnil, *$:2[0..2]) %*/
                     }
-#line 16943 "ext/refine_tree/parse.c"
+#line 16943 "ext/kanayago/parse.c"
     break;
 
   case 715: /* f_args: f_optarg_arg_value ',' f_arg opt_args_tail_args_tail  */
-#line 6490 "ext/refine_tree/parse.tmp.y"
+#line 6490 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node_args) = new_args(p, 0, (yyvsp[-3].node_opt_arg), 0, (yyvsp[-1].node_args_aux), (yyvsp[0].node_args), &(yyloc));
                     /*% ripper: params!(Qnil, $:1, Qnil, $:3, *$:4[0..2]) %*/
                     }
-#line 16952 "ext/refine_tree/parse.c"
+#line 16952 "ext/kanayago/parse.c"
     break;
 
   case 716: /* f_args: f_rest_arg opt_args_tail_args_tail  */
-#line 6495 "ext/refine_tree/parse.tmp.y"
+#line 6495 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node_args) = new_args(p, 0, 0, (yyvsp[-1].id), 0, (yyvsp[0].node_args), &(yyloc));
                     /*% ripper: params!(Qnil, Qnil, $:1, Qnil, *$:2[0..2]) %*/
                     }
-#line 16961 "ext/refine_tree/parse.c"
+#line 16961 "ext/kanayago/parse.c"
     break;
 
   case 717: /* f_args: f_rest_arg ',' f_arg opt_args_tail_args_tail  */
-#line 6500 "ext/refine_tree/parse.tmp.y"
+#line 6500 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node_args) = new_args(p, 0, 0, (yyvsp[-3].id), (yyvsp[-1].node_args_aux), (yyvsp[0].node_args), &(yyloc));
                     /*% ripper: params!(Qnil, Qnil, $:1, $:3, *$:4[0..2]) %*/
                     }
-#line 16970 "ext/refine_tree/parse.c"
+#line 16970 "ext/kanayago/parse.c"
     break;
 
   case 718: /* f_args: args_tail  */
-#line 6505 "ext/refine_tree/parse.tmp.y"
+#line 6505 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node_args) = new_args(p, 0, 0, 0, 0, (yyvsp[0].node_args), &(yyloc));
                     /*% ripper: params!(Qnil, Qnil, Qnil, Qnil, *$:1[0..2]) %*/
                     }
-#line 16979 "ext/refine_tree/parse.c"
+#line 16979 "ext/kanayago/parse.c"
     break;
 
   case 719: /* f_args: %empty  */
-#line 6510 "ext/refine_tree/parse.tmp.y"
+#line 6510 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node_args) = new_args_tail(p, 0, 0, 0, &(yylsp[0]));
                         (yyval.node_args) = new_args(p, 0, 0, 0, 0, (yyval.node_args), &(yylsp[0]));
                     /*% ripper: params!(Qnil, Qnil, Qnil, Qnil, Qnil, Qnil, Qnil) %*/
                     }
-#line 16989 "ext/refine_tree/parse.c"
+#line 16989 "ext/kanayago/parse.c"
     break;
 
   case 720: /* args_forward: "(..."  */
-#line 6518 "ext/refine_tree/parse.tmp.y"
+#line 6518 "ext/kanayago/parse.tmp.y"
                     {
 #ifdef FORWARD_ARGS_WITH_RUBY2_KEYWORDS
                         (yyval.id) = 0;
@@ -16998,11 +16998,11 @@ yyreduce:
 #endif
                     /*% ripper: args_forward! %*/
                     }
-#line 17002 "ext/refine_tree/parse.c"
+#line 17002 "ext/kanayago/parse.c"
     break;
 
   case 721: /* f_bad_arg: "constant"  */
-#line 6529 "ext/refine_tree/parse.tmp.y"
+#line 6529 "ext/kanayago/parse.tmp.y"
                     {
                         static const char mesg[] = "formal argument cannot be a constant";
                     /*%%%*/
@@ -17011,11 +17011,11 @@ yyreduce:
                         (yyval.id) = 0;
                     /*% ripper[error]: param_error!(ERR_MESG(), $:1) %*/
                     }
-#line 17015 "ext/refine_tree/parse.c"
+#line 17015 "ext/kanayago/parse.c"
     break;
 
   case 722: /* f_bad_arg: "instance variable"  */
-#line 6538 "ext/refine_tree/parse.tmp.y"
+#line 6538 "ext/kanayago/parse.tmp.y"
                     {
                         static const char mesg[] = "formal argument cannot be an instance variable";
                     /*%%%*/
@@ -17024,11 +17024,11 @@ yyreduce:
                         (yyval.id) = 0;
                     /*% ripper[error]: param_error!(ERR_MESG(), $:1) %*/
                     }
-#line 17028 "ext/refine_tree/parse.c"
+#line 17028 "ext/kanayago/parse.c"
     break;
 
   case 723: /* f_bad_arg: "global variable"  */
-#line 6547 "ext/refine_tree/parse.tmp.y"
+#line 6547 "ext/kanayago/parse.tmp.y"
                     {
                         static const char mesg[] = "formal argument cannot be a global variable";
                     /*%%%*/
@@ -17037,11 +17037,11 @@ yyreduce:
                         (yyval.id) = 0;
                     /*% ripper[error]: param_error!(ERR_MESG(), $:1) %*/
                     }
-#line 17041 "ext/refine_tree/parse.c"
+#line 17041 "ext/kanayago/parse.c"
     break;
 
   case 724: /* f_bad_arg: "class variable"  */
-#line 6556 "ext/refine_tree/parse.tmp.y"
+#line 6556 "ext/kanayago/parse.tmp.y"
                     {
                         static const char mesg[] = "formal argument cannot be a class variable";
                     /*%%%*/
@@ -17050,11 +17050,11 @@ yyreduce:
                         (yyval.id) = 0;
                     /*% ripper[error]: param_error!(ERR_MESG(), $:1) %*/
                     }
-#line 17054 "ext/refine_tree/parse.c"
+#line 17054 "ext/kanayago/parse.c"
     break;
 
   case 726: /* f_norm_arg: "local variable or method"  */
-#line 6568 "ext/refine_tree/parse.tmp.y"
+#line 6568 "ext/kanayago/parse.tmp.y"
                     {
                         VALUE e = formal_argument_error(p, (yyval.id) = (yyvsp[0].id));
                         if (e) {
@@ -17062,30 +17062,30 @@ yyreduce:
                         }
                         p->max_numparam = ORDINAL_PARAM;
                     }
-#line 17066 "ext/refine_tree/parse.c"
+#line 17066 "ext/kanayago/parse.c"
     break;
 
   case 727: /* f_arg_asgn: f_norm_arg  */
-#line 6578 "ext/refine_tree/parse.tmp.y"
+#line 6578 "ext/kanayago/parse.tmp.y"
                     {
                         ID id = (yyvsp[0].id);
                         arg_var(p, id);
                         (yyval.id) = (yyvsp[0].id);
                     }
-#line 17076 "ext/refine_tree/parse.c"
+#line 17076 "ext/kanayago/parse.c"
     break;
 
   case 728: /* f_arg_item: f_arg_asgn  */
-#line 6586 "ext/refine_tree/parse.tmp.y"
+#line 6586 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node_args_aux) = NEW_ARGS_AUX((yyvsp[0].id), 1, &NULL_LOC);
                     /*% ripper: $:1 %*/
                     }
-#line 17085 "ext/refine_tree/parse.c"
+#line 17085 "ext/kanayago/parse.c"
     break;
 
   case 729: /* f_arg_item: "(" f_margs rparen  */
-#line 6591 "ext/refine_tree/parse.tmp.y"
+#line 6591 "ext/kanayago/parse.tmp.y"
                     {
                         ID tid = internal_id(p);
                         YYLTYPE loc;
@@ -17102,11 +17102,11 @@ yyreduce:
                         (yyval.node_args_aux)->nd_next = (NODE *)(yyvsp[-1].node_masgn);
                     /*% ripper: mlhs_paren!($:2) %*/
                     }
-#line 17106 "ext/refine_tree/parse.c"
+#line 17106 "ext/kanayago/parse.c"
     break;
 
   case 731: /* f_arg: f_arg ',' f_arg_item  */
-#line 6612 "ext/refine_tree/parse.tmp.y"
+#line 6612 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node_args_aux) = (yyvsp[-2].node_args_aux);
                         (yyval.node_args_aux)->nd_plen++;
@@ -17114,11 +17114,11 @@ yyreduce:
                         rb_discard_node(p, (NODE *)(yyvsp[0].node_args_aux));
                     /*% ripper: rb_ary_push($:1, $:3) %*/
                     }
-#line 17118 "ext/refine_tree/parse.c"
+#line 17118 "ext/kanayago/parse.c"
     break;
 
   case 732: /* f_label: "label"  */
-#line 6623 "ext/refine_tree/parse.tmp.y"
+#line 6623 "ext/kanayago/parse.tmp.y"
                     {
                         VALUE e = formal_argument_error(p, (yyval.id) = (yyvsp[0].id));
                         if (e) {
@@ -17136,152 +17136,152 @@ yyreduce:
                         p->max_numparam = ORDINAL_PARAM;
                         p->ctxt.in_argdef = 0;
                     }
-#line 17140 "ext/refine_tree/parse.c"
+#line 17140 "ext/kanayago/parse.c"
     break;
 
   case 733: /* f_kw: f_label arg_value  */
-#line 6643 "ext/refine_tree/parse.tmp.y"
+#line 6643 "ext/kanayago/parse.tmp.y"
                     {
                         p->ctxt.in_argdef = 1;
                         (yyval.node_kw_arg) = new_kw_arg(p, assignable(p, (yyvsp[-1].id), (yyvsp[0].node), &(yyloc)), &(yyloc));
                     /*% ripper: [$:$, $:2] %*/
                     }
-#line 17150 "ext/refine_tree/parse.c"
+#line 17150 "ext/kanayago/parse.c"
     break;
 
   case 734: /* f_kw: f_label  */
-#line 6649 "ext/refine_tree/parse.tmp.y"
+#line 6649 "ext/kanayago/parse.tmp.y"
                     {
                         p->ctxt.in_argdef = 1;
                         (yyval.node_kw_arg) = new_kw_arg(p, assignable(p, (yyvsp[0].id), NODE_SPECIAL_REQUIRED_KEYWORD, &(yyloc)), &(yyloc));
                     /*% ripper: [$:$, 0] %*/
                     }
-#line 17160 "ext/refine_tree/parse.c"
+#line 17160 "ext/kanayago/parse.c"
     break;
 
   case 735: /* f_block_kw: f_label primary_value  */
-#line 6657 "ext/refine_tree/parse.tmp.y"
+#line 6657 "ext/kanayago/parse.tmp.y"
                     {
                         p->ctxt.in_argdef = 1;
                         (yyval.node_kw_arg) = new_kw_arg(p, assignable(p, (yyvsp[-1].id), (yyvsp[0].node), &(yyloc)), &(yyloc));
                     /*% ripper: [$:$, $:2] %*/
                     }
-#line 17170 "ext/refine_tree/parse.c"
+#line 17170 "ext/kanayago/parse.c"
     break;
 
   case 736: /* f_block_kw: f_label  */
-#line 6663 "ext/refine_tree/parse.tmp.y"
+#line 6663 "ext/kanayago/parse.tmp.y"
                     {
                         p->ctxt.in_argdef = 1;
                         (yyval.node_kw_arg) = new_kw_arg(p, assignable(p, (yyvsp[0].id), NODE_SPECIAL_REQUIRED_KEYWORD, &(yyloc)), &(yyloc));
                     /*% ripper: [$:$, 0] %*/
                     }
-#line 17180 "ext/refine_tree/parse.c"
+#line 17180 "ext/kanayago/parse.c"
     break;
 
   case 739: /* f_no_kwarg: p_kwnorest  */
-#line 6675 "ext/refine_tree/parse.tmp.y"
+#line 6675 "ext/kanayago/parse.tmp.y"
                     {
                     /*% ripper: nokw_param!(Qnil) %*/
                     }
-#line 17188 "ext/refine_tree/parse.c"
+#line 17188 "ext/kanayago/parse.c"
     break;
 
   case 740: /* f_kwrest: kwrest_mark "local variable or method"  */
-#line 6681 "ext/refine_tree/parse.tmp.y"
+#line 6681 "ext/kanayago/parse.tmp.y"
                     {
                         arg_var(p, shadowing_lvar(p, (yyvsp[0].id)));
                         (yyval.id) = (yyvsp[0].id);
                     /*% ripper: kwrest_param!($:2) %*/
                     }
-#line 17198 "ext/refine_tree/parse.c"
+#line 17198 "ext/kanayago/parse.c"
     break;
 
   case 741: /* f_kwrest: kwrest_mark  */
-#line 6687 "ext/refine_tree/parse.tmp.y"
+#line 6687 "ext/kanayago/parse.tmp.y"
                     {
                         arg_var(p, idFWD_KWREST);
                         (yyval.id) = idFWD_KWREST;
                     /*% ripper: kwrest_param!(Qnil) %*/
                     }
-#line 17208 "ext/refine_tree/parse.c"
+#line 17208 "ext/kanayago/parse.c"
     break;
 
   case 744: /* f_rest_arg: restarg_mark "local variable or method"  */
-#line 6699 "ext/refine_tree/parse.tmp.y"
+#line 6699 "ext/kanayago/parse.tmp.y"
                     {
                         arg_var(p, shadowing_lvar(p, (yyvsp[0].id)));
                         (yyval.id) = (yyvsp[0].id);
                     /*% ripper: rest_param!($:2) %*/
                     }
-#line 17218 "ext/refine_tree/parse.c"
+#line 17218 "ext/kanayago/parse.c"
     break;
 
   case 745: /* f_rest_arg: restarg_mark  */
-#line 6705 "ext/refine_tree/parse.tmp.y"
+#line 6705 "ext/kanayago/parse.tmp.y"
                     {
                         arg_var(p, idFWD_REST);
                         (yyval.id) = idFWD_REST;
                     /*% ripper: rest_param!(Qnil) %*/
                     }
-#line 17228 "ext/refine_tree/parse.c"
+#line 17228 "ext/kanayago/parse.c"
     break;
 
   case 748: /* f_block_arg: blkarg_mark "local variable or method"  */
-#line 6717 "ext/refine_tree/parse.tmp.y"
+#line 6717 "ext/kanayago/parse.tmp.y"
                     {
                         arg_var(p, shadowing_lvar(p, (yyvsp[0].id)));
                         (yyval.id) = (yyvsp[0].id);
                     /*% ripper: blockarg!($:2) %*/
                     }
-#line 17238 "ext/refine_tree/parse.c"
+#line 17238 "ext/kanayago/parse.c"
     break;
 
   case 749: /* f_block_arg: blkarg_mark  */
-#line 6723 "ext/refine_tree/parse.tmp.y"
+#line 6723 "ext/kanayago/parse.tmp.y"
                     {
                         arg_var(p, idFWD_BLOCK);
                         (yyval.id) = idFWD_BLOCK;
                     /*% ripper: blockarg!(Qnil) %*/
                     }
-#line 17248 "ext/refine_tree/parse.c"
+#line 17248 "ext/kanayago/parse.c"
     break;
 
   case 750: /* opt_f_block_arg: ',' f_block_arg  */
-#line 6731 "ext/refine_tree/parse.tmp.y"
+#line 6731 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.id) = (yyvsp[0].id);
                     /*% ripper: $:2 %*/
                     }
-#line 17257 "ext/refine_tree/parse.c"
+#line 17257 "ext/kanayago/parse.c"
     break;
 
   case 751: /* opt_f_block_arg: none  */
-#line 6736 "ext/refine_tree/parse.tmp.y"
+#line 6736 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.id) = 0;
                     /*% ripper: Qnil %*/
                     }
-#line 17266 "ext/refine_tree/parse.c"
+#line 17266 "ext/kanayago/parse.c"
     break;
 
   case 752: /* singleton: var_ref  */
-#line 6743 "ext/refine_tree/parse.tmp.y"
+#line 6743 "ext/kanayago/parse.tmp.y"
                     {
                         value_expr((yyvsp[0].node));
                         (yyval.node) = (yyvsp[0].node);
                     }
-#line 17275 "ext/refine_tree/parse.c"
+#line 17275 "ext/kanayago/parse.c"
     break;
 
   case 753: /* $@37: %empty  */
-#line 6747 "ext/refine_tree/parse.tmp.y"
+#line 6747 "ext/kanayago/parse.tmp.y"
                       {SET_LEX_STATE(EXPR_BEG);}
-#line 17281 "ext/refine_tree/parse.c"
+#line 17281 "ext/kanayago/parse.c"
     break;
 
   case 754: /* singleton: '(' $@37 expr rparen  */
-#line 6748 "ext/refine_tree/parse.tmp.y"
+#line 6748 "ext/kanayago/parse.tmp.y"
                     {
                         NODE *expr = last_expr_node((yyvsp[-1].node));
                         switch (nd_type(expr)) {
@@ -17311,20 +17311,20 @@ yyreduce:
                         (yyval.node) = (yyvsp[-1].node);
                     /*% ripper: paren!($:3) %*/
                     }
-#line 17315 "ext/refine_tree/parse.c"
+#line 17315 "ext/kanayago/parse.c"
     break;
 
   case 756: /* assoc_list: assocs trailer  */
-#line 6781 "ext/refine_tree/parse.tmp.y"
+#line 6781 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = (yyvsp[-1].node);
                     /*% ripper: assoclist_from_args!($:1) %*/
                     }
-#line 17324 "ext/refine_tree/parse.c"
+#line 17324 "ext/kanayago/parse.c"
     break;
 
   case 758: /* assocs: assocs ',' assoc  */
-#line 6790 "ext/refine_tree/parse.tmp.y"
+#line 6790 "ext/kanayago/parse.tmp.y"
                     {
                         NODE *assocs = (yyvsp[-2].node);
                         NODE *tail = (yyvsp[0].node);
@@ -17347,99 +17347,99 @@ yyreduce:
                         (yyval.node) = assocs;
                     /*% ripper: rb_ary_push($:1, $:3) %*/
                     }
-#line 17351 "ext/refine_tree/parse.c"
+#line 17351 "ext/kanayago/parse.c"
     break;
 
   case 759: /* assoc: arg_value "=>" arg_value  */
-#line 6815 "ext/refine_tree/parse.tmp.y"
+#line 6815 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = list_append(p, NEW_LIST((yyvsp[-2].node), &(yyloc)), (yyvsp[0].node));
                     /*% ripper: assoc_new!($:1, $:3) %*/
                     }
-#line 17360 "ext/refine_tree/parse.c"
+#line 17360 "ext/kanayago/parse.c"
     break;
 
   case 760: /* assoc: "label" arg_value  */
-#line 6820 "ext/refine_tree/parse.tmp.y"
+#line 6820 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = list_append(p, NEW_LIST(NEW_SYM(rb_id2str((yyvsp[-1].id)), &(yylsp[-1])), &(yyloc)), (yyvsp[0].node));
                     /*% ripper: assoc_new!($:1, $:2) %*/
                     }
-#line 17369 "ext/refine_tree/parse.c"
+#line 17369 "ext/kanayago/parse.c"
     break;
 
   case 761: /* assoc: "label"  */
-#line 6825 "ext/refine_tree/parse.tmp.y"
+#line 6825 "ext/kanayago/parse.tmp.y"
                     {
                         NODE *val = gettable(p, (yyvsp[0].id), &(yyloc));
                         if (!val) val = NEW_ERROR(&(yyloc));
                         (yyval.node) = list_append(p, NEW_LIST(NEW_SYM(rb_id2str((yyvsp[0].id)), &(yylsp[0])), &(yyloc)), val);
                     /*% ripper: assoc_new!($:1, Qnil) %*/
                     }
-#line 17380 "ext/refine_tree/parse.c"
+#line 17380 "ext/kanayago/parse.c"
     break;
 
   case 762: /* assoc: "string literal" string_contents tLABEL_END arg_value  */
-#line 6832 "ext/refine_tree/parse.tmp.y"
+#line 6832 "ext/kanayago/parse.tmp.y"
                     {
                         YYLTYPE loc = code_loc_gen(&(yylsp[-3]), &(yylsp[-1]));
                         (yyval.node) = list_append(p, NEW_LIST(dsym_node(p, (yyvsp[-2].node), &loc), &loc), (yyvsp[0].node));
                     /*% ripper: assoc_new!(dyna_symbol!($:2), $:4) %*/
                     }
-#line 17390 "ext/refine_tree/parse.c"
+#line 17390 "ext/kanayago/parse.c"
     break;
 
   case 763: /* assoc: "**arg" arg_value  */
-#line 6838 "ext/refine_tree/parse.tmp.y"
+#line 6838 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = list_append(p, NEW_LIST(0, &(yyloc)), (yyvsp[0].node));
                     /*% ripper: assoc_splat!($:2) %*/
                     }
-#line 17399 "ext/refine_tree/parse.c"
+#line 17399 "ext/kanayago/parse.c"
     break;
 
   case 764: /* assoc: "**arg"  */
-#line 6843 "ext/refine_tree/parse.tmp.y"
+#line 6843 "ext/kanayago/parse.tmp.y"
                     {
                         forwarding_arg_check(p, idFWD_KWREST, idFWD_ALL, "keyword rest");
                         (yyval.node) = list_append(p, NEW_LIST(0, &(yyloc)),
                                          NEW_LVAR(idFWD_KWREST, &(yyloc)));
                     /*% ripper: assoc_splat!(Qnil) %*/
                     }
-#line 17410 "ext/refine_tree/parse.c"
+#line 17410 "ext/kanayago/parse.c"
     break;
 
   case 784: /* term: ';'  */
-#line 6889 "ext/refine_tree/parse.tmp.y"
+#line 6889 "ext/kanayago/parse.tmp.y"
             {yyerrok;token_flush(p);}
-#line 17416 "ext/refine_tree/parse.c"
+#line 17416 "ext/kanayago/parse.c"
     break;
 
   case 785: /* term: '\n'  */
-#line 6891 "ext/refine_tree/parse.tmp.y"
+#line 6891 "ext/kanayago/parse.tmp.y"
                     {
                         (yyloc).end_pos = (yyloc).beg_pos;
                         token_flush(p);
                     }
-#line 17425 "ext/refine_tree/parse.c"
+#line 17425 "ext/kanayago/parse.c"
     break;
 
   case 787: /* terms: terms ';'  */
-#line 6898 "ext/refine_tree/parse.tmp.y"
+#line 6898 "ext/kanayago/parse.tmp.y"
                             {yyerrok;}
-#line 17431 "ext/refine_tree/parse.c"
+#line 17431 "ext/kanayago/parse.c"
     break;
 
   case 788: /* none: %empty  */
-#line 6902 "ext/refine_tree/parse.tmp.y"
+#line 6902 "ext/kanayago/parse.tmp.y"
                     {
                         (yyval.node) = 0;
                     }
-#line 17439 "ext/refine_tree/parse.c"
+#line 17439 "ext/kanayago/parse.c"
     break;
 
 
-#line 17443 "ext/refine_tree/parse.c"
+#line 17443 "ext/kanayago/parse.c"
 
       default: break;
     }
@@ -17458,9 +17458,9 @@ yyreduce:
 
   YYPOPSTACK (yylen);
         /* %after-reduce function. */
-#line 2692 "ext/refine_tree/parse.tmp.y"
+#line 2692 "ext/kanayago/parse.tmp.y"
         {after_reduce(yylen, p);}
-#line 17464 "ext/refine_tree/parse.c"
+#line 17464 "ext/kanayago/parse.c"
 
   yylen = 0;
 
@@ -17564,9 +17564,9 @@ yyerrorlab:
      this YYERROR.  */
   YYPOPSTACK (yylen);
         /* %after-pop-stack function. */
-#line 2694 "ext/refine_tree/parse.tmp.y"
+#line 2694 "ext/kanayago/parse.tmp.y"
         {after_pop_stack(yylen, p);}
-#line 17570 "ext/refine_tree/parse.c"
+#line 17570 "ext/kanayago/parse.c"
 
   yylen = 0;
   YY_STACK_PRINT (yyss, yyssp, p);
@@ -17604,9 +17604,9 @@ yyerrlab1:
                   YY_ACCESSING_SYMBOL (yystate), yyvsp, yylsp, p);
       YYPOPSTACK (1);
         /* %after-pop-stack function. */
-#line 2694 "ext/refine_tree/parse.tmp.y"
+#line 2694 "ext/kanayago/parse.tmp.y"
         {after_pop_stack(1, p);}
-#line 17610 "ext/refine_tree/parse.c"
+#line 17610 "ext/kanayago/parse.c"
 
       yystate = *yyssp;
       YY_STACK_PRINT (yyss, yyssp, p);
@@ -17623,9 +17623,9 @@ yyerrlab1:
   /* Shift the error token.  */
   YY_SYMBOL_PRINT ("Shifting", YY_ACCESSING_SYMBOL (yyn), yyvsp, yylsp, p);
         /* %after-shift-error-token code. */
-#line 2693 "ext/refine_tree/parse.tmp.y"
+#line 2693 "ext/kanayago/parse.tmp.y"
         {after_shift_error_token(p);}
-#line 17629 "ext/refine_tree/parse.c"
+#line 17629 "ext/kanayago/parse.c"
 
 
   yystate = yyn;
@@ -17688,7 +17688,7 @@ yyreturnlab:
   return yyresult;
 }
 
-#line 6906 "ext/refine_tree/parse.tmp.y"
+#line 6906 "ext/kanayago/parse.tmp.y"
 
 # undef p
 # undef yylex

@@ -2,13 +2,13 @@
 
 class ParseStringTest < Minitest::Test
   def test_parse_string
-    result = RefineTree.parse('"RefineTree"')
+    result = Kanayago.parse('"Kanayago"')
 
     expected = {
       :NODE_SCOPE => {
         :args => nil,
         :body => {
-          :NODE_STR => 'RefineTree'
+          :NODE_STR => 'Kanayago'
         }
       }
     }
@@ -17,7 +17,7 @@ class ParseStringTest < Minitest::Test
   end
 
   def test_parse_string_plus_opcall
-    result = RefineTree.parse('"RefineTree" + ".parse"')
+    result = Kanayago.parse('"Kanayago" + ".parse"')
 
     expected = {
       :NODE_SCOPE => {
@@ -25,7 +25,7 @@ class ParseStringTest < Minitest::Test
         :body => {
           :NODE_OPCALL => {
             :recv => {
-              :NODE_STR => 'RefineTree'
+              :NODE_STR => 'Kanayago'
             },
             :mid => :+,
             :args => {
@@ -42,7 +42,7 @@ class ParseStringTest < Minitest::Test
   end
 
   def test_parse_string_times_opcall
-    result = RefineTree.parse('"RefineTree" * 2')
+    result = Kanayago.parse('"Kanayago" * 2')
 
     expected = {
       :NODE_SCOPE => {
@@ -50,7 +50,7 @@ class ParseStringTest < Minitest::Test
         :body => {
           :NODE_OPCALL => {
             :recv => {
-              :NODE_STR => 'RefineTree'
+              :NODE_STR => 'Kanayago'
             },
             :mid => :*,
             :args => {
