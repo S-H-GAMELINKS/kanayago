@@ -7,15 +7,15 @@ class ParseFcallTest < Minitest::Test
     result = Kanayago.parse('p 117')
 
     expected = {
-      :NODE_SCOPE => {
-        :args => nil,
-        :body => {
-          :NODE_FCALL => {
-            :mid => :p,
-            :args => {
-              :NODE_LIST => [
+      NODE_SCOPE: {
+        args: nil,
+        body: {
+          NODE_FCALL: {
+            mid: :p,
+            args: {
+              NODE_LIST: [
                 {
-                  :NODE_INTEGER => 117
+                  NODE_INTEGER: 117
                 }
               ]
             }

@@ -7,10 +7,10 @@ class ParseSymTest < Minitest::Test
     result = Kanayago.parse(':kanayago')
 
     expected = {
-      :NODE_SCOPE => {
-        :args => nil,
-        :body => {
-          :NODE_SYM => :kanayago
+      NODE_SCOPE: {
+        args: nil,
+        body: {
+          NODE_SYM: :kanayago
         }
       }
     }

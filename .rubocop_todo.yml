@@ -37,25 +37,3 @@ Style/GlobalVars:
   Exclude:
     - 'ext/kanayago/extconf.rb'
 
-# Offense count: 508
-# This cop supports safe autocorrection (--autocorrect).
-# Configuration parameters: EnforcedStyle, EnforcedShorthandSyntax, UseHashRocketsWithSymbolValues, PreferHashRocketsForNonAlnumEndingSymbols.
-# SupportedStyles: ruby19, hash_rockets, no_mixed_keys, ruby19_no_mixed_keys
-# SupportedShorthandSyntax: always, never, either, consistent, either_consistent
-Style/HashSyntax:
-  Exclude:
-    - 'test/kanayago/parse_class_test.rb'
-    - 'test/kanayago/parse_const_decl_test.rb'
-    - 'test/kanayago/parse_const_test.rb'
-    - 'test/kanayago/parse_defn_test.rb'
-    - 'test/kanayago/parse_fcall_test.rb'
-    - 'test/kanayago/parse_float_test.rb'
-    - 'test/kanayago/parse_if_test.rb'
-    - 'test/kanayago/parse_imaginary_test.rb'
-    - 'test/kanayago/parse_integer_test.rb'
-    - 'test/kanayago/parse_ivar_test.rb'
-    - 'test/kanayago/parse_lasgn_test.rb'
-    - 'test/kanayago/parse_lvar_test.rb'
-    - 'test/kanayago/parse_rational_test.rb'
-    - 'test/kanayago/parse_string_test.rb'
-    - 'test/kanayago/parse_sym_test.rb'

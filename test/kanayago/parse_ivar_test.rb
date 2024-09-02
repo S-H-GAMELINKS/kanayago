@@ -7,11 +7,11 @@ class ParseIvarTest < Minitest::Test
     result = Kanayago.parse('@kanayago')
 
     expected = {
-      :NODE_SCOPE => {
-        :args => nil,
-        :body => {
-          :NODE_IVAR => {
-            :vid => :@kanayago
+      NODE_SCOPE: {
+        args: nil,
+        body: {
+          NODE_IVAR: {
+            vid: :@kanayago
           }
         }
       }

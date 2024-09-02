@@ -5,10 +5,10 @@ class ParseStringTest < Minitest::Test
     result = Kanayago.parse('"Kanayago"')
 
     expected = {
-      :NODE_SCOPE => {
-        :args => nil,
-        :body => {
-          :NODE_STR => 'Kanayago'
+      NODE_SCOPE: {
+        args: nil,
+        body: {
+          NODE_STR: 'Kanayago'
         }
       }
     }
@@ -20,17 +20,17 @@ class ParseStringTest < Minitest::Test
     result = Kanayago.parse('"Kanayago" + ".parse"')
 
     expected = {
-      :NODE_SCOPE => {
-        :args => nil,
-        :body => {
-          :NODE_OPCALL => {
-            :recv => {
-              :NODE_STR => 'Kanayago'
+      NODE_SCOPE: {
+        args: nil,
+        body: {
+          NODE_OPCALL: {
+            recv: {
+              NODE_STR: 'Kanayago'
             },
-            :mid => :+,
-            :args => {
-              :NODE_LIST => [
-                :NODE_STR => '.parse'
+            mid: :+,
+            args: {
+              NODE_LIST: [
+                NODE_STR: '.parse'
               ]
             }
           }
@@ -45,18 +45,18 @@ class ParseStringTest < Minitest::Test
     result = Kanayago.parse('"Kanayago" * 2')
 
     expected = {
-      :NODE_SCOPE => {
-        :args => nil,
-        :body => {
-          :NODE_OPCALL => {
-            :recv => {
-              :NODE_STR => 'Kanayago'
+      NODE_SCOPE: {
+        args: nil,
+        body: {
+          NODE_OPCALL: {
+            recv: {
+              NODE_STR: 'Kanayago'
             },
-            :mid => :*,
-            :args => {
-              :NODE_LIST => [
+            mid: :*,
+            args: {
+              NODE_LIST: [
                 {
-                  :NODE_INTEGER => 2
+                  NODE_INTEGER: 2
                 }
               ]
             }
