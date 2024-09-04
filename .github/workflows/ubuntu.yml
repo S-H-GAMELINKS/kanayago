@@ -44,7 +44,7 @@ jobs:
     - name: Build Ruby Parser
       run: bundle exec rake ruby_parser:build
 
-    - name: Build Mjollnir
+    - name: Build Kanayago
       run: bundle exec rake compile
 
     - name: Run RuboCop
