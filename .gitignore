@@ -11,7 +11,7 @@
 *.o
 *.a
 mkmf.log
-/ext/mjollnir/parse.h
-/ext/mjollnir/parse.c
+/ext/kanayago/parse.h
+/ext/kanayago/parse.c
 test.rb
 
