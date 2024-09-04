@@ -18,4 +18,5 @@ end
 
 group :test do
   gem 'minitest', require: false
+  gem 'test-queue', require: false
 end

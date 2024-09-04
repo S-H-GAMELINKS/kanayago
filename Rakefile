@@ -3,6 +3,8 @@
 require 'bundler/gem_tasks'
 require 'rake/extensiontask'
 require 'rake/testtask'
+require 'test_queue'
+require 'test_queue/runner/minitest'
 require 'fileutils'
 
 COPY_TARGETS = %w[
@@ -152,6 +154,13 @@ GEMSPEC = Gem::Specification.load('kanayago.gemspec')
 
 Rake::ExtensionTask.new('kanayago', GEMSPEC) do |ext|
   ext.lib_dir = 'lib/kanayago'
+end
+
+namespace :queue do
+  desc 'run test with test-queue'
+  task :test do
+    sh 'bundle exec minitest-queue $(find test/ -name \*_test.rb)'
+  end
 end
 
 Rake::TestTask.new(:test) do |t|

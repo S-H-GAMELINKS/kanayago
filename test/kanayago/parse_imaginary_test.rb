@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require_relative '../test_helper'
+
 class ParseImaginaryTest < Minitest::Test
   def test_parse_imaginary
     result = Kanayago.parse('117i')

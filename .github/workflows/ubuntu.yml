@@ -51,7 +51,7 @@ jobs:
       run: bundle exec rubocop
 
     - name: Run tests
-      run: bundle exec rake test
+      run: bundle exec rake queue:test
 
     - name: Run install
       run: |
