@@ -392,7 +392,7 @@ ast_to_hash(const NODE *node)
 }
 
 static VALUE
-parse(VALUE self, VALUE source)
+kanayago_parse(VALUE self, VALUE source)
 {   
     struct ruby_parser *parser;
     rb_parser_t *parser_params;
@@ -416,5 +416,5 @@ RUBY_FUNC_EXPORTED void
 Init_kanayago(void)
 {
     rb_mKanayago = rb_define_module("Kanayago");
-    rb_define_module_function(rb_mKanayago, "kanayago_parse", parse, 1);
+    rb_define_module_function(rb_mKanayago, "kanayago_parse", kanayago_parse, 1);
 }
