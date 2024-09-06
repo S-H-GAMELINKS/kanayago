@@ -405,9 +405,7 @@ kanayago_parse(VALUE self, VALUE source)
 
     VALUE vast = rb_parser_compile_string(vparser, "main", source, 0);
 
-    rb_ast_t *ast;
-
-    TypedData_Get_Struct(vast, rb_ast_t, &ast_data_type, ast);
+    rb_ast_t *ast = rb_ruby_ast_data_get(vast);
 
     return ast_to_hash(ast->body.root);
 }
