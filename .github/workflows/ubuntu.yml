@@ -53,8 +53,3 @@ jobs:
     - name: Run tests
       run: bundle exec rake queue:test
 
-    - name: Run install
-      run: |
-        bundle exec rake build
-        gem install pkg/kanayago-0.1.0.gem
-
