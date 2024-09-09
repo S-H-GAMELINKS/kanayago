@@ -1,8 +1,4 @@
 #include "kanayago.h"
-#include "internal/ruby_parser.h"
-#include "ruby/ruby.h"
-#include "rubyparser.h"
-#include <stdio.h>
 
 #define symbol(arg) \
     ID2SYM(rb_intern((arg)))
