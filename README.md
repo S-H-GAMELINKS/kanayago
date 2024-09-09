@@ -1,4 +1,4 @@
-# Kanayago
+# Kanayago(金屋子)
 
 Trying to Make Ruby's Parser Available as a Gem.
 
