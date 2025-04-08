@@ -154,8 +154,8 @@ namespace :ruby_parser do
   end
 end
 
-task build: ['ruby_parser:build', 'ruby_parser:patch', 'compile']
-task install: ['ruby_parser:build', 'ruby_parser:patch', 'compile']
+task build: ['ruby_parser:import', 'ruby_parser:build', 'ruby_parser:patch', 'compile']
+task install: ['ruby_parser:import', 'ruby_parser:build', 'ruby_parser:patch', 'compile']
 
 GEMSPEC = Gem::Specification.load('kanayago.gemspec')
 
