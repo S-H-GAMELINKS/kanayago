@@ -127,9 +127,9 @@ namespace :ruby_parser do
     sh 'bundle exec lrama -oext/kanayago/parse.c -Hext/kanayago/parse.h ext/kanayago/parse.tmp.y'
   end
 
-  desc 'pathed ro ruby parse that build for Kanayago'
-  task :path do
-
+  desc 'patched ro ruby parse that build for Kanayago'
+  task :patch do
+    sh 'patch -p1 < kanayago.patch'
   end
 
   desc 'clean to ruby parser file'
@@ -154,8 +154,8 @@ namespace :ruby_parser do
   end
 end
 
-task build: ['ruby_parser:build', 'compile']
-task install: ['ruby_parser:build', 'compile']
+task build: ['ruby_parser:build', 'ruby_parser:patch', 'compile']
+task install: ['ruby_parser:build', 'ruby_parser:patch', 'compile']
 
 GEMSPEC = Gem::Specification.load('kanayago.gemspec')
 

@@ -1,0 +1,66 @@
+diff --git a/ext/kanayago/internal/ruby_parser.h b/ext/kanayago/internal/ruby_parser.h
+index 8e306d1..d420a02 100644
+--- a/ext/kanayago/internal/ruby_parser.h
++++ b/ext/kanayago/internal/ruby_parser.h
+@@ -15,6 +15,29 @@ struct lex_pointer_string {
+     long ptr;
+ };
+ 
++// Add Ruby's Parser struct and enum for Kanayago
++enum lex_type {
++    lex_type_str,
++    lex_type_io,
++    lex_type_array,
++    lex_type_generic,
++};
++
++struct ruby_parser {
++    rb_parser_t *parser_params;
++    enum lex_type type;
++    union {
++        struct lex_pointer_string lex_str;
++        struct {
++            VALUE file;
++        } lex_io;
++        struct {
++            VALUE ary;
++        } lex_array;
++    } data;
++};
++// End for Kanayago
++
+ RUBY_SYMBOL_EXPORT_BEGIN
+ #ifdef UNIVERSAL_PARSER
+ const rb_parser_config_t *rb_ruby_parser_config(void);
+diff --git a/ext/kanayago/ruby_parser.c b/ext/kanayago/ruby_parser.c
+index 267f619..681fe39 100644
+--- a/ext/kanayago/ruby_parser.c
++++ b/ext/kanayago/ruby_parser.c
+@@ -443,27 +443,6 @@ static const rb_parser_config_t rb_global_parser_config = {
+ };
+ #endif
+ 
+-enum lex_type {
+-    lex_type_str,
+-    lex_type_io,
+-    lex_type_array,
+-    lex_type_generic,
+-};
+-
+-struct ruby_parser {
+-    rb_parser_t *parser_params;
+-    enum lex_type type;
+-    union {
+-        struct lex_pointer_string lex_str;
+-        struct {
+-            VALUE file;
+-        } lex_io;
+-        struct {
+-            VALUE ary;
+-        } lex_array;
+-    } data;
+-};
+-
+ static void
+ parser_mark(void *ptr)
+ {
