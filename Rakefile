@@ -77,9 +77,7 @@ namespace :ruby_parser do
                    'internal']
 
     directories.each do |dir|
-      unless Dir.exist? dir
-        Dir.mkdir File.join(dist, dir)
-      end
+      Dir.mkdir File.join(dist, dir) unless Dir.exist? dir
     end
 
     COPY_TARGETS.each do |target|
