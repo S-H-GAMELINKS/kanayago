@@ -110,6 +110,7 @@ enum ruby_method_ids {
     idANDDOT = RUBY_TOKEN(ANDDOT),
     tPRESERVED_ID_BEGIN = 150,
     idNilP,
+    idIncludeP,
     idNULL,
     idEmptyP,
     idEqlP,
@@ -139,6 +140,7 @@ enum ruby_method_ids {
     tInspect,
     tIntern,
     tObject_id,
+    t__id__,
     tConst_added,
     tConst_missing,
     tMethodMissing,
@@ -221,6 +223,7 @@ enum ruby_method_ids {
 
     /* CONST tokens {{{ */
     tTOKEN_CONST_BEGIN = tTOKEN_GLOBAL_END-1,
+    tRuby,
     tTOKEN_CONST_END,
     /* CONST tokens }}} */
 
@@ -245,6 +248,7 @@ enum ruby_method_ids {
     DEFINE_LOCALID_FROM_TOKEN(Inspect),
     DEFINE_LOCALID_FROM_TOKEN(Intern),
     DEFINE_LOCALID_FROM_TOKEN(Object_id),
+    DEFINE_LOCALID_FROM_TOKEN(__id__),
     DEFINE_LOCALID_FROM_TOKEN(Const_added),
     DEFINE_LOCALID_FROM_TOKEN(Const_missing),
     DEFINE_LOCALID_FROM_TOKEN(MethodMissing),
@@ -327,6 +331,7 @@ enum ruby_method_ids {
 
     /* CONST IDs {{{ */
 #define DEFINE_CONSTID_FROM_TOKEN(n) id##n = TOKEN2CONSTID(t##n)
+    DEFINE_CONSTID_FROM_TOKEN(Ruby),
 #undef DEFINE_CONSTID_FROM_TOKEN
     /* CONST IDs }}} */
 

@@ -16,6 +16,8 @@
 #include "shape.h"              /* for rb_shape_t */
 
 /* variable.c */
+void rb_const_added(VALUE klass, ID const_name);
+void rb_const_set_raw(VALUE klass, ID id, VALUE val);
 void rb_gc_mark_global_tbl(void);
 void rb_gc_update_global_tbl(void);
 size_t rb_generic_ivar_memsize(VALUE);
@@ -54,8 +56,6 @@ void rb_evict_ivars_to_hash(VALUE obj);
 RUBY_SYMBOL_EXPORT_BEGIN
 /* variable.c (export) */
 void rb_mark_generic_ivar(VALUE obj);
-void rb_ref_update_generic_ivar(VALUE);
-void rb_mv_generic_ivar(VALUE src, VALUE dst);
 VALUE rb_const_missing(VALUE klass, VALUE name);
 int rb_class_ivar_set(VALUE klass, ID vid, VALUE value);
 void rb_iv_tbl_copy(VALUE dst, VALUE src);

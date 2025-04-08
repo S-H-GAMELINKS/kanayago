@@ -265,6 +265,9 @@ typedef struct RNode_IF {
     struct RNode *nd_cond;
     struct RNode *nd_body;
     struct RNode *nd_else;
+    rb_code_location_t if_keyword_loc;
+    rb_code_location_t then_keyword_loc;
+    rb_code_location_t end_keyword_loc;
 } rb_node_if_t;
 
 typedef struct RNode_UNLESS {
@@ -283,6 +286,8 @@ typedef struct RNode_CASE {
 
     struct RNode *nd_head;
     struct RNode *nd_body;
+    rb_code_location_t case_keyword_loc;
+    rb_code_location_t end_keyword_loc;
 } rb_node_case_t;
 
 typedef struct RNode_CASE2 {
@@ -290,6 +295,8 @@ typedef struct RNode_CASE2 {
 
     struct RNode *nd_head;
     struct RNode *nd_body;
+    rb_code_location_t case_keyword_loc;
+    rb_code_location_t end_keyword_loc;
 } rb_node_case2_t;
 
 typedef struct RNode_CASE3 {
@@ -297,6 +304,8 @@ typedef struct RNode_CASE3 {
 
     struct RNode *nd_head;
     struct RNode *nd_body;
+    rb_code_location_t case_keyword_loc;
+    rb_code_location_t end_keyword_loc;
 } rb_node_case3_t;
 
 typedef struct RNode_WHEN {
@@ -305,6 +314,8 @@ typedef struct RNode_WHEN {
     struct RNode *nd_head;
     struct RNode *nd_body;
     struct RNode *nd_next;
+    rb_code_location_t keyword_loc;
+    rb_code_location_t then_keyword_loc;
 } rb_node_when_t;
 
 typedef struct RNode_IN {
@@ -315,24 +326,16 @@ typedef struct RNode_IN {
     struct RNode *nd_next;
 } rb_node_in_t;
 
-/* RNode_WHILE and RNode_UNTIL should be same structure */
-typedef struct RNode_WHILE {
+typedef struct RNode_LOOP {
     NODE node;
 
     struct RNode *nd_cond;
     struct RNode *nd_body;
     long nd_state;
-} rb_node_while_t;
+    rb_code_location_t keyword_loc;
+    rb_code_location_t closing_loc;
+} rb_node_while_t, rb_node_until_t;
 
-typedef struct RNode_UNTIL {
-    NODE node;
-
-    struct RNode *nd_cond;
-    struct RNode *nd_body;
-    long nd_state;
-} rb_node_until_t;
-
-/* RNode_ITER and RNode_FOR should be same structure */
 typedef struct RNode_ITER {
     NODE node;
 
@@ -345,6 +348,10 @@ typedef struct RNode_FOR {
 
     struct RNode *nd_body;
     struct RNode *nd_iter;
+    rb_code_location_t for_keyword_loc;
+    rb_code_location_t in_keyword_loc;
+    rb_code_location_t do_keyword_loc;
+    rb_code_location_t end_keyword_loc;
 } rb_node_for_t;
 
 typedef struct RNode_FOR_MASGN {
@@ -353,26 +360,13 @@ typedef struct RNode_FOR_MASGN {
     struct RNode *nd_var;
 } rb_node_for_masgn_t;
 
-/* RNode_BREAK, RNode_NEXT and RNode_REDO should be same structure */
-typedef struct RNode_BREAK {
+typedef struct RNode_EXITS {
     NODE node;
 
     struct RNode *nd_chain;
     struct RNode *nd_stts;
-} rb_node_break_t;
-
-typedef struct RNode_NEXT {
-    NODE node;
-
-    struct RNode *nd_chain;
-    struct RNode *nd_stts;
-} rb_node_next_t;
-
-typedef struct RNode_REDO {
-    NODE node;
-
-    struct RNode *nd_chain;
-} rb_node_redo_t;
+    rb_code_location_t keyword_loc;
+} rb_node_exits_t, rb_node_break_t, rb_node_next_t, rb_node_redo_t;
 
 typedef struct RNode_RETRY {
     NODE node;
@@ -408,20 +402,13 @@ typedef struct RNode_ENSURE {
     struct RNode *nd_ensr;
 } rb_node_ensure_t;
 
-/* RNode_AND and RNode_OR should be same structure */
-typedef struct RNode_AND {
+typedef struct {
     NODE node;
 
     struct RNode *nd_1st;
     struct RNode *nd_2nd;
-} rb_node_and_t;
-
-typedef struct RNode_OR {
-    NODE node;
-
-    struct RNode *nd_1st;
-    struct RNode *nd_2nd;
-} rb_node_or_t;
+    rb_code_location_t operator_loc;
+} rb_node_and_t, rb_node_or_t;
 
 typedef struct RNode_MASGN {
     NODE node;
@@ -482,6 +469,10 @@ typedef struct RNode_OP_ASGN1 {
     ID nd_mid;
     struct RNode *nd_index;
     struct RNode *nd_rvalue;
+    rb_code_location_t call_operator_loc;
+    rb_code_location_t opening_loc;
+    rb_code_location_t closing_loc;
+    rb_code_location_t binary_operator_loc;
 } rb_node_op_asgn1_t;
 
 typedef struct RNode_OP_ASGN2 {
@@ -492,6 +483,9 @@ typedef struct RNode_OP_ASGN2 {
     ID nd_vid;
     ID nd_mid;
     bool nd_aid;
+    rb_code_location_t call_operator_loc;
+    rb_code_location_t message_loc;
+    rb_code_location_t binary_operator_loc;
 } rb_node_op_asgn2_t;
 
 typedef struct RNode_OP_ASGN_AND {
@@ -558,6 +552,9 @@ typedef struct RNode_SUPER {
     NODE node;
 
     struct RNode *nd_args;
+    rb_code_location_t keyword_loc;
+    rb_code_location_t lparen_loc;
+    rb_code_location_t rparen_loc;
 } rb_node_super_t;
 
 typedef struct RNode_ZSUPER {
@@ -600,12 +597,16 @@ typedef struct RNode_RETURN {
     NODE node;
 
     struct RNode *nd_stts;
+    rb_code_location_t keyword_loc;
 } rb_node_return_t;
 
 typedef struct RNode_YIELD {
     NODE node;
 
     struct RNode *nd_head;
+    rb_code_location_t keyword_loc;
+    rb_code_location_t lparen_loc;
+    rb_code_location_t rparen_loc;
 } rb_node_yield_t;
 
 typedef struct RNode_LVAR {
@@ -655,14 +656,6 @@ typedef struct RNode_BACK_REF {
 
     long nd_nth;
 } rb_node_back_ref_t;
-
-/* RNode_MATCH and RNode_REGX should be same structure */
-typedef struct RNode_MATCH {
-    NODE node;
-
-    struct rb_parser_string *string;
-    int options;
-} rb_node_match_t;
 
 typedef struct RNode_MATCH2 {
     NODE node;
@@ -719,14 +712,13 @@ typedef struct RNode_IMAGINARY {
     enum rb_numeric_type type;
 } rb_node_imaginary_t;
 
-/* RNode_STR and RNode_XSTR should be same structure */
 typedef struct RNode_STR {
     NODE node;
 
     struct rb_parser_string *string;
 } rb_node_str_t;
 
-/* RNode_DSTR, RNode_DXSTR, RNode_DREGX and RNode_DSYM should be same structure */
+/* NODE_DSTR, NODE_DXSTR, NODE_DREGX, NODE_DSYM */
 typedef struct RNode_DSTR {
     NODE node;
 
@@ -747,14 +739,19 @@ typedef struct RNode_EVSTR {
     NODE node;
 
     struct RNode *nd_body;
+    rb_code_location_t opening_loc;
+    rb_code_location_t closing_loc;
 } rb_node_evstr_t;
 
-typedef struct RNode_REGX {
+typedef struct RNode_REGX {     /* also RNode_MATCH */
     NODE node;
 
     struct rb_parser_string *string;
     int options;
-} rb_node_regx_t;
+    rb_code_location_t opening_loc;
+    rb_code_location_t content_loc;
+    rb_code_location_t closing_loc;
+} rb_node_regx_t, rb_node_match_t;
 
 typedef rb_node_dstr_t rb_node_dregx_t;
 
@@ -838,6 +835,7 @@ typedef struct RNode_SPLAT {
     NODE node;
 
     struct RNode *nd_head;
+    rb_code_location_t operator_loc;
 } rb_node_splat_t;
 
 typedef struct RNode_BLOCK_PASS {
@@ -846,6 +844,7 @@ typedef struct RNode_BLOCK_PASS {
     struct RNode *nd_head;
     struct RNode *nd_body;
     unsigned int forwarding: 1;
+    rb_code_location_t operator_loc;
 } rb_node_block_pass_t;
 
 typedef struct RNode_DEFN {
@@ -868,6 +867,7 @@ typedef struct RNode_ALIAS {
 
     struct RNode *nd_1st;
     struct RNode *nd_2nd;
+    rb_code_location_t keyword_loc;
 } rb_node_alias_t;
 
 typedef struct RNode_VALIAS {
@@ -875,12 +875,14 @@ typedef struct RNode_VALIAS {
 
     ID nd_alias;
     ID nd_orig;
+    rb_code_location_t keyword_loc;
 } rb_node_valias_t;
 
 typedef struct RNode_UNDEF {
     NODE node;
 
     rb_parser_ary_t *nd_undefs;
+    rb_code_location_t keyword_loc;
 } rb_node_undef_t;
 
 typedef struct RNode_CLASS {
@@ -889,6 +891,9 @@ typedef struct RNode_CLASS {
     struct RNode *nd_cpath;
     struct RNode *nd_body;
     struct RNode *nd_super;
+    rb_code_location_t class_keyword_loc;
+    rb_code_location_t inheritance_operator_loc;
+    rb_code_location_t end_keyword_loc;
 } rb_node_class_t;
 
 typedef struct RNode_MODULE {
@@ -918,23 +923,14 @@ typedef struct RNode_COLON3 {
     ID nd_mid;
 } rb_node_colon3_t;
 
-/* RNode_DOT2, RNode_DOT3, RNode_FLIP2 and RNode_FLIP3 should be same structure */
-typedef struct RNode_DOT2 {
+/* NODE_DOT2, NODE_DOT3, NODE_FLIP2, NODE_FLIP3 */
+typedef struct RNode_DOTS {
     NODE node;
 
     struct RNode *nd_beg;
     struct RNode *nd_end;
-} rb_node_dot2_t;
-
-typedef struct RNode_DOT3 {
-    NODE node;
-
-    struct RNode *nd_beg;
-    struct RNode *nd_end;
-} rb_node_dot3_t;
-
-typedef rb_node_dot2_t rb_node_flip2_t;
-typedef rb_node_dot3_t rb_node_flip3_t;
+    rb_code_location_t operator_loc;
+} rb_node_dot2_t, rb_node_dot3_t, rb_node_flip2_t, rb_node_flip3_t;
 
 typedef struct RNode_SELF {
     NODE node;
@@ -968,6 +964,9 @@ typedef struct RNode_POSTEXE {
     NODE node;
 
     struct RNode *nd_body;
+    rb_code_location_t keyword_loc;
+    rb_code_location_t opening_loc;
+    rb_code_location_t closing_loc;
 } rb_node_postexe_t;
 
 typedef struct RNode_SYM {
@@ -990,6 +989,9 @@ typedef struct RNode_LAMBDA {
     NODE node;
 
     struct RNode *nd_body;
+    rb_code_location_t operator_loc;
+    rb_code_location_t opening_loc;
+    rb_code_location_t closing_loc;
 } rb_node_lambda_t;
 
 typedef struct RNode_ARYPTN {
@@ -1204,6 +1206,8 @@ typedef struct parser_params rb_parser_t;
 typedef struct rb_imemo_tmpbuf_struct rb_imemo_tmpbuf_t;
 #endif
 
+typedef NODE *(*rb_parser_assignable_func)(struct parser_params *p, ID id, NODE *val, const rb_code_location_t *loc);
+
 #ifdef UNIVERSAL_PARSER
 typedef struct rb_parser_config_struct {
     /* Memory */
@@ -1221,14 +1225,12 @@ typedef struct rb_parser_config_struct {
 
     // VALUE rb_suppress_tracing(VALUE (*func)(VALUE), VALUE arg);
     VALUE (*compile_callback)(VALUE (*func)(VALUE), VALUE arg);
-    NODE *(*reg_named_capture_assign)(struct parser_params* p, VALUE regexp, const rb_code_location_t *loc);
+    NODE *(*reg_named_capture_assign)(struct parser_params* p, VALUE regexp, const rb_code_location_t *loc, rb_parser_assignable_func assignable);
 
     /* Variable */
     VALUE (*attr_get)(VALUE obj, ID id);
 
     /* Array */
-    VALUE (*ary_new)(void);
-    VALUE (*ary_push)(VALUE ary, VALUE elem);
     VALUE (*ary_new_from_args)(long n, ...);
     VALUE (*ary_unshift)(VALUE ary, VALUE item);
 
@@ -1248,29 +1250,22 @@ typedef struct rb_parser_config_struct {
     const char *(*id2name)(ID id);
     VALUE (*id2str)(ID id);
     VALUE (*id2sym)(ID x);
-    ID (*sym2id)(VALUE sym);
 
     /* String */
     RBIMPL_ATTR_FORMAT(RBIMPL_PRINTF_FORMAT, 2, 3)
     VALUE (*str_catf)(VALUE str, const char *format, ...);
     VALUE (*str_cat_cstr)(VALUE str, const char *ptr);
-    void (*str_modify)(VALUE str);
-    void (*str_set_len)(VALUE str, long len);
-    VALUE (*str_cat)(VALUE str, const char *ptr, long len);
     VALUE (*str_resize)(VALUE str, long len);
     VALUE (*str_new)(const char *ptr, long len);
     VALUE (*str_new_cstr)(const char *ptr);
     VALUE (*str_to_interned_str)(VALUE);
-    int (*is_ascii_string)(VALUE str);
     VALUE (*enc_str_new)(const char *ptr, long len, rb_encoding *enc);
     RBIMPL_ATTR_FORMAT(RBIMPL_PRINTF_FORMAT, 2, 0)
     VALUE (*str_vcatf)(VALUE str, const char *fmt, va_list ap);
     RBIMPL_ATTR_FORMAT(RBIMPL_PRINTF_FORMAT, 1, 2)
     VALUE (*rb_sprintf)(const char *format, ...);
     char *(*rstring_ptr)(VALUE str);
-    char *(*rstring_end)(VALUE str);
     long (*rstring_len)(VALUE str);
-    VALUE (*obj_as_string)(VALUE);
 
     /* Numeric */
     VALUE (*int2num)(int v);
@@ -1297,14 +1292,12 @@ typedef struct rb_parser_config_struct {
     rb_encoding* (*enc_get)(VALUE obj);
     int (*enc_asciicompat)(rb_encoding *enc);
     rb_encoding *(*utf8_encoding)(void);
-    VALUE (*enc_associate)(VALUE obj, rb_encoding *enc);
     rb_encoding *(*ascii8bit_encoding)(void);
     int (*enc_codelen)(int c, rb_encoding *enc);
     int (*enc_mbcput)(unsigned int c, void *buf, rb_encoding *enc);
     int (*enc_find_index)(const char *name);
     rb_encoding *(*enc_from_index)(int idx);
     int (*enc_isspace)(OnigCodePoint c, rb_encoding *enc);
-    rb_encoding *(*usascii_encoding)(void);
     int (*enc_mbminlen)(rb_encoding *enc);
     bool (*enc_isascii)(OnigCodePoint c, rb_encoding *enc);
     OnigCodePoint (*enc_mbc_to_codepoint)(const char *p, const char *e, rb_encoding *enc);
@@ -1325,7 +1318,6 @@ typedef struct rb_parser_config_struct {
     /* Eval */
     VALUE (*errinfo)(void);
     void (*set_errinfo)(VALUE err);
-    void (*exc_raise)(VALUE mesg);
     VALUE (*make_exception)(int argc, const VALUE *argv);
 
     /* GC */
@@ -1382,9 +1374,6 @@ void rb_ruby_parser_free(void *ptr);
 rb_parser_t *rb_ruby_parser_allocate(const rb_parser_config_t *config);
 rb_parser_t *rb_ruby_parser_new(const rb_parser_config_t *config);
 #endif
-
-long rb_parser_string_length(rb_parser_string_t *str);
-char *rb_parser_string_pointer(rb_parser_string_t *str);
 
 RUBY_SYMBOL_EXPORT_END
 
