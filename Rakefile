@@ -77,7 +77,9 @@ namespace :ruby_parser do
                    'internal']
 
     directories.each do |dir|
-      Dir.mkdir File.join(dist, dir)
+      unless Dir.exist? dir
+        Dir.mkdir File.join(dist, dir)
+      end
     end
 
     COPY_TARGETS.each do |target|
@@ -123,6 +125,11 @@ namespace :ruby_parser do
   desc 'build ruby parse.c and parse.h with lrama'
   task :build do
     sh 'bundle exec lrama -oext/kanayago/parse.c -Hext/kanayago/parse.h ext/kanayago/parse.tmp.y'
+  end
+
+  desc 'pathed ro ruby parse that build for Kanayago'
+  task :path do
+
   end
 
   desc 'clean to ruby parser file'
