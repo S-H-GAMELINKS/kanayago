@@ -12,10 +12,10 @@ class ParseStringTest < Minitest::Test
     body = result.body
 
     assert_instance_of(Kanayago::StringNode, body)
-    assert_equal(body.ptr, 'Kanayago')
-    assert_equal(body.len, 8)
+    assert_equal('Kanayago', body.ptr)
+    assert_equal(8, body.len)
     assert_equal(body.enc, Encoding::UTF_8)
-    assert_equal(body.coderange, 'RB_PARSER_ENC_CODERANGE_7BIT')
+    assert_equal('RB_PARSER_ENC_CODERANGE_7BIT', body.coderange)
   end
 
   def test_parse_string_plus_opcall
