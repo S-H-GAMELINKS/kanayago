@@ -4,344 +4,139 @@ require_relative '../test_helper'
 
 class ParseRationalTest < Minitest::Test
   def test_parse_rational
-    result = Kanayago.parse('1/17r')
+    result = Kanayago.parse('117r')
 
-    expected = {
-      NODE_SCOPE: {
-        args: nil,
-        body: {
-          NODE_OPCALL: {
-            recv: {
-              NODE_INTEGER: 1
-            },
-            mid: :/,
-            args: {
-              NODE_LIST: [
-                {
-                  NODE_RATIONAL: 17
-                }
-              ]
-            }
-          }
-        }
-      }
-    }
+    assert_instance_of(Kanayago::ScopeNode, result)
+    assert_nil(result.args)
 
-    assert_equal expected, result
+    body = result.body
+
+    assert_instance_of(Kanayago::RationalNode, body)
+    assert_equal(117r, body.val)
+    refute(body.minus)
+    assert_equal(10, body.base)
+    assert_equal(0, body.seen_point)
   end
 
   def test_parse_rational_plus_opcall
-    result = Kanayago.parse('1/17r + 1/17r')
+    result = Kanayago.parse('117r + 117r')
 
-    expected = {
-      NODE_SCOPE: {
-        args: nil,
-        body: {
-          NODE_OPCALL: {
-            recv: {
-              NODE_OPCALL: {
-                recv: {
-                  NODE_INTEGER: 1
-                },
-                mid: :/,
-                args: {
-                  NODE_LIST: [
-                    {
-                      NODE_RATIONAL: 17
-                    }
-                  ]
-                }
-              }
-            },
-            mid: :+,
-            args: {
-              NODE_LIST: [
-                {
-                  NODE_OPCALL: {
-                    recv: {
-                      NODE_INTEGER: 1
-                    },
-                    mid: :/,
-                    args: {
-                      NODE_LIST: [
-                        {
-                          NODE_RATIONAL: 17
-                        }
-                      ]
-                    }
-                  }
-                }
-              ]
-            }
-          }
-        }
-      }
-    }
+    assert_instance_of(Kanayago::ScopeNode, result)
+    assert_nil(result.args)
 
-    assert_equal expected, result
+    body = result.body
+
+    assert_instance_of(Kanayago::OperatorCallNode, body)
+    assert_instance_of(Kanayago::RationalNode, body.recv)
+    assert_equal(:+, body.mid)
+    assert_instance_of(Kanayago::ListNode, body.args)
+
+    arg = body.args.first
+
+    assert_instance_of(Kanayago::RationalNode, arg)
   end
 
   def test_parse_rational_minus_opcall
-    result = Kanayago.parse('1/17r - 1/17r')
+    result = Kanayago.parse('117r - 117r')
 
-    expected = {
-      NODE_SCOPE: {
-        args: nil,
-        body: {
-          NODE_OPCALL: {
-            recv: {
-              NODE_OPCALL: {
-                recv: {
-                  NODE_INTEGER: 1
-                },
-                mid: :/,
-                args: {
-                  NODE_LIST: [
-                    {
-                      NODE_RATIONAL: 17
-                    }
-                  ]
-                }
-              }
-            },
-            mid: :-,
-            args: {
-              NODE_LIST: [
-                {
-                  NODE_OPCALL: {
-                    recv: {
-                      NODE_INTEGER: 1
-                    },
-                    mid: :/,
-                    args: {
-                      NODE_LIST: [
-                        {
-                          NODE_RATIONAL: 17
-                        }
-                      ]
-                    }
-                  }
-                }
-              ]
-            }
-          }
-        }
-      }
-    }
+    assert_instance_of(Kanayago::ScopeNode, result)
+    assert_nil(result.args)
 
-    assert_equal expected, result
+    body = result.body
+
+    assert_instance_of(Kanayago::OperatorCallNode, body)
+    assert_instance_of(Kanayago::RationalNode, body.recv)
+    assert_equal(:-, body.mid)
+    assert_instance_of(Kanayago::ListNode, body.args)
+
+    arg = body.args.first
+
+    assert_instance_of(Kanayago::RationalNode, arg)
   end
 
   def test_parse_rational_times_opcall
-    result = Kanayago.parse('1/17r * 1/17r')
+    result = Kanayago.parse('117r * 117r')
 
-    expected = {
-      NODE_SCOPE: {
-        args: nil,
-        body: {
-          NODE_OPCALL: {
-            recv: {
-              NODE_OPCALL: {
-                recv: {
-                  NODE_OPCALL: {
-                    recv: {
-                      NODE_INTEGER: 1
-                    },
-                    mid: :/,
-                    args: {
-                      NODE_LIST: [
-                        NODE_RATIONAL: 17
-                      ]
-                    }
-                  }
-                },
-                mid: :*,
-                args: {
-                  NODE_LIST: [
-                    {
-                      NODE_INTEGER: 1
-                    }
-                  ]
-                }
-              }
-            },
-            mid: :/,
-            args: {
-              NODE_LIST: [
-                NODE_RATIONAL: 17
-              ]
-            }
-          }
-        }
-      }
-    }
+    assert_instance_of(Kanayago::ScopeNode, result)
+    assert_nil(result.args)
 
-    assert_equal expected, result
+    body = result.body
+
+    assert_instance_of(Kanayago::OperatorCallNode, body)
+    assert_instance_of(Kanayago::RationalNode, body.recv)
+    assert_equal(:*, body.mid)
+    assert_instance_of(Kanayago::ListNode, body.args)
+
+    arg = body.args.first
+
+    assert_instance_of(Kanayago::RationalNode, arg)
   end
 
   def test_parse_rational_div_opcall
-    result = Kanayago.parse('1/17r / 1/17r')
+    result = Kanayago.parse('117r / 117r')
 
-    expected = {
-      NODE_SCOPE: {
-        args: nil,
-        body: {
-          NODE_OPCALL: {
-            recv: {
-              NODE_OPCALL: {
-                recv: {
-                  NODE_OPCALL: {
-                    recv: {
-                      NODE_INTEGER: 1
-                    },
-                    mid: :/,
-                    args: {
-                      NODE_LIST: [
-                        NODE_RATIONAL: 17
-                      ]
-                    }
-                  }
-                },
-                mid: :/,
-                args: {
-                  NODE_LIST: [
-                    {
-                      NODE_INTEGER: 1
-                    }
-                  ]
-                }
-              }
-            },
-            mid: :/,
-            args: {
-              NODE_LIST: [
-                NODE_RATIONAL: 17
-              ]
-            }
-          }
-        }
-      }
-    }
+    assert_instance_of(Kanayago::ScopeNode, result)
+    assert_nil(result.args)
 
-    assert_equal expected, result
+    body = result.body
+
+    assert_instance_of(Kanayago::OperatorCallNode, body)
+    assert_instance_of(Kanayago::RationalNode, body.recv)
+    assert_equal(:/, body.mid)
+    assert_instance_of(Kanayago::ListNode, body.args)
+
+    arg = body.args.first
+
+    assert_instance_of(Kanayago::RationalNode, arg)
   end
 
   def test_parse_rational_remainder_opcall
-    result = Kanayago.parse('1/17r % 1/17r')
+    result = Kanayago.parse('117r % 117r')
 
-    expected = {
-      NODE_SCOPE: {
-        args: nil,
-        body: {
-          NODE_OPCALL: {
-            recv: {
-              NODE_OPCALL: {
-                recv: {
-                  NODE_OPCALL: {
-                    recv: {
-                      NODE_INTEGER: 1
-                    },
-                    mid: :/,
-                    args: {
-                      NODE_LIST: [
-                        NODE_RATIONAL: 17
-                      ]
-                    }
-                  }
-                },
-                mid: :%,
-                args: {
-                  NODE_LIST: [
-                    {
-                      NODE_INTEGER: 1
-                    }
-                  ]
-                }
-              }
-            },
-            mid: :/,
-            args: {
-              NODE_LIST: [
-                NODE_RATIONAL: 17
-              ]
-            }
-          }
-        }
-      }
-    }
+    assert_instance_of(Kanayago::ScopeNode, result)
+    assert_nil(result.args)
 
-    assert_equal expected, result
+    body = result.body
+
+    assert_instance_of(Kanayago::OperatorCallNode, body)
+    assert_instance_of(Kanayago::RationalNode, body.recv)
+    assert_equal(:%, body.mid)
+    assert_instance_of(Kanayago::ListNode, body.args)
+
+    arg = body.args.first
+
+    assert_instance_of(Kanayago::RationalNode, arg)
   end
 
   def test_parse_rational_call
-    result = Kanayago.parse('1/17r.to_i')
+    result = Kanayago.parse('117r.to_i')
 
-    expected = {
-      NODE_SCOPE: {
-        args: nil,
-        body: {
-          NODE_OPCALL: {
-            recv: {
-              NODE_INTEGER: 1
-            },
-            mid: :/,
-            args: {
-              NODE_LIST: [
-                {
-                  NODE_CALL: {
-                    recv: {
-                      NODE_RATIONAL: 17
-                    },
-                    mid: :to_i,
-                    args: nil
-                  }
-                }
-              ]
-            }
-          }
-        }
-      }
-    }
+    assert_instance_of(Kanayago::ScopeNode, result)
+    assert_nil(result.args)
 
-    assert_equal expected, result
+    body = result.body
+
+    assert_instance_of(Kanayago::CallNode, body)
+    assert_instance_of(Kanayago::RationalNode, body.recv)
+    assert_equal(:to_i, body.mid)
+    assert_nil(body.args)
   end
 
   def test_parse_rational_call_with_arg
-    result = Kanayago.parse('1/17r.to_i(10)')
+    result = Kanayago.parse('117r.to_i(10)')
 
-    expected = {
-      NODE_SCOPE: {
-        args: nil,
-        body: {
-          NODE_OPCALL: {
-            recv: {
-              NODE_INTEGER: 1
-            },
-            mid: :/,
-            args: {
-              NODE_LIST: [
-                {
-                  NODE_CALL: {
-                    recv: {
-                      NODE_RATIONAL: 17
-                    },
-                    mid: :to_i,
-                    args: {
-                      NODE_LIST: [
-                        {
-                          NODE_INTEGER: 10
-                        }
-                      ]
-                    }
-                  }
-                }
-              ]
-            }
-          }
-        }
-      }
-    }
+    assert_instance_of(Kanayago::ScopeNode, result)
+    assert_nil(result.args)
 
-    assert_equal expected, result
+    body = result.body
+
+    assert_instance_of(Kanayago::CallNode, body)
+    assert_instance_of(Kanayago::RationalNode, body.recv)
+    assert_equal(:to_i, body.mid)
+    assert_instance_of(Kanayago::ListNode, body.args)
+
+    arg = body.args.first
+
+    assert_instance_of(Kanayago::IntegerNode, arg)
   end
 end

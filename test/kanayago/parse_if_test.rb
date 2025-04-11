@@ -11,48 +11,20 @@ class ParseIfTest < Minitest::Test
       end
     CODE
 
-    expected = {
-      NODE_SCOPE: {
-        args: nil,
-        body: {
-          NODE_BLOCK: [
-            {
-              NODE_LASGN: {
-                id: :v,
-                value: {
-                  NODE_INTEGER: 117
-                }
-              }
-            },
-            {
-              NODE_IF: {
-                cond: {
-                  NODE_LVAR: {
-                    vid: :v
-                  }
-                },
-                body: {
-                  NODE_FCALL: {
-                    mid: :p,
-                    args: {
-                      NODE_LIST: [
-                        {
-                          NODE_LVAR: {
-                            vid: :v
-                          }
-                        }
-                      ]
-                    }
-                  }
-                },
-                else: nil
-              }
-            }
-          ]
-        }
-      }
-    }
+    assert_instance_of(Kanayago::ScopeNode, result)
+    assert_nil(result.args)
 
-    assert_equal expected, result
+    body = result.body
+
+    assert_instance_of(Kanayago::BlockNode, body)
+    assert_equal(2, body.size)
+
+    arg = body.first
+
+    assert_instance_of(Kanayago::LeftAssignNode, arg)
+
+    arg = body.last
+
+    assert_instance_of(Kanayago::IfStatementNode, arg)
   end
 end

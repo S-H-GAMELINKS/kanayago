@@ -6,18 +6,13 @@ class ParseConstTest < Minitest::Test
   def test_parse_const
     result = Kanayago.parse('Class')
 
-    expected = {
-      NODE_SCOPE: {
-        args: nil,
-        body: {
-          NODE_CONST: {
-            vid: :Class
-          }
-        }
-      }
-    }
+    assert_instance_of(Kanayago::ScopeNode, result)
+    assert_nil(result.args)
 
-    assert_equal expected, result
+    body = result.body
+
+    assert_instance_of(Kanayago::ConstantNode, body)
+    assert_equal(:Class, body.vid)
   end
 
   def test_parse_const_ref
@@ -26,37 +21,30 @@ class ParseConstTest < Minitest::Test
       p S
     CODE
 
-    expected = {
-      NODE_SCOPE: {
-        args: nil,
-        body: {
-          NODE_BLOCK: [
-            {
-              NODE_CDECL: {
-                vid: :S,
-                else: nil,
-                value: {
-                  NODE_INTEGER: 117
-                }
-              }
-            },
-            {
-              NODE_FCALL: {
-                mid: :p,
-                args: {
-                  NODE_LIST: [
-                    NODE_CONST: {
-                      vid: :S
-                    }
-                  ]
-                }
-              }
-            }
-          ]
-        }
-      }
-    }
+    assert_instance_of(Kanayago::ScopeNode, result)
+    assert_nil(result.args)
 
-    assert_equal expected, result
+    body = result.body
+
+    assert_instance_of(Kanayago::BlockNode, body)
+    assert_equal(2, body.size)
+
+    line = body.first
+
+    assert_instance_of(Kanayago::ConstantDeclarationNode, line)
+    assert_equal(:S, line.vid)
+    assert_nil(line.else)
+    assert_instance_of(Kanayago::IntegerNode, line.value)
+
+    line = body.last
+
+    assert_instance_of(Kanayago::FunctionCallNode, line)
+    assert_equal(:p, line.mid)
+    assert_instance_of(Kanayago::ListNode, line.args)
+
+    arg = line.args.first
+
+    assert_instance_of(Kanayago::ConstantNode, arg)
+    assert_equal(:S, arg.vid)
   end
 end

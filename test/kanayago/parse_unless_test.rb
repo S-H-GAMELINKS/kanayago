@@ -11,48 +11,20 @@ class ParseUnlessTest < Minitest::Test
       end
     CODE
 
-    expected = {
-      NODE_SCOPE: {
-        args: nil,
-        body: {
-          NODE_BLOCK: [
-            {
-              NODE_LASGN: {
-                id: :v,
-                value: {
-                  NODE_INTEGER: 117
-                }
-              }
-            },
-            {
-              NODE_UNLESS: {
-                cond: {
-                  NODE_LVAR: {
-                    vid: :v
-                  }
-                },
-                body: {
-                  NODE_FCALL: {
-                    mid: :p,
-                    args: {
-                      NODE_LIST: [
-                        {
-                          NODE_LVAR: {
-                            vid: :v
-                          }
-                        }
-                      ]
-                    }
-                  }
-                },
-                else: nil
-              }
-            }
-          ]
-        }
-      }
-    }
+    assert_instance_of(Kanayago::ScopeNode, result)
+    assert_nil(result.args)
 
-    assert_equal expected, result
+    body = result.body
+
+    line = body[0]
+
+    assert_instance_of(Kanayago::LeftAssignNode, line)
+
+    line = body[1]
+
+    assert_instance_of(Kanayago::UnlessStatementNode, line)
+    assert_instance_of(Kanayago::LocalVariableNode, line.cond)
+    assert_instance_of(Kanayago::FunctionCallNode, line.body)
+    assert_nil(line.else)
   end
 end

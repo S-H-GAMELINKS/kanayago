@@ -6,172 +6,121 @@ class ParseImaginaryTest < Minitest::Test
   def test_parse_imaginary
     result = Kanayago.parse('117i')
 
-    expected = {
-      NODE_SCOPE: {
-        args: nil,
-        body: {
-          NODE_IMAGINARY: 0 + 117i
-        }
-      }
-    }
+    assert_instance_of(Kanayago::ScopeNode, result)
+    assert_nil(result.args)
 
-    assert_equal expected, result
+    body = result.body
+
+    assert_instance_of(Kanayago::ImaginaryNode, body)
+    assert_equal((0 + 117i), body.val)
+    assert_equal(10, body.base)
+    refute(body.minus)
+    assert_equal(0, body.seen_point)
+    assert_equal('integer_literal', body.type)
   end
 
   def test_parse_imaginary_plus_opcall
     result = Kanayago.parse('117i + 117i')
 
-    expected = {
-      NODE_SCOPE: {
-        args: nil,
-        body: {
-          NODE_OPCALL: {
-            recv: {
-              NODE_IMAGINARY: 0 + 117i
-            },
-            mid: :+,
-            args: {
-              NODE_LIST: [
-                {
-                  NODE_IMAGINARY: 0 + 117i
-                }
-              ]
-            }
-          }
-        }
-      }
-    }
+    assert_instance_of(Kanayago::ScopeNode, result)
+    assert_nil(result.args)
 
-    assert_equal expected, result
+    body = result.body
+
+    assert_instance_of(Kanayago::OperatorCallNode, body)
+    assert_instance_of(Kanayago::ImaginaryNode, body.recv)
+    assert_equal(:+, body.mid)
+    assert_instance_of(Kanayago::ListNode, body.args)
+
+    arg = body.args.first
+
+    assert_instance_of(Kanayago::ImaginaryNode, arg)
   end
 
   def test_parse_imaginary_minus_opcall
     result = Kanayago.parse('117i - 117i')
 
-    expected = {
-      NODE_SCOPE: {
-        args: nil,
-        body: {
-          NODE_OPCALL: {
-            recv: {
-              NODE_IMAGINARY: 0 + 117i
-            },
-            mid: :-,
-            args: {
-              NODE_LIST: [
-                {
-                  NODE_IMAGINARY: 0 + 117i
-                }
-              ]
-            }
-          }
-        }
-      }
-    }
+    assert_instance_of(Kanayago::ScopeNode, result)
+    assert_nil(result.args)
 
-    assert_equal expected, result
+    body = result.body
+
+    assert_instance_of(Kanayago::OperatorCallNode, body)
+    assert_instance_of(Kanayago::ImaginaryNode, body.recv)
+    assert_equal(:-, body.mid)
+    assert_instance_of(Kanayago::ListNode, body.args)
+
+    arg = body.args.first
+
+    assert_instance_of(Kanayago::ImaginaryNode, arg)
   end
 
   def test_parse_imaginary_times_opcall
     result = Kanayago.parse('117i * 117i')
 
-    expected = {
-      NODE_SCOPE: {
-        args: nil,
-        body: {
-          NODE_OPCALL: {
-            recv: {
-              NODE_IMAGINARY: 0 + 117i
-            },
-            mid: :*,
-            args: {
-              NODE_LIST: [
-                {
-                  NODE_IMAGINARY: 0 + 117i
-                }
-              ]
-            }
-          }
-        }
-      }
-    }
+    assert_instance_of(Kanayago::ScopeNode, result)
+    assert_nil(result.args)
 
-    assert_equal expected, result
+    body = result.body
+
+    assert_instance_of(Kanayago::OperatorCallNode, body)
+    assert_instance_of(Kanayago::ImaginaryNode, body.recv)
+    assert_equal(:*, body.mid)
+    assert_instance_of(Kanayago::ListNode, body.args)
+
+    arg = body.args.first
+
+    assert_instance_of(Kanayago::ImaginaryNode, arg)
   end
 
   def test_parse_imaginary_div_opcall
     result = Kanayago.parse('117i / 117i')
 
-    expected = {
-      NODE_SCOPE: {
-        args: nil,
-        body: {
-          NODE_OPCALL: {
-            recv: {
-              NODE_IMAGINARY: 0 + 117i
-            },
-            mid: :/,
-            args: {
-              NODE_LIST: [
-                {
-                  NODE_IMAGINARY: 0 + 117i
-                }
-              ]
-            }
-          }
-        }
-      }
-    }
+    assert_instance_of(Kanayago::ScopeNode, result)
+    assert_nil(result.args)
 
-    assert_equal expected, result
+    body = result.body
+
+    assert_instance_of(Kanayago::OperatorCallNode, body)
+    assert_instance_of(Kanayago::ImaginaryNode, body.recv)
+    assert_equal(:/, body.mid)
+    assert_instance_of(Kanayago::ListNode, body.args)
+
+    arg = body.args.first
+
+    assert_instance_of(Kanayago::ImaginaryNode, arg)
   end
 
   def test_parse_imaginary_remainder_opcall
     result = Kanayago.parse('117i % 117i')
 
-    expected = {
-      NODE_SCOPE: {
-        args: nil,
-        body: {
-          NODE_OPCALL: {
-            recv: {
-              NODE_IMAGINARY: 0 + 117i
-            },
-            mid: :%,
-            args: {
-              NODE_LIST: [
-                {
-                  NODE_IMAGINARY: 0 + 117i
-                }
-              ]
-            }
-          }
-        }
-      }
-    }
+    assert_instance_of(Kanayago::ScopeNode, result)
+    assert_nil(result.args)
 
-    assert_equal expected, result
+    body = result.body
+
+    assert_instance_of(Kanayago::OperatorCallNode, body)
+    assert_instance_of(Kanayago::ImaginaryNode, body.recv)
+    assert_equal(:%, body.mid)
+    assert_instance_of(Kanayago::ListNode, body.args)
+
+    arg = body.args.first
+
+    assert_instance_of(Kanayago::ImaginaryNode, arg)
   end
 
   def test_parse_imaginary_call
     result = Kanayago.parse('117i.to_i')
 
-    expected = {
-      NODE_SCOPE: {
-        args: nil,
-        body: {
-          NODE_CALL: {
-            recv: {
-              NODE_IMAGINARY: 0 + 117i
-            },
-            mid: :to_i,
-            args: nil
-          }
-        }
-      }
-    }
+    assert_instance_of(Kanayago::ScopeNode, result)
+    assert_nil(result.args)
 
-    assert_equal expected, result
+    body = result.body
+
+    assert_instance_of(Kanayago::CallNode, body)
+    assert_instance_of(Kanayago::ImaginaryNode, body.recv)
+    assert_equal(:to_i, body.mid)
+    assert_nil(body.args)
   end
 
   def test_parse_imaginary_call_with_arg; end

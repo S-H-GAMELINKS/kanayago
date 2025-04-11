@@ -9,38 +9,29 @@ class ParseLvarTest < Minitest::Test
       p v
     CODE
 
-    expected = {
-      NODE_SCOPE: {
-        args: nil,
-        body: {
-          NODE_BLOCK: [
-            {
-              NODE_LASGN: {
-                id: :v,
-                value: {
-                  NODE_INTEGER: 117
-                }
-              }
-            },
-            {
-              NODE_FCALL: {
-                mid: :p,
-                args: {
-                  NODE_LIST: [
-                    {
-                      NODE_LVAR: {
-                        vid: :v
-                      }
-                    }
-                  ]
-                }
-              }
-            }
-          ]
-        }
-      }
-    }
+    assert_instance_of(Kanayago::ScopeNode, result)
+    assert_nil(result.args)
 
-    assert_equal expected, result
+    body = result.body
+
+    assert_instance_of(Kanayago::BlockNode, body)
+    assert_equal(2, body.size)
+
+    line = body.first
+
+    assert_instance_of(Kanayago::LeftAssignNode, line)
+    assert_equal(:v, line.id)
+    assert_instance_of(Kanayago::IntegerNode, line.value)
+
+    line = body.last
+
+    assert_instance_of(Kanayago::FunctionCallNode, line)
+    assert_equal(:p, line.mid)
+    assert_instance_of(Kanayago::ListNode, line.args)
+
+    arg = line.args.first
+
+    assert_instance_of(Kanayago::LocalVariableNode, arg)
+    assert_equal(:v, arg.vid)
   end
 end
