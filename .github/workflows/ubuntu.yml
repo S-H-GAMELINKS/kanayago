@@ -19,27 +19,11 @@ jobs:
     - name: Install dependencies
       run: sudo apt install git ruby autoconf gcc make zlib1g-dev libffi-dev libreadline-dev libgdbm-dev libssl-dev libyaml-dev -y
 
-    - name: Install rbenv
-      run: git clone https://github.com/rbenv/rbenv.git ~/.rbenv
-
-
-    - name: Add PATH
-      run: |
-        echo "~/.rbenv/bin" >> $GITHUB_PATH
-        echo "~/.rbenv/shims" >> $GITHUB_PATH
-
-    - name: Install Ruby head
-      run: |
-        rbenv init
-        git clone https://github.com/rbenv/ruby-build.git "$(rbenv root)"/plugins/ruby-build
-        RUBY_CONFIGURE_OPTS="cppflags=-DUNIVERSAL_PARSER" rbenv install ruby-dev
-        rbenv global ruby-dev
-
-    - name: Install bundler
-      run: gem install bundler
-
-    - name: bunlde install
-      run: bundle install
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: head
+        bundler-cache: true
 
     - name: Import Ruby Parser
       run: bundle exec rake ruby_parser:import
@@ -49,9 +33,6 @@ jobs:
 
     - name: Build Kanayago
       run: bundle exec rake compile
-
-    - name: Run RuboCop
-      run: bundle exec rubocop
 
     - name: Run tests
       run: bundle exec rake queue:test
