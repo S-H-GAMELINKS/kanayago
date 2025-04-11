@@ -12,9 +12,9 @@ class ParseIntegerTest < Minitest::Test
     body = result.body
 
     assert_instance_of(Kanayago::IntegerNode, body)
-    assert_equal(body.val, 1)
-    assert_equal(body.minus, false)
-    assert_equal(body.base, 10)
+    assert_equal(1, body.val)
+    refute(body.minus)
+    assert_equal(10, body.base)
   end
 
   def test_parse_integer_plus_opcall
@@ -27,18 +27,18 @@ class ParseIntegerTest < Minitest::Test
 
     assert_instance_of(Kanayago::OperatorCallNode, body)
     assert_instance_of(Kanayago::IntegerNode, body.recv)
-    assert_equal(body.mid, :+)
+    assert_equal(:+, body.mid)
     assert_instance_of(Kanayago::ListNode, body.args)
 
     recv = body.recv
 
     assert_instance_of(Kanayago::IntegerNode, recv)
-    assert_equal(recv.val, 1)
+    assert_equal(1, recv.val)
 
     arg = body.args.first
 
     assert_instance_of(Kanayago::IntegerNode, arg)
-    assert_equal(arg.val, 1)
+    assert_equal(1, arg.val)
   end
 
   def test_parse_integer_minus_opcall
@@ -51,18 +51,18 @@ class ParseIntegerTest < Minitest::Test
 
     assert_instance_of(Kanayago::OperatorCallNode, body)
     assert_instance_of(Kanayago::IntegerNode, body.recv)
-    assert_equal(body.mid, :-)
+    assert_equal(:-, body.mid)
     assert_instance_of(Kanayago::ListNode, body.args)
 
     recv = body.recv
 
     assert_instance_of(Kanayago::IntegerNode, recv)
-    assert_equal(recv.val, 1)
+    assert_equal(1, recv.val)
 
     arg = body.args.first
 
     assert_instance_of(Kanayago::IntegerNode, arg)
-    assert_equal(arg.val, 1)
+    assert_equal(1, arg.val)
   end
 
   def test_parse_integer_times_opcall
@@ -75,18 +75,18 @@ class ParseIntegerTest < Minitest::Test
 
     assert_instance_of(Kanayago::OperatorCallNode, body)
     assert_instance_of(Kanayago::IntegerNode, body.recv)
-    assert_equal(body.mid, :*)
+    assert_equal(:*, body.mid)
     assert_instance_of(Kanayago::ListNode, body.args)
 
     recv = body.recv
 
     assert_instance_of(Kanayago::IntegerNode, recv)
-    assert_equal(recv.val, 1)
+    assert_equal(1, recv.val)
 
     arg = body.args.first
 
     assert_instance_of(Kanayago::IntegerNode, arg)
-    assert_equal(arg.val, 1)
+    assert_equal(1, arg.val)
   end
 
   def test_parse_integer_div_opcall
@@ -99,18 +99,18 @@ class ParseIntegerTest < Minitest::Test
 
     assert_instance_of(Kanayago::OperatorCallNode, body)
     assert_instance_of(Kanayago::IntegerNode, body.recv)
-    assert_equal(body.mid, :/)
+    assert_equal(:/, body.mid)
     assert_instance_of(Kanayago::ListNode, body.args)
 
     recv = body.recv
 
     assert_instance_of(Kanayago::IntegerNode, recv)
-    assert_equal(recv.val, 1)
+    assert_equal(1, recv.val)
 
     arg = body.args.first
 
     assert_instance_of(Kanayago::IntegerNode, arg)
-    assert_equal(arg.val, 1)
+    assert_equal(1, arg.val)
   end
 
   def test_parse_integer_remainder_opcall
@@ -123,18 +123,18 @@ class ParseIntegerTest < Minitest::Test
 
     assert_instance_of(Kanayago::OperatorCallNode, body)
     assert_instance_of(Kanayago::IntegerNode, body.recv)
-    assert_equal(body.mid, :%)
+    assert_equal(:%, body.mid)
     assert_instance_of(Kanayago::ListNode, body.args)
 
     recv = body.recv
 
     assert_instance_of(Kanayago::IntegerNode, recv)
-    assert_equal(recv.val, 1)
+    assert_equal(1, recv.val)
 
     arg = body.args.first
 
     assert_instance_of(Kanayago::IntegerNode, arg)
-    assert_equal(arg.val, 1)
+    assert_equal(1, arg.val)
   end
 
   def test_parse_integer_call
@@ -147,13 +147,13 @@ class ParseIntegerTest < Minitest::Test
 
     assert_instance_of(Kanayago::CallNode, body)
     assert_instance_of(Kanayago::IntegerNode, body.recv)
-    assert_equal(body.mid, :to_i)
+    assert_equal(:to_i, body.mid)
     assert_nil(body.args)
 
     recv = body.recv
 
     assert_instance_of(Kanayago::IntegerNode, recv)
-    assert_equal(recv.val, 1)
+    assert_equal(1, recv.val)
   end
 
   def test_parse_integer_call_with_arg
@@ -166,17 +166,17 @@ class ParseIntegerTest < Minitest::Test
 
     assert_instance_of(Kanayago::CallNode, body)
     assert_instance_of(Kanayago::IntegerNode, body.recv)
-    assert_equal(body.mid, :to_i)
+    assert_equal(:to_i, body.mid)
     assert_instance_of(Kanayago::ListNode, body.args)
 
     recv = body.recv
 
     assert_instance_of(Kanayago::IntegerNode, recv)
-    assert_equal(recv.val, 1)
+    assert_equal(1, recv.val)
 
     arg = body.args.first
 
     assert_instance_of(Kanayago::IntegerNode, arg)
-    assert_equal(arg.val, 10)
+    assert_equal(10, arg.val)
   end
 end

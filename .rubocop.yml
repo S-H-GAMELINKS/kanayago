@@ -1,9 +1,18 @@
 inherit_from: .rubocop_todo.yml
 
+AllCops:
+  NewCops: enable
+
 Metrics/BlockLength:
   Exclude:
     - Rakefile
     - kanayago.gemspec
+
+Metrics/AbcSize:
+  Enabled: false
+
+Minitest/MultipleAssertions:
+  Enabled: false
 
 RBS:
   Enabled: true

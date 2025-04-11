@@ -12,7 +12,7 @@ class ParseFloatTest < Minitest::Test
     body = result.body
 
     assert_instance_of(Kanayago::FloatNode, body)
-    assert_equal(1.17, body.val)
+    assert_in_delta(1.17, body.val)
     refute(body.minus)
   end
 
