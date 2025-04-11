@@ -6,24 +6,17 @@ class ParseFcallTest < Minitest::Test
   def test_parse_fcall
     result = Kanayago.parse('p 117')
 
-    expected = {
-      NODE_SCOPE: {
-        args: nil,
-        body: {
-          NODE_FCALL: {
-            mid: :p,
-            args: {
-              NODE_LIST: [
-                {
-                  NODE_INTEGER: 117
-                }
-              ]
-            }
-          }
-        }
-      }
-    }
+    assert_instance_of(Kanayago::ScopeNode, result)
+    assert_nil(result.args)
 
-    assert_equal expected, result
+    body = result.body
+
+    assert_instance_of(Kanayago::FunctionCallNode, body)
+    assert_equal(:p, body.mid)
+    assert_instance_of(Kanayago::ListNode, body.args)
+
+    arg = body.args.first
+
+    assert_instance_of(Kanayago::IntegerNode, arg)
   end
 end

@@ -1,54 +1,132 @@
 #include "kanayago.h"
+#include "internal/encoding.h"
+#include "internal/ruby_parser.h"
+#include "rubyparser.h"
 
 #define symbol(arg) \
     ID2SYM(rb_intern((arg)))
 
 VALUE rb_mKanayago;
 
-static VALUE ast_to_hash(const NODE *);
+VALUE rb_cScopeNode;
+VALUE rb_cIntegerNode;
+VALUE rb_cFloatNode;
+VALUE rb_cRationalNode;
+VALUE rb_cImaginaryNode;
+VALUE rb_cStringNode;
+VALUE rb_cSymbolNode;
+VALUE rb_cConstantNode;
+VALUE rb_cConstantDeclarationNode;
+VALUE rb_cDefinitionNode;
+VALUE rb_cOperatorCallNode;
+VALUE rb_cCallNode;
+VALUE rb_cFunctionCallNode;
+VALUE rb_cArgumentsNode;
+VALUE rb_cListNode;
+VALUE rb_cIfStatementNode;
+VALUE rb_cUnlessStatementNode;
+VALUE rb_cBlockNode;
+VALUE rb_cBeginNode;
+VALUE rb_cLeftAssignNode;
+VALUE rb_cClassNode;
+VALUE rb_cColon2Node;
+VALUE rb_cInstanceVariableNode;
+VALUE rb_cLocalVariableNode;
+
+static VALUE ast_to_node_instance(const NODE *);
 
 static VALUE
-node_opcall_to_hash(const NODE *node)
+operator_call_node_new(const NODE *node)
 {
-    VALUE result = rb_hash_new();
-    rb_hash_aset(result, symbol("recv"), ast_to_hash(RNODE_OPCALL(node)->nd_recv));
-    rb_hash_aset(result, symbol("mid"), ID2SYM(RNODE_OPCALL(node)->nd_mid));
-    rb_hash_aset(result, symbol("args"), ast_to_hash(RNODE_OPCALL(node)->nd_args));
+    VALUE obj = rb_class_new_instance(0, 0, rb_cOperatorCallNode);
+
+    rb_ivar_set(obj, symbol("recv"), ast_to_node_instance(RNODE_OPCALL(node)->nd_recv));
+    rb_ivar_set(obj, symbol("mid"), ID2SYM(RNODE_OPCALL(node)->nd_mid));
+    rb_ivar_set(obj, symbol("args"), ast_to_node_instance(RNODE_OPCALL(node)->nd_args));
+
+    return obj;
+}
+
+static VALUE
+operator_call_node_recv_get(VALUE self)
+{
+    return rb_ivar_get(self, symbol("recv"));
+}
+
+static VALUE
+operator_call_node_mid_get(VALUE self)
+{
+    return rb_ivar_get(self, symbol("mid"));
+}
+
+static VALUE
+operator_call_node_args_get(VALUE self)
+{
+    return rb_ivar_get(self, symbol("args"));
+}
+
+static VALUE
+call_node_new(const NODE *node)
+{
+    VALUE result = rb_class_new_instance(0, 0, rb_cCallNode);
+
+    rb_ivar_set(result, symbol("recv"), ast_to_node_instance(RNODE_OPCALL(node)->nd_recv));
+    rb_ivar_set(result, symbol("mid"), ID2SYM(RNODE_CALL(node)->nd_mid));
+    rb_ivar_set(result, symbol("args"), ast_to_node_instance(RNODE_CALL(node)->nd_args));
+
     return result;
 }
 
 static VALUE
-node_call_to_hash(const NODE *node)
+call_node_recv_get(VALUE self)
 {
-    VALUE result = rb_hash_new();
-
-    rb_hash_aset(result, symbol("recv"), ast_to_hash(RNODE_OPCALL(node)->nd_recv));
-    rb_hash_aset(result, symbol("mid"), ID2SYM(RNODE_CALL(node)->nd_mid));
-    rb_hash_aset(result, symbol("args"), ast_to_hash(RNODE_CALL(node)->nd_args));
-
-    return result;
+    return rb_ivar_get(self, symbol("recv"));
 }
 
 static VALUE
-node_fcall_to_hash(const NODE *node)
+call_node_mid_get(VALUE self)
 {
-    VALUE result = rb_hash_new();
-
-    rb_hash_aset(result, symbol("mid"), ID2SYM(RNODE_FCALL(node)->nd_mid));
-    rb_hash_aset(result, symbol("args"), ast_to_hash(RNODE_FCALL(node)->nd_args));
-
-    return result;
+    return rb_ivar_get(self, symbol("mid"));
 }
 
 static VALUE
-node_list_to_hash(const NODE *node)
+call_node_args_get(VALUE self)
 {
-    VALUE result = rb_ary_new();
+    return rb_ivar_get(self, symbol("args"));
+}
+
+static VALUE
+function_call_node_new(const NODE *node)
+{
+    VALUE obj = rb_class_new_instance(0, 0, rb_cFunctionCallNode);
+
+    rb_ivar_set(obj, symbol("mid"), ID2SYM(RNODE_FCALL(node)->nd_mid));
+    rb_ivar_set(obj, symbol("args"), ast_to_node_instance(RNODE_FCALL(node)->nd_args));
+
+    return obj;
+}
+
+static VALUE
+function_call_node_mid_get(VALUE self)
+{
+    return rb_ivar_get(self, symbol("mid"));
+}
+
+static VALUE
+function_call_node_args_get(VALUE self)
+{
+    return rb_ivar_get(self, symbol("args"));
+}
+
+static VALUE
+list_node_new(const NODE *node)
+{
+    VALUE result = rb_class_new_instance(0, 0, rb_cListNode);
     NODE *nd_head = RNODE_LIST(node)->nd_head;
     int list_len = RNODE_LIST(node)->as.nd_alen;
 
     for (int i = 0; i < list_len; i++ ) {
-	rb_ary_push(result, ast_to_hash(nd_head));
+	rb_ary_push(result, ast_to_node_instance(nd_head));
 	nd_head = RNODE_LIST(node)->nd_next;
     }
 
@@ -56,95 +134,435 @@ node_list_to_hash(const NODE *node)
 }
 
 static VALUE
-node_defn_to_hash(const NODE *node)
+definition_node_new(const NODE *node)
 {
-    VALUE result = rb_hash_new();
+    VALUE obj = rb_class_new_instance(0, 0, rb_cDefinitionNode);
 
-    rb_hash_aset(result, symbol("mid"), ID2SYM(RNODE_DEFN(node)->nd_mid));
-    rb_hash_aset(result, symbol("defn"), ast_to_hash(RNODE_DEFN(node)->nd_defn));
+    rb_ivar_set(obj, symbol("mid"), ID2SYM(RNODE_DEFN(node)->nd_mid));
+    rb_ivar_set(obj, symbol("defn"), ast_to_node_instance(RNODE_DEFN(node)->nd_defn));
 
-    return result;
+    return obj;
 }
 
 static VALUE
-node_block_to_hash(const NODE *node)
+definition_node_mid_get(VALUE self)
 {
-    VALUE result = rb_ary_new();
+    return rb_ivar_get(self, symbol("mid"));
+}
+
+static VALUE
+definition_node_defn_get(VALUE self)
+{
+    return rb_ivar_get(self, symbol("defn"));
+}
+
+static VALUE
+block_node_new(const NODE *node)
+{
+    VALUE obj = rb_class_new_instance(0, 0, rb_cBlockNode);
     const NODE *current_node = node;
 
     while (current_node) {
- 	rb_ary_push(result, ast_to_hash(RNODE_BLOCK(current_node)->nd_head));
+ 	rb_ary_push(obj, ast_to_node_instance(RNODE_BLOCK(current_node)->nd_head));
 	current_node = RNODE_BLOCK(current_node)->nd_next;
     }
 
+    return obj;
+}
+
+static VALUE
+left_assign_node_new(const NODE *node)
+{
+    VALUE obj = rb_class_new_instance(0, 0, rb_cLeftAssignNode);
+
+    rb_ivar_set(obj, symbol("id"), ID2SYM(RNODE_LASGN(node)->nd_vid));
+    rb_ivar_set(obj, symbol("value"), ast_to_node_instance(RNODE_LASGN(node)->nd_value));
+
+    return obj;
+}
+
+static VALUE
+left_assign_node_id_get(VALUE self)
+{
+    return rb_ivar_get(self, symbol("id"));
+}
+
+static VALUE
+left_assign_node_value_get(VALUE self)
+{
+    return rb_ivar_get(self, symbol("value"));
+}
+
+static VALUE
+local_variable_node_new(const NODE *node)
+{
+    VALUE obj = rb_class_new_instance(0, 0, rb_cLocalVariableNode);
+
+    rb_ivar_set(obj, symbol("vid"), ID2SYM(RNODE_LVAR(node)->nd_vid));
+
+    return obj;
+}
+
+static VALUE
+local_variable_node_vid_get(VALUE self)
+{
+    return rb_ivar_get(self, symbol("vid"));
+}
+
+static VALUE
+if_statement_node_new(const NODE *node)
+{
+    VALUE obj = rb_class_new_instance(0, 0, rb_cIfStatementNode);
+
+    rb_ivar_set(obj, symbol("cond"), ast_to_node_instance(RNODE_IF(node)->nd_cond));
+    rb_ivar_set(obj, symbol("body"), ast_to_node_instance(RNODE_IF(node)->nd_body));
+    rb_ivar_set(obj, symbol("else"), ast_to_node_instance(RNODE_IF(node)->nd_else));
+
+    return obj;
+}
+
+static VALUE
+if_statement_node_cond_get(VALUE self)
+{
+    return rb_ivar_get(self, symbol("cond"));
+}
+
+static VALUE
+if_statement_node_body_get(VALUE self)
+{
+    return rb_ivar_get(self, symbol("body"));
+}
+
+static VALUE
+if_statement_node_else_get(VALUE self)
+{
+    return rb_ivar_get(self, symbol("else"));
+}
+
+static VALUE
+unless_statement_node_new(const NODE *node)
+{
+    VALUE obj = rb_class_new_instance(0, 0, rb_cUnlessStatementNode);
+
+    rb_ivar_set(obj, symbol("cond"), ast_to_node_instance(RNODE_UNLESS(node)->nd_cond));
+    rb_ivar_set(obj, symbol("body"), ast_to_node_instance(RNODE_UNLESS(node)->nd_body));
+    rb_ivar_set(obj, symbol("else"), ast_to_node_instance(RNODE_UNLESS(node)->nd_else));
+
+    return obj;
+}
+
+static VALUE
+unless_statement_node_cond_get(VALUE self)
+{
+    return rb_ivar_get(self, symbol("cond"));
+}
+
+static VALUE
+unless_statement_node_body_get(VALUE self)
+{
+    return rb_ivar_get(self, symbol("body"));
+}
+
+static VALUE
+unless_statement_node_else_get(VALUE self)
+{
+    return rb_ivar_get(self, symbol("else"));
+}
+
+static VALUE
+constant_node_new(const NODE *node)
+{
+    VALUE obj = rb_class_new_instance(0, 0, rb_cConstantNode);
+
+    rb_ivar_set(obj, symbol("vid"), ID2SYM(RNODE_CONST(node)->nd_vid));
+
+    return obj;
+}
+
+static VALUE
+constant_node_vid_get(VALUE self)
+{
+    return rb_ivar_get(self, symbol("vid"));
+}
+
+static VALUE
+constant_declaration_node_new(const NODE *node)
+{
+    VALUE obj = rb_class_new_instance(0, 0, rb_cConstantDeclarationNode);
+
+    rb_ivar_set(obj, symbol("vid"), ID2SYM(RNODE_CDECL(node)->nd_vid));
+    rb_ivar_set(obj, symbol("else"), ast_to_node_instance(RNODE_CDECL(node)->nd_else));
+    rb_ivar_set(obj, symbol("value"), ast_to_node_instance(RNODE_CDECL(node)->nd_value));
+
+    return obj;
+}
+
+static VALUE
+constant_declaration_node_vid_get(VALUE self)
+{
+    return rb_ivar_get(self, symbol("vid"));
+}
+
+static VALUE
+constant_declaration_node_else_get(VALUE self)
+{
+    return rb_ivar_get(self, symbol("else"));
+}
+
+static VALUE
+constant_declaration_node_value_get(VALUE self)
+{
+    return rb_ivar_get(self, symbol("value"));
+}
+
+static VALUE
+integer_node_new(const NODE *node)
+{
+    VALUE result = rb_class_new_instance(0, 0, rb_cIntegerNode);
+
+    rb_ivar_set(result, symbol("val"), rb_node_integer_literal_val(node));
+    rb_ivar_set(result, symbol("minus"), RNODE_INTEGER(node)->minus == TRUE ? Qtrue : Qfalse);
+    rb_ivar_set(result, symbol("base"), INT2FIX(RNODE_INTEGER(node)->base));
+
     return result;
 }
 
 static VALUE
-node_lasgn_to_hash(const NODE *node)
+integer_node_val_get(VALUE self)
 {
-    VALUE result = rb_hash_new();
+    return rb_ivar_get(self, symbol("val"));
+}
 
-    rb_hash_aset(result, symbol("id"), ID2SYM(RNODE_LASGN(node)->nd_vid));
-    rb_hash_aset(result, symbol("value"), ast_to_hash(RNODE_LASGN(node)->nd_value));
+static VALUE
+integer_node_minus_get(VALUE self)
+{
+    return rb_ivar_get(self, symbol("minus"));
+}
+
+static VALUE
+integer_node_base_get(VALUE self)
+{
+    return rb_ivar_get(self, symbol("base"));
+}
+
+static VALUE
+float_node_new(const NODE *node)
+{
+    VALUE result = rb_class_new_instance(0, 0, rb_cFloatNode);
+
+    rb_ivar_set(result, symbol("val"), rb_node_float_literal_val(node));
+    rb_ivar_set(result, symbol("minus"), RNODE_FLOAT(node)->minus == TRUE ? Qtrue : Qfalse);
 
     return result;
 }
 
 static VALUE
-node_lvar_to_hash(const NODE *node)
+float_node_val_get(VALUE self)
 {
-    VALUE result = rb_hash_new();
+    return rb_ivar_get(self, symbol("val"));
+}
 
-    rb_hash_aset(result, symbol("vid"), ID2SYM(RNODE_LVAR(node)->nd_vid));
+static VALUE
+float_node_minus_get(VALUE self)
+{
+    return rb_ivar_get(self, symbol("minus"));
+}
+
+static VALUE
+parser_string_coderange_type_to_str(enum rb_parser_string_coderange_type coderange)
+{
+    switch (coderange) {
+      case RB_PARSER_ENC_CODERANGE_UNKNOWN:
+        return rb_str_new_cstr("RB_PARSER_ENC_CODERANGE_UNKNOWN");
+      case RB_PARSER_ENC_CODERANGE_7BIT:
+	return rb_str_new_cstr("RB_PARSER_ENC_CODERANGE_7BIT");
+      case RB_PARSER_ENC_CODERANGE_VALID:
+	return rb_str_new_cstr("RB_PARSER_ENC_CODERANGE_VALID");
+      case RB_PARSER_ENC_CODERANGE_BROKEN:
+	return rb_str_new_cstr("RB_PARSER_ENC_CODERANGE_BROKEN");
+    }
+    return Qnil;
+}
+
+static VALUE
+string_node_new(const NODE *node)
+{
+    VALUE result = rb_class_new_instance(0, 0, rb_cStringNode);
+    rb_parser_string_t *str = RNODE_STR(node)->string;
+    rb_encoding *enc = str->enc;
+    char *ptr = str->ptr;
+    long len = str->len;
+    enum rb_parser_string_coderange_type conderange = str->coderange;
+
+    rb_ivar_set(result, symbol("ptr"), rb_enc_str_new(ptr, len, enc));
+    rb_ivar_set(result, symbol("len"), LONG2FIX(len));
+    rb_ivar_set(result, symbol("enc"), rb_enc_from_encoding(enc));
+    rb_ivar_set(result, symbol("coderange"), parser_string_coderange_type_to_str(conderange));
 
     return result;
 }
 
 static VALUE
-node_if_to_hash(const NODE *node)
+string_node_ptr_get(VALUE self)
 {
-    VALUE result = rb_hash_new();
-
-    rb_hash_aset(result, symbol("cond"), ast_to_hash(RNODE_IF(node)->nd_cond));
-    rb_hash_aset(result, symbol("body"), ast_to_hash(RNODE_IF(node)->nd_body));
-    rb_hash_aset(result, symbol("else"), ast_to_hash(RNODE_IF(node)->nd_else));
-
-    return result;
+    return rb_ivar_get(self, symbol("ptr"));
 }
 
 static VALUE
-node_unless_to_hash(const NODE *node)
+string_node_len_get(VALUE self)
 {
-    VALUE result = rb_hash_new();
-
-    rb_hash_aset(result, symbol("cond"), ast_to_hash(RNODE_UNLESS(node)->nd_cond));
-    rb_hash_aset(result, symbol("body"), ast_to_hash(RNODE_UNLESS(node)->nd_body));
-    rb_hash_aset(result, symbol("else"), ast_to_hash(RNODE_UNLESS(node)->nd_else));
-
-    return result;
+    return rb_ivar_get(self, symbol("len"));
 }
 
 static VALUE
-node_const_to_hash(const NODE *node)
+string_node_enc_get(VALUE self)
 {
-    VALUE result = rb_hash_new();
-
-    rb_hash_aset(result, symbol("vid"), ID2SYM(RNODE_CONST(node)->nd_vid));
-
-    return result;
+    return rb_ivar_get(self, symbol("enc"));
 }
 
 static VALUE
-node_cdecl_to_hash(const NODE *node)
+string_node_coderange_get(VALUE self)
 {
-    VALUE result = rb_hash_new();
+    return rb_ivar_get(self, symbol("coderange"));
+}
 
-    rb_hash_aset(result, symbol("vid"), ID2SYM(RNODE_CDECL(node)->nd_vid));
-    rb_hash_aset(result, symbol("else"), ast_to_hash(RNODE_CDECL(node)->nd_else));
-    rb_hash_aset(result, symbol("value"), ast_to_hash(RNODE_CDECL(node)->nd_value));
+static VALUE
+rational_node_new(const NODE *node)
+{
+    VALUE obj = rb_class_new_instance(0, 0, rb_cRationalNode);
 
-    return result;
+    rb_ivar_set(obj, symbol("val"), rb_node_rational_literal_val(node));
+    rb_ivar_set(obj, symbol("minus"), RNODE_RATIONAL(node)->minus == TRUE ? Qtrue : Qfalse);
+    rb_ivar_set(obj, symbol("base"), INT2FIX(RNODE_RATIONAL(node)->base));
+    rb_ivar_set(obj, symbol("seen_point"), INT2FIX(RNODE_RATIONAL(node)->seen_point));
+
+    return obj;
+}
+
+static VALUE
+rational_node_val_get(VALUE self)
+{
+    return rb_ivar_get(self, symbol("val"));
+}
+
+static VALUE
+rational_node_minus_get(VALUE self)
+{
+    return rb_ivar_get(self, symbol("minus"));
+}
+
+static VALUE
+rational_node_base_get(VALUE self)
+{
+    return rb_ivar_get(self, symbol("base"));
+}
+
+static VALUE
+rational_node_seen_point_get(VALUE self)
+{
+    return rb_ivar_get(self, symbol("seen_point"));
+}
+
+static VALUE
+numeric_type_to_str(enum rb_numeric_type type)
+{
+    switch (type) {
+      case integer_literal:
+        return rb_str_new_cstr("integer_literal");
+      case float_literal:
+	return rb_str_new_cstr("float_literal");
+      case rational_literal:
+	return rb_str_new_cstr("rational_literal");
+    }
+    return Qnil;
+}
+
+static VALUE
+imaginary_node_new(const NODE *node)
+{
+    VALUE obj = rb_class_new_instance(0, 0, rb_cImaginaryNode);
+    enum rb_numeric_type type = RNODE_IMAGINARY(node)->type;
+
+    rb_ivar_set(obj, symbol("val"), rb_node_imaginary_literal_val(node));
+    rb_ivar_set(obj, symbol("minus"), RNODE_IMAGINARY(node)->minus == TRUE ? Qtrue : Qfalse);
+    rb_ivar_set(obj, symbol("base"), INT2FIX(RNODE_IMAGINARY(node)->base));
+    rb_ivar_set(obj, symbol("seen_point"), INT2FIX(RNODE_IMAGINARY(node)->seen_point));
+    rb_ivar_set(obj, symbol("type"), numeric_type_to_str(type));
+
+    return obj;
+}
+
+static VALUE
+imaginary_node_val_get(VALUE self)
+{
+    return rb_ivar_get(self, symbol("val"));
+}
+
+static VALUE
+imaginary_node_minus_get(VALUE self)
+{
+    return rb_ivar_get(self, symbol("minus"));
+}
+
+static VALUE
+imaginary_node_base_get(VALUE self)
+{
+    return rb_ivar_get(self, symbol("base"));
+}
+
+static VALUE
+imaginary_node_seen_point_get(VALUE self)
+{
+    return rb_ivar_get(self, symbol("seen_point"));
+}
+
+static VALUE
+imaginary_node_type_get(VALUE self)
+{
+    return rb_ivar_get(self, symbol("type"));
+}
+
+static VALUE
+symbol_node_new(const NODE *node)
+{
+    VALUE obj = rb_class_new_instance(0, 0, rb_cSymbolNode);
+
+    rb_parser_string_t *str = RNODE_SYM(node)->string;
+    rb_encoding *enc = str->enc;
+    char *ptr = str->ptr;
+    long len = str->len;
+    enum rb_parser_string_coderange_type conderange = str->coderange;
+
+    rb_ivar_set(obj, symbol("ptr"), rb_enc_str_new(ptr, len, enc));
+    rb_ivar_set(obj, symbol("len"), LONG2FIX(len));
+    rb_ivar_set(obj, symbol("enc"), rb_enc_from_encoding(enc));
+    rb_ivar_set(obj, symbol("coderange"), parser_string_coderange_type_to_str(conderange));
+
+    return obj;
+}
+
+static VALUE
+symbol_node_ptr_get(VALUE self)
+{
+    return rb_ivar_get(self, symbol("ptr"));
+}
+
+static VALUE
+symbol_node_len_get(VALUE self)
+{
+    return rb_ivar_get(self, symbol("len"));
+}
+
+static VALUE
+symbol_node_enc_get(VALUE self)
+{
+    return rb_ivar_get(self, symbol("enc"));
+}
+
+static VALUE
+symbol_node_coderange_get(VALUE self)
+{
+    return rb_ivar_get(self, symbol("coderange"));
 }
 
 static VALUE
@@ -153,83 +571,113 @@ node_literal_to_hash(const NODE *node)
     enum node_type type = nd_type(node);
 
     switch (type) {
-	case NODE_INTEGER: {
-	  VALUE result = rb_hash_new();
-	  rb_hash_aset(result, symbol("NODE_INTEGER"), rb_node_integer_literal_val(node));
-	  return result;
-	}
-	case NODE_FLOAT: {
-	  VALUE result = rb_hash_new();
-	  rb_hash_aset(result, symbol("NODE_FLOAT"), rb_node_float_literal_val(node));
-	  return result;
-	}
-	case NODE_RATIONAL: {
-	  VALUE result = rb_hash_new();
-	  rb_hash_aset(result, symbol("NODE_RATIONAL"), rb_node_rational_literal_val(node));
-	  return result;
-	}
-	case NODE_IMAGINARY: {
-	  VALUE result = rb_hash_new();
-	  rb_hash_aset(result, symbol("NODE_IMAGINARY"), rb_node_imaginary_literal_val(node));
-	  return result;
-	}
-	case NODE_STR: {
-	  VALUE result = rb_hash_new();
-	  rb_hash_aset(result, symbol("NODE_STR"), rb_node_str_string_val(node));
-	  return result;
-	}
-	case NODE_SYM: {
-	  VALUE result = rb_hash_new();
-	  rb_hash_aset(result, symbol("NODE_SYM"), rb_node_sym_string_val(node));
-	  return result;
-	}
+	case NODE_INTEGER:
+	  return integer_node_new(node);
+	case NODE_FLOAT:
+	  return float_node_new(node);
+	case NODE_RATIONAL:
+	  return rational_node_new(node);
+	case NODE_IMAGINARY:
+	  return imaginary_node_new(node);
+	case NODE_STR:
+	  return string_node_new(node);
+	case NODE_SYM:
+	  return symbol_node_new(node);
 	default:
 	  return Qnil;
     }
 }
 
 static VALUE
-node_class_to_hash(const NODE *node)
+class_node_new(const NODE *node)
 {
-    VALUE result = rb_hash_new();
+    VALUE obj = rb_class_new_instance(0, 0, rb_cClassNode);
 
-    rb_hash_aset(result, symbol("cpath"), ast_to_hash(RNODE_CLASS(node)->nd_cpath));
-    rb_hash_aset(result, symbol("super"), ast_to_hash(RNODE_CLASS(node)->nd_super));
-    rb_hash_aset(result, symbol("body"), ast_to_hash(RNODE_CLASS(node)->nd_body));
+    rb_ivar_set(obj, symbol("cpath"), ast_to_node_instance(RNODE_CLASS(node)->nd_cpath));
+    rb_ivar_set(obj, symbol("super"), ast_to_node_instance(RNODE_CLASS(node)->nd_super));
+    rb_ivar_set(obj, symbol("body"), ast_to_node_instance(RNODE_CLASS(node)->nd_body));
+
+    return obj;
+}
+
+static VALUE
+class_node_cpath_get(VALUE self)
+{
+    return rb_ivar_get(self, symbol("cpath"));
+}
+
+static VALUE
+class_node_super_get(VALUE self)
+{
+    return rb_ivar_get(self, symbol("super"));
+}
+
+static VALUE
+class_node_body_get(VALUE self)
+{
+    return rb_ivar_get(self, symbol("body"));
+}
+
+static VALUE
+colon2_node_new(const NODE *node)
+{
+    VALUE obj = rb_class_new_instance(0, 0, rb_cColon2Node);
+
+    rb_ivar_set(obj, symbol("mid"), ID2SYM(RNODE_COLON2(node)->nd_mid));
+    rb_ivar_set(obj, symbol("head"), ast_to_node_instance(RNODE_COLON2(node)->nd_head));
+
+    return obj;
+}
+
+static VALUE
+colon2_node_mid_get(VALUE self)
+{
+    return rb_ivar_get(self, symbol("mid"));
+}
+
+static VALUE
+colon2_node_head_get(VALUE self)
+{
+    return rb_ivar_get(self, symbol("head"));
+}
+
+static VALUE
+begin_node_new(const NODE *node)
+{
+    VALUE obj = rb_class_new_instance(0, 0, rb_cBeginNode);
+
+    rb_ivar_set(obj, symbol("body"), ast_to_node_instance(RNODE_BEGIN(node)->nd_body));
+
+    return obj;
+}
+
+static VALUE
+begin_node_body_get(VALUE self)
+{
+    return rb_ivar_get(self, symbol("body"));
+}
+
+static VALUE
+scope_node_new(const NODE *node)
+{
+    VALUE result = rb_class_new_instance(0, 0, rb_cScopeNode);
+
+    rb_ivar_set(result, symbol("args"), ast_to_node_instance((const NODE *)(RNODE_SCOPE(node)->nd_args)));
+    rb_ivar_set(result, symbol("body"), ast_to_node_instance(RNODE_SCOPE(node)->nd_body));
 
     return result;
 }
 
 static VALUE
-node_colon2_to_hash(const NODE *node)
+scope_node_args_get(VALUE self)
 {
-    VALUE result = rb_hash_new();
-
-    rb_hash_aset(result, symbol("mid"), ID2SYM(RNODE_COLON2(node)->nd_mid));
-    rb_hash_aset(result, symbol("head"), ast_to_hash(RNODE_COLON2(node)->nd_head));
-
-    return result;
+    return rb_ivar_get(self, symbol("args"));
 }
 
 static VALUE
-node_begin_to_hash(const NODE *node)
+scope_node_body_get(VALUE self)
 {
-    VALUE result = rb_hash_new();
-
-    rb_hash_aset(result, symbol("body"), ast_to_hash(RNODE_BEGIN(node)->nd_body));
-
-    return result;
-}
-
-static VALUE
-node_scope_to_hash(const NODE *node)
-{
-    VALUE result = rb_hash_new();
-
-    rb_hash_aset(result, symbol("args"), ast_to_hash((const NODE *)(RNODE_SCOPE(node)->nd_args)));
-    rb_hash_aset(result, symbol("body"), ast_to_hash(RNODE_SCOPE(node)->nd_body));
-
-    return result;
+    return rb_ivar_get(self, symbol("body"));
 }
 
 static VALUE
@@ -239,42 +687,54 @@ args_ainfo_to_hash(const struct rb_args_info ainfo)
 
     rb_hash_aset(result, symbol("forwarding"), INT2NUM(ainfo.forwarding));
     rb_hash_aset(result, symbol("pre_args_num"), INT2NUM(ainfo.pre_args_num));
-    rb_hash_aset(result, symbol("pre_init"), ast_to_hash(ainfo.pre_init));
+    rb_hash_aset(result, symbol("pre_init"), ast_to_node_instance(ainfo.pre_init));
     rb_hash_aset(result, symbol("post_args_num"), INT2NUM(ainfo.post_args_num));
-    rb_hash_aset(result, symbol("post_init"), ast_to_hash(ainfo.post_init));
+    rb_hash_aset(result, symbol("post_init"), ast_to_node_instance(ainfo.post_init));
     rb_hash_aset(result, symbol("first_post_arg"), Qnil);
     rb_hash_aset(result, symbol("rest_arg"), Qnil);
     rb_hash_aset(result, symbol("block_arg"), Qnil);
-    rb_hash_aset(result, symbol("opt_args"), ast_to_hash((const NODE *)(ainfo.opt_args)));
-    rb_hash_aset(result, symbol("kw_args"), ast_to_hash((const NODE *)(ainfo.kw_args)));
-    rb_hash_aset(result, symbol("kw_rest_arg"), ast_to_hash(ainfo.kw_rest_arg));
+    rb_hash_aset(result, symbol("opt_args"), ast_to_node_instance((const NODE *)(ainfo.opt_args)));
+    rb_hash_aset(result, symbol("kw_args"), ast_to_node_instance((const NODE *)(ainfo.kw_args)));
+    rb_hash_aset(result, symbol("kw_rest_arg"), ast_to_node_instance(ainfo.kw_rest_arg));
 
     return result;
 }
 
 static VALUE
-node_args_to_hash(const NODE *node)
+arguments_node_new(const NODE *node)
 {
-    VALUE result = rb_hash_new();
+    VALUE obj = rb_class_new_instance(0, 0, rb_cArgumentsNode);
     VALUE ainfo_hash = args_ainfo_to_hash(RNODE_ARGS(node)->nd_ainfo);
 
-    rb_hash_aset(result, symbol("ainfo"), ainfo_hash);
+    rb_ivar_set(obj, symbol("ainfo"), ainfo_hash);
 
-    return result;
+    return obj;
 }
 
 static VALUE
-node_ivar_to_hash(const NODE *node)
+arguments_node_ainfo_get(VALUE self)
 {
-    VALUE result = rb_hash_new();
-
-    rb_hash_aset(result, symbol("vid"), ID2SYM(RNODE_IVAR(node)->nd_vid));
-
-    return result;
+    return rb_ivar_get(self, symbol("ainfo"));
 }
 
 static VALUE
-ast_to_hash(const NODE *node)
+instance_variable_node_new(const NODE *node)
+{
+    VALUE obj = rb_class_new_instance(0, 0, rb_cInstanceVariableNode);
+
+    rb_ivar_set(obj, symbol("vid"), ID2SYM(RNODE_IVAR(node)->nd_vid));
+
+    return obj;
+}
+
+static VALUE
+instance_variable_node_vid_get(VALUE self)
+{
+    return rb_ivar_get(self, symbol("vid"));
+}
+
+static VALUE
+ast_to_node_instance(const NODE *node)
 {
     enum node_type type;
 
@@ -285,96 +745,42 @@ ast_to_hash(const NODE *node)
     type = nd_type(node);
 
     switch (type) {
-	case NODE_SCOPE: {
-	  VALUE result = rb_hash_new();
-	  rb_hash_aset(result, symbol("NODE_SCOPE"), node_scope_to_hash(node));
-	  return result;
-	}
-	case NODE_CLASS: {
-	  VALUE result = rb_hash_new();
-	  rb_hash_aset(result, symbol("NODE_CLASS"), node_class_to_hash(node));
-	  return result;
-	}
-	case NODE_DEFN: {
-	  VALUE result = rb_hash_new();
-	  rb_hash_aset(result, symbol("NODE_DEFN"), node_defn_to_hash(node));
-	  return result;
-	}
-	case NODE_OPCALL: {
-	  VALUE result = rb_hash_new();
-	  rb_hash_aset(result, symbol("NODE_OPCALL"), node_opcall_to_hash(node));
-	  return result;
-	}
-	case NODE_FCALL: {
-	  VALUE result = rb_hash_new();
-	  rb_hash_aset(result, symbol("NODE_FCALL"), node_fcall_to_hash(node));
-	  return result;
-	}
-	case NODE_CALL: {
-	  VALUE result = rb_hash_new();
-	  rb_hash_aset(result, symbol("NODE_CALL"), node_call_to_hash(node));
-	  return result;
-	}
-	case NODE_ARGS: {
-	  VALUE result = rb_hash_new();
-	  rb_hash_aset(result, symbol("NODE_ARGS"), node_args_to_hash(node));
-	  return result;
-	}
-	case NODE_BLOCK: {
-	  VALUE result = rb_hash_new();
-	  rb_hash_aset(result, symbol("NODE_BLOCK"), node_block_to_hash(node));
-	  return result;
-	}
-	case NODE_LASGN: {
-	  VALUE result = rb_hash_new();
-	  rb_hash_aset(result, symbol("NODE_LASGN"), node_lasgn_to_hash(node));
-	  return result;
-	}
-	case NODE_LVAR: {
-	  VALUE result = rb_hash_new();
-	  rb_hash_aset(result, symbol("NODE_LVAR"), node_lvar_to_hash(node));
-	  return result;
-	}
-	case NODE_IF: {
-	  VALUE result = rb_hash_new();
-	  rb_hash_aset(result, symbol("NODE_IF"), node_if_to_hash(node));
-	  return result;
-	}
-	case NODE_UNLESS: {
-	  VALUE result = rb_hash_new();
-	  rb_hash_aset(result, symbol("NODE_UNLESS"), node_unless_to_hash(node));
-	  return result;
-	}
-	case NODE_LIST: {
-	  VALUE result = rb_hash_new();
-	  rb_hash_aset(result, symbol("NODE_LIST"), node_list_to_hash(node));
-	  return result;
-	}
-	case NODE_CONST: {
-	  VALUE result = rb_hash_new();
-	  rb_hash_aset(result, symbol("NODE_CONST"), node_const_to_hash(node));
-	  return result;
-	}
-	case NODE_CDECL: {
-	  VALUE result = rb_hash_new();
-	  rb_hash_aset(result, symbol("NODE_CDECL"), node_cdecl_to_hash(node));
-	  return result;
-	}
-	case NODE_COLON2: {
-	  VALUE result = rb_hash_new();
-	  rb_hash_aset(result, symbol("NODE_COLON2"), node_colon2_to_hash(node));
-	  return result;
-	}
-	case NODE_BEGIN: {
-	  VALUE result = rb_hash_new();
-	  rb_hash_aset(result, symbol("NODE_BEGIN"), node_begin_to_hash(node));
-	  return result;
-	}
-	case NODE_IVAR: {
-	  VALUE result = rb_hash_new();
-	  rb_hash_aset(result, symbol("NODE_IVAR"), node_ivar_to_hash(node));
-	  return result;
-	}
+	case NODE_SCOPE:
+	  return scope_node_new(node);
+	case NODE_CLASS:
+	  return class_node_new(node);
+	case NODE_DEFN:
+	  return definition_node_new(node);
+	case NODE_OPCALL:
+	  return operator_call_node_new(node);
+	case NODE_FCALL:
+	  return function_call_node_new(node);
+	case NODE_CALL:
+	  return call_node_new(node);
+	case NODE_ARGS:
+	  return arguments_node_new(node);
+	case NODE_BLOCK:
+	  return block_node_new(node);
+	case NODE_LASGN:
+	  return left_assign_node_new(node);
+	case NODE_LVAR:
+	  return local_variable_node_new(node);
+	case NODE_IF:
+	  return if_statement_node_new(node);
+	case NODE_UNLESS:
+	  return unless_statement_node_new(node);
+	case NODE_LIST:
+	  return list_node_new(node);
+	case NODE_CONST:
+	  return constant_node_new(node);
+	case NODE_CDECL:
+	  return constant_declaration_node_new(node);
+	case NODE_COLON2:
+	  return colon2_node_new(node);
+	case NODE_BEGIN:
+	  return begin_node_new(node);
+	case NODE_IVAR:
+	  return instance_variable_node_new(node);
 	case NODE_INTEGER:
 	case NODE_FLOAT:
 	case NODE_RATIONAL:
@@ -389,7 +795,7 @@ ast_to_hash(const NODE *node)
 
 static VALUE
 kanayago_parse(VALUE self, VALUE source)
-{   
+{
     struct ruby_parser *parser;
     rb_parser_t *parser_params;
 
@@ -403,7 +809,7 @@ kanayago_parse(VALUE self, VALUE source)
 
     rb_ast_t *ast = rb_ruby_ast_data_get(vast);
 
-    return ast_to_hash(ast->body.root);
+    return ast_to_node_instance(ast->body.root);
 }
 
 RUBY_FUNC_EXPORTED void
@@ -411,4 +817,107 @@ Init_kanayago(void)
 {
     rb_mKanayago = rb_define_module("Kanayago");
     rb_define_module_function(rb_mKanayago, "kanayago_parse", kanayago_parse, 1);
+
+    rb_cScopeNode = rb_define_class_under(rb_mKanayago, "ScopeNode", rb_cObject);
+    rb_define_method(rb_cScopeNode, "args", scope_node_args_get, 0);
+    rb_define_method(rb_cScopeNode, "body", scope_node_body_get, 0);
+
+    rb_cIntegerNode = rb_define_class_under(rb_mKanayago, "IntegerNode", rb_cObject);
+    rb_define_method(rb_cIntegerNode, "val", integer_node_val_get, 0);
+    rb_define_method(rb_cIntegerNode, "minus", integer_node_minus_get, 0);
+    rb_define_method(rb_cIntegerNode, "base", integer_node_base_get, 0);
+
+    rb_cFloatNode = rb_define_class_under(rb_mKanayago, "FloatNode", rb_cObject);
+    rb_define_method(rb_cFloatNode, "val", float_node_val_get, 0);
+    rb_define_method(rb_cFloatNode, "minus", float_node_minus_get, 0);
+
+    rb_cRationalNode = rb_define_class_under(rb_mKanayago, "RationalNode", rb_cObject);
+    rb_define_method(rb_cRationalNode, "val", rational_node_val_get, 0);
+    rb_define_method(rb_cRationalNode, "minus", rational_node_minus_get, 0);
+    rb_define_method(rb_cRationalNode, "base", rational_node_base_get, 0);
+    rb_define_method(rb_cRationalNode, "seen_point", rational_node_seen_point_get, 0);
+
+    rb_cImaginaryNode = rb_define_class_under(rb_mKanayago, "ImaginaryNode", rb_cObject);
+    rb_define_method(rb_cImaginaryNode, "val", imaginary_node_val_get, 0);
+    rb_define_method(rb_cImaginaryNode, "minus", imaginary_node_minus_get, 0);
+    rb_define_method(rb_cImaginaryNode, "base", imaginary_node_base_get, 0);
+    rb_define_method(rb_cImaginaryNode, "seen_point", imaginary_node_seen_point_get, 0);
+    rb_define_method(rb_cImaginaryNode, "type", imaginary_node_type_get, 0);
+
+    rb_cStringNode = rb_define_class_under(rb_mKanayago, "StringNode", rb_cObject);
+    rb_define_method(rb_cStringNode, "ptr", string_node_ptr_get, 0);
+    rb_define_method(rb_cStringNode, "len", string_node_len_get, 0);
+    rb_define_method(rb_cStringNode, "enc", string_node_enc_get, 0);
+    rb_define_method(rb_cStringNode, "coderange", string_node_coderange_get, 0);
+
+    rb_cSymbolNode = rb_define_class_under(rb_mKanayago, "SymbolNode", rb_cObject);
+    rb_define_method(rb_cSymbolNode, "ptr", symbol_node_ptr_get, 0);
+    rb_define_method(rb_cSymbolNode, "len", symbol_node_len_get, 0);
+    rb_define_method(rb_cSymbolNode, "enc", symbol_node_enc_get, 0);
+    rb_define_method(rb_cSymbolNode, "coderange", symbol_node_coderange_get, 0);
+
+    rb_cConstantNode = rb_define_class_under(rb_mKanayago, "ConstantNode", rb_cObject);
+    rb_define_method(rb_cConstantNode, "vid", constant_node_vid_get, 0);
+
+    rb_cConstantDeclarationNode = rb_define_class_under(rb_mKanayago, "ConstantDeclarationNode", rb_cObject);
+    rb_define_method(rb_cConstantDeclarationNode, "vid", constant_declaration_node_vid_get, 0);
+    rb_define_method(rb_cConstantDeclarationNode, "else", constant_declaration_node_else_get, 0);
+    rb_define_method(rb_cConstantDeclarationNode, "value", constant_declaration_node_value_get, 0);
+
+    rb_cDefinitionNode = rb_define_class_under(rb_mKanayago, "DefinitionNode", rb_cObject);
+    rb_define_method(rb_cDefinitionNode, "mid", definition_node_mid_get, 0);
+    rb_define_method(rb_cDefinitionNode, "defn", definition_node_defn_get, 0);
+
+    rb_cOperatorCallNode = rb_define_class_under(rb_mKanayago, "OperatorCallNode", rb_cObject);
+    rb_define_method(rb_cOperatorCallNode, "recv", operator_call_node_recv_get, 0);
+    rb_define_method(rb_cOperatorCallNode, "mid", operator_call_node_mid_get, 0);
+    rb_define_method(rb_cOperatorCallNode, "args", operator_call_node_args_get, 0);
+
+    rb_cListNode = rb_define_class_under(rb_mKanayago, "ListNode", rb_cArray);
+
+    rb_cArgumentsNode = rb_define_class_under(rb_mKanayago, "ArgumentsNode", rb_cObject);
+    rb_define_method(rb_cArgumentsNode, "ainfo", arguments_node_ainfo_get, 0);
+
+    rb_cCallNode = rb_define_class_under(rb_mKanayago, "CallNode", rb_cObject);
+    rb_define_method(rb_cCallNode, "recv", call_node_recv_get, 0);
+    rb_define_method(rb_cCallNode, "mid", call_node_mid_get, 0);
+    rb_define_method(rb_cCallNode, "args", call_node_args_get, 0);
+
+    rb_cFunctionCallNode = rb_define_class_under(rb_mKanayago, "FunctionCallNode", rb_cObject);
+    rb_define_method(rb_cFunctionCallNode, "mid", function_call_node_mid_get, 0);
+    rb_define_method(rb_cFunctionCallNode, "args", function_call_node_args_get, 0);
+
+    rb_cIfStatementNode = rb_define_class_under(rb_mKanayago, "IfStatementNode", rb_cObject);
+    rb_define_method(rb_cIfStatementNode, "cond", if_statement_node_cond_get, 0);
+    rb_define_method(rb_cIfStatementNode, "body", if_statement_node_body_get, 0);
+    rb_define_method(rb_cIfStatementNode, "else", if_statement_node_else_get, 0);
+
+    rb_cUnlessStatementNode = rb_define_class_under(rb_mKanayago, "UnlessStatementNode", rb_cObject);
+    rb_define_method(rb_cUnlessStatementNode, "cond", unless_statement_node_cond_get, 0);
+    rb_define_method(rb_cUnlessStatementNode, "body", unless_statement_node_body_get, 0);
+    rb_define_method(rb_cUnlessStatementNode, "else", unless_statement_node_else_get, 0);
+
+    rb_cBlockNode = rb_define_class_under(rb_mKanayago, "BlockNode", rb_cArray);
+
+    rb_cBeginNode = rb_define_class_under(rb_mKanayago, "BeginNode", rb_cObject);
+    rb_define_method(rb_cBeginNode, "body", begin_node_body_get, 0);
+
+    rb_cLeftAssignNode = rb_define_class_under(rb_mKanayago, "LeftAssignNode", rb_cObject);
+    rb_define_method(rb_cLeftAssignNode, "id", left_assign_node_id_get, 0);
+    rb_define_method(rb_cLeftAssignNode, "value", left_assign_node_value_get, 0);
+
+    rb_cClassNode = rb_define_class_under(rb_mKanayago, "ClassNode", rb_cObject);
+    rb_define_method(rb_cClassNode, "cpath", class_node_cpath_get, 0);
+    rb_define_method(rb_cClassNode, "super", class_node_super_get, 0);
+    rb_define_method(rb_cClassNode, "body", class_node_body_get, 0);
+
+    rb_cColon2Node = rb_define_class_under(rb_mKanayago, "Colon2Node", rb_cObject);
+    rb_define_method(rb_cColon2Node, "mid", colon2_node_mid_get, 0);
+    rb_define_method(rb_cColon2Node, "head", colon2_node_head_get, 0);
+
+    rb_cInstanceVariableNode = rb_define_class_under(rb_mKanayago, "InstanceVariableNode", rb_cObject);
+    rb_define_method(rb_cInstanceVariableNode, "vid", instance_variable_node_vid_get, 0);
+
+    rb_cLocalVariableNode = rb_define_class_under(rb_mKanayago, "LocalVariableNode", rb_cObject);
+    rb_define_method(rb_cLocalVariableNode, "vid", local_variable_node_vid_get, 0);
 }

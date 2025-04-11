@@ -35,29 +35,15 @@ gem install pkg/kanayago-0.1.0.gem
 require 'kanayago/kanayago'
 
 result = Kanayago.parse('117 + 117')
+# => #<Kanayago::ScopeNode:0x00007f522199c5a8>
 
-p result
-# =>
-#{
-#  "NODE_SCOPE" => {
-#    "args" => nil,
-#    "body" => {
-#      "NODE_OPCALL" => {
-#        "recv" => {
-#          "NODE_INTEGER" => 117
-#        },
-#        "mid" => :+,
-#        "args" => {
-#          "NODE_LIST" => [
-#            {
-#              "NODE_INTEGER"=>117
-#            }
-#          ]
-#        }
-#      }
-#    }
-#  }
-#}
+p result.body
+# => #<Kanayago::OperatorCallNode:0x00007f5221b06358>
+
+p result.body.recv
+p result.body.recv.val
+# => #<Kanayago::IntegerNode:0x00007f5221b06330>
+# => 117
 ```
 
 ## Development

@@ -6,17 +6,12 @@ class ParseIvarTest < Minitest::Test
   def test_parse_ivar
     result = Kanayago.parse('@kanayago')
 
-    expected = {
-      NODE_SCOPE: {
-        args: nil,
-        body: {
-          NODE_IVAR: {
-            vid: :@kanayago
-          }
-        }
-      }
-    }
+    assert_instance_of(Kanayago::ScopeNode, result)
+    assert_nil(result.args)
 
-    assert_equal expected, result
+    body = result.body
+
+    assert_instance_of(Kanayago::InstanceVariableNode, body)
+    assert_equal(:@kanayago, body.vid)
   end
 end
