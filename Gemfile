@@ -5,7 +5,6 @@ source 'https://rubygems.org'
 # Specify your gem's dependencies in kanayago.gemspec
 gemspec
 
-gem 'lrama', '~> 0.6'
 gem 'rake', '~> 13.0'
 gem 'rake-compiler'
 
