@@ -2,15 +2,20 @@
 
 Trying to Make Ruby's Parser Available as a Gem.
 
+## Support Ruby version
+
+Kanayago(金屋子)　is supported Ruby 3.4 or Ruby head.
+
 ## Installation
+### From RubyGems
 
-First, install Ruby master with Universal Parser.
-
-```console
-RUBY_CONFIGURE_OPTS="cppflags=-DUNIVERSAL_PARSER" rbenv install ruby-dev
+```
+gem install kanayago
 ```
 
-Clone this repository.
+### Build and Install in local
+
+First, clone this repository.
 
 ```console
 git clone https://github.com/S-H-GAMELINKS/kanayago.git
