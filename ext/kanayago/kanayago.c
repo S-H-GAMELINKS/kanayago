@@ -1,14 +1,11 @@
 #include "kanayago.h"
+#include "scope_node.h"
 #include "internal/encoding.h"
 #include "internal/ruby_parser.h"
 #include "rubyparser.h"
 
-#define symbol(arg) \
-    ID2SYM(rb_intern((arg)))
-
 VALUE rb_mKanayago;
 
-VALUE rb_cScopeNode;
 VALUE rb_cIntegerNode;
 VALUE rb_cFloatNode;
 VALUE rb_cRationalNode;
@@ -32,8 +29,6 @@ VALUE rb_cClassNode;
 VALUE rb_cColon2Node;
 VALUE rb_cInstanceVariableNode;
 VALUE rb_cLocalVariableNode;
-
-static VALUE ast_to_node_instance(const NODE *);
 
 static VALUE
 operator_call_node_new(const NODE *node)
@@ -658,29 +653,6 @@ begin_node_body_get(VALUE self)
 }
 
 static VALUE
-scope_node_new(const NODE *node)
-{
-    VALUE result = rb_class_new_instance(0, 0, rb_cScopeNode);
-
-    rb_ivar_set(result, symbol("args"), ast_to_node_instance((const NODE *)(RNODE_SCOPE(node)->nd_args)));
-    rb_ivar_set(result, symbol("body"), ast_to_node_instance(RNODE_SCOPE(node)->nd_body));
-
-    return result;
-}
-
-static VALUE
-scope_node_args_get(VALUE self)
-{
-    return rb_ivar_get(self, symbol("args"));
-}
-
-static VALUE
-scope_node_body_get(VALUE self)
-{
-    return rb_ivar_get(self, symbol("body"));
-}
-
-static VALUE
 args_ainfo_to_hash(const struct rb_args_info ainfo)
 {
     VALUE result = rb_hash_new();
@@ -733,7 +705,7 @@ instance_variable_node_vid_get(VALUE self)
     return rb_ivar_get(self, symbol("vid"));
 }
 
-static VALUE
+VALUE
 ast_to_node_instance(const NODE *node)
 {
     enum node_type type;
@@ -818,9 +790,8 @@ Init_kanayago(void)
     rb_mKanayago = rb_define_module("Kanayago");
     rb_define_module_function(rb_mKanayago, "kanayago_parse", kanayago_parse, 1);
 
-    rb_cScopeNode = rb_define_class_under(rb_mKanayago, "ScopeNode", rb_cObject);
-    rb_define_method(rb_cScopeNode, "args", scope_node_args_get, 0);
-    rb_define_method(rb_cScopeNode, "body", scope_node_body_get, 0);
+    // For Kanayago::ScopeNode
+    Init_ScopeNode(rb_mKanayago);
 
     rb_cIntegerNode = rb_define_class_under(rb_mKanayago, "IntegerNode", rb_cObject);
     rb_define_method(rb_cIntegerNode, "val", integer_node_val_get, 0);

@@ -18,4 +18,9 @@ extern const rb_data_type_t ruby_parser_data_type;
 extern const rb_data_type_t ast_data_type;
 // End for Kanayago
 
+#define symbol(arg) \
+    ID2SYM(rb_intern((arg)))
+
+VALUE ast_to_node_instance(const NODE *);
+
 #endif /* KANAYAGO_H */

@@ -8,6 +8,7 @@ $objs = %w[
   parser_st
   ruby_parser
   kanayago
+  scope_node
 ].map do |o|
   o + ".#{$OBJEXT}"
 end
