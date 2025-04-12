@@ -50,7 +50,7 @@ index 267f619..841db65 100644
 +static VALUE
 +suppress_tracing(VALUE (*func)(VALUE), VALUE arg)
 +{
-+    return rb_suppress_tracing(func, arg);
++    return func(arg);
 +}
 +
 +static ID
