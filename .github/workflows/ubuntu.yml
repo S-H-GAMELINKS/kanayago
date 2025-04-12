@@ -8,10 +8,15 @@ on:
     branches:
       - master
 
-
 jobs:
   test:
     runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        ruby-version:
+          - 3.4
+          - head
 
     steps:
     - uses: actions/checkout@v4
@@ -22,7 +27,7 @@ jobs:
     - name: Set up Ruby
       uses: ruby/setup-ruby@v1
       with:
-        ruby-version: head
+        ruby-version: ${{ matrix.ruby-version }}
         bundler-cache: true
 
     - name: Import Ruby Parser

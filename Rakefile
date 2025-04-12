@@ -72,8 +72,14 @@ COPY_TARGETS = %w[
 namespace :ruby_parser do
   desc 'import ruby parser files'
   task :import do
+    tar_name = if RUBY_DESCRIPTION.include?('dev')
+                 'snapshot/snapshot-master.tar.gz'
+               else
+                 "#{RUBY_VERSION[0..2]}/ruby-#{RUBY_VERSION}.tar.gz"
+               end
+
     `mkdir -p tmp/ruby`
-    `curl -L https://cache.ruby-lang.org/pub/ruby/snapshot/snapshot-master.tar.gz -o tmp/ruby.tar.gz`
+    `curl -L https://cache.ruby-lang.org/pub/ruby/#{tar_name} -o tmp/ruby.tar.gz`
     `tar -zxvf tmp/ruby.tar.gz -C tmp/ruby --strip-components 1`
 
     dist = File.expand_path('ext/kanayago', __dir__)
