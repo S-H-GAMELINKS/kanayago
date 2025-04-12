@@ -13,6 +13,7 @@ COPY_TARGETS = %w[
   ccan/list/list.h
   ccan/str/str.h
   constant.h
+  id.h
   id_table.h
   internal/array.h
   internal/basic_operators.h
@@ -43,10 +44,13 @@ COPY_TARGETS = %w[
   internal/warnings.h
   internal/vm.h
   internal.h
+  lex.c
   method.h
   node.c
   node.h
-  parse.y
+  node_name.inc
+  parse.c
+  parse.h
   parser_bits.h
   parser_node.h
   parser_st.c
@@ -68,7 +72,9 @@ COPY_TARGETS = %w[
 namespace :ruby_parser do
   desc 'import ruby parser files'
   task :import do
-    `git clone https://github.com/ruby/ruby.git tmp/ruby --depth=1`
+    `mkdir -p tmp/ruby`
+    `curl -L https://cache.ruby-lang.org/pub/ruby/snapshot/snapshot-master.tar.gz -o tmp/ruby.tar.gz`
+    `tar -zxvf tmp/ruby.tar.gz -C tmp/ruby --strip-components 1`
 
     dist = File.expand_path('ext/kanayago', __dir__)
     ruby_dir = File.expand_path('tmp/ruby', __dir__)
@@ -84,18 +90,6 @@ namespace :ruby_parser do
       FileUtils.cp File.join(ruby_dir, target), File.join(dist, target)
     end
 
-    # "parse.tmp.y"
-    id2token_path = File.join(ruby_dir, 'tool/id2token.rb')
-    parse_y_path = File.join(dist, 'parse.y')
-    parse_tmp_y_path = File.join(dist, 'parse.tmp.y')
-    sh "ruby #{id2token_path} #{parse_y_path} > #{parse_tmp_y_path}"
-
-    # "id.h"
-    generic_erb_path = File.join(ruby_dir, 'tool/generic_erb.rb')
-    id_h_tmpl_path = File.join(ruby_dir, 'template/id.h.tmpl')
-    id_h_path = File.join(dist, 'id.h')
-    sh "ruby #{generic_erb_path} --output=#{id_h_path} #{id_h_tmpl_path}"
-
     # "probes.h"
     probes_h_path = File.join(dist, 'probes.h')
     File.open(probes_h_path, 'w+') do |f|
@@ -107,22 +101,7 @@ namespace :ruby_parser do
       SRC
     end
 
-    # "node_name.inc"
-    node_name_path = File.join(ruby_dir, 'tool/node_name.rb')
-    rubyparser_h_path = File.join(dist, 'rubyparser.h')
-    node_name_inc_path = File.join(dist, 'node_name.inc')
-    sh "ruby -n #{node_name_path} < #{rubyparser_h_path} > #{node_name_inc_path}"
-
-    # "lex.c"
-    sh 'cd tmp/ruby && ./autogen.sh && ./configure && make'
-    FileUtils.mv File.join(ruby_dir, 'lex.c'), File.join(dist, 'lex.c')
-
-    `rm -rf tmp/ruby`
-  end
-
-  desc 'build ruby parse.c and parse.h with lrama'
-  task :build do
-    sh 'bundle exec lrama -oext/kanayago/parse.c -Hext/kanayago/parse.h ext/kanayago/parse.tmp.y'
+    `rm -rf tmp/ruby tmp/ruby.tar.gz`
   end
 
   desc 'patched ro ruby parse that build for Kanayago'
@@ -152,8 +131,8 @@ namespace :ruby_parser do
   end
 end
 
-task build: ['ruby_parser:import', 'ruby_parser:build', 'ruby_parser:patch', 'compile']
-task install: ['ruby_parser:import', 'ruby_parser:build', 'ruby_parser:patch', 'compile']
+task build: ['ruby_parser:import', 'ruby_parser:patch', 'compile']
+task install: ['ruby_parser:import', 'ruby_parser:patch', 'compile']
 
 GEMSPEC = Gem::Specification.load('kanayago.gemspec')
 
