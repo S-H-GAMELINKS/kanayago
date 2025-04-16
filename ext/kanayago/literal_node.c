@@ -1,3 +1,4 @@
+#include "internal/ruby_parser.h"
 #include "kanayago.h"
 #include "internal/encoding.h"
 
@@ -7,6 +8,7 @@ VALUE rb_cRationalNode;
 VALUE rb_cImaginaryNode;
 VALUE rb_cStringNode;
 VALUE rb_cSymbolNode;
+VALUE rb_cFileNode;
 
 VALUE
 integer_node_new(const NODE *node)
@@ -258,6 +260,49 @@ symbol_node_coderange_get(VALUE self)
     return rb_ivar_get(self, symbol("coderange"));
 }
 
+VALUE
+file_node_new(const NODE *node)
+{
+    VALUE obj = rb_class_new_instance(0, 0, rb_cFileNode);
+
+    rb_parser_string_t *str = RNODE_FILE(node)->path;
+    rb_encoding *enc = str->enc;
+    char *ptr = str->ptr;
+    long len = str->len;
+    enum rb_parser_string_coderange_type conderange = str->coderange;
+
+    rb_ivar_set(obj, symbol("ptr"), rb_enc_str_new(ptr, len, enc));
+    rb_ivar_set(obj, symbol("len"), LONG2FIX(len));
+    rb_ivar_set(obj, symbol("enc"), rb_enc_from_encoding(enc));
+    rb_ivar_set(obj, symbol("coderange"), parser_string_coderange_type_to_str(conderange));
+
+    return obj;
+}
+
+static VALUE
+file_node_ptr_get(VALUE self)
+{
+    return rb_ivar_get(self, symbol("ptr"));
+}
+
+static VALUE
+file_node_len_get(VALUE self)
+{
+    return rb_ivar_get(self, symbol("len"));
+}
+
+static VALUE
+file_node_enc_get(VALUE self)
+{
+    return rb_ivar_get(self, symbol("enc"));
+}
+
+static VALUE
+file_node_coderange_get(VALUE self)
+{
+    return rb_ivar_get(self, symbol("coderange"));
+}
+
 void
 Init_LiteralNode(VALUE module)
 {
@@ -294,4 +339,10 @@ Init_LiteralNode(VALUE module)
     rb_define_method(rb_cSymbolNode, "len", symbol_node_len_get, 0);
     rb_define_method(rb_cSymbolNode, "enc", symbol_node_enc_get, 0);
     rb_define_method(rb_cSymbolNode, "coderange", symbol_node_coderange_get, 0);
+
+    rb_cFileNode = rb_define_class_under(module, "FileNode", rb_cObject);
+    rb_define_method(rb_cFileNode, "ptr", file_node_ptr_get, 0);
+    rb_define_method(rb_cFileNode, "len", file_node_len_get, 0);
+    rb_define_method(rb_cFileNode, "enc", file_node_enc_get, 0);
+    rb_define_method(rb_cFileNode, "coderange", file_node_coderange_get, 0);
 }
