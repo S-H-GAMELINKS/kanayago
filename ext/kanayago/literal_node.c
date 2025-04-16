@@ -9,6 +9,7 @@ VALUE rb_cImaginaryNode;
 VALUE rb_cStringNode;
 VALUE rb_cSymbolNode;
 VALUE rb_cFileNode;
+VALUE rb_cLineNode;
 
 VALUE
 integer_node_new(const NODE *node)
@@ -303,6 +304,22 @@ file_node_coderange_get(VALUE self)
     return rb_ivar_get(self, symbol("coderange"));
 }
 
+VALUE
+line_node_new(const NODE *node)
+{
+    VALUE obj = rb_class_new_instance(0, 0, rb_cLineNode);
+
+    rb_ivar_set(obj, symbol("lineno"), INT2FIX(node->nd_loc.beg_pos.lineno));
+
+    return obj;
+}
+
+static VALUE
+line_node_lineno_get(VALUE self)
+{
+    return rb_ivar_get(self, symbol("lineno"));
+}
+
 void
 Init_LiteralNode(VALUE module)
 {
@@ -345,4 +362,7 @@ Init_LiteralNode(VALUE module)
     rb_define_method(rb_cFileNode, "len", file_node_len_get, 0);
     rb_define_method(rb_cFileNode, "enc", file_node_enc_get, 0);
     rb_define_method(rb_cFileNode, "coderange", file_node_coderange_get, 0);
+
+    rb_cLineNode = rb_define_class_under(module, "LineNode", rb_cObject);
+    rb_define_method(rb_cLineNode, "lineno", line_node_lineno_get, 0);
 }
