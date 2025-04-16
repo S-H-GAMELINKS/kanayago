@@ -8,6 +8,7 @@ VALUE imaginary_node_new(const NODE *);
 VALUE symbol_node_new(const NODE *);
 VALUE string_node_new(const NODE *);
 VALUE file_node_new(const NODE *node);
+VALUE line_node_new(const NODE *);
 
 void Init_LiteralNode(VALUE);
 
