@@ -17,6 +17,9 @@ Minitest/MultipleAssertions:
 RBS:
   Enabled: true
 
+Style/Documentation:
+  Enabled: false
+
 require:
   - rubocop-minitest
   - rubocop-on-rbs

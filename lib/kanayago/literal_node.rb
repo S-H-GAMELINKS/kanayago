@@ -1,0 +1,35 @@
+# frozen_string_literal: true
+
+module Kanayago
+  class IntegerNode
+    attr_reader :val, :minus, :base
+  end
+
+  class FloatNode
+    attr_reader :val, :minus
+  end
+
+  class RationalNode
+    attr_reader :val, :minus, :base, :seen_point
+  end
+
+  class ImaginaryNode
+    attr_reader :val, :minus, :base, :seen_point, :type
+  end
+
+  class StringNode
+    attr_reader :ptr, :len, :enc, :coderange
+  end
+
+  class SymbolNode
+    attr_reader :ptr, :len, :enc, :coderange
+  end
+
+  class FileNode
+    attr_reader :ptr, :len, :enc, :coderange
+  end
+
+  class LineNode
+    attr_reader :lineno
+  end
+end
