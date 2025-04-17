@@ -3,6 +3,8 @@
 require_relative 'kanayago/version'
 require_relative 'kanayago/kanayago'
 
+require_relative 'kanayago/literal_node'
+
 # Parse Ruby code with Ruby's Parser(Universal Parser)
 module Kanayago
   def self.parse(source)
