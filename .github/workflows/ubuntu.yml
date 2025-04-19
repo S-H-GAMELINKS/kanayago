@@ -30,11 +30,8 @@ jobs:
         ruby-version: ${{ matrix.ruby-version }}
         bundler-cache: true
 
-    - name: Import Ruby Parser
-      run: bundle exec rake ruby_parser:import
-
-    - name: Patch to Ruby Parser
-      run: bundle exec rake ruby_parser:patch
+    - name: Setup Kanayago
+      run: bin/setup
 
     - name: Build Kanayago
       run: bundle exec rake compile
