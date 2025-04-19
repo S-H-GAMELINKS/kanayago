@@ -112,7 +112,13 @@ namespace :ruby_parser do
 
   desc 'patched ro ruby parse that build for Kanayago'
   task :patch do
-    sh 'patch -p1 < kanayago.patch'
+    running_ruby_version = if RUBY_DESCRIPTION.include?('dev')
+                             'head'
+                           else
+                             RUBY_VERSION[..2]
+                           end
+
+    sh "patch -p1 < patch/#{running_ruby_version}/kanayago.patch"
   end
 
   desc 'clean to ruby parser file'
