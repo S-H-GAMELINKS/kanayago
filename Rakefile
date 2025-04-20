@@ -7,7 +7,7 @@ require 'test_queue'
 require 'test_queue/runner/minitest'
 require 'fileutils'
 
-COPY_TARGETS = %w[
+RUBY_PARSER_COPY_TARGETS = %w[
   ccan/check_type/check_type.h
   ccan/container_of/container_of.h
   ccan/list/list.h
@@ -92,7 +92,7 @@ namespace :ruby_parser do
       Dir.mkdir File.join(dist, dir) unless Dir.exist? dir
     end
 
-    COPY_TARGETS.each do |target|
+    RUBY_PARSER_COPY_TARGETS.each do |target|
       FileUtils.cp File.join(ruby_dir, target), File.join(dist, target)
     end
 
@@ -125,7 +125,7 @@ namespace :ruby_parser do
   task :clean do
     dist = File.expand_path('./ext/kanayago')
 
-    COPY_TARGETS.each do |target|
+    RUBY_PARSER_COPY_TARGETS.each do |target|
       FileUtils.rm File.join(dist, target), force: true
     end
     delete_files = ['constant.h', 'id.h', 'id.h', 'id.h', 'id_table.h', 'lex.c', 'node_name.inc', 'parse.c', 'parse.h',

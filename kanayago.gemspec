@@ -2,7 +2,7 @@
 
 require_relative 'lib/kanayago/version'
 
-COPY_TARGETS = %w[
+RUBY_PARSER_FILES = %w[
   ccan/check_type/check_type.h
   ccan/container_of/container_of.h
   ccan/list/list.h
@@ -91,8 +91,8 @@ Gem::Specification.new do |spec|
     end
   end
 
-  COPY_TARGETS.each do |target|
-    files << "ext/kanayago/#{target}"
+  RUBY_PARSER_FILES.each do |file|
+    files << "ext/kanayago/#{file}"
   end
   spec.files = files
   spec.bindir = 'exe'
