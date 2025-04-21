@@ -13,6 +13,8 @@ group :development do
   gem 'rubocop-minitest', require: false
   gem 'rubocop-on-rbs', require: false
   gem 'rubocop-rake', require: false
+
+  gem 'typeprof'
 end
 
 group :test do
