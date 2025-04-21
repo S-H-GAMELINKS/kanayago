@@ -31,6 +31,9 @@ jobs:
         ruby-version: ${{ matrix.ruby-version }}
         bundler-cache: true
 
+    - name: Ruby version
+      run: ruby -v
+
     - name: Setup Kanayago
       run: bin/setup
 
