@@ -8,6 +8,7 @@ VALUE rb_cRationalNode;
 VALUE rb_cImaginaryNode;
 VALUE rb_cStringNode;
 VALUE rb_cSymbolNode;
+VALUE rb_cZeroListNode;
 VALUE rb_cFileNode;
 VALUE rb_cLineNode;
 
@@ -130,6 +131,17 @@ symbol_node_new(const NODE *node)
 }
 
 VALUE
+zero_list_node_new(const NODE *node)
+{
+    VALUE obj = rb_class_new_instance(0, 0, rb_cZeroListNode);
+
+    rb_ivar_set(obj, rb_intern("@len"), INT2FIX(0));
+    rb_ivar_set(obj, rb_intern("@val"), rb_ary_new());
+
+    return obj;
+}
+
+VALUE
 file_node_new(const NODE *node)
 {
     VALUE obj = rb_class_new_instance(0, 0, rb_cFileNode);
@@ -172,6 +184,8 @@ Init_LiteralNode(VALUE module)
     rb_cStringNode = rb_define_class_under(module, "StringNode", rb_cObject);
 
     rb_cSymbolNode = rb_define_class_under(module, "SymbolNode", rb_cObject);
+
+    rb_cZeroListNode = rb_define_class_under(module, "ZeroListNode", rb_cObject);
 
     rb_cFileNode = rb_define_class_under(module, "FileNode", rb_cObject);
 
