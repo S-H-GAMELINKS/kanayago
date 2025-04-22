@@ -25,6 +25,10 @@ module Kanayago
     attr_reader :ptr, :len, :enc, :coderange
   end
 
+  class ZeroListNode
+    attr_reader :len, :val
+  end
+
   class FileNode
     attr_reader :ptr, :len, :enc, :coderange
   end
