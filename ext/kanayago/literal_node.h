@@ -10,6 +10,7 @@ VALUE string_node_new(const NODE *);
 VALUE zero_list_node_new(const NODE *);
 VALUE file_node_new(const NODE *node);
 VALUE line_node_new(const NODE *);
+VALUE encoding_node_new(const NODE *);
 
 void Init_LiteralNode(VALUE);
 

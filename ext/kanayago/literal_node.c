@@ -1,6 +1,7 @@
 #include "internal/ruby_parser.h"
 #include "kanayago.h"
 #include "internal/encoding.h"
+#include "rubyparser.h"
 
 VALUE rb_cIntegerNode;
 VALUE rb_cFloatNode;
@@ -11,6 +12,7 @@ VALUE rb_cSymbolNode;
 VALUE rb_cZeroListNode;
 VALUE rb_cFileNode;
 VALUE rb_cLineNode;
+VALUE rb_cEncodingNode;
 
 VALUE
 integer_node_new(const NODE *node)
@@ -170,6 +172,16 @@ line_node_new(const NODE *node)
     return obj;
 }
 
+VALUE
+encoding_node_new(const NODE *node)
+{
+    VALUE obj = rb_class_new_instance(0, 0, rb_cEncodingNode);
+
+    rb_ivar_set(obj, rb_intern("@val"), rb_enc_from_encoding(RNODE_ENCODING(node)->enc));
+
+    return obj;
+}
+
 void
 Init_LiteralNode(VALUE module)
 {
@@ -190,4 +202,6 @@ Init_LiteralNode(VALUE module)
     rb_cFileNode = rb_define_class_under(module, "FileNode", rb_cObject);
 
     rb_cLineNode = rb_define_class_under(module, "LineNode", rb_cObject);
+
+    rb_cEncodingNode = rb_define_class_under(module, "EncodingNode", rb_cObject);
 }
