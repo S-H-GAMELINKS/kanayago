@@ -5,5 +5,5 @@
         "lib/",
         "lib/kanayago/"
     ],
-    "diagnostic_severity": "warning"
+    "diagnostic_severity": "error"
 }
