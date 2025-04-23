@@ -36,4 +36,8 @@ module Kanayago
   class LineNode
     attr_reader :lineno
   end
+
+  class EncodingNode
+    attr_reader :val
+  end
 end

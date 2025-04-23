@@ -329,6 +329,8 @@ node_literal_to_hash(const NODE *node)
 	  return file_node_new(node);
 	case NODE_LINE:
 	  return line_node_new(node);
+	case NODE_ENCODING:
+	  return encoding_node_new(node);
 	default:
 	  return Qnil;
     }
@@ -513,6 +515,7 @@ ast_to_node_instance(const NODE *node)
 	case NODE_ZLIST:
 	case NODE_FILE:
 	case NODE_LINE:
+	case NODE_ENCODING:
 	  return node_literal_to_hash(node);
 	default:
 	  return Qfalse;
