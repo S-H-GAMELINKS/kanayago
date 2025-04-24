@@ -31,7 +31,7 @@ class ParseStringTest < Minitest::Test
     assert_equal(:+, body.mid)
     assert_instance_of(Kanayago::ListNode, body.args)
 
-    arg = body.args.first
+    arg = body.args.val.first
 
     assert_instance_of(Kanayago::StringNode, arg)
   end
@@ -49,7 +49,7 @@ class ParseStringTest < Minitest::Test
     assert_equal(:*, body.mid)
     assert_instance_of(Kanayago::ListNode, body.args)
 
-    arg = body.args.first
+    arg = body.args.val.first
 
     assert_instance_of(Kanayago::IntegerNode, arg)
   end

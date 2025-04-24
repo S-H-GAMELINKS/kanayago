@@ -31,7 +31,7 @@ class ParseRationalTest < Minitest::Test
     assert_equal(:+, body.mid)
     assert_instance_of(Kanayago::ListNode, body.args)
 
-    arg = body.args.first
+    arg = body.args.val.first
 
     assert_instance_of(Kanayago::RationalNode, arg)
   end
@@ -49,7 +49,7 @@ class ParseRationalTest < Minitest::Test
     assert_equal(:-, body.mid)
     assert_instance_of(Kanayago::ListNode, body.args)
 
-    arg = body.args.first
+    arg = body.args.val.first
 
     assert_instance_of(Kanayago::RationalNode, arg)
   end
@@ -67,7 +67,7 @@ class ParseRationalTest < Minitest::Test
     assert_equal(:*, body.mid)
     assert_instance_of(Kanayago::ListNode, body.args)
 
-    arg = body.args.first
+    arg = body.args.val.first
 
     assert_instance_of(Kanayago::RationalNode, arg)
   end
@@ -85,7 +85,7 @@ class ParseRationalTest < Minitest::Test
     assert_equal(:/, body.mid)
     assert_instance_of(Kanayago::ListNode, body.args)
 
-    arg = body.args.first
+    arg = body.args.val.first
 
     assert_instance_of(Kanayago::RationalNode, arg)
   end
@@ -103,7 +103,7 @@ class ParseRationalTest < Minitest::Test
     assert_equal(:%, body.mid)
     assert_instance_of(Kanayago::ListNode, body.args)
 
-    arg = body.args.first
+    arg = body.args.val.first
 
     assert_instance_of(Kanayago::RationalNode, arg)
   end
@@ -135,7 +135,7 @@ class ParseRationalTest < Minitest::Test
     assert_equal(:to_i, body.mid)
     assert_instance_of(Kanayago::ListNode, body.args)
 
-    arg = body.args.first
+    arg = body.args.val.first
 
     assert_instance_of(Kanayago::IntegerNode, arg)
   end

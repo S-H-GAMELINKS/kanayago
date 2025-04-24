@@ -30,6 +30,6 @@ class ParseDefnTest < Minitest::Test
 
     assert_instance_of(Kanayago::FunctionCallNode, function_body)
     assert_equal(:p, function_body.mid)
-    assert_instance_of(Kanayago::IntegerNode, function_body.args.first)
+    assert_instance_of(Kanayago::IntegerNode, function_body.args.val.first)
   end
 end
