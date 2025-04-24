@@ -111,16 +111,20 @@ function_call_node_args_get(VALUE self)
 static VALUE
 list_node_new(const NODE *node)
 {
-    VALUE result = rb_class_new_instance(0, 0, rb_cListNode);
+    VALUE obj = rb_class_new_instance(0, 0, rb_cListNode);
+    VALUE val = rb_ary_new();
     NODE *nd_head = RNODE_LIST(node)->nd_head;
     int list_len = RNODE_LIST(node)->as.nd_alen;
 
     for (int i = 0; i < list_len; i++ ) {
-	rb_ary_push(result, ast_to_node_instance(nd_head));
+	rb_ary_push(val, ast_to_node_instance(nd_head));
 	nd_head = RNODE_LIST(node)->nd_next;
     }
 
-    return result;
+    rb_ivar_set(obj, rb_intern("@val"), val);
+    rb_ivar_set(obj, rb_intern("@len"), INT2FIX(list_len));
+
+    return obj;
 }
 
 static VALUE
@@ -570,7 +574,7 @@ Init_kanayago(void)
     rb_define_method(rb_cOperatorCallNode, "mid", operator_call_node_mid_get, 0);
     rb_define_method(rb_cOperatorCallNode, "args", operator_call_node_args_get, 0);
 
-    rb_cListNode = rb_define_class_under(rb_mKanayago, "ListNode", rb_cArray);
+    rb_cListNode = rb_define_class_under(rb_mKanayago, "ListNode", rb_cObject);
 
     rb_cArgumentsNode = rb_define_class_under(rb_mKanayago, "ArgumentsNode", rb_cObject);
     rb_define_method(rb_cArgumentsNode, "ainfo", arguments_node_ainfo_get, 0);

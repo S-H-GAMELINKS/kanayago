@@ -35,7 +35,7 @@ class ParseIntegerTest < Minitest::Test
     assert_instance_of(Kanayago::IntegerNode, recv)
     assert_equal(1, recv.val)
 
-    arg = body.args.first
+    arg = body.args.val.first
 
     assert_instance_of(Kanayago::IntegerNode, arg)
     assert_equal(1, arg.val)
@@ -59,7 +59,7 @@ class ParseIntegerTest < Minitest::Test
     assert_instance_of(Kanayago::IntegerNode, recv)
     assert_equal(1, recv.val)
 
-    arg = body.args.first
+    arg = body.args.val.first
 
     assert_instance_of(Kanayago::IntegerNode, arg)
     assert_equal(1, arg.val)
@@ -83,7 +83,7 @@ class ParseIntegerTest < Minitest::Test
     assert_instance_of(Kanayago::IntegerNode, recv)
     assert_equal(1, recv.val)
 
-    arg = body.args.first
+    arg = body.args.val.first
 
     assert_instance_of(Kanayago::IntegerNode, arg)
     assert_equal(1, arg.val)
@@ -107,7 +107,7 @@ class ParseIntegerTest < Minitest::Test
     assert_instance_of(Kanayago::IntegerNode, recv)
     assert_equal(1, recv.val)
 
-    arg = body.args.first
+    arg = body.args.val.first
 
     assert_instance_of(Kanayago::IntegerNode, arg)
     assert_equal(1, arg.val)
@@ -131,7 +131,7 @@ class ParseIntegerTest < Minitest::Test
     assert_instance_of(Kanayago::IntegerNode, recv)
     assert_equal(1, recv.val)
 
-    arg = body.args.first
+    arg = body.args.val.first
 
     assert_instance_of(Kanayago::IntegerNode, arg)
     assert_equal(1, arg.val)
@@ -174,7 +174,7 @@ class ParseIntegerTest < Minitest::Test
     assert_instance_of(Kanayago::IntegerNode, recv)
     assert_equal(1, recv.val)
 
-    arg = body.args.first
+    arg = body.args.val.first
 
     assert_instance_of(Kanayago::IntegerNode, arg)
     assert_equal(10, arg.val)

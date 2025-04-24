@@ -29,7 +29,7 @@ class ParseLvarTest < Minitest::Test
     assert_equal(:p, line.mid)
     assert_instance_of(Kanayago::ListNode, line.args)
 
-    arg = line.args.first
+    arg = line.args.val.first
 
     assert_instance_of(Kanayago::LocalVariableNode, arg)
     assert_equal(:v, arg.vid)
