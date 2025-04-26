@@ -44,4 +44,8 @@ module Kanayago
   class EncodingNode
     attr_reader :val
   end
+
+  class NilNode
+    attr_reader :val
+  end
 end
