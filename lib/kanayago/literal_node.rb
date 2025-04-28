@@ -48,4 +48,8 @@ module Kanayago
   class NilNode
     attr_reader :val
   end
+
+  class TrueNode
+    attr_reader :val
+  end
 end
