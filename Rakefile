@@ -95,7 +95,9 @@ namespace :ruby_parser do
     end
 
     RUBY_PARSER_COPY_TARGETS.each do |target|
-      FileUtils.cp File.join(ruby_dir, target), File.join(dist, target), force: true
+      FileUtils.cp File.join(ruby_dir, target), File.join(dist, target)
+    rescue => e
+      puts e.full_message
     end
 
     # "probes.h"
