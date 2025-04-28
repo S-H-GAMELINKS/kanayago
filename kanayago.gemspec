@@ -10,6 +10,7 @@ RUBY_PARSER_FILES = %w[
   constant.h
   id.h
   id_table.h
+  include/ruby/st.h
   internal/array.h
   internal/basic_operators.h
   internal/bignum.h
@@ -31,6 +32,7 @@ RUBY_PARSER_FILES = %w[
   internal/ruby_parser.h
   internal/sanitizers.h
   internal/serial.h
+  internal/set_table.h
   internal/static_assert.h
   internal/string.h
   internal/symbol.h
