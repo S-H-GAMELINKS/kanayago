@@ -8,7 +8,6 @@ RUBY_PARSER_COPY_TARGETS = %w[
   constant.h
   id.h
   id_table.h
-  include/ruby/st.h
   internal/array.h
   internal/basic_operators.h
   internal/bignum.h
@@ -30,7 +29,6 @@ RUBY_PARSER_COPY_TARGETS = %w[
   internal/ruby_parser.h
   internal/sanitizers.h
   internal/serial.h
-  internal/set_table.h
   internal/static_assert.h
   internal/string.h
   internal/symbol.h
@@ -71,13 +69,10 @@ MAKE_DIRECTORIES = [
   'ccan/container_of',
   'ccan/list',
   'ccan/str',
-  'internal',
-  'include',
-  'include/ruby'
+  'internal'
 ].freeze
 
 DELETE_DIRECTORIES = %w[
   ccan
   internal
-  include
 ].freeze
