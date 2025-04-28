@@ -15,6 +15,7 @@ RUBY_PARSER_COPY_TARGETS = %w[
   constant.h
   id.h
   id_table.h
+  include/ruby/st.h
   internal/array.h
   internal/basic_operators.h
   internal/bignum.h
@@ -36,6 +37,7 @@ RUBY_PARSER_COPY_TARGETS = %w[
   internal/ruby_parser.h
   internal/sanitizers.h
   internal/serial.h
+  internal/set_table.h
   internal/static_assert.h
   internal/string.h
   internal/symbol.h
@@ -86,14 +88,14 @@ namespace :ruby_parser do
     ruby_dir = File.expand_path('tmp/ruby', __dir__)
 
     directories = ['ccan', 'ccan/check_type', 'ccan/container', 'ccan/container_of', 'ccan/list', 'ccan/str',
-                   'internal']
+                   'internal', 'include', 'include/ruby']
 
     directories.each do |dir|
       Dir.mkdir File.join(dist, dir) unless Dir.exist? dir
     end
 
     RUBY_PARSER_COPY_TARGETS.each do |target|
-      FileUtils.cp File.join(ruby_dir, target), File.join(dist, target)
+      FileUtils.cp File.join(ruby_dir, target), File.join(dist, target), force: true
     end
 
     # "probes.h"
@@ -135,7 +137,7 @@ namespace :ruby_parser do
       FileUtils.rm File.join(dist, file), force: true
     end
 
-    delete_directories = %w[ccan internal]
+    delete_directories = %w[ccan internal include]
 
     delete_directories.each do |dir|
       FileUtils.rm_rf File.join(dist, dir)

@@ -20,6 +20,7 @@ test.rb
 /ext/kanayago/constant.h
 /ext/kanayago/id.h
 /ext/kanayago/id_table.h
+/ext/kanayago/include/ruby/st.h
 /ext/kanayago/internal.h
 /ext/kanayago/internal/
 /ext/kanayago/lex.c
