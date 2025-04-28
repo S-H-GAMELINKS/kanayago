@@ -7,69 +7,11 @@ require 'test_queue'
 require 'test_queue/runner/minitest'
 require 'fileutils'
 
-RUBY_PARSER_COPY_TARGETS = %w[
-  ccan/check_type/check_type.h
-  ccan/container_of/container_of.h
-  ccan/list/list.h
-  ccan/str/str.h
-  constant.h
-  id.h
-  id_table.h
-  include/ruby/st.h
-  internal/array.h
-  internal/basic_operators.h
-  internal/bignum.h
-  internal/bits.h
-  internal/compile.h
-  internal/compilers.h
-  internal/complex.h
-  internal/encoding.h
-  internal/error.h
-  internal/fixnum.h
-  internal/gc.h
-  internal/hash.h
-  internal/imemo.h
-  internal/io.h
-  internal/numeric.h
-  internal/parse.h
-  internal/rational.h
-  internal/re.h
-  internal/ruby_parser.h
-  internal/sanitizers.h
-  internal/serial.h
-  internal/set_table.h
-  internal/static_assert.h
-  internal/string.h
-  internal/symbol.h
-  internal/thread.h
-  internal/variable.h
-  internal/warnings.h
-  internal/vm.h
-  internal.h
-  lex.c
-  method.h
-  node.c
-  node.h
-  node_name.inc
-  parse.c
-  parse.h
-  parser_bits.h
-  parser_node.h
-  parser_st.c
-  parser_st.h
-  parser_value.h
-  ruby_assert.h
-  ruby_atomic.h
-  ruby_parser.c
-  rubyparser.h
-  shape.h
-  st.c
-  symbol.h
-  thread_pthread.h
-  universal_parser.c
-  vm_core.h
-  vm_opts.h
-].freeze
+if RUBY_DESCRIPTION.include?('dev')
+  require_relative 'patch/head/copy_target'
+else
+  require_relative "patch/#{RUBY_VERSION[0..2]}/copy_target"
+end
 
 namespace :ruby_parser do
   desc 'import ruby parser files'
@@ -87,17 +29,12 @@ namespace :ruby_parser do
     dist = File.expand_path('ext/kanayago', __dir__)
     ruby_dir = File.expand_path('tmp/ruby', __dir__)
 
-    directories = ['ccan', 'ccan/check_type', 'ccan/container', 'ccan/container_of', 'ccan/list', 'ccan/str',
-                   'internal', 'include', 'include/ruby']
-
-    directories.each do |dir|
+    MAKE_DIRECTORIES.each do |dir|
       Dir.mkdir File.join(dist, dir) unless Dir.exist? dir
     end
 
     RUBY_PARSER_COPY_TARGETS.each do |target|
       FileUtils.cp File.join(ruby_dir, target), File.join(dist, target)
-    rescue => e
-      puts e.full_message
     end
 
     # "probes.h"
@@ -139,9 +76,7 @@ namespace :ruby_parser do
       FileUtils.rm File.join(dist, file), force: true
     end
 
-    delete_directories = %w[ccan internal include]
-
-    delete_directories.each do |dir|
+    DELETE_DIRECTORIES.each do |dir|
       FileUtils.rm_rf File.join(dist, dir)
     end
   end
