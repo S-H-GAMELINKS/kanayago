@@ -9,6 +9,6 @@ class ParseTrueNodeTest < Minitest::Test
     body = result.body
 
     assert_instance_of(Kanayago::TrueNode, body)
-    assert_equal(true, body.val)
+    assert(body.val)
   end
 end
