@@ -37,6 +37,7 @@ Gem::Specification.new do |spec|
   RUBY_PARSER_COPY_TARGETS.each do |file|
     files << "ext/kanayago/#{file}"
   end
+  files << 'ext/kanayago/probes.h'
   spec.files = files
   spec.bindir = 'exe'
   spec.executables = spec.files.grep(%r{\Aexe/}) { |f| File.basename(f) }
