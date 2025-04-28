@@ -337,6 +337,8 @@ node_literal_to_hash(const NODE *node)
 	  return encoding_node_new(node);
 	case NODE_NIL:
 	  return nil_node_new(node);
+	case NODE_TRUE:
+	  return true_node_new(node);
 	default:
 	  return Qnil;
     }
@@ -523,6 +525,7 @@ ast_to_node_instance(const NODE *node)
 	case NODE_LINE:
 	case NODE_ENCODING:
 	case NODE_NIL:
+	case NODE_TRUE:
 	  return node_literal_to_hash(node);
 	default:
 	  return Qfalse;

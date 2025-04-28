@@ -1,6 +1,7 @@
 #ifndef KANAYAGO_LITERAL_NODE_H
 #define KANAYAGO_LITERAL_NODE_H
 
+#include "internal/ruby_parser.h"
 #include "kanayago.h"
 
 VALUE integer_node_new(const NODE *);
@@ -14,6 +15,7 @@ VALUE file_node_new(const NODE *node);
 VALUE line_node_new(const NODE *);
 VALUE encoding_node_new(const NODE *);
 VALUE nil_node_new(const NODE *);
+VALUE true_node_new(const NODE *);
 
 void Init_LiteralNode(VALUE);
 

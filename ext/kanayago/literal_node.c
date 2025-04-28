@@ -15,6 +15,7 @@ VALUE rb_cFileNode;
 VALUE rb_cLineNode;
 VALUE rb_cEncodingNode;
 VALUE rb_cNilNode;
+VALUE rb_cTrueNode;
 
 VALUE
 integer_node_new(const NODE *node)
@@ -194,6 +195,16 @@ nil_node_new(const NODE *node)
     return obj;
 }
 
+VALUE
+true_node_new(const NODE *node)
+{
+    VALUE obj = rb_class_new_instance(0, 0, rb_cTrueNode);
+
+    rb_ivar_set(obj, rb_intern("@val"), Qtrue);
+
+    return obj;
+}
+
 void
 Init_LiteralNode(VALUE module)
 {
@@ -218,4 +229,6 @@ Init_LiteralNode(VALUE module)
     rb_cEncodingNode = rb_define_class_under(module, "EncodingNode", rb_cObject);
 
     rb_cNilNode = rb_define_class_under(module, "NilNode", rb_cObject);
+
+    rb_cTrueNode = rb_define_class_under(module, "TrueNode", rb_cObject);
 }
