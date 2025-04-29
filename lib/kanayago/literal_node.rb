@@ -52,4 +52,8 @@ module Kanayago
   class TrueNode
     attr_reader :val
   end
+
+  class FalseNode
+    attr_reader :val
+  end
 end
