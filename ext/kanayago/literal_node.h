@@ -16,6 +16,7 @@ VALUE line_node_new(const NODE *);
 VALUE encoding_node_new(const NODE *);
 VALUE nil_node_new(const NODE *);
 VALUE true_node_new(const NODE *);
+VALUE false_node_new(const NODE *);
 
 void Init_LiteralNode(VALUE);
 
