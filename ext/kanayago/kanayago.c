@@ -17,6 +17,7 @@ VALUE rb_cArgumentsNode;
 VALUE rb_cListNode;
 VALUE rb_cIfStatementNode;
 VALUE rb_cUnlessStatementNode;
+VALUE rb_cOrNode;
 VALUE rb_cBlockNode;
 VALUE rb_cBeginNode;
 VALUE rb_cLeftAssignNode;
@@ -264,6 +265,17 @@ unless_statement_node_else_get(VALUE self)
 }
 
 static VALUE
+or_node_new(const NODE *node)
+{
+    VALUE obj = rb_class_new_instance(0, 0, rb_cOrNode);
+
+    rb_ivar_set(obj, rb_intern("@first"), ast_to_node_instance(RNODE_OR(node)->nd_1st));
+    rb_ivar_set(obj, rb_intern("@second"), ast_to_node_instance(RNODE_OR(node)->nd_2nd));
+
+    return obj;
+}
+
+static VALUE
 constant_node_new(const NODE *node)
 {
     VALUE obj = rb_class_new_instance(0, 0, rb_cConstantNode);
@@ -504,6 +516,8 @@ ast_to_node_instance(const NODE *node)
 	  return if_statement_node_new(node);
 	case NODE_UNLESS:
 	  return unless_statement_node_new(node);
+	case NODE_OR:
+	  return or_node_new(node);
 	case NODE_LIST:
 	  return list_node_new(node);
 	case NODE_CONST:
@@ -606,6 +620,8 @@ Init_kanayago(void)
     rb_define_method(rb_cUnlessStatementNode, "cond", unless_statement_node_cond_get, 0);
     rb_define_method(rb_cUnlessStatementNode, "body", unless_statement_node_body_get, 0);
     rb_define_method(rb_cUnlessStatementNode, "else", unless_statement_node_else_get, 0);
+
+    rb_cOrNode = rb_define_class_under(rb_mKanayago, "OrNode", rb_cObject);
 
     rb_cBlockNode = rb_define_class_under(rb_mKanayago, "BlockNode", rb_cArray);
 
