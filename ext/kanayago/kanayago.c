@@ -27,6 +27,7 @@ VALUE rb_cColon2Node;
 VALUE rb_cInstanceVariableNode;
 VALUE rb_cGlobalVariableNode;
 VALUE rb_cLocalVariableNode;
+VALUE rb_cSelfNode;
 
 static VALUE
 operator_call_node_new(const NODE *node)
@@ -504,6 +505,16 @@ global_variable_node_new(const NODE *node)
     return obj;
 }
 
+static VALUE
+self_node_new(const NODE *node)
+{
+    VALUE obj = rb_class_new_instance(0, 0, rb_cSelfNode);
+
+    rb_ivar_set(obj, rb_intern("@state"), LONG2FIX(RNODE_SELF(node)->nd_state));
+
+    return obj;
+}
+
 VALUE
 ast_to_node_instance(const NODE *node)
 {
@@ -558,6 +569,8 @@ ast_to_node_instance(const NODE *node)
 	  return instance_variable_node_new(node);
 	case NODE_GVAR:
 	  return global_variable_node_new(node);
+	case NODE_SELF:
+	  return self_node_new(node);
 	case NODE_INTEGER:
 	case NODE_FLOAT:
 	case NODE_RATIONAL:
@@ -678,4 +691,6 @@ Init_kanayago(void)
 
     rb_cLocalVariableNode = rb_define_class_under(rb_mKanayago, "LocalVariableNode", rb_cObject);
     rb_define_method(rb_cLocalVariableNode, "vid", local_variable_node_vid_get, 0);
+
+    rb_cSelfNode = rb_define_class_under(rb_mKanayago, "SelfNode", rb_cObject);
 }
