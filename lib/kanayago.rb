@@ -11,4 +11,8 @@ module Kanayago
   def self.parse(source)
     kanayago_parse(source)
   end
+
+  class SelfNode
+    attr_reader :state
+  end
 end
