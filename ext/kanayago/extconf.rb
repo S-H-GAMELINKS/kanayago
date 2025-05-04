@@ -10,6 +10,7 @@ $objs = %w[
   kanayago
   scope_node
   literal_node
+  statement_node
 ].map do |o|
   o + ".#{$OBJEXT}"
 end
