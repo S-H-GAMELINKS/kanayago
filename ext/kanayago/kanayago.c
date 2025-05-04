@@ -1,6 +1,7 @@
 #include "kanayago.h"
 #include "scope_node.h"
 #include "literal_node.h"
+#include "statement_node.h"
 #include "internal/encoding.h"
 #include "internal/ruby_parser.h"
 #include "rubyparser.h"
@@ -15,10 +16,6 @@ VALUE rb_cCallNode;
 VALUE rb_cFunctionCallNode;
 VALUE rb_cArgumentsNode;
 VALUE rb_cListNode;
-VALUE rb_cIfStatementNode;
-VALUE rb_cUnlessStatementNode;
-VALUE rb_cOrNode;
-VALUE rb_cAndNode;
 VALUE rb_cBlockNode;
 VALUE rb_cBeginNode;
 VALUE rb_cLeftAssignNode;
@@ -206,53 +203,6 @@ static VALUE
 local_variable_node_vid_get(VALUE self)
 {
     return rb_ivar_get(self, symbol("vid"));
-}
-
-static VALUE
-if_statement_node_new(const NODE *node)
-{
-    VALUE obj = rb_class_new_instance(0, 0, rb_cIfStatementNode);
-
-    rb_ivar_set(obj, rb_intern("cond"), ast_to_node_instance(RNODE_IF(node)->nd_cond));
-    rb_ivar_set(obj, rb_intern("body"), ast_to_node_instance(RNODE_IF(node)->nd_body));
-    rb_ivar_set(obj, rb_intern("else"), ast_to_node_instance(RNODE_IF(node)->nd_else));
-
-    return obj;
-}
-
-static VALUE
-unless_statement_node_new(const NODE *node)
-{
-    VALUE obj = rb_class_new_instance(0, 0, rb_cUnlessStatementNode);
-
-    rb_ivar_set(obj, rb_intern("@cond"), ast_to_node_instance(RNODE_UNLESS(node)->nd_cond));
-    rb_ivar_set(obj, rb_intern("@body"), ast_to_node_instance(RNODE_UNLESS(node)->nd_body));
-    rb_ivar_set(obj, rb_intern("@else"), ast_to_node_instance(RNODE_UNLESS(node)->nd_else));
-
-    return obj;
-}
-
-static VALUE
-or_node_new(const NODE *node)
-{
-    VALUE obj = rb_class_new_instance(0, 0, rb_cOrNode);
-
-    rb_ivar_set(obj, rb_intern("@first"), ast_to_node_instance(RNODE_OR(node)->nd_1st));
-    rb_ivar_set(obj, rb_intern("@second"), ast_to_node_instance(RNODE_OR(node)->nd_2nd));
-
-    return obj;
-}
-
-static VALUE
-and_node_new(const NODE *node)
-{
-    VALUE obj = rb_class_new_instance(0, 0, rb_cAndNode);
-
-
-    rb_ivar_set(obj, rb_intern("@first"), ast_to_node_instance(RNODE_AND(node)->nd_1st));
-    rb_ivar_set(obj, rb_intern("@second"), ast_to_node_instance(RNODE_AND(node)->nd_2nd));
-
-    return obj;
 }
 
 static VALUE
@@ -631,13 +581,8 @@ Init_kanayago(void)
     rb_define_method(rb_cFunctionCallNode, "mid", function_call_node_mid_get, 0);
     rb_define_method(rb_cFunctionCallNode, "args", function_call_node_args_get, 0);
 
-    rb_cIfStatementNode = rb_define_class_under(rb_mKanayago, "IfStatementNode", rb_cObject);
-
-    rb_cUnlessStatementNode = rb_define_class_under(rb_mKanayago, "UnlessStatementNode", rb_cObject);
-
-    rb_cOrNode = rb_define_class_under(rb_mKanayago, "OrNode", rb_cObject);
-
-    rb_cAndNode = rb_define_class_under(rb_mKanayago, "AndNode", rb_cObject);
+    // For Statement Node(e.g. Kanayago::IfStatementNode)
+    Init_StatementNode(rb_mKanayago);
 
     rb_cBlockNode = rb_define_class_under(rb_mKanayago, "BlockNode", rb_cArray);
 
