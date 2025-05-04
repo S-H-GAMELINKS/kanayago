@@ -5,6 +5,10 @@ module Kanayago
     attr_reader :cond, :body, :else
   end
 
+  class UnlessStatementNode
+    attr_reader :cond, :body, :else
+  end
+
   class OrNode
     attr_reader :first, :second
   end
