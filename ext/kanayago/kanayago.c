@@ -23,6 +23,7 @@ VALUE rb_cBlockNode;
 VALUE rb_cBeginNode;
 VALUE rb_cLeftAssignNode;
 VALUE rb_cClassNode;
+VALUE rb_cModuleNode;
 VALUE rb_cColon2Node;
 VALUE rb_cInstanceVariableNode;
 VALUE rb_cGlobalVariableNode;
@@ -404,6 +405,18 @@ class_node_body_get(VALUE self)
 }
 
 static VALUE
+module_node_new(const NODE *node)
+{
+    VALUE obj = rb_class_new_instance(0, 0, rb_cModuleNode);
+
+    rb_ivar_set(obj, rb_intern("@cpath"), ast_to_node_instance(RNODE_CLASS(node)->nd_cpath));
+    rb_ivar_set(obj, rb_intern("@super"), ast_to_node_instance(RNODE_CLASS(node)->nd_super));
+    rb_ivar_set(obj, rb_intern("@body"), ast_to_node_instance(RNODE_CLASS(node)->nd_body));
+
+    return obj;
+}
+
+static VALUE
 colon2_node_new(const NODE *node)
 {
     VALUE obj = rb_class_new_instance(0, 0, rb_cColon2Node);
@@ -531,6 +544,8 @@ ast_to_node_instance(const NODE *node)
 	  return scope_node_new(node);
 	case NODE_CLASS:
 	  return class_node_new(node);
+	case NODE_MODULE:
+	  return module_node_new(node);
 	case NODE_DEFN:
 	  return definition_node_new(node);
 	case NODE_OPCALL:
@@ -679,6 +694,8 @@ Init_kanayago(void)
     rb_define_method(rb_cClassNode, "cpath", class_node_cpath_get, 0);
     rb_define_method(rb_cClassNode, "super", class_node_super_get, 0);
     rb_define_method(rb_cClassNode, "body", class_node_body_get, 0);
+
+    rb_cModuleNode = rb_define_class_under(rb_mKanayago, "ModuleNode", rb_cObject);
 
     rb_cColon2Node = rb_define_class_under(rb_mKanayago, "Colon2Node", rb_cObject);
     rb_define_method(rb_cColon2Node, "mid", colon2_node_mid_get, 0);
