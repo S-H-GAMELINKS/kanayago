@@ -213,29 +213,11 @@ if_statement_node_new(const NODE *node)
 {
     VALUE obj = rb_class_new_instance(0, 0, rb_cIfStatementNode);
 
-    rb_ivar_set(obj, symbol("cond"), ast_to_node_instance(RNODE_IF(node)->nd_cond));
-    rb_ivar_set(obj, symbol("body"), ast_to_node_instance(RNODE_IF(node)->nd_body));
-    rb_ivar_set(obj, symbol("else"), ast_to_node_instance(RNODE_IF(node)->nd_else));
+    rb_ivar_set(obj, rb_intern("cond"), ast_to_node_instance(RNODE_IF(node)->nd_cond));
+    rb_ivar_set(obj, rb_intern("body"), ast_to_node_instance(RNODE_IF(node)->nd_body));
+    rb_ivar_set(obj, rb_intern("else"), ast_to_node_instance(RNODE_IF(node)->nd_else));
 
     return obj;
-}
-
-static VALUE
-if_statement_node_cond_get(VALUE self)
-{
-    return rb_ivar_get(self, symbol("cond"));
-}
-
-static VALUE
-if_statement_node_body_get(VALUE self)
-{
-    return rb_ivar_get(self, symbol("body"));
-}
-
-static VALUE
-if_statement_node_else_get(VALUE self)
-{
-    return rb_ivar_get(self, symbol("else"));
 }
 
 static VALUE
@@ -668,9 +650,6 @@ Init_kanayago(void)
     rb_define_method(rb_cFunctionCallNode, "args", function_call_node_args_get, 0);
 
     rb_cIfStatementNode = rb_define_class_under(rb_mKanayago, "IfStatementNode", rb_cObject);
-    rb_define_method(rb_cIfStatementNode, "cond", if_statement_node_cond_get, 0);
-    rb_define_method(rb_cIfStatementNode, "body", if_statement_node_body_get, 0);
-    rb_define_method(rb_cIfStatementNode, "else", if_statement_node_else_get, 0);
 
     rb_cUnlessStatementNode = rb_define_class_under(rb_mKanayago, "UnlessStatementNode", rb_cObject);
     rb_define_method(rb_cUnlessStatementNode, "cond", unless_statement_node_cond_get, 0);
