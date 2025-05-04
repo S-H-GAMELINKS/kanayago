@@ -14,6 +14,7 @@ group :development do
   gem 'rubocop-on-rbs', require: false
   gem 'rubocop-rake', require: false
 
+  gem 'debug'
   gem 'typeprof'
 end
 
