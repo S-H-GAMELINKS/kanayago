@@ -15,4 +15,8 @@ module Kanayago
   class SelfNode
     attr_reader :state
   end
+
+  class ModuleNode
+    attr_reader :cpath, :body
+  end
 end
