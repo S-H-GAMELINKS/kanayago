@@ -405,15 +405,9 @@ instance_variable_node_new(const NODE *node)
 {
     VALUE obj = rb_class_new_instance(0, 0, rb_cInstanceVariableNode);
 
-    rb_ivar_set(obj, symbol("vid"), ID2SYM(RNODE_IVAR(node)->nd_vid));
+    rb_ivar_set(obj, rb_intern("@vid"), ID2SYM(RNODE_IVAR(node)->nd_vid));
 
     return obj;
-}
-
-static VALUE
-instance_variable_node_vid_get(VALUE self)
-{
-    return rb_ivar_get(self, symbol("vid"));
 }
 
 static VALUE
@@ -599,7 +593,6 @@ Init_kanayago(void)
     rb_define_method(rb_cColon2Node, "head", colon2_node_head_get, 0);
 
     rb_cInstanceVariableNode = rb_define_class_under(rb_mKanayago, "InstanceVariableNode", rb_cObject);
-    rb_define_method(rb_cInstanceVariableNode, "vid", instance_variable_node_vid_get, 0);
 
     rb_cGlobalVariableNode = rb_define_class_under(rb_mKanayago, "GlobalVariableNode", rb_cObject);
 
