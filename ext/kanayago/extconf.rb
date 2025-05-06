@@ -11,6 +11,7 @@ $objs = %w[
   scope_node
   literal_node
   statement_node
+  variable_node
 ].map do |o|
   o + ".#{$OBJEXT}"
 end
