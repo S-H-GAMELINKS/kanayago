@@ -2,6 +2,7 @@
 #include "scope_node.h"
 #include "literal_node.h"
 #include "statement_node.h"
+#include "variable_node.h"
 #include "internal/encoding.h"
 #include "internal/ruby_parser.h"
 #include "rubyparser.h"
@@ -22,9 +23,6 @@ VALUE rb_cLeftAssignNode;
 VALUE rb_cClassNode;
 VALUE rb_cModuleNode;
 VALUE rb_cColon2Node;
-VALUE rb_cInstanceVariableNode;
-VALUE rb_cGlobalVariableNode;
-VALUE rb_cLocalVariableNode;
 VALUE rb_cSelfNode;
 
 static VALUE
@@ -187,22 +185,6 @@ static VALUE
 left_assign_node_value_get(VALUE self)
 {
     return rb_ivar_get(self, symbol("value"));
-}
-
-static VALUE
-local_variable_node_new(const NODE *node)
-{
-    VALUE obj = rb_class_new_instance(0, 0, rb_cLocalVariableNode);
-
-    rb_ivar_set(obj, symbol("vid"), ID2SYM(RNODE_LVAR(node)->nd_vid));
-
-    return obj;
-}
-
-static VALUE
-local_variable_node_vid_get(VALUE self)
-{
-    return rb_ivar_get(self, symbol("vid"));
 }
 
 static VALUE
@@ -407,32 +389,6 @@ arguments_node_ainfo_get(VALUE self)
 }
 
 static VALUE
-instance_variable_node_new(const NODE *node)
-{
-    VALUE obj = rb_class_new_instance(0, 0, rb_cInstanceVariableNode);
-
-    rb_ivar_set(obj, symbol("vid"), ID2SYM(RNODE_IVAR(node)->nd_vid));
-
-    return obj;
-}
-
-static VALUE
-instance_variable_node_vid_get(VALUE self)
-{
-    return rb_ivar_get(self, symbol("vid"));
-}
-
-static VALUE
-global_variable_node_new(const NODE *node)
-{
-    VALUE obj = rb_class_new_instance(0, 0, rb_cGlobalVariableNode);
-
-    rb_ivar_set(obj, rb_intern("@vid"), ID2SYM(RNODE_GVAR(node)->nd_vid));
-
-    return obj;
-}
-
-static VALUE
 self_node_new(const NODE *node)
 {
     VALUE obj = rb_class_new_instance(0, 0, rb_cSelfNode);
@@ -604,13 +560,8 @@ Init_kanayago(void)
     rb_define_method(rb_cColon2Node, "mid", colon2_node_mid_get, 0);
     rb_define_method(rb_cColon2Node, "head", colon2_node_head_get, 0);
 
-    rb_cInstanceVariableNode = rb_define_class_under(rb_mKanayago, "InstanceVariableNode", rb_cObject);
-    rb_define_method(rb_cInstanceVariableNode, "vid", instance_variable_node_vid_get, 0);
-
-    rb_cGlobalVariableNode = rb_define_class_under(rb_mKanayago, "GlobalVariableNode", rb_cObject);
-
-    rb_cLocalVariableNode = rb_define_class_under(rb_mKanayago, "LocalVariableNode", rb_cObject);
-    rb_define_method(rb_cLocalVariableNode, "vid", local_variable_node_vid_get, 0);
+    // For Variable Node(e.g. Kanayago::LocalVariableNode)
+    Init_VariableNode(rb_mKanayago);
 
     rb_cSelfNode = rb_define_class_under(rb_mKanayago, "SelfNode", rb_cObject);
 }

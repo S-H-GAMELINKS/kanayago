@@ -5,6 +5,7 @@ require_relative 'kanayago/kanayago'
 
 require_relative 'kanayago/literal_node'
 require_relative 'kanayago/statement_node'
+require_relative 'kanayago/variable_node'
 
 # Parse Ruby code with Ruby's Parser(Universal Parser)
 module Kanayago
