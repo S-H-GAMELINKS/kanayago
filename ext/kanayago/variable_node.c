@@ -1,7 +1,9 @@
+#include "internal/ruby_parser.h"
 #include "kanayago.h"
 
 VALUE rb_cLocalVariableNode;
 VALUE rb_cInstanceVariableNode;
+VALUE rb_cClassVariableNode;
 VALUE rb_cGlobalVariableNode;
 
 VALUE
@@ -25,6 +27,16 @@ instance_variable_node_new(const NODE *node)
 }
 
 VALUE
+class_variable_node_new(const NODE *node)
+{
+    VALUE obj = rb_class_new_instance(0, 0, rb_cClassVariableNode);
+
+    rb_ivar_set(obj, rb_intern("@vid"), ID2SYM(RNODE_IVAR(node)->nd_vid));
+
+    return obj;
+}
+
+VALUE
 global_variable_node_new(const NODE *node)
 {
     VALUE obj = rb_class_new_instance(0, 0, rb_cGlobalVariableNode);
@@ -40,6 +52,8 @@ Init_VariableNode(VALUE module)
     rb_cLocalVariableNode = rb_define_class_under(module, "LocalVariableNode", rb_cObject);
 
     rb_cInstanceVariableNode = rb_define_class_under(module, "InstanceVariableNode", rb_cObject);
+
+    rb_cClassVariableNode = rb_define_class_under(module, "ClassVariableNode", rb_cObject);
 
     rb_cGlobalVariableNode = rb_define_class_under(module, "GlobalVariableNode", rb_cObject);
 }
