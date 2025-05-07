@@ -452,6 +452,8 @@ ast_to_node_instance(const NODE *node)
 	  return begin_node_new(node);
 	case NODE_IVAR:
 	  return instance_variable_node_new(node);
+	case NODE_CVAR:
+	  return class_variable_node_new(node);
 	case NODE_GVAR:
 	  return global_variable_node_new(node);
 	case NODE_SELF:

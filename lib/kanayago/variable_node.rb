@@ -9,6 +9,10 @@ module Kanayago
     attr_reader :vid
   end
 
+  class ClassVariableNode
+    attr_reader :vid
+  end
+
   class GlobalVariableNode
     attr_reader :vid
   end
