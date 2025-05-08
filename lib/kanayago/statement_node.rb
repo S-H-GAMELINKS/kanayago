@@ -16,4 +16,8 @@ module Kanayago
   class AndNode
     attr_reader :first, :second
   end
+
+  class WhileNode
+    attr_reader :state, :cond, :body
+  end
 end

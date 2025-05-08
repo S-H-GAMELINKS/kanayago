@@ -1,9 +1,12 @@
 #include "statement_node.h"
+#include "internal/ruby_parser.h"
+#include "rubyparser.h"
 
 VALUE rb_cIfStatementNode;
 VALUE rb_cUnlessStatementNode;
 VALUE rb_cOrNode;
 VALUE rb_cAndNode;
+VALUE rb_cWhileNode;
 
 VALUE
 if_statement_node_new(const NODE *node)
@@ -51,6 +54,18 @@ and_node_new(const NODE *node)
     return obj;
 }
 
+VALUE
+while_node_new(const NODE *node)
+{
+    VALUE obj = rb_class_new_instance(0, 0, rb_cWhileNode);
+
+    rb_ivar_set(obj, rb_intern("@state"), LONG2FIX(RNODE_WHILE(node)->nd_state));
+    rb_ivar_set(obj, rb_intern("@cond"), ast_to_node_instance(RNODE_WHILE(node)->nd_cond));
+    rb_ivar_set(obj, rb_intern("@body"), ast_to_node_instance(RNODE_WHILE(node)->nd_body));
+
+    return obj;
+}
+
 void
 Init_StatementNode(VALUE module)
 {
@@ -61,4 +76,6 @@ Init_StatementNode(VALUE module)
     rb_cOrNode = rb_define_class_under(module, "OrNode", rb_cObject);
 
     rb_cAndNode = rb_define_class_under(module, "AndNode", rb_cObject);
+
+    rb_cWhileNode = rb_define_class_under(module, "WhileNode", rb_cObject);
 }
