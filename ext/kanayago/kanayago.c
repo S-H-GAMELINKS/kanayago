@@ -436,6 +436,8 @@ ast_to_node_instance(const NODE *node)
 	  return if_statement_node_new(node);
 	case NODE_UNLESS:
 	  return unless_statement_node_new(node);
+	case NODE_WHILE:
+	  return while_node_new(node);
 	case NODE_OR:
 	  return or_node_new(node);
 	case NODE_AND:
