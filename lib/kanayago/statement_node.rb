@@ -20,4 +20,8 @@ module Kanayago
   class WhileNode
     attr_reader :state, :cond, :body
   end
+
+  class UntilNode
+    attr_reader :state, :cond, :body
+  end
 end

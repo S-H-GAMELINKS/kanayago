@@ -7,6 +7,7 @@ VALUE rb_cUnlessStatementNode;
 VALUE rb_cOrNode;
 VALUE rb_cAndNode;
 VALUE rb_cWhileNode;
+VALUE rb_cUntilNode;
 
 VALUE
 if_statement_node_new(const NODE *node)
@@ -66,6 +67,18 @@ while_node_new(const NODE *node)
     return obj;
 }
 
+VALUE
+until_node_new(const NODE *node)
+{
+    VALUE obj = rb_class_new_instance(0, 0, rb_cUntilNode);
+
+    rb_ivar_set(obj, rb_intern("@state"), LONG2FIX(RNODE_UNTIL(node)->nd_state));
+    rb_ivar_set(obj, rb_intern("@cond"), ast_to_node_instance(RNODE_UNTIL(node)->nd_cond));
+    rb_ivar_set(obj, rb_intern("@body"), ast_to_node_instance(RNODE_UNTIL(node)->nd_body));
+
+    return obj;
+}
+
 void
 Init_StatementNode(VALUE module)
 {
@@ -78,4 +91,6 @@ Init_StatementNode(VALUE module)
     rb_cAndNode = rb_define_class_under(module, "AndNode", rb_cObject);
 
     rb_cWhileNode = rb_define_class_under(module, "WhileNode", rb_cObject);
+
+    rb_cUntilNode = rb_define_class_under(module, "UntilNode", rb_cObject);
 }

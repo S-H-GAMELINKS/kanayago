@@ -9,6 +9,7 @@ VALUE unless_statement_node_new(const NODE *);
 VALUE or_node_new(const NODE *);
 VALUE and_node_new(const NODE *);
 VALUE while_node_new(const NODE *);
+VALUE until_node_new(const NODE *);
 
 void Init_StatementNode(VALUE);
 
