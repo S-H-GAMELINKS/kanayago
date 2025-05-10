@@ -1,5 +1,6 @@
 #include "statement_node.h"
 #include "internal/ruby_parser.h"
+#include "kanayago.h"
 #include "rubyparser.h"
 
 VALUE rb_cIfStatementNode;
@@ -8,6 +9,7 @@ VALUE rb_cOrNode;
 VALUE rb_cAndNode;
 VALUE rb_cWhileNode;
 VALUE rb_cUntilNode;
+VALUE rb_cForNode;
 
 VALUE
 if_statement_node_new(const NODE *node)
@@ -79,6 +81,17 @@ until_node_new(const NODE *node)
     return obj;
 }
 
+VALUE
+for_node_new(const NODE *node)
+{
+    VALUE obj = rb_class_new_instance(0, 0, rb_cForNode);
+
+    rb_ivar_set(obj, rb_intern("@iter"), ast_to_node_instance(RNODE_FOR(node)->nd_iter));
+    rb_ivar_set(obj, rb_intern("@body"), ast_to_node_instance(RNODE_FOR(node)->nd_body));
+
+    return obj;
+}
+
 void
 Init_StatementNode(VALUE module)
 {
@@ -93,4 +106,6 @@ Init_StatementNode(VALUE module)
     rb_cWhileNode = rb_define_class_under(module, "WhileNode", rb_cObject);
 
     rb_cUntilNode = rb_define_class_under(module, "UntilNode", rb_cObject);
+
+    rb_cForNode = rb_define_class_under(module, "ForNode", rb_cObject);
 }

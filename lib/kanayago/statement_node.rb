@@ -24,4 +24,8 @@ module Kanayago
   class UntilNode
     attr_reader :state, :cond, :body
   end
+
+  class ForNode
+    attr_reader :iter, :body
+  end
 end
