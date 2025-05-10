@@ -12,7 +12,7 @@ class ParseWhileNodeTest < Minitest::Test
       end
     CODE
 
-    body = result.body
+    result.body
     line = result.body.last
 
     assert_instance_of(Kanayago::WhileNode, line)
