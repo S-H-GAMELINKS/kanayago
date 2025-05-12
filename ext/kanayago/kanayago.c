@@ -442,6 +442,8 @@ ast_to_node_instance(const NODE *node)
 	  return until_node_new(node);
 	case NODE_FOR:
 	  return for_node_new(node);
+	case NODE_ALIAS:
+	  return alias_node_new(node);
 	case NODE_OR:
 	  return or_node_new(node);
 	case NODE_AND:
