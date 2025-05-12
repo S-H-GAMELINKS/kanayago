@@ -23,6 +23,7 @@ RUBY_PARSER_COPY_TARGETS = %w[
   internal/hash.h
   internal/imemo.h
   internal/io.h
+  internal/namespace.h
   internal/numeric.h
   internal/parse.h
   internal/rational.h
