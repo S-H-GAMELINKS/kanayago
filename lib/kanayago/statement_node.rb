@@ -28,4 +28,8 @@ module Kanayago
   class ForNode
     attr_reader :iter, :body
   end
+
+  class AliasNode
+    attr_reader :first, :second
+  end
 end

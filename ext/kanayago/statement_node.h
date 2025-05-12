@@ -11,6 +11,7 @@ VALUE and_node_new(const NODE *);
 VALUE while_node_new(const NODE *);
 VALUE until_node_new(const NODE *);
 VALUE for_node_new(const NODE *);
+VALUE alias_node_new(const NODE *);
 
 void Init_StatementNode(VALUE);
 
