@@ -32,4 +32,8 @@ module Kanayago
   class AliasNode
     attr_reader :first, :second
   end
+
+  class ValiasNode
+    attr_reader :alias, :original
+  end
 end

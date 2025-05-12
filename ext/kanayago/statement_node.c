@@ -11,6 +11,7 @@ VALUE rb_cWhileNode;
 VALUE rb_cUntilNode;
 VALUE rb_cForNode;
 VALUE rb_cAliasNode;
+VALUE rb_cValiasNode;
 
 VALUE
 if_statement_node_new(const NODE *node)
@@ -104,6 +105,17 @@ alias_node_new(const NODE *node)
     return obj;
 }
 
+VALUE
+valias_node_new(const NODE *node)
+{
+    VALUE obj = rb_class_new_instance(0, 0, rb_cValiasNode);
+
+    rb_ivar_set(obj, rb_intern("@alias"), ID2SYM(RNODE_VALIAS(node)->nd_alias));
+    rb_ivar_set(obj, rb_intern("@original"), ID2SYM(RNODE_VALIAS(node)->nd_orig));
+
+    return obj;
+}
+
 void
 Init_StatementNode(VALUE module)
 {
@@ -122,4 +134,6 @@ Init_StatementNode(VALUE module)
     rb_cForNode = rb_define_class_under(module, "ForNode", rb_cObject);
 
     rb_cAliasNode = rb_define_class_under(module, "AliasNode", rb_cObject);
+
+    rb_cValiasNode = rb_define_class_under(module, "ValiasNode", rb_cObject);
 }
