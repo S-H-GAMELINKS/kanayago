@@ -113,12 +113,12 @@ list_node_new(const NODE *node)
 {
     VALUE obj = rb_class_new_instance(0, 0, rb_cListNode);
     VALUE val = rb_ary_new();
-    NODE *nd_head = RNODE_LIST(node)->nd_head;
+    const NODE *nd_current = node;
     int list_len = RNODE_LIST(node)->as.nd_alen;
 
-    for (int i = 0; i < list_len; i++ ) {
-	rb_ary_push(val, ast_to_node_instance(nd_head));
-	nd_head = RNODE_LIST(node)->nd_next;
+    while (nd_current) {
+        rb_ary_push(val, ast_to_node_instance(RNODE_LIST(nd_current)->nd_head));
+	nd_current = RNODE_LIST(nd_current)->nd_next;
     }
 
     rb_ivar_set(obj, rb_intern("@val"), val);
