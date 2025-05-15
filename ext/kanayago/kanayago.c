@@ -446,6 +446,8 @@ ast_to_node_instance(const NODE *node)
 	  return alias_node_new(node);
 	case NODE_VALIAS:
 	  return valias_node_new(node);
+	case NODE_UNDEF:
+	  return undef_node_new(node);
 	case NODE_OR:
 	  return or_node_new(node);
 	case NODE_AND:

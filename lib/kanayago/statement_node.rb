@@ -36,4 +36,8 @@ module Kanayago
   class ValiasNode
     attr_reader :alias, :original
   end
+
+  class UndefNode
+    attr_reader :undefs
+  end
 end

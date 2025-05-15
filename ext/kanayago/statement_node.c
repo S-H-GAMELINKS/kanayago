@@ -12,6 +12,7 @@ VALUE rb_cUntilNode;
 VALUE rb_cForNode;
 VALUE rb_cAliasNode;
 VALUE rb_cValiasNode;
+VALUE rb_cUndefNode;
 
 VALUE
 if_statement_node_new(const NODE *node)
@@ -116,6 +117,23 @@ valias_node_new(const NODE *node)
     return obj;
 }
 
+VALUE
+undef_node_new(const NODE *node)
+{
+    VALUE obj = rb_class_new_instance(0, 0, rb_cUndefNode);
+    VALUE undefs = rb_ary_new();
+
+    rb_parser_ary_t *nd_undefs = RNODE_UNDEF(node)->nd_undefs;
+
+    for (int i = 0; i < nd_undefs->len; i++) {
+        rb_ary_push(undefs, ast_to_node_instance((const NODE *)(nd_undefs->data[i])));
+    }
+
+    rb_ivar_set(obj, rb_intern("@undefs"), undefs);
+
+    return obj;
+}
+
 void
 Init_StatementNode(VALUE module)
 {
@@ -136,4 +154,6 @@ Init_StatementNode(VALUE module)
     rb_cAliasNode = rb_define_class_under(module, "AliasNode", rb_cObject);
 
     rb_cValiasNode = rb_define_class_under(module, "ValiasNode", rb_cObject);
+
+    rb_cUndefNode = rb_define_class_under(module, "UndefNode", rb_cObject);
 }
