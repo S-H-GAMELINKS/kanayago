@@ -40,4 +40,8 @@ module Kanayago
   class UndefNode
     attr_reader :undefs
   end
+
+  class ReturnNode
+    attr_reader :statements
+  end
 end

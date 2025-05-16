@@ -13,6 +13,7 @@ VALUE rb_cForNode;
 VALUE rb_cAliasNode;
 VALUE rb_cValiasNode;
 VALUE rb_cUndefNode;
+VALUE rb_cReturnNode;
 
 VALUE
 if_statement_node_new(const NODE *node)
@@ -134,6 +135,16 @@ undef_node_new(const NODE *node)
     return obj;
 }
 
+VALUE
+return_node_new(const NODE *node)
+{
+    VALUE obj = rb_class_new_instance(0, 0, rb_cReturnNode);
+
+    rb_ivar_set(obj, rb_intern("@statements"), ast_to_node_instance(RNODE_RETURN(node)->nd_stts));
+
+    return obj;
+}
+
 void
 Init_StatementNode(VALUE module)
 {
@@ -156,4 +167,6 @@ Init_StatementNode(VALUE module)
     rb_cValiasNode = rb_define_class_under(module, "ValiasNode", rb_cObject);
 
     rb_cUndefNode = rb_define_class_under(module, "UndefNode", rb_cObject);
+
+    rb_cReturnNode = rb_define_class_under(module, "ReturnNode", rb_cObject);
 }

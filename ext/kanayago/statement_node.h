@@ -14,6 +14,7 @@ VALUE for_node_new(const NODE *);
 VALUE alias_node_new(const NODE *);
 VALUE valias_node_new(const NODE *);
 VALUE undef_node_new(const NODE *);
+VALUE return_node_new(const NODE *);
 
 void Init_StatementNode(VALUE);
 
