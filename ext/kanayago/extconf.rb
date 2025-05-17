@@ -10,6 +10,7 @@ $objs = %w[
   kanayago
   scope_node
   literal_node
+  string_node
   statement_node
   variable_node
 ].map do |o|

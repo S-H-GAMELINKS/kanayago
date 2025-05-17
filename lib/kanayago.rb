@@ -4,6 +4,7 @@ require_relative 'kanayago/version'
 require_relative 'kanayago/kanayago'
 
 require_relative 'kanayago/literal_node'
+require_relative 'kanayago/string_node'
 require_relative 'kanayago/statement_node'
 require_relative 'kanayago/variable_node'
 

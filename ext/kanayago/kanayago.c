@@ -1,6 +1,7 @@
 #include "kanayago.h"
 #include "scope_node.h"
 #include "literal_node.h"
+#include "string_node.h"
 #include "statement_node.h"
 #include "variable_node.h"
 #include "internal/encoding.h"
@@ -474,6 +475,10 @@ ast_to_node_instance(const NODE *node)
 	  return global_variable_node_new(node);
 	case NODE_SELF:
 	  return self_node_new(node);
+	case NODE_DSTR:
+	  return dynamic_string_node_new(node);
+	case NODE_EVSTR:
+	  return embedded_expression_string_node_new(node);
 	case NODE_INTEGER:
 	case NODE_FLOAT:
 	case NODE_RATIONAL:
@@ -523,6 +528,9 @@ Init_kanayago(void)
 
     // For Literal Node(e.g. Kanayago::IntegerNode)
     Init_LiteralNode(rb_mKanayago);
+
+    // For String Node(e.g. Kanayago::DynamicStringNode)
+    Init_StringNode(rb_mKanayago);
 
     rb_cConstantNode = rb_define_class_under(rb_mKanayago, "ConstantNode", rb_cObject);
     rb_define_method(rb_cConstantNode, "vid", constant_node_vid_get, 0);
