@@ -48,4 +48,8 @@ module Kanayago
   class GlobalAssignmentNode
     attr_reader :id, :value
   end
+
+  class LocalAssignmentNode
+    attr_reader :id, :value
+  end
 end

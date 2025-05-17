@@ -17,6 +17,6 @@ class ParseUntilNodeTest < Minitest::Test
     assert_instance_of(Kanayago::UntilNode, line)
     assert_equal(1, line.state)
     assert_instance_of(Kanayago::OperatorCallNode, line.cond.first)
-    assert_instance_of(Kanayago::LeftAssignNode, line.body)
+    assert_instance_of(Kanayago::LocalAssignmentNode, line.body)
   end
 end

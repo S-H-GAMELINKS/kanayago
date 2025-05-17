@@ -18,7 +18,7 @@ class ParseUnlessTest < Minitest::Test
 
     line = body[0]
 
-    assert_instance_of(Kanayago::LeftAssignNode, line)
+    assert_instance_of(Kanayago::LocalAssignmentNode, line)
 
     line = body[1]
 

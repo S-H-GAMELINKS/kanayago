@@ -21,7 +21,7 @@ class ParseIfTest < Minitest::Test
 
     arg = body.first
 
-    assert_instance_of(Kanayago::LeftAssignNode, arg)
+    assert_instance_of(Kanayago::LocalAssignmentNode, arg)
 
     arg = body.last
 
