@@ -11,7 +11,7 @@ class ParseLasgnTest < Minitest::Test
 
     body = result.body
 
-    assert_instance_of(Kanayago::LeftAssignNode, body)
+    assert_instance_of(Kanayago::LocalAssignmentNode, body)
     assert_equal(:var, body.id)
     assert_instance_of(Kanayago::IntegerNode, body.value)
 

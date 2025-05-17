@@ -20,7 +20,6 @@ VALUE rb_cArgumentsNode;
 VALUE rb_cListNode;
 VALUE rb_cBlockNode;
 VALUE rb_cBeginNode;
-VALUE rb_cLeftAssignNode;
 VALUE rb_cClassNode;
 VALUE rb_cModuleNode;
 VALUE rb_cColon2Node;
@@ -163,29 +162,6 @@ block_node_new(const NODE *node)
     }
 
     return obj;
-}
-
-static VALUE
-left_assign_node_new(const NODE *node)
-{
-    VALUE obj = rb_class_new_instance(0, 0, rb_cLeftAssignNode);
-
-    rb_ivar_set(obj, symbol("id"), ID2SYM(RNODE_LASGN(node)->nd_vid));
-    rb_ivar_set(obj, symbol("value"), ast_to_node_instance(RNODE_LASGN(node)->nd_value));
-
-    return obj;
-}
-
-static VALUE
-left_assign_node_id_get(VALUE self)
-{
-    return rb_ivar_get(self, symbol("id"));
-}
-
-static VALUE
-left_assign_node_value_get(VALUE self)
-{
-    return rb_ivar_get(self, symbol("value"));
 }
 
 static VALUE
@@ -430,7 +406,7 @@ ast_to_node_instance(const NODE *node)
 	case NODE_BLOCK:
 	  return block_node_new(node);
 	case NODE_LASGN:
-	  return left_assign_node_new(node);
+	  return local_assignment_node_new(node);
 	case NODE_GASGN:
 	  return global_assignment_node_new(node);
 	case NODE_LVAR:
@@ -570,10 +546,6 @@ Init_kanayago(void)
 
     rb_cBeginNode = rb_define_class_under(rb_mKanayago, "BeginNode", rb_cObject);
     rb_define_method(rb_cBeginNode, "body", begin_node_body_get, 0);
-
-    rb_cLeftAssignNode = rb_define_class_under(rb_mKanayago, "LeftAssignNode", rb_cObject);
-    rb_define_method(rb_cLeftAssignNode, "id", left_assign_node_id_get, 0);
-    rb_define_method(rb_cLeftAssignNode, "value", left_assign_node_value_get, 0);
 
     rb_cClassNode = rb_define_class_under(rb_mKanayago, "ClassNode", rb_cObject);
     rb_define_method(rb_cClassNode, "cpath", class_node_cpath_get, 0);

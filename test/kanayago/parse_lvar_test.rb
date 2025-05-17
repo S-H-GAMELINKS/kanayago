@@ -19,7 +19,7 @@ class ParseLvarTest < Minitest::Test
 
     line = body.first
 
-    assert_instance_of(Kanayago::LeftAssignNode, line)
+    assert_instance_of(Kanayago::LocalAssignmentNode, line)
     assert_equal(:v, line.id)
     assert_instance_of(Kanayago::IntegerNode, line.value)
 
