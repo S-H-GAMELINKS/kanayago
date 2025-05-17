@@ -430,6 +430,8 @@ ast_to_node_instance(const NODE *node)
 	  return block_node_new(node);
 	case NODE_LASGN:
 	  return left_assign_node_new(node);
+	case NODE_GASGN:
+	  return global_assignment_node_new(node);
 	case NODE_LVAR:
 	  return local_variable_node_new(node);
 	case NODE_IF:

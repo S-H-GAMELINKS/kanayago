@@ -44,4 +44,8 @@ module Kanayago
   class ReturnNode
     attr_reader :statements
   end
+
+  class GlobalAssignmentNode
+    attr_reader :id, :value
+  end
 end

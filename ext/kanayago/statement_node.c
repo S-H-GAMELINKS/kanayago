@@ -14,6 +14,7 @@ VALUE rb_cAliasNode;
 VALUE rb_cValiasNode;
 VALUE rb_cUndefNode;
 VALUE rb_cReturnNode;
+VALUE rb_cGlobalAssignmentNode;
 
 VALUE
 if_statement_node_new(const NODE *node)
@@ -145,6 +146,17 @@ return_node_new(const NODE *node)
     return obj;
 }
 
+VALUE
+global_assignment_node_new(const NODE *node)
+{
+    VALUE obj = rb_class_new_instance(0, 0, rb_cGlobalAssignmentNode);
+
+    rb_ivar_set(obj, rb_intern("@id"), ID2SYM(RNODE_GASGN(node)->nd_vid));
+    rb_ivar_set(obj, rb_intern("@value"), ast_to_node_instance(RNODE_GASGN(node)->nd_value));
+
+    return obj;
+}
+
 void
 Init_StatementNode(VALUE module)
 {
@@ -169,4 +181,6 @@ Init_StatementNode(VALUE module)
     rb_cUndefNode = rb_define_class_under(module, "UndefNode", rb_cObject);
 
     rb_cReturnNode = rb_define_class_under(module, "ReturnNode", rb_cObject);
+
+    rb_cGlobalAssignmentNode = rb_define_class_under(module, "GlobalAssignmentNode", rb_cObject);
 }
