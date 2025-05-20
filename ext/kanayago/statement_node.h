@@ -16,6 +16,7 @@ VALUE valias_node_new(const NODE *);
 VALUE undef_node_new(const NODE *);
 VALUE return_node_new(const NODE *);
 VALUE global_assignment_node_new(const NODE *);
+VALUE instance_assignment_node_new(const NODE *);
 VALUE local_assignment_node_new(const NODE *);
 
 void Init_StatementNode(VALUE);
