@@ -409,6 +409,8 @@ ast_to_node_instance(const NODE *node)
 	  return local_assignment_node_new(node);
 	case NODE_IASGN:
 	  return instance_assignment_node_new(node);
+	case NODE_CVASGN:
+	  return class_variable_assignment_node_new(node);
 	case NODE_GASGN:
 	  return global_assignment_node_new(node);
 	case NODE_LVAR:
