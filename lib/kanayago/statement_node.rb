@@ -49,6 +49,10 @@ module Kanayago
     attr_reader :id, :value
   end
 
+  class ClassVariableAssignmentNode
+    attr_reader :id, :value
+  end
+
   class InstanceAssignmentNode
     attr_reader :id, :value
   end
