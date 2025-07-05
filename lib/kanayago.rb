@@ -21,4 +21,8 @@ module Kanayago
   class ModuleNode
     attr_reader :cpath, :body
   end
+
+  class VariableCallNode
+    attr_reader :mid
+  end
 end

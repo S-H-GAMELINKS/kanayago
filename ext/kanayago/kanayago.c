@@ -16,6 +16,7 @@ VALUE rb_cDefinitionNode;
 VALUE rb_cOperatorCallNode;
 VALUE rb_cCallNode;
 VALUE rb_cFunctionCallNode;
+VALUE rb_cVariableCallNode;
 VALUE rb_cArgumentsNode;
 VALUE rb_cListNode;
 VALUE rb_cBlockNode;
@@ -109,6 +110,22 @@ function_call_node_args_get(VALUE self)
 }
 
 static VALUE
+variable_call_node_new(const NODE *node)
+{
+    VALUE obj = rb_class_new_instance(0, 0, rb_cVariableCallNode);
+
+    rb_ivar_set(obj, rb_intern("@mid"), ID2SYM(RNODE_VCALL(node)->nd_mid));
+
+    return obj;
+}
+
+static VALUE
+variable_call_node_mid_get(VALUE self)
+{
+    return rb_ivar_get(self, rb_intern("@mid"));
+}
+
+static VALUE
 list_node_new(const NODE *node)
 {
     VALUE obj = rb_class_new_instance(0, 0, rb_cListNode);
@@ -118,7 +135,7 @@ list_node_new(const NODE *node)
 
     while (nd_current) {
         rb_ary_push(val, ast_to_node_instance(RNODE_LIST(nd_current)->nd_head));
-	nd_current = RNODE_LIST(nd_current)->nd_next;
+        nd_current = RNODE_LIST(nd_current)->nd_next;
     }
 
     rb_ivar_set(obj, rb_intern("@val"), val);
@@ -157,8 +174,8 @@ block_node_new(const NODE *node)
     const NODE *current_node = node;
 
     while (current_node) {
- 	rb_ary_push(obj, ast_to_node_instance(RNODE_BLOCK(current_node)->nd_head));
-	current_node = RNODE_BLOCK(current_node)->nd_next;
+        rb_ary_push(obj, ast_to_node_instance(RNODE_BLOCK(current_node)->nd_head));
+        current_node = RNODE_BLOCK(current_node)->nd_next;
     }
 
     return obj;
@@ -399,6 +416,8 @@ ast_to_node_instance(const NODE *node)
 	  return operator_call_node_new(node);
 	case NODE_FCALL:
 	  return function_call_node_new(node);
+	case NODE_VCALL:
+	  return variable_call_node_new(node);
 	case NODE_CALL:
 	  return call_node_new(node);
 	case NODE_ARGS:
@@ -542,6 +561,9 @@ Init_kanayago(void)
     rb_cFunctionCallNode = rb_define_class_under(rb_mKanayago, "FunctionCallNode", rb_cObject);
     rb_define_method(rb_cFunctionCallNode, "mid", function_call_node_mid_get, 0);
     rb_define_method(rb_cFunctionCallNode, "args", function_call_node_args_get, 0);
+
+    rb_cVariableCallNode = rb_define_class_under(rb_mKanayago, "VariableCallNode", rb_cObject);
+    rb_define_method(rb_cVariableCallNode, "mid", variable_call_node_mid_get, 0);
 
     // For Statement Node(e.g. Kanayago::IfStatementNode)
     Init_StatementNode(rb_mKanayago);
