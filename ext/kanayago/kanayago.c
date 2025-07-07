@@ -24,6 +24,7 @@ VALUE rb_cBeginNode;
 VALUE rb_cClassNode;
 VALUE rb_cModuleNode;
 VALUE rb_cColon2Node;
+VALUE rb_cColon3Node;
 VALUE rb_cSelfNode;
 
 static VALUE
@@ -330,6 +331,22 @@ colon2_node_head_get(VALUE self)
 }
 
 static VALUE
+colon3_node_new(const NODE *node)
+{
+    VALUE obj = rb_class_new_instance(0, 0, rb_cColon3Node);
+
+    rb_ivar_set(obj, rb_intern("@mid"), ID2SYM(RNODE_COLON3(node)->nd_mid));
+
+    return obj;
+}
+
+static VALUE
+colon3_node_mid_get(VALUE self)
+{
+    return rb_ivar_get(self, rb_intern("@mid"));
+}
+
+static VALUE
 begin_node_new(const NODE *node)
 {
     VALUE obj = rb_class_new_instance(0, 0, rb_cBeginNode);
@@ -464,6 +481,8 @@ ast_to_node_instance(const NODE *node)
 	  return constant_declaration_node_new(node);
 	case NODE_COLON2:
 	  return colon2_node_new(node);
+	case NODE_COLON3:
+	  return colon3_node_new(node);
 	case NODE_BEGIN:
 	  return begin_node_new(node);
 	case NODE_IVAR:
@@ -583,6 +602,9 @@ Init_kanayago(void)
     rb_cColon2Node = rb_define_class_under(rb_mKanayago, "Colon2Node", rb_cObject);
     rb_define_method(rb_cColon2Node, "mid", colon2_node_mid_get, 0);
     rb_define_method(rb_cColon2Node, "head", colon2_node_head_get, 0);
+
+    rb_cColon3Node = rb_define_class_under(rb_mKanayago, "Colon3Node", rb_cObject);
+    rb_define_method(rb_cColon3Node, "mid", colon3_node_mid_get, 0);
 
     // For Variable Node(e.g. Kanayago::LocalVariableNode)
     Init_VariableNode(rb_mKanayago);
