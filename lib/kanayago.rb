@@ -25,4 +25,8 @@ module Kanayago
   class VariableCallNode
     attr_reader :mid
   end
+
+  class Colon3Node
+    attr_reader :mid
+  end
 end
