@@ -22,6 +22,9 @@ VALUE local_assignment_node_new(const NODE *);
 VALUE singleton_definition_node_new(const NODE *);
 VALUE singleton_class_node_new(const NODE *);
 VALUE attribute_assignment_node_new(const NODE *);
+VALUE safe_call_node_new(const NODE *);
+VALUE super_node_new(const NODE *);
+VALUE zero_super_node_new(const NODE *);
 
 void Init_StatementNode(VALUE);
 

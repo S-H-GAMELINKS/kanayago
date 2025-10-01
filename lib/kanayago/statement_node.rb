@@ -72,4 +72,15 @@ module Kanayago
   class AttributeAssignmentNode
     attr_reader :recv, :mid, :args
   end
+
+  class SafeCallNode
+    attr_reader :recv, :mid, :args
+  end
+
+  class SuperNode
+    attr_reader :args
+  end
+
+  class ZeroSuperNode # rubocop:disable Lint/EmptyClass
+  end
 end

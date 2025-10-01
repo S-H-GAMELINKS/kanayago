@@ -21,6 +21,9 @@ VALUE rb_cLocalAssignmentNode;
 VALUE rb_cSingletonDefinitionNode;
 VALUE rb_cSingletonClassNode;
 VALUE rb_cAttributeAssignmentNode;
+VALUE rb_cSafeCallNode;
+VALUE rb_cSuperNode;
+VALUE rb_cZeroSuperNode;
 
 VALUE
 if_statement_node_new(const NODE *node)
@@ -231,6 +234,36 @@ attribute_assignment_node_new(const NODE *node)
     return obj;
 }
 
+VALUE
+safe_call_node_new(const NODE *node)
+{
+    VALUE obj = rb_class_new_instance(0, 0, rb_cSafeCallNode);
+
+    rb_ivar_set(obj, rb_intern("@recv"), ast_to_node_instance(RNODE_QCALL(node)->nd_recv));
+    rb_ivar_set(obj, rb_intern("@mid"), ID2SYM(RNODE_QCALL(node)->nd_mid));
+    rb_ivar_set(obj, rb_intern("@args"), ast_to_node_instance(RNODE_QCALL(node)->nd_args));
+
+    return obj;
+}
+
+VALUE
+super_node_new(const NODE *node)
+{
+    VALUE obj = rb_class_new_instance(0, 0, rb_cSuperNode);
+
+    rb_ivar_set(obj, rb_intern("@args"), ast_to_node_instance(RNODE_SUPER(node)->nd_args));
+
+    return obj;
+}
+
+VALUE
+zero_super_node_new(const NODE *node)
+{
+    VALUE obj = rb_class_new_instance(0, 0, rb_cZeroSuperNode);
+
+    return obj;
+}
+
 void
 Init_StatementNode(VALUE module)
 {
@@ -269,4 +302,10 @@ Init_StatementNode(VALUE module)
     rb_cSingletonClassNode = rb_define_class_under(module, "SingletonClassNode", rb_cObject);
 
     rb_cAttributeAssignmentNode = rb_define_class_under(module, "AttributeAssignmentNode", rb_cObject);
+
+    rb_cSafeCallNode = rb_define_class_under(module, "SafeCallNode", rb_cObject);
+
+    rb_cSuperNode = rb_define_class_under(module, "SuperNode", rb_cObject);
+
+    rb_cZeroSuperNode = rb_define_class_under(module, "ZeroSuperNode", rb_cObject);
 }

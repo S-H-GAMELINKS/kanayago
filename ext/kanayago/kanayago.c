@@ -435,6 +435,12 @@ ast_to_node_instance(const NODE *node)
 	  return singleton_class_node_new(node);
 	case NODE_ATTRASGN:
 	  return attribute_assignment_node_new(node);
+	case NODE_QCALL:
+	  return safe_call_node_new(node);
+	case NODE_SUPER:
+	  return super_node_new(node);
+	case NODE_ZSUPER:
+	  return zero_super_node_new(node);
 	case NODE_OPCALL:
 	  return operator_call_node_new(node);
 	case NODE_FCALL:
