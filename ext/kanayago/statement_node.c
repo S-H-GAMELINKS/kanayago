@@ -18,6 +18,9 @@ VALUE rb_cGlobalAssignmentNode;
 VALUE rb_cClassVariableAssignmentNode;
 VALUE rb_cInstanceAssignmentNode;
 VALUE rb_cLocalAssignmentNode;
+VALUE rb_cSingletonDefinitionNode;
+VALUE rb_cSingletonClassNode;
+VALUE rb_cAttributeAssignmentNode;
 
 VALUE
 if_statement_node_new(const NODE *node)
@@ -193,6 +196,41 @@ local_assignment_node_new(const NODE *node)
     return obj;
 }
 
+VALUE
+singleton_definition_node_new(const NODE *node)
+{
+    VALUE obj = rb_class_new_instance(0, 0, rb_cSingletonDefinitionNode);
+
+    rb_ivar_set(obj, rb_intern("@recv"), ast_to_node_instance(RNODE_DEFS(node)->nd_recv));
+    rb_ivar_set(obj, rb_intern("@mid"), ID2SYM(RNODE_DEFS(node)->nd_mid));
+    rb_ivar_set(obj, rb_intern("@defn"), ast_to_node_instance(RNODE_DEFS(node)->nd_defn));
+
+    return obj;
+}
+
+VALUE
+singleton_class_node_new(const NODE *node)
+{
+    VALUE obj = rb_class_new_instance(0, 0, rb_cSingletonClassNode);
+
+    rb_ivar_set(obj, rb_intern("@recv"), ast_to_node_instance(RNODE_SCLASS(node)->nd_recv));
+    rb_ivar_set(obj, rb_intern("@body"), ast_to_node_instance(RNODE_SCLASS(node)->nd_body));
+
+    return obj;
+}
+
+VALUE
+attribute_assignment_node_new(const NODE *node)
+{
+    VALUE obj = rb_class_new_instance(0, 0, rb_cAttributeAssignmentNode);
+
+    rb_ivar_set(obj, rb_intern("@recv"), ast_to_node_instance(RNODE_ATTRASGN(node)->nd_recv));
+    rb_ivar_set(obj, rb_intern("@mid"), ID2SYM(RNODE_ATTRASGN(node)->nd_mid));
+    rb_ivar_set(obj, rb_intern("@args"), ast_to_node_instance(RNODE_ATTRASGN(node)->nd_args));
+
+    return obj;
+}
+
 void
 Init_StatementNode(VALUE module)
 {
@@ -225,4 +263,10 @@ Init_StatementNode(VALUE module)
     rb_cInstanceAssignmentNode = rb_define_class_under(module, "InstanceAssignmentNode", rb_cObject);
 
     rb_cLocalAssignmentNode = rb_define_class_under(module, "LocalAssignmentNode", rb_cObject);
+
+    rb_cSingletonDefinitionNode = rb_define_class_under(module, "SingletonDefinitionNode", rb_cObject);
+
+    rb_cSingletonClassNode = rb_define_class_under(module, "SingletonClassNode", rb_cObject);
+
+    rb_cAttributeAssignmentNode = rb_define_class_under(module, "AttributeAssignmentNode", rb_cObject);
 }

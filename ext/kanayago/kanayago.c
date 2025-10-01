@@ -429,6 +429,12 @@ ast_to_node_instance(const NODE *node)
 	  return module_node_new(node);
 	case NODE_DEFN:
 	  return definition_node_new(node);
+	case NODE_DEFS:
+	  return singleton_definition_node_new(node);
+	case NODE_SCLASS:
+	  return singleton_class_node_new(node);
+	case NODE_ATTRASGN:
+	  return attribute_assignment_node_new(node);
 	case NODE_OPCALL:
 	  return operator_call_node_new(node);
 	case NODE_FCALL:
