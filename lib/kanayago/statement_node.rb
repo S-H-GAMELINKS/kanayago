@@ -60,4 +60,16 @@ module Kanayago
   class LocalAssignmentNode
     attr_reader :id, :value
   end
+
+  class SingletonDefinitionNode
+    attr_reader :recv, :mid, :defn
+  end
+
+  class SingletonClassNode
+    attr_reader :recv, :body
+  end
+
+  class AttributeAssignmentNode
+    attr_reader :recv, :mid, :args
+  end
 end

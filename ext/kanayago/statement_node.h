@@ -19,6 +19,9 @@ VALUE global_assignment_node_new(const NODE *);
 VALUE class_variable_assignment_node_new(const NODE *);
 VALUE instance_assignment_node_new(const NODE *);
 VALUE local_assignment_node_new(const NODE *);
+VALUE singleton_definition_node_new(const NODE *);
+VALUE singleton_class_node_new(const NODE *);
+VALUE attribute_assignment_node_new(const NODE *);
 
 void Init_StatementNode(VALUE);
 
