@@ -18,7 +18,6 @@ class ParseCase2Test < Minitest::Test
 
     assert_instance_of(Kanayago::Case2Node, body)
 
-    # Case2Nodeはheadを持たない（常にnil）
     assert_instance_of(Kanayago::WhenNode, body.body)
   end
 

@@ -15,13 +15,10 @@ class ParseWhenTest < Minitest::Test
 
     assert_instance_of(Kanayago::WhenNode, body)
 
-    # head: 条件のリスト
     assert_instance_of(Kanayago::ListNode, body.head)
 
-    # body: when節の本体
     refute_nil(body.body)
 
-    # next: 次のwhen節（この場合はnil）
     assert_nil(body.next)
   end
 
