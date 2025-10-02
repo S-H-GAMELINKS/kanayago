@@ -64,4 +64,12 @@ module Kanayago
   class ExclusiveRangeNode
     attr_reader :beg, :end
   end
+
+  class FlipFlopNode
+    attr_reader :beg, :end
+  end
+
+  class ExclusiveFlipFlopNode
+    attr_reader :beg, :end
+  end
 end

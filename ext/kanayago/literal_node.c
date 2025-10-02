@@ -19,6 +19,8 @@ VALUE rb_cTrueNode;
 VALUE rb_cFalseNode;
 VALUE rb_cRangeNode;
 VALUE rb_cExclusiveRangeNode;
+VALUE rb_cFlipFlopNode;
+VALUE rb_cExclusiveFlipFlopNode;
 
 VALUE
 integer_node_new(const NODE *node)
@@ -240,6 +242,28 @@ exclusive_range_node_new(const NODE *node)
     return obj;
 }
 
+VALUE
+flip_flop_node_new(const NODE *node)
+{
+    VALUE obj = rb_class_new_instance(0, 0, rb_cFlipFlopNode);
+
+    rb_ivar_set(obj, rb_intern("@beg"), ast_to_node_instance(RNODE_FLIP2(node)->nd_beg));
+    rb_ivar_set(obj, rb_intern("@end"), ast_to_node_instance(RNODE_FLIP2(node)->nd_end));
+
+    return obj;
+}
+
+VALUE
+exclusive_flip_flop_node_new(const NODE *node)
+{
+    VALUE obj = rb_class_new_instance(0, 0, rb_cExclusiveFlipFlopNode);
+
+    rb_ivar_set(obj, rb_intern("@beg"), ast_to_node_instance(RNODE_FLIP3(node)->nd_beg));
+    rb_ivar_set(obj, rb_intern("@end"), ast_to_node_instance(RNODE_FLIP3(node)->nd_end));
+
+    return obj;
+}
+
 void
 Init_LiteralNode(VALUE module)
 {
@@ -272,4 +296,8 @@ Init_LiteralNode(VALUE module)
     rb_cRangeNode = rb_define_class_under(module, "RangeNode", rb_cObject);
 
     rb_cExclusiveRangeNode = rb_define_class_under(module, "ExclusiveRangeNode", rb_cObject);
+
+    rb_cFlipFlopNode = rb_define_class_under(module, "FlipFlopNode", rb_cObject);
+
+    rb_cExclusiveFlipFlopNode = rb_define_class_under(module, "ExclusiveFlipFlopNode", rb_cObject);
 }

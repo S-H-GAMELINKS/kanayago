@@ -517,6 +517,10 @@ ast_to_node_instance(const NODE *node)
 	  return range_node_new(node);
 	case NODE_DOT3:
 	  return exclusive_range_node_new(node);
+	case NODE_FLIP2:
+	  return flip_flop_node_new(node);
+	case NODE_FLIP3:
+	  return exclusive_flip_flop_node_new(node);
 	case NODE_DSTR:
 	  return dynamic_string_node_new(node);
 	case NODE_EVSTR:
