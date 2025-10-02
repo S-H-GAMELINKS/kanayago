@@ -471,6 +471,14 @@ ast_to_node_instance(const NODE *node)
 	  return while_node_new(node);
 	case NODE_UNTIL:
 	  return until_node_new(node);
+	case NODE_CASE:
+	  return case_node_new(node);
+	case NODE_CASE2:
+	  return case2_node_new(node);
+	case NODE_CASE3:
+	  return case3_node_new(node);
+	case NODE_WHEN:
+	  return when_node_new(node);
 	case NODE_FOR:
 	  return for_node_new(node);
 	case NODE_ALIAS:
