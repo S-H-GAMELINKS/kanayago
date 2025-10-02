@@ -56,4 +56,12 @@ module Kanayago
   class FalseNode
     attr_reader :val
   end
+
+  class RangeNode
+    attr_reader :beg, :end
+  end
+
+  class ExclusiveRangeNode
+    attr_reader :beg, :end
+  end
 end
