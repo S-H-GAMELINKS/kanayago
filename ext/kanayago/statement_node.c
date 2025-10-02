@@ -34,9 +34,9 @@ if_statement_node_new(const NODE *node)
 {
     VALUE obj = rb_class_new_instance(0, 0, rb_cIfStatementNode);
 
-    rb_ivar_set(obj, rb_intern("cond"), ast_to_node_instance(RNODE_IF(node)->nd_cond));
-    rb_ivar_set(obj, rb_intern("body"), ast_to_node_instance(RNODE_IF(node)->nd_body));
-    rb_ivar_set(obj, rb_intern("else"), ast_to_node_instance(RNODE_IF(node)->nd_else));
+    rb_ivar_set(obj, rb_intern("@cond"), ast_to_node_instance(RNODE_IF(node)->nd_cond));
+    rb_ivar_set(obj, rb_intern("@body"), ast_to_node_instance(RNODE_IF(node)->nd_body));
+    rb_ivar_set(obj, rb_intern("@else"), ast_to_node_instance(RNODE_IF(node)->nd_else));
 
     return obj;
 }
