@@ -20,10 +20,8 @@ class ParseCaseTest < Minitest::Test
 
     assert_instance_of(Kanayago::CaseNode, body)
 
-    # head（条件式）の確認
     assert_instance_of(Kanayago::VariableCallNode, body.head)
 
-    # body（when節）の確認
     assert_instance_of(Kanayago::WhenNode, body.body)
   end
 

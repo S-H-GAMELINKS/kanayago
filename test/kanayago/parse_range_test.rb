@@ -13,10 +13,8 @@ class ParseRangeTest < Minitest::Test
 
     assert_instance_of(Kanayago::RangeNode, body)
 
-    # beg: 開始値
     assert_instance_of(Kanayago::IntegerNode, body.beg)
 
-    # end: 終了値
     assert_instance_of(Kanayago::IntegerNode, body.end)
   end
 
@@ -30,10 +28,8 @@ class ParseRangeTest < Minitest::Test
 
     assert_instance_of(Kanayago::ExclusiveRangeNode, body)
 
-    # beg: 開始値
     assert_instance_of(Kanayago::IntegerNode, body.beg)
 
-    # end: 終了値
     assert_instance_of(Kanayago::IntegerNode, body.end)
   end
 
