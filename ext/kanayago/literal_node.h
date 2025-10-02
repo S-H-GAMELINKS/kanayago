@@ -17,6 +17,8 @@ VALUE encoding_node_new(const NODE *);
 VALUE nil_node_new(const NODE *);
 VALUE true_node_new(const NODE *);
 VALUE false_node_new(const NODE *);
+VALUE range_node_new(const NODE *);
+VALUE exclusive_range_node_new(const NODE *);
 
 void Init_LiteralNode(VALUE);
 

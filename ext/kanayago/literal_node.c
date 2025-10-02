@@ -17,6 +17,8 @@ VALUE rb_cEncodingNode;
 VALUE rb_cNilNode;
 VALUE rb_cTrueNode;
 VALUE rb_cFalseNode;
+VALUE rb_cRangeNode;
+VALUE rb_cExclusiveRangeNode;
 
 VALUE
 integer_node_new(const NODE *node)
@@ -216,6 +218,28 @@ false_node_new(const NODE *node)
     return obj;
 }
 
+VALUE
+range_node_new(const NODE *node)
+{
+    VALUE obj = rb_class_new_instance(0, 0, rb_cRangeNode);
+
+    rb_ivar_set(obj, rb_intern("@beg"), ast_to_node_instance(RNODE_DOT2(node)->nd_beg));
+    rb_ivar_set(obj, rb_intern("@end"), ast_to_node_instance(RNODE_DOT2(node)->nd_end));
+
+    return obj;
+}
+
+VALUE
+exclusive_range_node_new(const NODE *node)
+{
+    VALUE obj = rb_class_new_instance(0, 0, rb_cExclusiveRangeNode);
+
+    rb_ivar_set(obj, rb_intern("@beg"), ast_to_node_instance(RNODE_DOT3(node)->nd_beg));
+    rb_ivar_set(obj, rb_intern("@end"), ast_to_node_instance(RNODE_DOT3(node)->nd_end));
+
+    return obj;
+}
+
 void
 Init_LiteralNode(VALUE module)
 {
@@ -244,4 +268,8 @@ Init_LiteralNode(VALUE module)
     rb_cTrueNode = rb_define_class_under(module, "TrueNode", rb_cObject);
 
     rb_cFalseNode = rb_define_class_under(module, "FalseNode", rb_cObject);
+
+    rb_cRangeNode = rb_define_class_under(module, "RangeNode", rb_cObject);
+
+    rb_cExclusiveRangeNode = rb_define_class_under(module, "ExclusiveRangeNode", rb_cObject);
 }

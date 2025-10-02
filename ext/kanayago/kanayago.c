@@ -513,6 +513,10 @@ ast_to_node_instance(const NODE *node)
 	  return global_variable_node_new(node);
 	case NODE_SELF:
 	  return self_node_new(node);
+	case NODE_DOT2:
+	  return range_node_new(node);
+	case NODE_DOT3:
+	  return exclusive_range_node_new(node);
 	case NODE_DSTR:
 	  return dynamic_string_node_new(node);
 	case NODE_EVSTR:
