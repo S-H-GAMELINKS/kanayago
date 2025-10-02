@@ -24,6 +24,10 @@ VALUE rb_cAttributeAssignmentNode;
 VALUE rb_cSafeCallNode;
 VALUE rb_cSuperNode;
 VALUE rb_cZeroSuperNode;
+VALUE rb_cCaseNode;
+VALUE rb_cCase2Node;
+VALUE rb_cCase3Node;
+VALUE rb_cWhenNode;
 
 VALUE
 if_statement_node_new(const NODE *node)
@@ -264,6 +268,50 @@ zero_super_node_new(const NODE *node)
     return obj;
 }
 
+VALUE
+case_node_new(const NODE *node)
+{
+    VALUE obj = rb_class_new_instance(0, 0, rb_cCaseNode);
+
+    rb_ivar_set(obj, rb_intern("@head"), ast_to_node_instance(RNODE_CASE(node)->nd_head));
+    rb_ivar_set(obj, rb_intern("@body"), ast_to_node_instance(RNODE_CASE(node)->nd_body));
+
+    return obj;
+}
+
+VALUE
+case2_node_new(const NODE *node)
+{
+    VALUE obj = rb_class_new_instance(0, 0, rb_cCase2Node);
+
+    rb_ivar_set(obj, rb_intern("@body"), ast_to_node_instance(RNODE_CASE2(node)->nd_body));
+
+    return obj;
+}
+
+VALUE
+case3_node_new(const NODE *node)
+{
+    VALUE obj = rb_class_new_instance(0, 0, rb_cCase3Node);
+
+    rb_ivar_set(obj, rb_intern("@head"), ast_to_node_instance(RNODE_CASE3(node)->nd_head));
+    rb_ivar_set(obj, rb_intern("@body"), ast_to_node_instance(RNODE_CASE3(node)->nd_body));
+
+    return obj;
+}
+
+VALUE
+when_node_new(const NODE *node)
+{
+    VALUE obj = rb_class_new_instance(0, 0, rb_cWhenNode);
+
+    rb_ivar_set(obj, rb_intern("@head"), ast_to_node_instance(RNODE_WHEN(node)->nd_head));
+    rb_ivar_set(obj, rb_intern("@body"), ast_to_node_instance(RNODE_WHEN(node)->nd_body));
+    rb_ivar_set(obj, rb_intern("@next"), ast_to_node_instance(RNODE_WHEN(node)->nd_next));
+
+    return obj;
+}
+
 void
 Init_StatementNode(VALUE module)
 {
@@ -308,4 +356,12 @@ Init_StatementNode(VALUE module)
     rb_cSuperNode = rb_define_class_under(module, "SuperNode", rb_cObject);
 
     rb_cZeroSuperNode = rb_define_class_under(module, "ZeroSuperNode", rb_cObject);
+
+    rb_cCaseNode = rb_define_class_under(module, "CaseNode", rb_cObject);
+
+    rb_cCase2Node = rb_define_class_under(module, "Case2Node", rb_cObject);
+
+    rb_cCase3Node = rb_define_class_under(module, "Case3Node", rb_cObject);
+
+    rb_cWhenNode = rb_define_class_under(module, "WhenNode", rb_cObject);
 }

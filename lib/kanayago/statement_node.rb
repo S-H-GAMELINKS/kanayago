@@ -83,4 +83,20 @@ module Kanayago
 
   class ZeroSuperNode # rubocop:disable Lint/EmptyClass
   end
+
+  class CaseNode
+    attr_reader :head, :body
+  end
+
+  class Case2Node
+    attr_reader :body
+  end
+
+  class Case3Node
+    attr_reader :head, :body
+  end
+
+  class WhenNode
+    attr_reader :head, :body, :next
+  end
 end
