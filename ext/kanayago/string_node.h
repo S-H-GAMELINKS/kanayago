@@ -5,6 +5,8 @@
 
 VALUE dynamic_string_node_new(const NODE*);
 VALUE embedded_expression_string_node_new(const NODE *);
+VALUE execute_string_node_new(const NODE *);
+VALUE dynamic_execute_string_node_new(const NODE *);
 
 void Init_StringNode(VALUE);
 

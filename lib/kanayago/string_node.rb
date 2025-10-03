@@ -8,4 +8,12 @@ module Kanayago
   class EmbeddedExpressionStringNode
     attr_reader :body
   end
+
+  class ExecuteStringNode
+    attr_reader :ptr, :len, :enc, :coderange
+  end
+
+  class DynamicExecuteStringNode
+    attr_reader :string, :next_nodes
+  end
 end
