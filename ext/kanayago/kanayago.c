@@ -527,6 +527,10 @@ ast_to_node_instance(const NODE *node)
 	  return execute_string_node_new(node);
 	case NODE_DXSTR:
 	  return dynamic_execute_string_node_new(node);
+	case NODE_REGX:
+	  return regexp_node_new(node);
+	case NODE_DREGX:
+	  return dynamic_regexp_node_new(node);
 	case NODE_EVSTR:
 	  return embedded_expression_string_node_new(node);
 	case NODE_INTEGER:

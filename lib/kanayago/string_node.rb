@@ -16,4 +16,12 @@ module Kanayago
   class DynamicExecuteStringNode
     attr_reader :string, :next_nodes
   end
+
+  class RegexpNode
+    attr_reader :ptr, :len, :enc, :coderange, :options
+  end
+
+  class DynamicRegexpNode
+    attr_reader :string, :next_nodes, :options
+  end
 end
