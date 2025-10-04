@@ -9,6 +9,9 @@ VALUE rb_cExecuteStringNode;
 VALUE rb_cDynamicExecuteStringNode;
 VALUE rb_cRegexpNode;
 VALUE rb_cDynamicRegexpNode;
+VALUE rb_cMatchNode;
+VALUE rb_cMatch2Node;
+VALUE rb_cMatch3Node;
 
 VALUE
 dynamic_string_node_new(const NODE *node)
@@ -105,6 +108,49 @@ dynamic_regexp_node_new(const NODE *node)
     return obj;
 }
 
+VALUE
+match_node_new(const NODE *node)
+{
+    VALUE result = rb_class_new_instance(0, 0, rb_cMatchNode);
+    rb_parser_string_t *str = RNODE_MATCH(node)->string;
+    rb_encoding *enc = str->enc;
+    char *ptr = str->ptr;
+    long len = str->len;
+    enum rb_parser_string_coderange_type coderange = str->coderange;
+    int options = RNODE_MATCH(node)->options;
+
+    rb_ivar_set(result, rb_intern("@ptr"), rb_enc_str_new(ptr, len, enc));
+    rb_ivar_set(result, rb_intern("@len"), LONG2FIX(len));
+    rb_ivar_set(result, rb_intern("@enc"), rb_enc_from_encoding(enc));
+    rb_ivar_set(result, rb_intern("@coderange"), INT2FIX(coderange));
+    rb_ivar_set(result, rb_intern("@options"), INT2FIX(options));
+
+    return result;
+}
+
+VALUE
+match2_node_new(const NODE *node)
+{
+    VALUE obj = rb_class_new_instance(0, 0, rb_cMatch2Node);
+
+    rb_ivar_set(obj, rb_intern("@recv"), ast_to_node_instance(RNODE_MATCH2(node)->nd_recv));
+    rb_ivar_set(obj, rb_intern("@value"), ast_to_node_instance(RNODE_MATCH2(node)->nd_value));
+    rb_ivar_set(obj, rb_intern("@args"), ast_to_node_instance(RNODE_MATCH2(node)->nd_args));
+
+    return obj;
+}
+
+VALUE
+match3_node_new(const NODE *node)
+{
+    VALUE obj = rb_class_new_instance(0, 0, rb_cMatch3Node);
+
+    rb_ivar_set(obj, rb_intern("@recv"), ast_to_node_instance(RNODE_MATCH3(node)->nd_recv));
+    rb_ivar_set(obj, rb_intern("@value"), ast_to_node_instance(RNODE_MATCH3(node)->nd_value));
+
+    return obj;
+}
+
 void
 Init_StringNode(VALUE module)
 {
@@ -119,4 +165,10 @@ Init_StringNode(VALUE module)
     rb_cRegexpNode = rb_define_class_under(module, "RegexpNode", rb_cObject);
 
     rb_cDynamicRegexpNode = rb_define_class_under(module, "DynamicRegexpNode", rb_cObject);
+
+    rb_cMatchNode = rb_define_class_under(module, "MatchNode", rb_cObject);
+
+    rb_cMatch2Node = rb_define_class_under(module, "Match2Node", rb_cObject);
+
+    rb_cMatch3Node = rb_define_class_under(module, "Match3Node", rb_cObject);
 }

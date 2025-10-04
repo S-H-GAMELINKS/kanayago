@@ -531,6 +531,12 @@ ast_to_node_instance(const NODE *node)
 	  return regexp_node_new(node);
 	case NODE_DREGX:
 	  return dynamic_regexp_node_new(node);
+	case NODE_MATCH:
+	  return match_node_new(node);
+	case NODE_MATCH2:
+	  return match2_node_new(node);
+	case NODE_MATCH3:
+	  return match3_node_new(node);
 	case NODE_EVSTR:
 	  return embedded_expression_string_node_new(node);
 	case NODE_INTEGER:

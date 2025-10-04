@@ -24,4 +24,16 @@ module Kanayago
   class DynamicRegexpNode
     attr_reader :string, :next_nodes, :options
   end
+
+  class MatchNode
+    attr_reader :ptr, :len, :enc, :coderange, :options
+  end
+
+  class Match2Node
+    attr_reader :recv, :value, :args
+  end
+
+  class Match3Node
+    attr_reader :recv, :value
+  end
 end
