@@ -9,6 +9,9 @@ VALUE execute_string_node_new(const NODE *);
 VALUE dynamic_execute_string_node_new(const NODE *);
 VALUE regexp_node_new(const NODE *);
 VALUE dynamic_regexp_node_new(const NODE *);
+VALUE match_node_new(const NODE *);
+VALUE match2_node_new(const NODE *);
+VALUE match3_node_new(const NODE *);
 
 void Init_StringNode(VALUE);
 
