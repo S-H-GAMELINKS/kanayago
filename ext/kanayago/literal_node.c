@@ -21,6 +21,7 @@ VALUE rb_cRangeNode;
 VALUE rb_cExclusiveRangeNode;
 VALUE rb_cFlipFlopNode;
 VALUE rb_cExclusiveFlipFlopNode;
+VALUE rb_cHashNode;
 
 VALUE
 integer_node_new(const NODE *node)
@@ -264,6 +265,17 @@ exclusive_flip_flop_node_new(const NODE *node)
     return obj;
 }
 
+VALUE
+hash_node_new(const NODE *node)
+{
+    VALUE obj = rb_class_new_instance(0, 0, rb_cHashNode);
+
+    rb_ivar_set(obj, rb_intern("@head"), ast_to_node_instance(RNODE_HASH(node)->nd_head));
+    rb_ivar_set(obj, rb_intern("@brace"), RNODE_HASH(node)->nd_brace ? Qtrue : Qfalse);
+
+    return obj;
+}
+
 void
 Init_LiteralNode(VALUE module)
 {
@@ -300,4 +312,6 @@ Init_LiteralNode(VALUE module)
     rb_cFlipFlopNode = rb_define_class_under(module, "FlipFlopNode", rb_cObject);
 
     rb_cExclusiveFlipFlopNode = rb_define_class_under(module, "ExclusiveFlipFlopNode", rb_cObject);
+
+    rb_cHashNode = rb_define_class_under(module, "HashNode", rb_cObject);
 }
