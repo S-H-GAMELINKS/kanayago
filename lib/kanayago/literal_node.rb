@@ -72,4 +72,8 @@ module Kanayago
   class ExclusiveFlipFlopNode
     attr_reader :beg, :end
   end
+
+  class HashNode
+    attr_reader :head, :brace
+  end
 end

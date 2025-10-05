@@ -4,6 +4,7 @@
 #include "string_node.h"
 #include "statement_node.h"
 #include "variable_node.h"
+#include "pattern_node.h"
 #include "internal/encoding.h"
 #include "internal/ruby_parser.h"
 #include "rubyparser.h"
@@ -495,6 +496,8 @@ ast_to_node_instance(const NODE *node)
 	  return and_node_new(node);
 	case NODE_LIST:
 	  return list_node_new(node);
+	case NODE_HASH:
+	  return hash_node_new(node);
 	case NODE_CONST:
 	  return constant_node_new(node);
 	case NODE_CDECL:
@@ -537,6 +540,14 @@ ast_to_node_instance(const NODE *node)
 	  return match2_node_new(node);
 	case NODE_MATCH3:
 	  return match3_node_new(node);
+	case NODE_IN:
+	  return in_node_new(node);
+	case NODE_ARYPTN:
+	  return array_pattern_node_new(node);
+	case NODE_HSHPTN:
+	  return hash_pattern_node_new(node);
+	case NODE_FNDPTN:
+	  return find_pattern_node_new(node);
 	case NODE_EVSTR:
 	  return embedded_expression_string_node_new(node);
 	case NODE_INTEGER:
@@ -650,6 +661,9 @@ Init_kanayago(void)
 
     // For Variable Node(e.g. Kanayago::LocalVariableNode)
     Init_VariableNode(rb_mKanayago);
+
+    // For Pattern Node(e.g. Kanayago::InNode)
+    Init_PatternNode(rb_mKanayago);
 
     rb_cSelfNode = rb_define_class_under(rb_mKanayago, "SelfNode", rb_cObject);
 }

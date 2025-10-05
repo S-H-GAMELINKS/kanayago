@@ -13,6 +13,7 @@ $objs = %w[
   string_node
   statement_node
   variable_node
+  pattern_node
 ].map do |o|
   o + ".#{$OBJEXT}"
 end

@@ -21,6 +21,7 @@ VALUE range_node_new(const NODE *);
 VALUE exclusive_range_node_new(const NODE *);
 VALUE flip_flop_node_new(const NODE *);
 VALUE exclusive_flip_flop_node_new(const NODE *);
+VALUE hash_node_new(const NODE *);
 
 void Init_LiteralNode(VALUE);
 
