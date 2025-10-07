@@ -480,6 +480,8 @@ ast_to_node_instance(const NODE *node)
 	  return case3_node_new(node);
 	case NODE_WHEN:
 	  return when_node_new(node);
+	case NODE_ITER:
+	  return iter_node_new(node);
 	case NODE_FOR:
 	  return for_node_new(node);
 	case NODE_ALIAS:
@@ -490,6 +492,8 @@ ast_to_node_instance(const NODE *node)
 	  return undef_node_new(node);
 	case NODE_RETURN:
 	  return return_node_new(node);
+	case NODE_RETRY:
+	  return retry_node_new(node);
 	case NODE_OR:
 	  return or_node_new(node);
 	case NODE_AND:
@@ -508,6 +512,12 @@ ast_to_node_instance(const NODE *node)
 	  return colon3_node_new(node);
 	case NODE_BEGIN:
 	  return begin_node_new(node);
+	case NODE_RESCUE:
+	  return rescue_node_new(node);
+	case NODE_RESBODY:
+	  return resbody_node_new(node);
+	case NODE_ENSURE:
+	  return ensure_node_new(node);
 	case NODE_IVAR:
 	  return instance_variable_node_new(node);
 	case NODE_CVAR:
