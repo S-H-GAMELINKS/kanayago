@@ -99,4 +99,23 @@ module Kanayago
   class WhenNode
     attr_reader :head, :body, :next
   end
+
+  class RetryNode # rubocop:disable Lint/EmptyClass
+  end
+
+  class IterNode
+    attr_reader :body, :iter
+  end
+
+  class EnsureNode
+    attr_reader :head, :ensr
+  end
+
+  class RescueNode
+    attr_reader :head, :resq, :else
+  end
+
+  class RescueBodyNode
+    attr_reader :args, :exc_var, :body, :next
+  end
 end

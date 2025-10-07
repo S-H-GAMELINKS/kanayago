@@ -28,6 +28,11 @@ VALUE rb_cCaseNode;
 VALUE rb_cCase2Node;
 VALUE rb_cCase3Node;
 VALUE rb_cWhenNode;
+VALUE rb_cRetryNode;
+VALUE rb_cIterNode;
+VALUE rb_cEnsureNode;
+VALUE rb_cRescueNode;
+VALUE rb_cRescueBodyNode;
 
 VALUE
 if_statement_node_new(const NODE *node)
@@ -312,6 +317,61 @@ when_node_new(const NODE *node)
     return obj;
 }
 
+VALUE
+retry_node_new(const NODE *node)
+{
+    VALUE obj = rb_class_new_instance(0, 0, rb_cRetryNode);
+
+    return obj;
+}
+
+VALUE
+iter_node_new(const NODE *node)
+{
+    VALUE obj = rb_class_new_instance(0, 0, rb_cIterNode);
+
+    rb_ivar_set(obj, rb_intern("@body"), ast_to_node_instance(RNODE_ITER(node)->nd_body));
+    rb_ivar_set(obj, rb_intern("@iter"), ast_to_node_instance(RNODE_ITER(node)->nd_iter));
+
+    return obj;
+}
+
+VALUE
+ensure_node_new(const NODE *node)
+{
+    VALUE obj = rb_class_new_instance(0, 0, rb_cEnsureNode);
+
+    rb_ivar_set(obj, rb_intern("@head"), ast_to_node_instance(RNODE_ENSURE(node)->nd_head));
+    rb_ivar_set(obj, rb_intern("@ensr"), ast_to_node_instance(RNODE_ENSURE(node)->nd_ensr));
+
+    return obj;
+}
+
+VALUE
+rescue_node_new(const NODE *node)
+{
+    VALUE obj = rb_class_new_instance(0, 0, rb_cRescueNode);
+
+    rb_ivar_set(obj, rb_intern("@head"), ast_to_node_instance(RNODE_RESCUE(node)->nd_head));
+    rb_ivar_set(obj, rb_intern("@resq"), ast_to_node_instance(RNODE_RESCUE(node)->nd_resq));
+    rb_ivar_set(obj, rb_intern("@else"), ast_to_node_instance(RNODE_RESCUE(node)->nd_else));
+
+    return obj;
+}
+
+VALUE
+resbody_node_new(const NODE *node)
+{
+    VALUE obj = rb_class_new_instance(0, 0, rb_cRescueBodyNode);
+
+    rb_ivar_set(obj, rb_intern("@args"), ast_to_node_instance(RNODE_RESBODY(node)->nd_args));
+    rb_ivar_set(obj, rb_intern("@exc_var"), ast_to_node_instance(RNODE_RESBODY(node)->nd_exc_var));
+    rb_ivar_set(obj, rb_intern("@body"), ast_to_node_instance(RNODE_RESBODY(node)->nd_body));
+    rb_ivar_set(obj, rb_intern("@next"), ast_to_node_instance(RNODE_RESBODY(node)->nd_next));
+
+    return obj;
+}
+
 void
 Init_StatementNode(VALUE module)
 {
@@ -364,4 +424,14 @@ Init_StatementNode(VALUE module)
     rb_cCase3Node = rb_define_class_under(module, "Case3Node", rb_cObject);
 
     rb_cWhenNode = rb_define_class_under(module, "WhenNode", rb_cObject);
+
+    rb_cRetryNode = rb_define_class_under(module, "RetryNode", rb_cObject);
+
+    rb_cIterNode = rb_define_class_under(module, "IterNode", rb_cObject);
+
+    rb_cEnsureNode = rb_define_class_under(module, "EnsureNode", rb_cObject);
+
+    rb_cRescueNode = rb_define_class_under(module, "RescueNode", rb_cObject);
+
+    rb_cRescueBodyNode = rb_define_class_under(module, "RescueBodyNode", rb_cObject);
 }
