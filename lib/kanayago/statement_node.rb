@@ -103,6 +103,10 @@ module Kanayago
   class RetryNode # rubocop:disable Lint/EmptyClass
   end
 
+  class DefinedNode
+    attr_reader :head
+  end
+
   class IterNode
     attr_reader :body, :iter
   end
