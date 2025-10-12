@@ -29,6 +29,7 @@ VALUE rb_cCase2Node;
 VALUE rb_cCase3Node;
 VALUE rb_cWhenNode;
 VALUE rb_cRetryNode;
+VALUE rb_cRedoNode;
 VALUE rb_cDefinedNode;
 VALUE rb_cIterNode;
 VALUE rb_cEnsureNode;
@@ -327,6 +328,14 @@ retry_node_new(const NODE *node)
 }
 
 VALUE
+redo_node_new(const NODE *node)
+{
+    VALUE obj = rb_class_new_instance(0, 0, rb_cRedoNode);
+
+    return obj;
+}
+
+VALUE
 defined_node_new(const NODE *node)
 {
     VALUE obj = rb_class_new_instance(0, 0, rb_cDefinedNode);
@@ -438,6 +447,8 @@ Init_StatementNode(VALUE module)
     rb_cWhenNode = rb_define_class_under(module, "WhenNode", rb_cObject);
 
     rb_cRetryNode = rb_define_class_under(module, "RetryNode", rb_cObject);
+
+    rb_cRedoNode = rb_define_class_under(module, "RedoNode", rb_cObject);
 
     rb_cDefinedNode = rb_define_class_under(module, "DefinedNode", rb_cObject);
 
