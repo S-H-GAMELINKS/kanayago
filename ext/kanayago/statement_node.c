@@ -29,6 +29,7 @@ VALUE rb_cCase2Node;
 VALUE rb_cCase3Node;
 VALUE rb_cWhenNode;
 VALUE rb_cRetryNode;
+VALUE rb_cDefinedNode;
 VALUE rb_cIterNode;
 VALUE rb_cEnsureNode;
 VALUE rb_cRescueNode;
@@ -326,6 +327,17 @@ retry_node_new(const NODE *node)
 }
 
 VALUE
+defined_node_new(const NODE *node)
+{
+    VALUE obj = rb_class_new_instance(0, 0, rb_cDefinedNode);
+
+    rb_ivar_set(obj, rb_intern("@head"),
+                ast_to_node_instance(RNODE_DEFINED(node)->nd_head));
+
+    return obj;
+}
+
+VALUE
 iter_node_new(const NODE *node)
 {
     VALUE obj = rb_class_new_instance(0, 0, rb_cIterNode);
@@ -426,6 +438,8 @@ Init_StatementNode(VALUE module)
     rb_cWhenNode = rb_define_class_under(module, "WhenNode", rb_cObject);
 
     rb_cRetryNode = rb_define_class_under(module, "RetryNode", rb_cObject);
+
+    rb_cDefinedNode = rb_define_class_under(module, "DefinedNode", rb_cObject);
 
     rb_cIterNode = rb_define_class_under(module, "IterNode", rb_cObject);
 
