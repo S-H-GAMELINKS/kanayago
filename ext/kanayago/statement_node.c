@@ -30,6 +30,8 @@ VALUE rb_cCase3Node;
 VALUE rb_cWhenNode;
 VALUE rb_cRetryNode;
 VALUE rb_cRedoNode;
+VALUE rb_cBreakNode;
+VALUE rb_cNextNode;
 VALUE rb_cDefinedNode;
 VALUE rb_cIterNode;
 VALUE rb_cEnsureNode;
@@ -336,6 +338,28 @@ redo_node_new(const NODE *node)
 }
 
 VALUE
+break_node_new(const NODE *node)
+{
+    VALUE obj = rb_class_new_instance(0, 0, rb_cBreakNode);
+
+    rb_ivar_set(obj, rb_intern("@statements"),
+                ast_to_node_instance(RNODE_BREAK(node)->nd_stts));
+
+    return obj;
+}
+
+VALUE
+next_node_new(const NODE *node)
+{
+    VALUE obj = rb_class_new_instance(0, 0, rb_cNextNode);
+
+    rb_ivar_set(obj, rb_intern("@statements"),
+                ast_to_node_instance(RNODE_NEXT(node)->nd_stts));
+
+    return obj;
+}
+
+VALUE
 defined_node_new(const NODE *node)
 {
     VALUE obj = rb_class_new_instance(0, 0, rb_cDefinedNode);
@@ -449,6 +473,10 @@ Init_StatementNode(VALUE module)
     rb_cRetryNode = rb_define_class_under(module, "RetryNode", rb_cObject);
 
     rb_cRedoNode = rb_define_class_under(module, "RedoNode", rb_cObject);
+
+    rb_cBreakNode = rb_define_class_under(module, "BreakNode", rb_cObject);
+
+    rb_cNextNode = rb_define_class_under(module, "NextNode", rb_cObject);
 
     rb_cDefinedNode = rb_define_class_under(module, "DefinedNode", rb_cObject);
 

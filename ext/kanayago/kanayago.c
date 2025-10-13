@@ -496,6 +496,10 @@ ast_to_node_instance(const NODE *node)
 	  return retry_node_new(node);
 	case NODE_REDO:
 	  return redo_node_new(node);
+	case NODE_BREAK:
+	  return break_node_new(node);
+	case NODE_NEXT:
+	  return next_node_new(node);
 	case NODE_DEFINED:
 	  return defined_node_new(node);
 	case NODE_OR:

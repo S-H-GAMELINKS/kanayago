@@ -106,6 +106,14 @@ module Kanayago
   class RedoNode # rubocop:disable Lint/EmptyClass
   end
 
+  class BreakNode
+    attr_reader :statements
+  end
+
+  class NextNode
+    attr_reader :statements
+  end
+
   class DefinedNode
     attr_reader :head
   end

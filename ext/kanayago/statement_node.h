@@ -31,6 +31,8 @@ VALUE case3_node_new(const NODE *);
 VALUE when_node_new(const NODE *);
 VALUE retry_node_new(const NODE *);
 VALUE redo_node_new(const NODE *);
+VALUE break_node_new(const NODE *);
+VALUE next_node_new(const NODE *);
 VALUE defined_node_new(const NODE *);
 VALUE iter_node_new(const NODE *);
 VALUE ensure_node_new(const NODE *);
