@@ -544,6 +544,8 @@ ast_to_node_instance(const NODE *node)
 	  return exclusive_flip_flop_node_new(node);
 	case NODE_DSTR:
 	  return dynamic_string_node_new(node);
+	case NODE_DSYM:
+	  return dynamic_symbol_node_new(node);
 	case NODE_XSTR:
 	  return execute_string_node_new(node);
 	case NODE_DXSTR:
