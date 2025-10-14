@@ -5,6 +5,10 @@ module Kanayago
     attr_reader :string, :next_nodes
   end
 
+  class DynamicSymbolNode
+    attr_reader :string, :next_nodes
+  end
+
   class EmbeddedExpressionStringNode
     attr_reader :body
   end
