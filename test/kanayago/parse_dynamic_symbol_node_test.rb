@@ -14,8 +14,9 @@ class ParseDynamicSymbolNodeTest < Minitest::Test
     assert_instance_of(Kanayago::EmbeddedExpressionStringNode, body.next_nodes.val.first)
   end
 
+  # rubocop:disable Lint/InterpolationCheck
   def test_parse_empty_interpolation
-    result = Kanayago.parse(':"#{\'\'}"')
+    result = Kanayago.parse(':"#{""}"')
 
     body = result.body
 
@@ -23,7 +24,9 @@ class ParseDynamicSymbolNodeTest < Minitest::Test
     assert_equal('', body.string)
     assert_nil(body.next_nodes)
   end
+  # rubocop:enable Lint/InterpolationCheck
 
+  # rubocop:disable Lint/InterpolationCheck
   def test_parse_multiple_interpolations
     result = Kanayago.parse(':"#{a}_#{b}"')
 
@@ -41,6 +44,7 @@ class ParseDynamicSymbolNodeTest < Minitest::Test
     # Second interpolation: #{b}
     assert_instance_of(Kanayago::EmbeddedExpressionStringNode, body.next_nodes.val[2])
   end
+  # rubocop:enable Lint/InterpolationCheck
 
   def test_backward_compatibility_static_symbol
     result = Kanayago.parse(':static')
