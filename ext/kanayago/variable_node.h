@@ -3,6 +3,7 @@
 #include "kanayago.h"
 
 VALUE local_variable_node_new(const NODE *);
+VALUE dynamic_variable_node_new(const NODE *);
 VALUE instance_variable_node_new(const NODE *);
 VALUE class_variable_node_new(const NODE *);
 VALUE global_variable_node_new(const NODE *);

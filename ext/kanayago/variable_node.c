@@ -2,6 +2,7 @@
 #include "kanayago.h"
 
 VALUE rb_cLocalVariableNode;
+VALUE rb_cDynamicVariableNode;
 VALUE rb_cInstanceVariableNode;
 VALUE rb_cClassVariableNode;
 VALUE rb_cGlobalVariableNode;
@@ -12,6 +13,16 @@ local_variable_node_new(const NODE *node)
     VALUE obj = rb_class_new_instance(0, 0, rb_cLocalVariableNode);
 
     rb_ivar_set(obj, rb_intern("@vid"), ID2SYM(RNODE_LVAR(node)->nd_vid));
+
+    return obj;
+}
+
+VALUE
+dynamic_variable_node_new(const NODE *node)
+{
+    VALUE obj = rb_class_new_instance(0, 0, rb_cDynamicVariableNode);
+
+    rb_ivar_set(obj, rb_intern("@vid"), ID2SYM(RNODE_DVAR(node)->nd_vid));
 
     return obj;
 }
@@ -50,6 +61,8 @@ void
 Init_VariableNode(VALUE module)
 {
     rb_cLocalVariableNode = rb_define_class_under(module, "LocalVariableNode", rb_cObject);
+
+    rb_cDynamicVariableNode = rb_define_class_under(module, "DynamicVariableNode", rb_cObject);
 
     rb_cInstanceVariableNode = rb_define_class_under(module, "InstanceVariableNode", rb_cObject);
 

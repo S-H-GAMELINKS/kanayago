@@ -5,6 +5,10 @@ module Kanayago
     attr_reader :vid
   end
 
+  class DynamicVariableNode
+    attr_reader :vid
+  end
+
   class InstanceVariableNode
     attr_reader :vid
   end
