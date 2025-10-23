@@ -464,6 +464,8 @@ ast_to_node_instance(const NODE *node)
 	  return global_assignment_node_new(node);
 	case NODE_LVAR:
 	  return local_variable_node_new(node);
+	case NODE_DVAR:
+	  return dynamic_variable_node_new(node);
 	case NODE_IF:
 	  return if_statement_node_new(node);
 	case NODE_UNLESS:
