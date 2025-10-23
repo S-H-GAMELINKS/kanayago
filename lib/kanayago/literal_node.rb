@@ -76,4 +76,12 @@ module Kanayago
   class HashNode
     attr_reader :head, :brace
   end
+
+  class NthRefNode
+    attr_reader :nth
+  end
+
+  class BackRefNode
+    attr_reader :nth
+  end
 end

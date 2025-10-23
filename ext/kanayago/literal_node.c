@@ -22,6 +22,8 @@ VALUE rb_cExclusiveRangeNode;
 VALUE rb_cFlipFlopNode;
 VALUE rb_cExclusiveFlipFlopNode;
 VALUE rb_cHashNode;
+VALUE rb_cNthRefNode;
+VALUE rb_cBackRefNode;
 
 VALUE
 integer_node_new(const NODE *node)
@@ -276,6 +278,26 @@ hash_node_new(const NODE *node)
     return obj;
 }
 
+VALUE
+nth_ref_node_new(const NODE *node)
+{
+    VALUE obj = rb_class_new_instance(0, 0, rb_cNthRefNode);
+
+    rb_ivar_set(obj, rb_intern("@nth"), LONG2NUM(RNODE_NTH_REF(node)->nd_nth));
+
+    return obj;
+}
+
+VALUE
+back_ref_node_new(const NODE *node)
+{
+    VALUE obj = rb_class_new_instance(0, 0, rb_cBackRefNode);
+
+    rb_ivar_set(obj, rb_intern("@nth"), LONG2NUM(RNODE_BACK_REF(node)->nd_nth));
+
+    return obj;
+}
+
 void
 Init_LiteralNode(VALUE module)
 {
@@ -314,4 +336,8 @@ Init_LiteralNode(VALUE module)
     rb_cExclusiveFlipFlopNode = rb_define_class_under(module, "ExclusiveFlipFlopNode", rb_cObject);
 
     rb_cHashNode = rb_define_class_under(module, "HashNode", rb_cObject);
+
+    rb_cNthRefNode = rb_define_class_under(module, "NthRefNode", rb_cObject);
+
+    rb_cBackRefNode = rb_define_class_under(module, "BackRefNode", rb_cObject);
 }

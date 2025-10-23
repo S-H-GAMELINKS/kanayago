@@ -534,6 +534,10 @@ ast_to_node_instance(const NODE *node)
 	  return class_variable_node_new(node);
 	case NODE_GVAR:
 	  return global_variable_node_new(node);
+	case NODE_NTH_REF:
+	  return nth_ref_node_new(node);
+	case NODE_BACK_REF:
+	  return back_ref_node_new(node);
 	case NODE_SELF:
 	  return self_node_new(node);
 	case NODE_DOT2:
