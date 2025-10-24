@@ -104,6 +104,18 @@ Rake::TestTask.new(:test) do |t|
   t.test_files = FileList['test/**/*_test.rb']
 end
 
+namespace :sample do
+  desc 'Generate RSpec tests from Ruby code using Kanayago AST'
+  task :rspec_generate do
+    sh 'ruby sample/test_generator.rb'
+  end
+
+  desc 'Generate Minitest tests from Ruby code using Kanayago AST'
+  task :minitest_generate do
+    sh 'ruby sample/minitest_generator.rb'
+  end
+end
+
 desc 'try to kanayago code'
 task :run do
   sh 'ruby test.rb'
