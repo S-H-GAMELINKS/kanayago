@@ -538,6 +538,16 @@ ast_to_node_instance(const NODE *node)
 	  return nth_ref_node_new(node);
 	case NODE_BACK_REF:
 	  return back_ref_node_new(node);
+	case NODE_OP_ASGN1:
+	  return operator_assignment1_node_new(node);
+	case NODE_OP_ASGN2:
+	  return operator_assignment2_node_new(node);
+	case NODE_OP_ASGN_AND:
+	  return operator_assignment_and_node_new(node);
+	case NODE_OP_ASGN_OR:
+	  return operator_assignment_or_node_new(node);
+	case NODE_OP_CDECL:
+	  return operator_constant_declaration_node_new(node);
 	case NODE_SELF:
 	  return self_node_new(node);
 	case NODE_DOT2:

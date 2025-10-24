@@ -38,6 +38,11 @@ VALUE iter_node_new(const NODE *);
 VALUE ensure_node_new(const NODE *);
 VALUE rescue_node_new(const NODE *);
 VALUE resbody_node_new(const NODE *);
+VALUE operator_assignment1_node_new(const NODE *);
+VALUE operator_assignment2_node_new(const NODE *);
+VALUE operator_assignment_and_node_new(const NODE *);
+VALUE operator_assignment_or_node_new(const NODE *);
+VALUE operator_constant_declaration_node_new(const NODE *);
 
 void Init_StatementNode(VALUE);
 
