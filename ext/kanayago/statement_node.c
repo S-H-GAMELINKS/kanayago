@@ -37,6 +37,11 @@ VALUE rb_cIterNode;
 VALUE rb_cEnsureNode;
 VALUE rb_cRescueNode;
 VALUE rb_cRescueBodyNode;
+VALUE rb_cOperatorAssignment1Node;
+VALUE rb_cOperatorAssignment2Node;
+VALUE rb_cOperatorAssignmentAndNode;
+VALUE rb_cOperatorAssignmentOrNode;
+VALUE rb_cOperatorConstantDeclarationNode;
 
 VALUE
 if_statement_node_new(const NODE *node)
@@ -417,6 +422,67 @@ resbody_node_new(const NODE *node)
     return obj;
 }
 
+VALUE
+operator_assignment1_node_new(const NODE *node)
+{
+    VALUE obj = rb_class_new_instance(0, 0, rb_cOperatorAssignment1Node);
+
+    rb_ivar_set(obj, rb_intern("@recv"), ast_to_node_instance(RNODE_OP_ASGN1(node)->nd_recv));
+    rb_ivar_set(obj, rb_intern("@mid"), ID2SYM(RNODE_OP_ASGN1(node)->nd_mid));
+    rb_ivar_set(obj, rb_intern("@index"), ast_to_node_instance(RNODE_OP_ASGN1(node)->nd_index));
+    rb_ivar_set(obj, rb_intern("@rvalue"), ast_to_node_instance(RNODE_OP_ASGN1(node)->nd_rvalue));
+
+    return obj;
+}
+
+VALUE
+operator_assignment2_node_new(const NODE *node)
+{
+    VALUE obj = rb_class_new_instance(0, 0, rb_cOperatorAssignment2Node);
+
+    rb_ivar_set(obj, rb_intern("@recv"), ast_to_node_instance(RNODE_OP_ASGN2(node)->nd_recv));
+    rb_ivar_set(obj, rb_intern("@value"), ast_to_node_instance(RNODE_OP_ASGN2(node)->nd_value));
+    rb_ivar_set(obj, rb_intern("@vid"), ID2SYM(RNODE_OP_ASGN2(node)->nd_vid));
+    rb_ivar_set(obj, rb_intern("@mid"), ID2SYM(RNODE_OP_ASGN2(node)->nd_mid));
+
+    return obj;
+}
+
+VALUE
+operator_assignment_and_node_new(const NODE *node)
+{
+    VALUE obj = rb_class_new_instance(0, 0, rb_cOperatorAssignmentAndNode);
+
+    rb_ivar_set(obj, rb_intern("@head"), ast_to_node_instance(RNODE_OP_ASGN_AND(node)->nd_head));
+    rb_ivar_set(obj, rb_intern("@value"), ast_to_node_instance(RNODE_OP_ASGN_AND(node)->nd_value));
+
+    return obj;
+}
+
+VALUE
+operator_assignment_or_node_new(const NODE *node)
+{
+    VALUE obj = rb_class_new_instance(0, 0, rb_cOperatorAssignmentOrNode);
+
+    rb_ivar_set(obj, rb_intern("@head"), ast_to_node_instance(RNODE_OP_ASGN_OR(node)->nd_head));
+    rb_ivar_set(obj, rb_intern("@value"), ast_to_node_instance(RNODE_OP_ASGN_OR(node)->nd_value));
+
+    return obj;
+}
+
+VALUE
+operator_constant_declaration_node_new(const NODE *node)
+{
+    VALUE obj = rb_class_new_instance(0, 0, rb_cOperatorConstantDeclarationNode);
+
+    rb_ivar_set(obj, rb_intern("@head"), ast_to_node_instance(RNODE_OP_CDECL(node)->nd_head));
+    rb_ivar_set(obj, rb_intern("@value"), ast_to_node_instance(RNODE_OP_CDECL(node)->nd_value));
+    rb_ivar_set(obj, rb_intern("@aid"), ID2SYM(RNODE_OP_CDECL(node)->nd_aid));
+    rb_ivar_set(obj, rb_intern("@shareability"), INT2NUM(RNODE_OP_CDECL(node)->shareability));
+
+    return obj;
+}
+
 void
 Init_StatementNode(VALUE module)
 {
@@ -487,4 +553,14 @@ Init_StatementNode(VALUE module)
     rb_cRescueNode = rb_define_class_under(module, "RescueNode", rb_cObject);
 
     rb_cRescueBodyNode = rb_define_class_under(module, "RescueBodyNode", rb_cObject);
+
+    rb_cOperatorAssignment1Node = rb_define_class_under(module, "OperatorAssignment1Node", rb_cObject);
+
+    rb_cOperatorAssignment2Node = rb_define_class_under(module, "OperatorAssignment2Node", rb_cObject);
+
+    rb_cOperatorAssignmentAndNode = rb_define_class_under(module, "OperatorAssignmentAndNode", rb_cObject);
+
+    rb_cOperatorAssignmentOrNode = rb_define_class_under(module, "OperatorAssignmentOrNode", rb_cObject);
+
+    rb_cOperatorConstantDeclarationNode = rb_define_class_under(module, "OperatorConstantDeclarationNode", rb_cObject);
 }

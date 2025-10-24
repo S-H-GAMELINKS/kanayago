@@ -133,4 +133,24 @@ module Kanayago
   class RescueBodyNode
     attr_reader :args, :exc_var, :body, :next
   end
+
+  class OperatorAssignment1Node
+    attr_reader :recv, :mid, :index, :rvalue
+  end
+
+  class OperatorAssignment2Node
+    attr_reader :recv, :value, :vid, :mid
+  end
+
+  class OperatorAssignmentAndNode
+    attr_reader :head, :value
+  end
+
+  class OperatorAssignmentOrNode
+    attr_reader :head, :value
+  end
+
+  class OperatorConstantDeclarationNode
+    attr_reader :head, :value, :aid, :shareability
+  end
 end
