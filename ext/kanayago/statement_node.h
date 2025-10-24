@@ -45,6 +45,8 @@ VALUE operator_assignment_or_node_new(const NODE *);
 VALUE operator_constant_declaration_node_new(const NODE *);
 VALUE yield_node_new(const NODE *);
 VALUE lambda_node_new(const NODE *);
+VALUE splat_node_new(const NODE *);
+VALUE block_pass_node_new(const NODE *);
 
 void Init_StatementNode(VALUE);
 

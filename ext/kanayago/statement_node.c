@@ -44,6 +44,8 @@ VALUE rb_cOperatorAssignmentOrNode;
 VALUE rb_cOperatorConstantDeclarationNode;
 VALUE rb_cYieldNode;
 VALUE rb_cLambdaNode;
+VALUE rb_cSplatNode;
+VALUE rb_cBlockPassNode;
 
 VALUE
 if_statement_node_new(const NODE *node)
@@ -505,6 +507,28 @@ lambda_node_new(const NODE *node)
     return obj;
 }
 
+VALUE
+splat_node_new(const NODE *node)
+{
+    VALUE obj = rb_class_new_instance(0, 0, rb_cSplatNode);
+
+    rb_ivar_set(obj, rb_intern("@head"), ast_to_node_instance(RNODE_SPLAT(node)->nd_head));
+
+    return obj;
+}
+
+VALUE
+block_pass_node_new(const NODE *node)
+{
+    VALUE obj = rb_class_new_instance(0, 0, rb_cBlockPassNode);
+
+    rb_ivar_set(obj, rb_intern("@head"), ast_to_node_instance(RNODE_BLOCK_PASS(node)->nd_head));
+    rb_ivar_set(obj, rb_intern("@body"), ast_to_node_instance(RNODE_BLOCK_PASS(node)->nd_body));
+    rb_ivar_set(obj, rb_intern("@forwarding"), RNODE_BLOCK_PASS(node)->forwarding ? Qtrue : Qfalse);
+
+    return obj;
+}
+
 void
 Init_StatementNode(VALUE module)
 {
@@ -589,4 +613,8 @@ Init_StatementNode(VALUE module)
     rb_cYieldNode = rb_define_class_under(module, "YieldNode", rb_cObject);
 
     rb_cLambdaNode = rb_define_class_under(module, "LambdaNode", rb_cObject);
+
+    rb_cSplatNode = rb_define_class_under(module, "SplatNode", rb_cObject);
+
+    rb_cBlockPassNode = rb_define_class_under(module, "BlockPassNode", rb_cObject);
 }
