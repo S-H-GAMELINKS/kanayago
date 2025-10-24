@@ -556,6 +556,18 @@ ast_to_node_instance(const NODE *node)
 	  return splat_node_new(node);
 	case NODE_BLOCK_PASS:
 	  return block_pass_node_new(node);
+	case NODE_ARGS_AUX:
+	  return args_aux_node_new(node);
+	case NODE_OPT_ARG:
+	  return opt_arg_node_new(node);
+	case NODE_KW_ARG:
+	  return kw_arg_node_new(node);
+	case NODE_POSTARG:
+	  return post_arg_node_new(node);
+	case NODE_ARGSCAT:
+	  return args_cat_node_new(node);
+	case NODE_ARGSPUSH:
+	  return args_push_node_new(node);
 	case NODE_SELF:
 	  return self_node_new(node);
 	case NODE_DOT2:

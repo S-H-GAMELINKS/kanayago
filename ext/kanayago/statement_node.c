@@ -46,6 +46,12 @@ VALUE rb_cYieldNode;
 VALUE rb_cLambdaNode;
 VALUE rb_cSplatNode;
 VALUE rb_cBlockPassNode;
+VALUE rb_cArgsAuxNode;
+VALUE rb_cOptArgNode;
+VALUE rb_cKwArgNode;
+VALUE rb_cPostArgNode;
+VALUE rb_cArgsCatNode;
+VALUE rb_cArgsPushNode;
 
 VALUE
 if_statement_node_new(const NODE *node)
@@ -529,6 +535,73 @@ block_pass_node_new(const NODE *node)
     return obj;
 }
 
+VALUE
+args_aux_node_new(const NODE *node)
+{
+    VALUE obj = rb_class_new_instance(0, 0, rb_cArgsAuxNode);
+
+    rb_ivar_set(obj, rb_intern("@pid"), ID2SYM(RNODE_ARGS_AUX(node)->nd_pid));
+    rb_ivar_set(obj, rb_intern("@plen"), INT2NUM(RNODE_ARGS_AUX(node)->nd_plen));
+    rb_ivar_set(obj, rb_intern("@next"), ast_to_node_instance(RNODE_ARGS_AUX(node)->nd_next));
+
+    return obj;
+}
+
+VALUE
+opt_arg_node_new(const NODE *node)
+{
+    VALUE obj = rb_class_new_instance(0, 0, rb_cOptArgNode);
+
+    rb_ivar_set(obj, rb_intern("@body"), ast_to_node_instance(RNODE_OPT_ARG(node)->nd_body));
+    rb_ivar_set(obj, rb_intern("@next"), ast_to_node_instance((NODE *)RNODE_OPT_ARG(node)->nd_next));
+
+    return obj;
+}
+
+VALUE
+kw_arg_node_new(const NODE *node)
+{
+    VALUE obj = rb_class_new_instance(0, 0, rb_cKwArgNode);
+
+    rb_ivar_set(obj, rb_intern("@body"), ast_to_node_instance(RNODE_KW_ARG(node)->nd_body));
+    rb_ivar_set(obj, rb_intern("@next"), ast_to_node_instance((NODE *)RNODE_KW_ARG(node)->nd_next));
+
+    return obj;
+}
+
+VALUE
+post_arg_node_new(const NODE *node)
+{
+    VALUE obj = rb_class_new_instance(0, 0, rb_cPostArgNode);
+
+    rb_ivar_set(obj, rb_intern("@first"), ast_to_node_instance(RNODE_POSTARG(node)->nd_1st));
+    rb_ivar_set(obj, rb_intern("@second"), ast_to_node_instance(RNODE_POSTARG(node)->nd_2nd));
+
+    return obj;
+}
+
+VALUE
+args_cat_node_new(const NODE *node)
+{
+    VALUE obj = rb_class_new_instance(0, 0, rb_cArgsCatNode);
+
+    rb_ivar_set(obj, rb_intern("@head"), ast_to_node_instance(RNODE_ARGSCAT(node)->nd_head));
+    rb_ivar_set(obj, rb_intern("@body"), ast_to_node_instance(RNODE_ARGSCAT(node)->nd_body));
+
+    return obj;
+}
+
+VALUE
+args_push_node_new(const NODE *node)
+{
+    VALUE obj = rb_class_new_instance(0, 0, rb_cArgsPushNode);
+
+    rb_ivar_set(obj, rb_intern("@head"), ast_to_node_instance(RNODE_ARGSPUSH(node)->nd_head));
+    rb_ivar_set(obj, rb_intern("@body"), ast_to_node_instance(RNODE_ARGSPUSH(node)->nd_body));
+
+    return obj;
+}
+
 void
 Init_StatementNode(VALUE module)
 {
@@ -617,4 +690,16 @@ Init_StatementNode(VALUE module)
     rb_cSplatNode = rb_define_class_under(module, "SplatNode", rb_cObject);
 
     rb_cBlockPassNode = rb_define_class_under(module, "BlockPassNode", rb_cObject);
+
+    rb_cArgsAuxNode = rb_define_class_under(module, "ArgsAuxNode", rb_cObject);
+
+    rb_cOptArgNode = rb_define_class_under(module, "OptArgNode", rb_cObject);
+
+    rb_cKwArgNode = rb_define_class_under(module, "KwArgNode", rb_cObject);
+
+    rb_cPostArgNode = rb_define_class_under(module, "PostArgNode", rb_cObject);
+
+    rb_cArgsCatNode = rb_define_class_under(module, "ArgsCatNode", rb_cObject);
+
+    rb_cArgsPushNode = rb_define_class_under(module, "ArgsPushNode", rb_cObject);
 }
