@@ -552,6 +552,10 @@ ast_to_node_instance(const NODE *node)
 	  return yield_node_new(node);
 	case NODE_LAMBDA:
 	  return lambda_node_new(node);
+	case NODE_SPLAT:
+	  return splat_node_new(node);
+	case NODE_BLOCK_PASS:
+	  return block_pass_node_new(node);
 	case NODE_SELF:
 	  return self_node_new(node);
 	case NODE_DOT2:

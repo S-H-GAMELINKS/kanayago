@@ -161,4 +161,12 @@ module Kanayago
   class LambdaNode
     attr_reader :body
   end
+
+  class SplatNode
+    attr_reader :head
+  end
+
+  class BlockPassNode
+    attr_reader :head, :body, :forwarding
+  end
 end
