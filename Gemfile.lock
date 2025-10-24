@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    kanayago (0.1.1)
+    kanayago (0.2.0)
 
 GEM
   remote: https://rubygems.org/
