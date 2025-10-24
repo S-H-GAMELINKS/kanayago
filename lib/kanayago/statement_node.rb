@@ -193,4 +193,30 @@ module Kanayago
   class ArgsPushNode
     attr_reader :head, :body
   end
+
+  class ForMasgnNode
+    attr_reader :var
+  end
+
+  class MasgnNode
+    attr_reader :head, :value, :args
+  end
+
+  class DasgnNode
+    attr_reader :vid, :value
+  end
+
+  class OnceNode
+    attr_reader :body
+  end
+
+  class ErrinfoNode # rubocop:disable Lint/EmptyClass
+  end
+
+  class PostexeNode
+    attr_reader :body
+  end
+
+  class ErrorNode # rubocop:disable Lint/EmptyClass
+  end
 end

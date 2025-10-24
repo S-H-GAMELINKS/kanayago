@@ -568,6 +568,20 @@ ast_to_node_instance(const NODE *node)
 	  return args_cat_node_new(node);
 	case NODE_ARGSPUSH:
 	  return args_push_node_new(node);
+	case NODE_FOR_MASGN:
+	  return for_masgn_node_new(node);
+	case NODE_MASGN:
+	  return masgn_node_new(node);
+	case NODE_DASGN:
+	  return dasgn_node_new(node);
+	case NODE_ONCE:
+	  return once_node_new(node);
+	case NODE_ERRINFO:
+	  return errinfo_node_new(node);
+	case NODE_POSTEXE:
+	  return postexe_node_new(node);
+	case NODE_ERROR:
+	  return error_node_new(node);
 	case NODE_SELF:
 	  return self_node_new(node);
 	case NODE_DOT2:

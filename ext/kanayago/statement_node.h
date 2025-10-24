@@ -53,6 +53,13 @@ VALUE kw_arg_node_new(const NODE *);
 VALUE post_arg_node_new(const NODE *);
 VALUE args_cat_node_new(const NODE *);
 VALUE args_push_node_new(const NODE *);
+VALUE for_masgn_node_new(const NODE *);
+VALUE masgn_node_new(const NODE *);
+VALUE dasgn_node_new(const NODE *);
+VALUE once_node_new(const NODE *);
+VALUE errinfo_node_new(const NODE *);
+VALUE postexe_node_new(const NODE *);
+VALUE error_node_new(const NODE *);
 
 void Init_StatementNode(VALUE);
 
