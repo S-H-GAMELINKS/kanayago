@@ -42,6 +42,8 @@ VALUE rb_cOperatorAssignment2Node;
 VALUE rb_cOperatorAssignmentAndNode;
 VALUE rb_cOperatorAssignmentOrNode;
 VALUE rb_cOperatorConstantDeclarationNode;
+VALUE rb_cYieldNode;
+VALUE rb_cLambdaNode;
 
 VALUE
 if_statement_node_new(const NODE *node)
@@ -483,6 +485,26 @@ operator_constant_declaration_node_new(const NODE *node)
     return obj;
 }
 
+VALUE
+yield_node_new(const NODE *node)
+{
+    VALUE obj = rb_class_new_instance(0, 0, rb_cYieldNode);
+
+    rb_ivar_set(obj, rb_intern("@head"), ast_to_node_instance(RNODE_YIELD(node)->nd_head));
+
+    return obj;
+}
+
+VALUE
+lambda_node_new(const NODE *node)
+{
+    VALUE obj = rb_class_new_instance(0, 0, rb_cLambdaNode);
+
+    rb_ivar_set(obj, rb_intern("@body"), ast_to_node_instance(RNODE_LAMBDA(node)->nd_body));
+
+    return obj;
+}
+
 void
 Init_StatementNode(VALUE module)
 {
@@ -563,4 +585,8 @@ Init_StatementNode(VALUE module)
     rb_cOperatorAssignmentOrNode = rb_define_class_under(module, "OperatorAssignmentOrNode", rb_cObject);
 
     rb_cOperatorConstantDeclarationNode = rb_define_class_under(module, "OperatorConstantDeclarationNode", rb_cObject);
+
+    rb_cYieldNode = rb_define_class_under(module, "YieldNode", rb_cObject);
+
+    rb_cLambdaNode = rb_define_class_under(module, "LambdaNode", rb_cObject);
 }

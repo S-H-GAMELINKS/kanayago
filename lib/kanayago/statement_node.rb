@@ -153,4 +153,12 @@ module Kanayago
   class OperatorConstantDeclarationNode
     attr_reader :head, :value, :aid, :shareability
   end
+
+  class YieldNode
+    attr_reader :head
+  end
+
+  class LambdaNode
+    attr_reader :body
+  end
 end
