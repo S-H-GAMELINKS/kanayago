@@ -169,4 +169,28 @@ module Kanayago
   class BlockPassNode
     attr_reader :head, :body, :forwarding
   end
+
+  class ArgsAuxNode
+    attr_reader :pid, :plen, :next
+  end
+
+  class OptArgNode
+    attr_reader :body, :next
+  end
+
+  class KwArgNode
+    attr_reader :body, :next
+  end
+
+  class PostArgNode
+    attr_reader :first, :second
+  end
+
+  class ArgsCatNode
+    attr_reader :head, :body
+  end
+
+  class ArgsPushNode
+    attr_reader :head, :body
+  end
 end

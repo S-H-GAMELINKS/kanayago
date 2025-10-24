@@ -47,6 +47,12 @@ VALUE yield_node_new(const NODE *);
 VALUE lambda_node_new(const NODE *);
 VALUE splat_node_new(const NODE *);
 VALUE block_pass_node_new(const NODE *);
+VALUE args_aux_node_new(const NODE *);
+VALUE opt_arg_node_new(const NODE *);
+VALUE kw_arg_node_new(const NODE *);
+VALUE post_arg_node_new(const NODE *);
+VALUE args_cat_node_new(const NODE *);
+VALUE args_push_node_new(const NODE *);
 
 void Init_StatementNode(VALUE);
 
