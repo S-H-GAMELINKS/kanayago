@@ -548,6 +548,10 @@ ast_to_node_instance(const NODE *node)
 	  return operator_assignment_or_node_new(node);
 	case NODE_OP_CDECL:
 	  return operator_constant_declaration_node_new(node);
+	case NODE_YIELD:
+	  return yield_node_new(node);
+	case NODE_LAMBDA:
+	  return lambda_node_new(node);
 	case NODE_SELF:
 	  return self_node_new(node);
 	case NODE_DOT2:

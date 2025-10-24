@@ -43,6 +43,8 @@ VALUE operator_assignment2_node_new(const NODE *);
 VALUE operator_assignment_and_node_new(const NODE *);
 VALUE operator_assignment_or_node_new(const NODE *);
 VALUE operator_constant_declaration_node_new(const NODE *);
+VALUE yield_node_new(const NODE *);
+VALUE lambda_node_new(const NODE *);
 
 void Init_StatementNode(VALUE);
 
