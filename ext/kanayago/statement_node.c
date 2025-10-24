@@ -52,6 +52,13 @@ VALUE rb_cKwArgNode;
 VALUE rb_cPostArgNode;
 VALUE rb_cArgsCatNode;
 VALUE rb_cArgsPushNode;
+VALUE rb_cForMasgnNode;
+VALUE rb_cMasgnNode;
+VALUE rb_cDasgnNode;
+VALUE rb_cOnceNode;
+VALUE rb_cErrinfoNode;
+VALUE rb_cPostexeNode;
+VALUE rb_cErrorNode;
 
 VALUE
 if_statement_node_new(const NODE *node)
@@ -602,6 +609,75 @@ args_push_node_new(const NODE *node)
     return obj;
 }
 
+VALUE
+for_masgn_node_new(const NODE *node)
+{
+    VALUE obj = rb_class_new_instance(0, 0, rb_cForMasgnNode);
+
+    rb_ivar_set(obj, rb_intern("@var"), ast_to_node_instance(RNODE_FOR_MASGN(node)->nd_var));
+
+    return obj;
+}
+
+VALUE
+masgn_node_new(const NODE *node)
+{
+    VALUE obj = rb_class_new_instance(0, 0, rb_cMasgnNode);
+
+    rb_ivar_set(obj, rb_intern("@head"), ast_to_node_instance(RNODE_MASGN(node)->nd_head));
+    rb_ivar_set(obj, rb_intern("@value"), ast_to_node_instance(RNODE_MASGN(node)->nd_value));
+    rb_ivar_set(obj, rb_intern("@args"), ast_to_node_instance(RNODE_MASGN(node)->nd_args));
+
+    return obj;
+}
+
+VALUE
+dasgn_node_new(const NODE *node)
+{
+    VALUE obj = rb_class_new_instance(0, 0, rb_cDasgnNode);
+
+    rb_ivar_set(obj, rb_intern("@vid"), ID2SYM(RNODE_DASGN(node)->nd_vid));
+    rb_ivar_set(obj, rb_intern("@value"), ast_to_node_instance(RNODE_DASGN(node)->nd_value));
+
+    return obj;
+}
+
+VALUE
+once_node_new(const NODE *node)
+{
+    VALUE obj = rb_class_new_instance(0, 0, rb_cOnceNode);
+
+    rb_ivar_set(obj, rb_intern("@body"), ast_to_node_instance(RNODE_ONCE(node)->nd_body));
+
+    return obj;
+}
+
+VALUE
+errinfo_node_new(const NODE *node)
+{
+    VALUE obj = rb_class_new_instance(0, 0, rb_cErrinfoNode);
+
+    return obj;
+}
+
+VALUE
+postexe_node_new(const NODE *node)
+{
+    VALUE obj = rb_class_new_instance(0, 0, rb_cPostexeNode);
+
+    rb_ivar_set(obj, rb_intern("@body"), ast_to_node_instance(RNODE_POSTEXE(node)->nd_body));
+
+    return obj;
+}
+
+VALUE
+error_node_new(const NODE *node)
+{
+    VALUE obj = rb_class_new_instance(0, 0, rb_cErrorNode);
+
+    return obj;
+}
+
 void
 Init_StatementNode(VALUE module)
 {
@@ -702,4 +778,18 @@ Init_StatementNode(VALUE module)
     rb_cArgsCatNode = rb_define_class_under(module, "ArgsCatNode", rb_cObject);
 
     rb_cArgsPushNode = rb_define_class_under(module, "ArgsPushNode", rb_cObject);
+
+    rb_cForMasgnNode = rb_define_class_under(module, "ForMasgnNode", rb_cObject);
+
+    rb_cMasgnNode = rb_define_class_under(module, "MasgnNode", rb_cObject);
+
+    rb_cDasgnNode = rb_define_class_under(module, "DasgnNode", rb_cObject);
+
+    rb_cOnceNode = rb_define_class_under(module, "OnceNode", rb_cObject);
+
+    rb_cErrinfoNode = rb_define_class_under(module, "ErrinfoNode", rb_cObject);
+
+    rb_cPostexeNode = rb_define_class_under(module, "PostexeNode", rb_cObject);
+
+    rb_cErrorNode = rb_define_class_under(module, "ErrorNode", rb_cObject);
 }
