@@ -5,6 +5,5 @@ set -vx
 
 bundle install
 
-bundle exec rake ruby_parser:import
-bundle exec rake ruby_parser:patch
+bundle exec rake ruby_parser:setup
 
