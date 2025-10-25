@@ -14,52 +14,9 @@ else
 end
 
 namespace :ruby_parser do
-  desc 'import ruby parser files'
-  task :import do
-    tar_name = if RUBY_DESCRIPTION.include?('dev')
-                 'snapshot/snapshot-master.tar.gz'
-               else
-                 "#{RUBY_VERSION[0..2]}/ruby-#{RUBY_VERSION}.tar.gz"
-               end
-
-    `mkdir -p tmp/ruby`
-    `curl -L https://cache.ruby-lang.org/pub/ruby/#{tar_name} -o tmp/ruby.tar.gz`
-    `tar -zxvf tmp/ruby.tar.gz -C tmp/ruby --strip-components 1`
-
-    dist = File.expand_path('ext/kanayago', __dir__)
-    ruby_dir = File.expand_path('tmp/ruby', __dir__)
-
-    MAKE_DIRECTORIES.each do |dir|
-      Dir.mkdir File.join(dist, dir) unless Dir.exist? dir
-    end
-
-    RUBY_PARSER_COPY_TARGETS.each do |target|
-      FileUtils.cp File.join(ruby_dir, target), File.join(dist, target)
-    end
-
-    # "probes.h"
-    probes_h_path = File.join(dist, 'probes.h')
-    File.open(probes_h_path, 'w+') do |f|
-      f << <<~SRC
-        #define RUBY_DTRACE_PARSE_BEGIN_ENABLED() (0)
-        #define RUBY_DTRACE_PARSE_BEGIN(arg0, arg1) (void)(arg0), (void)(arg1);
-        #define RUBY_DTRACE_PARSE_END_ENABLED() (0)
-        #define RUBY_DTRACE_PARSE_END(arg0, arg1) (void)(arg0), (void)(arg1);
-      SRC
-    end
-
-    `rm -rf tmp/ruby tmp/ruby.tar.gz`
-  end
-
-  desc 'patched ro ruby parse that build for Kanayago'
-  task :patch do
-    running_ruby_version = if RUBY_DESCRIPTION.include?('dev')
-                             'head'
-                           else
-                             RUBY_VERSION[..2]
-                           end
-
-    sh "patch -p1 < patch/#{running_ruby_version}/kanayago.patch"
+  desc 'import ruby parser files and apply patch'
+  task :setup do
+    sh 'ruby script/setup_parser.rb'
   end
 
   desc 'clean to ruby parser file'
@@ -82,8 +39,8 @@ namespace :ruby_parser do
   end
 end
 
-task build: ['ruby_parser:import', 'ruby_parser:patch', 'compile']
-task install: ['ruby_parser:import', 'ruby_parser:patch', 'compile']
+task :build # rubocop:disable Rake/Desc
+task install: ['ruby_parser:clean', 'ruby_parser:setup', 'compile']
 
 GEMSPEC = Gem::Specification.load('kanayago.gemspec')
 

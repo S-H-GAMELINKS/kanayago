@@ -1,4 +1,4 @@
-name: Kanayago gem install
+name: Kanayago gem rake install
 
 on:
   push:
@@ -28,6 +28,6 @@ jobs:
         ruby-version: ${{ matrix.ruby-version }}
         bundler-cache: true
 
-    - name: Kanayago gem build and install
-      run: bundle exec rake build && gem install ./pkg/kanayago-*.gem
+    - name: Kanayago gem install
+      run: bundle exec rake install
 

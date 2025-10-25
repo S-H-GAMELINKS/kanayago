@@ -2,12 +2,6 @@
 
 require_relative 'lib/kanayago/version'
 
-if RUBY_DESCRIPTION.include?('dev')
-  require_relative 'patch/head/copy_target'
-else
-  require_relative "patch/#{RUBY_VERSION[0..2]}/copy_target" # rubocop:disable Gemspec/RubyVersionGlobalsUsage
-end
-
 Gem::Specification.new do |spec|
   spec.name = 'kanayago'
   spec.version = Kanayago::VERSION
@@ -34,10 +28,11 @@ Gem::Specification.new do |spec|
     end
   end
 
-  RUBY_PARSER_COPY_TARGETS.each do |file|
-    files << "ext/kanayago/#{file}"
+  Dir.glob('patch/**/*').each do |file|
+    files << file if File.file?(file)
   end
-  files << 'ext/kanayago/probes.h'
+  files << 'script/setup_parser.rb'
+
   spec.files = files
   spec.bindir = 'exe'
   spec.executables = spec.files.grep(%r{\Aexe/}) { |f| File.basename(f) }
