@@ -20,4 +20,8 @@ module Kanayago
   class GlobalVariableNode
     attr_reader :vid
   end
+
+  class ConstantNode
+    attr_reader :vid
+  end
 end

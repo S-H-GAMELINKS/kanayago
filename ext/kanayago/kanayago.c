@@ -33,29 +33,11 @@ operator_call_node_new(const NODE *node)
 {
     VALUE obj = rb_class_new_instance(0, 0, rb_cOperatorCallNode);
 
-    rb_ivar_set(obj, symbol("recv"), ast_to_node_instance(RNODE_OPCALL(node)->nd_recv));
-    rb_ivar_set(obj, symbol("mid"), ID2SYM(RNODE_OPCALL(node)->nd_mid));
-    rb_ivar_set(obj, symbol("args"), ast_to_node_instance(RNODE_OPCALL(node)->nd_args));
+    rb_ivar_set(obj, rb_intern("@recv"), ast_to_node_instance(RNODE_OPCALL(node)->nd_recv));
+    rb_ivar_set(obj, rb_intern("@mid"), ID2SYM(RNODE_OPCALL(node)->nd_mid));
+    rb_ivar_set(obj, rb_intern("@args"), ast_to_node_instance(RNODE_OPCALL(node)->nd_args));
 
     return obj;
-}
-
-static VALUE
-operator_call_node_recv_get(VALUE self)
-{
-    return rb_ivar_get(self, symbol("recv"));
-}
-
-static VALUE
-operator_call_node_mid_get(VALUE self)
-{
-    return rb_ivar_get(self, symbol("mid"));
-}
-
-static VALUE
-operator_call_node_args_get(VALUE self)
-{
-    return rb_ivar_get(self, symbol("args"));
 }
 
 static VALUE
@@ -63,29 +45,11 @@ call_node_new(const NODE *node)
 {
     VALUE result = rb_class_new_instance(0, 0, rb_cCallNode);
 
-    rb_ivar_set(result, symbol("recv"), ast_to_node_instance(RNODE_OPCALL(node)->nd_recv));
-    rb_ivar_set(result, symbol("mid"), ID2SYM(RNODE_CALL(node)->nd_mid));
-    rb_ivar_set(result, symbol("args"), ast_to_node_instance(RNODE_CALL(node)->nd_args));
+    rb_ivar_set(result, rb_intern("@recv"), ast_to_node_instance(RNODE_OPCALL(node)->nd_recv));
+    rb_ivar_set(result, rb_intern("@mid"), ID2SYM(RNODE_CALL(node)->nd_mid));
+    rb_ivar_set(result, rb_intern("@args"), ast_to_node_instance(RNODE_CALL(node)->nd_args));
 
     return result;
-}
-
-static VALUE
-call_node_recv_get(VALUE self)
-{
-    return rb_ivar_get(self, symbol("recv"));
-}
-
-static VALUE
-call_node_mid_get(VALUE self)
-{
-    return rb_ivar_get(self, symbol("mid"));
-}
-
-static VALUE
-call_node_args_get(VALUE self)
-{
-    return rb_ivar_get(self, symbol("args"));
 }
 
 static VALUE
@@ -93,22 +57,10 @@ function_call_node_new(const NODE *node)
 {
     VALUE obj = rb_class_new_instance(0, 0, rb_cFunctionCallNode);
 
-    rb_ivar_set(obj, symbol("mid"), ID2SYM(RNODE_FCALL(node)->nd_mid));
-    rb_ivar_set(obj, symbol("args"), ast_to_node_instance(RNODE_FCALL(node)->nd_args));
+    rb_ivar_set(obj, rb_intern("@mid"), ID2SYM(RNODE_FCALL(node)->nd_mid));
+    rb_ivar_set(obj, rb_intern("@args"), ast_to_node_instance(RNODE_FCALL(node)->nd_args));
 
     return obj;
-}
-
-static VALUE
-function_call_node_mid_get(VALUE self)
-{
-    return rb_ivar_get(self, symbol("mid"));
-}
-
-static VALUE
-function_call_node_args_get(VALUE self)
-{
-    return rb_ivar_get(self, symbol("args"));
 }
 
 static VALUE
@@ -119,12 +71,6 @@ variable_call_node_new(const NODE *node)
     rb_ivar_set(obj, rb_intern("@mid"), ID2SYM(RNODE_VCALL(node)->nd_mid));
 
     return obj;
-}
-
-static VALUE
-variable_call_node_mid_get(VALUE self)
-{
-    return rb_ivar_get(self, rb_intern("@mid"));
 }
 
 static VALUE
@@ -151,22 +97,10 @@ definition_node_new(const NODE *node)
 {
     VALUE obj = rb_class_new_instance(0, 0, rb_cDefinitionNode);
 
-    rb_ivar_set(obj, symbol("mid"), ID2SYM(RNODE_DEFN(node)->nd_mid));
-    rb_ivar_set(obj, symbol("defn"), ast_to_node_instance(RNODE_DEFN(node)->nd_defn));
+    rb_ivar_set(obj, rb_intern("@mid"), ID2SYM(RNODE_DEFN(node)->nd_mid));
+    rb_ivar_set(obj, rb_intern("@defn"), ast_to_node_instance(RNODE_DEFN(node)->nd_defn));
 
     return obj;
-}
-
-static VALUE
-definition_node_mid_get(VALUE self)
-{
-    return rb_ivar_get(self, symbol("mid"));
-}
-
-static VALUE
-definition_node_defn_get(VALUE self)
-{
-    return rb_ivar_get(self, symbol("defn"));
 }
 
 static VALUE
@@ -188,15 +122,9 @@ constant_node_new(const NODE *node)
 {
     VALUE obj = rb_class_new_instance(0, 0, rb_cConstantNode);
 
-    rb_ivar_set(obj, symbol("vid"), ID2SYM(RNODE_CONST(node)->nd_vid));
+    rb_ivar_set(obj, rb_intern("@vid"), ID2SYM(RNODE_CONST(node)->nd_vid));
 
     return obj;
-}
-
-static VALUE
-constant_node_vid_get(VALUE self)
-{
-    return rb_ivar_get(self, symbol("vid"));
 }
 
 static VALUE
@@ -204,29 +132,11 @@ constant_declaration_node_new(const NODE *node)
 {
     VALUE obj = rb_class_new_instance(0, 0, rb_cConstantDeclarationNode);
 
-    rb_ivar_set(obj, symbol("vid"), ID2SYM(RNODE_CDECL(node)->nd_vid));
-    rb_ivar_set(obj, symbol("else"), ast_to_node_instance(RNODE_CDECL(node)->nd_else));
-    rb_ivar_set(obj, symbol("value"), ast_to_node_instance(RNODE_CDECL(node)->nd_value));
+    rb_ivar_set(obj, rb_intern("@vid"), ID2SYM(RNODE_CDECL(node)->nd_vid));
+    rb_ivar_set(obj, rb_intern("@else"), ast_to_node_instance(RNODE_CDECL(node)->nd_else));
+    rb_ivar_set(obj, rb_intern("@value"), ast_to_node_instance(RNODE_CDECL(node)->nd_value));
 
     return obj;
-}
-
-static VALUE
-constant_declaration_node_vid_get(VALUE self)
-{
-    return rb_ivar_get(self, symbol("vid"));
-}
-
-static VALUE
-constant_declaration_node_else_get(VALUE self)
-{
-    return rb_ivar_get(self, symbol("else"));
-}
-
-static VALUE
-constant_declaration_node_value_get(VALUE self)
-{
-    return rb_ivar_get(self, symbol("value"));
 }
 
 static VALUE
@@ -271,29 +181,11 @@ class_node_new(const NODE *node)
 {
     VALUE obj = rb_class_new_instance(0, 0, rb_cClassNode);
 
-    rb_ivar_set(obj, symbol("cpath"), ast_to_node_instance(RNODE_CLASS(node)->nd_cpath));
-    rb_ivar_set(obj, symbol("super"), ast_to_node_instance(RNODE_CLASS(node)->nd_super));
-    rb_ivar_set(obj, symbol("body"), ast_to_node_instance(RNODE_CLASS(node)->nd_body));
+    rb_ivar_set(obj, rb_intern("@cpath"), ast_to_node_instance(RNODE_CLASS(node)->nd_cpath));
+    rb_ivar_set(obj, rb_intern("@super"), ast_to_node_instance(RNODE_CLASS(node)->nd_super));
+    rb_ivar_set(obj, rb_intern("@body"), ast_to_node_instance(RNODE_CLASS(node)->nd_body));
 
     return obj;
-}
-
-static VALUE
-class_node_cpath_get(VALUE self)
-{
-    return rb_ivar_get(self, symbol("cpath"));
-}
-
-static VALUE
-class_node_super_get(VALUE self)
-{
-    return rb_ivar_get(self, symbol("super"));
-}
-
-static VALUE
-class_node_body_get(VALUE self)
-{
-    return rb_ivar_get(self, symbol("body"));
 }
 
 static VALUE
@@ -313,22 +205,10 @@ colon2_node_new(const NODE *node)
 {
     VALUE obj = rb_class_new_instance(0, 0, rb_cColon2Node);
 
-    rb_ivar_set(obj, symbol("mid"), ID2SYM(RNODE_COLON2(node)->nd_mid));
-    rb_ivar_set(obj, symbol("head"), ast_to_node_instance(RNODE_COLON2(node)->nd_head));
+    rb_ivar_set(obj, rb_intern("@mid"), ID2SYM(RNODE_COLON2(node)->nd_mid));
+    rb_ivar_set(obj, rb_intern("@head"), ast_to_node_instance(RNODE_COLON2(node)->nd_head));
 
     return obj;
-}
-
-static VALUE
-colon2_node_mid_get(VALUE self)
-{
-    return rb_ivar_get(self, symbol("mid"));
-}
-
-static VALUE
-colon2_node_head_get(VALUE self)
-{
-    return rb_ivar_get(self, symbol("head"));
 }
 
 static VALUE
@@ -342,25 +222,13 @@ colon3_node_new(const NODE *node)
 }
 
 static VALUE
-colon3_node_mid_get(VALUE self)
-{
-    return rb_ivar_get(self, rb_intern("@mid"));
-}
-
-static VALUE
 begin_node_new(const NODE *node)
 {
     VALUE obj = rb_class_new_instance(0, 0, rb_cBeginNode);
 
-    rb_ivar_set(obj, symbol("body"), ast_to_node_instance(RNODE_BEGIN(node)->nd_body));
+    rb_ivar_set(obj, rb_intern("@body"), ast_to_node_instance(RNODE_BEGIN(node)->nd_body));
 
     return obj;
-}
-
-static VALUE
-begin_node_body_get(VALUE self)
-{
-    return rb_ivar_get(self, symbol("body"));
 }
 
 static VALUE
@@ -391,15 +259,9 @@ arguments_node_new(const NODE *node)
     VALUE obj = rb_class_new_instance(0, 0, rb_cArgumentsNode);
     VALUE ainfo_hash = args_ainfo_to_hash(RNODE_ARGS(node)->nd_ainfo);
 
-    rb_ivar_set(obj, symbol("ainfo"), ainfo_hash);
+    rb_ivar_set(obj, rb_intern("@ainfo"), ainfo_hash);
 
     return obj;
-}
-
-static VALUE
-arguments_node_ainfo_get(VALUE self)
-{
-    return rb_ivar_get(self, symbol("ainfo"));
 }
 
 static VALUE
@@ -680,38 +542,22 @@ Init_kanayago(void)
     Init_StringNode(rb_mKanayago);
 
     rb_cConstantNode = rb_define_class_under(rb_mKanayago, "ConstantNode", rb_cObject);
-    rb_define_method(rb_cConstantNode, "vid", constant_node_vid_get, 0);
 
     rb_cConstantDeclarationNode = rb_define_class_under(rb_mKanayago, "ConstantDeclarationNode", rb_cObject);
-    rb_define_method(rb_cConstantDeclarationNode, "vid", constant_declaration_node_vid_get, 0);
-    rb_define_method(rb_cConstantDeclarationNode, "else", constant_declaration_node_else_get, 0);
-    rb_define_method(rb_cConstantDeclarationNode, "value", constant_declaration_node_value_get, 0);
 
     rb_cDefinitionNode = rb_define_class_under(rb_mKanayago, "DefinitionNode", rb_cObject);
-    rb_define_method(rb_cDefinitionNode, "mid", definition_node_mid_get, 0);
-    rb_define_method(rb_cDefinitionNode, "defn", definition_node_defn_get, 0);
 
     rb_cOperatorCallNode = rb_define_class_under(rb_mKanayago, "OperatorCallNode", rb_cObject);
-    rb_define_method(rb_cOperatorCallNode, "recv", operator_call_node_recv_get, 0);
-    rb_define_method(rb_cOperatorCallNode, "mid", operator_call_node_mid_get, 0);
-    rb_define_method(rb_cOperatorCallNode, "args", operator_call_node_args_get, 0);
 
     rb_cListNode = rb_define_class_under(rb_mKanayago, "ListNode", rb_cObject);
 
     rb_cArgumentsNode = rb_define_class_under(rb_mKanayago, "ArgumentsNode", rb_cObject);
-    rb_define_method(rb_cArgumentsNode, "ainfo", arguments_node_ainfo_get, 0);
 
     rb_cCallNode = rb_define_class_under(rb_mKanayago, "CallNode", rb_cObject);
-    rb_define_method(rb_cCallNode, "recv", call_node_recv_get, 0);
-    rb_define_method(rb_cCallNode, "mid", call_node_mid_get, 0);
-    rb_define_method(rb_cCallNode, "args", call_node_args_get, 0);
 
     rb_cFunctionCallNode = rb_define_class_under(rb_mKanayago, "FunctionCallNode", rb_cObject);
-    rb_define_method(rb_cFunctionCallNode, "mid", function_call_node_mid_get, 0);
-    rb_define_method(rb_cFunctionCallNode, "args", function_call_node_args_get, 0);
 
     rb_cVariableCallNode = rb_define_class_under(rb_mKanayago, "VariableCallNode", rb_cObject);
-    rb_define_method(rb_cVariableCallNode, "mid", variable_call_node_mid_get, 0);
 
     // For Statement Node(e.g. Kanayago::IfStatementNode)
     Init_StatementNode(rb_mKanayago);
@@ -719,21 +565,14 @@ Init_kanayago(void)
     rb_cBlockNode = rb_define_class_under(rb_mKanayago, "BlockNode", rb_cArray);
 
     rb_cBeginNode = rb_define_class_under(rb_mKanayago, "BeginNode", rb_cObject);
-    rb_define_method(rb_cBeginNode, "body", begin_node_body_get, 0);
 
     rb_cClassNode = rb_define_class_under(rb_mKanayago, "ClassNode", rb_cObject);
-    rb_define_method(rb_cClassNode, "cpath", class_node_cpath_get, 0);
-    rb_define_method(rb_cClassNode, "super", class_node_super_get, 0);
-    rb_define_method(rb_cClassNode, "body", class_node_body_get, 0);
 
     rb_cModuleNode = rb_define_class_under(rb_mKanayago, "ModuleNode", rb_cObject);
 
     rb_cColon2Node = rb_define_class_under(rb_mKanayago, "Colon2Node", rb_cObject);
-    rb_define_method(rb_cColon2Node, "mid", colon2_node_mid_get, 0);
-    rb_define_method(rb_cColon2Node, "head", colon2_node_head_get, 0);
 
     rb_cColon3Node = rb_define_class_under(rb_mKanayago, "Colon3Node", rb_cObject);
-    rb_define_method(rb_cColon3Node, "mid", colon3_node_mid_get, 0);
 
     // For Variable Node(e.g. Kanayago::LocalVariableNode)
     Init_VariableNode(rb_mKanayago);

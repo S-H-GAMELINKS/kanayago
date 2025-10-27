@@ -7,6 +7,30 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- Add Ruby class definitions for previously C-only AST nodes:
+  - `ScopeNode` - Scope representation with args and body
+  - `ClassNode` - Class definition with cpath, super, and body
+  - `ModuleNode` - Module definition with cpath, super, and body
+  - `DefinitionNode` - Method definition with mid and defn
+  - `BeginNode` - Begin statement with body
+  - `SelfNode` - Self reference with state
+  - `ConstantNode` - Constant reference with vid
+  - `OperatorCallNode` - Operator method call with recv, mid, and args
+  - `CallNode` - Method call with recv, mid, and args
+  - `FunctionCallNode` - Function call with mid and args
+  - `VariableCallNode` - Variable call with mid
+  - `ArgumentsNode` - Arguments information with ainfo hash
+  - `BlockNode` - Block representation (inherits from Array)
+  - `ConstantDeclarationNode` - Constant declaration with vid, else, and value
+  - `Colon2Node` - Scoped constant resolution (::) with mid and head
+  - `Colon3Node` - Top-level constant resolution (::) with mid
+
+### Changed
+- Use `rb_intern("@...")` instead of `symbol()` macro for instance variable access in C layer
+- Remove redundant getter methods from C layer (scope_node.c and kanayago.c)
+- Rely on Ruby's `attr_reader` for attribute access instead of C-defined methods
+
 ### Fixed
 - Fix SEGV in args_ainfo_tohash function
 
