@@ -21,8 +21,9 @@ VALUE
 dynamic_variable_node_new(const NODE *node)
 {
     VALUE obj = rb_class_new_instance(0, 0, rb_cDynamicVariableNode);
+    ID vid = RNODE_DVAR(node)->nd_vid;
 
-    rb_ivar_set(obj, rb_intern("@vid"), ID2SYM(RNODE_DVAR(node)->nd_vid));
+    rb_ivar_set(obj, rb_intern("@vid"), vid ? ID2SYM(vid) : Qnil);
 
     return obj;
 }

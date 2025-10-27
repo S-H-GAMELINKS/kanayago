@@ -373,9 +373,11 @@ args_ainfo_to_hash(const struct rb_args_info ainfo)
     rb_hash_aset(result, symbol("pre_init"), ast_to_node_instance(ainfo.pre_init));
     rb_hash_aset(result, symbol("post_args_num"), INT2NUM(ainfo.post_args_num));
     rb_hash_aset(result, symbol("post_init"), ast_to_node_instance(ainfo.post_init));
-    rb_hash_aset(result, symbol("first_post_arg"), Qnil);
-    rb_hash_aset(result, symbol("rest_arg"), Qnil);
-    rb_hash_aset(result, symbol("block_arg"), Qnil);
+
+    rb_hash_aset(result, symbol("first_post_arg"), ainfo.first_post_arg ? ID2SYM(ainfo.first_post_arg) : Qnil);
+    rb_hash_aset(result, symbol("rest_arg"), ainfo.rest_arg ? ID2SYM(ainfo.rest_arg) : Qnil);
+    rb_hash_aset(result, symbol("block_arg"), ainfo.block_arg ? ID2SYM(ainfo.block_arg) : Qnil);
+
     rb_hash_aset(result, symbol("opt_args"), ast_to_node_instance((const NODE *)(ainfo.opt_args)));
     rb_hash_aset(result, symbol("kw_args"), ast_to_node_instance((const NODE *)(ainfo.kw_args)));
     rb_hash_aset(result, symbol("kw_rest_arg"), ast_to_node_instance(ainfo.kw_rest_arg));
@@ -416,6 +418,10 @@ ast_to_node_instance(const NODE *node)
     enum node_type type;
 
     if (!node) {
+        return Qnil;
+    }
+
+    if (node == (NODE *)-1) {
         return Qnil;
     }
 
