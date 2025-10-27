@@ -61,8 +61,20 @@ module Kanayago
     attr_reader :id, :value
   end
 
+  class DefinitionNode
+    attr_reader :mid, :defn
+  end
+
   class SingletonDefinitionNode
     attr_reader :recv, :mid, :defn
+  end
+
+  class ClassNode
+    attr_reader :cpath, :super, :body
+  end
+
+  class ModuleNode
+    attr_reader :cpath, :super, :body
   end
 
   class SingletonClassNode
@@ -120,6 +132,10 @@ module Kanayago
 
   class IterNode
     attr_reader :body, :iter
+  end
+
+  class BeginNode
+    attr_reader :body
   end
 
   class EnsureNode

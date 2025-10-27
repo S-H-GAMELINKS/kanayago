@@ -84,4 +84,8 @@ module Kanayago
   class BackRefNode
     attr_reader :nth
   end
+
+  class SelfNode
+    attr_reader :state
+  end
 end
