@@ -74,7 +74,7 @@ module Kanayago
   end
 
   class ModuleNode
-    attr_reader :cpath, :super, :body
+    attr_reader :cpath, :body
   end
 
   class SingletonClassNode

@@ -19,12 +19,22 @@ dynamic_string_node_new(const NODE *node)
 {
     VALUE obj = rb_class_new_instance(0, 0, rb_cDynamicStringNode);
     rb_parser_string_t *str = RNODE_DSTR(node)->string;
-    rb_encoding *enc = str->enc;
-    char *ptr = str->ptr;
-    long len = str->len;
+    const NODE *nd_next = (const NODE *)RNODE_DSTR(node)->nd_next;
 
-    rb_ivar_set(obj, rb_intern("@string"), rb_enc_str_new(ptr, len, enc));
-    rb_ivar_set(obj, rb_intern("@next_nodes"), ast_to_node_instance((const NODE *)RNODE_DSTR(node)->nd_next));
+    if (str) {
+        rb_encoding *enc = str->enc;
+        char *ptr = str->ptr;
+        long len = str->len;
+        rb_ivar_set(obj, rb_intern("@string"), rb_enc_str_new(ptr, len, enc));
+    } else {
+        rb_ivar_set(obj, rb_intern("@string"), rb_str_new("", 0));
+    }
+
+    if (nd_next && nd_next != (NODE *)-1) {
+        rb_ivar_set(obj, rb_intern("@next_nodes"), ast_to_node_instance(nd_next));
+    } else {
+        rb_ivar_set(obj, rb_intern("@next_nodes"), Qnil);
+    }
 
     return obj;
 }
@@ -34,12 +44,22 @@ dynamic_symbol_node_new(const NODE *node)
 {
     VALUE obj = rb_class_new_instance(0, 0, rb_cDynamicSymbolNode);
     rb_parser_string_t *str = RNODE_DSYM(node)->string;
-    rb_encoding *enc = str->enc;
-    char *ptr = str->ptr;
-    long len = str->len;
+    const NODE *nd_next = (const NODE *)RNODE_DSYM(node)->nd_next;
 
-    rb_ivar_set(obj, rb_intern("@string"), rb_enc_str_new(ptr, len, enc));
-    rb_ivar_set(obj, rb_intern("@next_nodes"), ast_to_node_instance((const NODE *)RNODE_DSYM(node)->nd_next));
+    if (str) {
+        rb_encoding *enc = str->enc;
+        char *ptr = str->ptr;
+        long len = str->len;
+        rb_ivar_set(obj, rb_intern("@string"), rb_enc_str_new(ptr, len, enc));
+    } else {
+        rb_ivar_set(obj, rb_intern("@string"), rb_str_new("", 0));
+    }
+
+    if (nd_next && nd_next != (NODE *)-1) {
+        rb_ivar_set(obj, rb_intern("@next_nodes"), ast_to_node_instance(nd_next));
+    } else {
+        rb_ivar_set(obj, rb_intern("@next_nodes"), Qnil);
+    }
 
     return obj;
 }
@@ -77,12 +97,22 @@ dynamic_execute_string_node_new(const NODE *node)
 {
     VALUE obj = rb_class_new_instance(0, 0, rb_cDynamicExecuteStringNode);
     rb_parser_string_t *str = RNODE_DXSTR(node)->string;
-    rb_encoding *enc = str->enc;
-    char *ptr = str->ptr;
-    long len = str->len;
+    const NODE *nd_next = (const NODE *)RNODE_DXSTR(node)->nd_next;
 
-    rb_ivar_set(obj, rb_intern("@string"), rb_enc_str_new(ptr, len, enc));
-    rb_ivar_set(obj, rb_intern("@next_nodes"), ast_to_node_instance((const NODE *)RNODE_DXSTR(node)->nd_next));
+    if (str) {
+        rb_encoding *enc = str->enc;
+        char *ptr = str->ptr;
+        long len = str->len;
+        rb_ivar_set(obj, rb_intern("@string"), rb_enc_str_new(ptr, len, enc));
+    } else {
+        rb_ivar_set(obj, rb_intern("@string"), rb_str_new("", 0));
+    }
+
+    if (nd_next && nd_next != (NODE *)-1) {
+        rb_ivar_set(obj, rb_intern("@next_nodes"), ast_to_node_instance(nd_next));
+    } else {
+        rb_ivar_set(obj, rb_intern("@next_nodes"), Qnil);
+    }
 
     return obj;
 }
@@ -112,13 +142,24 @@ dynamic_regexp_node_new(const NODE *node)
 {
     VALUE obj = rb_class_new_instance(0, 0, rb_cDynamicRegexpNode);
     rb_parser_string_t *str = RNODE_DREGX(node)->string;
-    rb_encoding *enc = str->enc;
-    char *ptr = str->ptr;
-    long len = str->len;
     long options = RNODE_DREGX(node)->as.nd_cflag;
+    const NODE *nd_next = (const NODE *)RNODE_DREGX(node)->nd_next;
 
-    rb_ivar_set(obj, rb_intern("@string"), rb_enc_str_new(ptr, len, enc));
-    rb_ivar_set(obj, rb_intern("@next_nodes"), ast_to_node_instance((const NODE *)RNODE_DREGX(node)->nd_next));
+    if (str) {
+        rb_encoding *enc = str->enc;
+        char *ptr = str->ptr;
+        long len = str->len;
+        rb_ivar_set(obj, rb_intern("@string"), rb_enc_str_new(ptr, len, enc));
+    } else {
+        rb_ivar_set(obj, rb_intern("@string"), rb_str_new("", 0));
+    }
+
+    if (nd_next && nd_next != (NODE *)-1) {
+        rb_ivar_set(obj, rb_intern("@next_nodes"), ast_to_node_instance(nd_next));
+    } else {
+        rb_ivar_set(obj, rb_intern("@next_nodes"), Qnil);
+    }
+
     rb_ivar_set(obj, rb_intern("@options"), LONG2FIX(options));
 
     return obj;

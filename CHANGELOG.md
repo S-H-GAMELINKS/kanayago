@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+- Fix segmentation fault when parsing dynamic symbols in complex hash structures
+- Fix segmentation fault when parsing nested modules with outer constant references
+- Fix `module_node_new` to use `RNODE_MODULE` instead of incorrect `RNODE_CLASS` macro
+- Add NULL pointer checks in `dynamic_string_node_new`, `dynamic_symbol_node_new`, `dynamic_execute_string_node_new`, and `dynamic_regexp_node_new`
+
+### Changed
+- Remove incorrect `@super` field access from `ModuleNode` (modules do not have superclasses)
+
 ## [0.4.0]
 
 ### Added
