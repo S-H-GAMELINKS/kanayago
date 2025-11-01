@@ -193,9 +193,8 @@ module_node_new(const NODE *node)
 {
     VALUE obj = rb_class_new_instance(0, 0, rb_cModuleNode);
 
-    rb_ivar_set(obj, rb_intern("@cpath"), ast_to_node_instance(RNODE_CLASS(node)->nd_cpath));
-    rb_ivar_set(obj, rb_intern("@super"), ast_to_node_instance(RNODE_CLASS(node)->nd_super));
-    rb_ivar_set(obj, rb_intern("@body"), ast_to_node_instance(RNODE_CLASS(node)->nd_body));
+    rb_ivar_set(obj, rb_intern("@cpath"), ast_to_node_instance(RNODE_MODULE(node)->nd_cpath));
+    rb_ivar_set(obj, rb_intern("@body"), ast_to_node_instance(RNODE_MODULE(node)->nd_body));
 
     return obj;
 }

@@ -54,4 +54,38 @@ class ParseDynamicSymbolNodeTest < Minitest::Test
     # Static symbols should remain SymbolNode, not DynamicSymbolNode
     assert_instance_of(Kanayago::SymbolNode, body)
   end
+
+  def test_dynamic_symbol_in_hash_with_to_h_block
+    code = <<~'RUBY'
+      SIZES = [16, 32, 48]
+      STYLES = SIZES.to_h do |size|
+        [:"#{size}", { format: 'png', geometry: "#{size}x#{size}#" }]
+      end
+    RUBY
+
+    result = Kanayago.parse(code)
+
+    assert_instance_of(Kanayago::ScopeNode, result)
+    refute_nil(result.body)
+  end
+
+  def test_complex_nested_hash_with_dynamic_symbols
+    code = <<~'RUBY'
+      SIZES = [57, 60, 72]
+      CONFIG = {
+        icons: SIZES.to_h do |size|
+          [:"#{size}", {
+            format: 'png',
+            geometry: "#{size}x#{size}#",
+            options: { quality: 90 }
+          }]
+        end.freeze
+      }
+    RUBY
+
+    result = Kanayago.parse(code)
+
+    assert_instance_of(Kanayago::ScopeNode, result)
+    refute_nil(result.body)
+  end
 end
