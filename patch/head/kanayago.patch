@@ -5,7 +5,7 @@ index 8e306d1..d420a02 100644
 @@ -15,6 +15,29 @@ struct lex_pointer_string {
      long ptr;
  };
- 
+
 +// Add Ruby's Parser struct and enum for Kanayago
 +enum lex_type {
 +    lex_type_str,
@@ -36,10 +36,100 @@ diff --git a/ext/kanayago/ruby_parser.c b/ext/kanayago/ruby_parser.c
 index 267f619..841db65 100644
 --- a/ext/kanayago/ruby_parser.c
 +++ b/ext/kanayago/ruby_parser.c
-@@ -314,6 +314,44 @@ enc_mbc_to_codepoint(const char *p, const char *e, parser_encoding *enc)
- 
+@@ -34,6 +34,89 @@
+
+ #define parser_encoding const void
+
++/*
++ * The following functions are ported from Ruby's error.c for Kanayago:
++ *   - err_vcatf
++ *   - syntax_error_with_path
++ *   - rb_syntax_error_append
++ *
++ * Copyright (C) 1993-2007 Yukihiro Matsumoto
++ *
++ * Ruby is copyrighted free software by Yukihiro Matsumoto <matz@netlab.jp>.
++ * You can redistribute it and/or modify it under either the terms of the
++ * 2-clause BSDL (see the file BSDL), or the conditions below:
++ *
++ * Redistribution and use in source and binary forms, with or without
++ * modification, are permitted provided that the following conditions
++ * are met:
++ * 1. Redistributions of source code must retain the above copyright
++ *    notice, this list of conditions and the following disclaimer.
++ * 2. Redistributions in binary form must reproduce the above copyright
++ *    notice, this list of conditions and the following disclaimer in the
++ *    documentation and/or other materials provided with the distribution.
++ *
++ * THIS SOFTWARE IS PROVIDED BY THE AUTHOR AND CONTRIBUTORS ``AS IS'' AND
++ * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
++ * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
++ * ARE DISCLAIMED.  IN NO EVENT SHALL THE AUTHOR OR CONTRIBUTORS BE LIABLE
++ * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
++ * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS
++ * OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
++ * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
++ * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
++ * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
++ * SUCH DAMAGE.
++ */
++
++static VALUE
++err_vcatf(VALUE str, const char *pre, const char *file, int line,
++          const char *fmt, va_list args)
++{
++    if (file) {
++        rb_str_cat_cstr(str, file);
++        if (line) rb_str_catf(str, ":%d", line);
++        rb_str_cat_cstr(str, ": ");
++    }
++    if (pre) rb_str_cat_cstr(str, pre);
++    rb_str_vcatf(str, fmt, args);
++    return str;
++}
++
++static VALUE
++syntax_error_with_path(VALUE exc, VALUE file, VALUE *mesg, rb_encoding *enc)
++{
++    if (NIL_P(exc)) {
++        exc = rb_class_new_instance(0, 0, rb_eSyntaxError);
++    }
++    *mesg = rb_attr_get(exc, rb_intern("mesg"));
++    if (NIL_P(*mesg)) {
++        *mesg = rb_enc_str_new(0, 0, enc);
++        rb_ivar_set(exc, rb_intern("mesg"), *mesg);
++    }
++    return exc;
++}
++
++RBIMPL_ATTR_FORMAT(RBIMPL_PRINTF_FORMAT, 6, 0)
++VALUE
++rb_syntax_error_append(VALUE exc, VALUE file, int line, int column,
++                       rb_encoding *enc, const char *fmt, va_list args)
++{
++    const char *fn = NIL_P(file) ? NULL : RSTRING_PTR(file);
++    if (!exc) {
++        VALUE mesg = rb_enc_str_new(0, 0, enc);
++        err_vcatf(mesg, NULL, fn, line, fmt, args);
++        rb_str_cat_cstr(mesg, "\n");
++        rb_write_error_str(mesg);
++    }
++    else {
++        VALUE mesg;
++        exc = syntax_error_with_path(exc, file, &mesg, enc);
++        err_vcatf(mesg, NULL, fn, line, fmt, args);
++    }
++
++    return exc;
++}
++
+ RBIMPL_ATTR_FORMAT(RBIMPL_PRINTF_FORMAT, 6, 0)
+ static VALUE
+ syntax_error_append(VALUE exc, VALUE file, int line, int column,
+@@ -314,6 +397,44 @@ enc_mbc_to_codepoint(const char *p, const char *e, parser_encoding *enc)
+
  extern VALUE rb_eArgError;
- 
+
 +//　Add for Kanayago
 +static void *
 +xmalloc_mul_add(size_t x, size_t y, size_t z)
@@ -81,51 +171,51 @@ index 267f619..841db65 100644
  static const rb_parser_config_t rb_global_parser_config = {
      .malloc = ruby_xmalloc,
      .calloc = ruby_xcalloc,
-@@ -325,9 +363,9 @@ static const rb_parser_config_t rb_global_parser_config = {
+@@ -325,9 +446,9 @@ static const rb_parser_config_t rb_global_parser_config = {
      .zalloc = zalloc,
      .rb_memmove = memmove2,
      .nonempty_memcpy = nonempty_memcpy,
 -    .xmalloc_mul_add = rb_xmalloc_mul_add,
 +    .xmalloc_mul_add = xmalloc_mul_add, // use xmalloc_mul_add for Kanayago
- 
+
 -    .compile_callback = rb_suppress_tracing,
 +    .compile_callback = suppress_tracing, // use suppress_tracing for Kanayago
      .reg_named_capture_assign = reg_named_capture_assign,
- 
+
      .attr_get = rb_attr_get,
-@@ -335,7 +373,7 @@ static const rb_parser_config_t rb_global_parser_config = {
+@@ -335,7 +456,7 @@ static const rb_parser_config_t rb_global_parser_config = {
      .ary_new_from_args = rb_ary_new_from_args,
      .ary_unshift = rb_ary_unshift,
- 
+
 -    .make_temporary_id = rb_make_temporary_id,
 +    .make_temporary_id = make_temporary_id, // use make_temporary_id for Kanayago
      .is_local_id = is_local_id2,
      .is_attrset_id = is_attrset_id2,
      .is_global_name_punct = is_global_name_punct,
-@@ -365,7 +403,7 @@ static const rb_parser_config_t rb_global_parser_config = {
- 
+@@ -365,7 +486,7 @@ static const rb_parser_config_t rb_global_parser_config = {
+
      .int2num = rb_int2num_inline,
- 
+
 -    .stderr_tty_p = rb_stderr_tty_p,
 +    .stderr_tty_p = stderr_tty_p, //use stderr_tty_p for Kanayago
      .write_error_str = rb_write_error_str,
      .io_write = rb_io_write,
      .io_flush = rb_io_flush,
-@@ -412,8 +450,8 @@ static const rb_parser_config_t rb_global_parser_config = {
+@@ -412,8 +533,8 @@ static const rb_parser_config_t rb_global_parser_config = {
      .gc_guard = gc_guard,
      .gc_mark = rb_gc_mark,
- 
+
 -    .reg_compile = rb_reg_compile,
 -    .reg_check_preprocess = rb_reg_check_preprocess,
 +    .reg_compile = reg_compile, // use reg_compile for Kanayago
 +    .reg_check_preprocess = reg_check_preprocess, // use reg_check_preprocess for Kanayago
      .memcicmp = rb_memcicmp,
- 
+
      .compile_warn = rb_compile_warn,
-@@ -443,27 +481,6 @@ static const rb_parser_config_t rb_global_parser_config = {
+@@ -443,27 +564,6 @@ static const rb_parser_config_t rb_global_parser_config = {
  };
  #endif
- 
+
 -enum lex_type {
 -    lex_type_str,
 -    lex_type_io,
@@ -150,10 +240,10 @@ index 267f619..841db65 100644
  static void
  parser_mark(void *ptr)
  {
-@@ -501,7 +518,8 @@ parser_memsize(const void *ptr)
+@@ -501,7 +601,8 @@ parser_memsize(const void *ptr)
      return rb_ruby_parser_memsize(parser->parser_params);
  }
- 
+
 -static const rb_data_type_t ruby_parser_data_type = {
 +// Not static const for Kanayago
 +const rb_data_type_t ruby_parser_data_type = {
