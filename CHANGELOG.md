@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+- Fix parser crash on syntax errors by implementing `rb_syntax_error_append`
+  - Previously, `rb_syntax_error_append` was not available in UniversalParser, causing forced termination when syntax errors occurred during parsing
+  - Ported `err_vcatf`, `syntax_error_with_path`, and `rb_syntax_error_append` from Ruby's error.c
+  - Added proper copyright notice (Copyright (C) 1993-2007 Yukihiro Matsumoto) as the code is ported from Ruby's error.c
+  - Updated patch files for both Ruby 3.4 and head versions
+  - Syntax errors now display properly instead of crashing the parser
+
 ## [0.4.1]
 
 ### Fixed
