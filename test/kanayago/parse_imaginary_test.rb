@@ -6,10 +6,10 @@ class ParseImaginaryTest < Minitest::Test
   def test_parse_imaginary
     result = Kanayago.parse('117i')
 
-    assert_instance_of(Kanayago::ScopeNode, result)
-    assert_nil(result.args)
+    assert_instance_of(Kanayago::ScopeNode, result.ast)
+    assert_nil(result.ast.args)
 
-    body = result.body
+    body = result.ast.body
 
     assert_instance_of(Kanayago::ImaginaryNode, body)
     assert_equal((0 + 117i), body.val)
@@ -22,10 +22,10 @@ class ParseImaginaryTest < Minitest::Test
   def test_parse_imaginary_plus_opcall
     result = Kanayago.parse('117i + 117i')
 
-    assert_instance_of(Kanayago::ScopeNode, result)
-    assert_nil(result.args)
+    assert_instance_of(Kanayago::ScopeNode, result.ast)
+    assert_nil(result.ast.args)
 
-    body = result.body
+    body = result.ast.body
 
     assert_instance_of(Kanayago::OperatorCallNode, body)
     assert_instance_of(Kanayago::ImaginaryNode, body.recv)
@@ -40,10 +40,10 @@ class ParseImaginaryTest < Minitest::Test
   def test_parse_imaginary_minus_opcall
     result = Kanayago.parse('117i - 117i')
 
-    assert_instance_of(Kanayago::ScopeNode, result)
-    assert_nil(result.args)
+    assert_instance_of(Kanayago::ScopeNode, result.ast)
+    assert_nil(result.ast.args)
 
-    body = result.body
+    body = result.ast.body
 
     assert_instance_of(Kanayago::OperatorCallNode, body)
     assert_instance_of(Kanayago::ImaginaryNode, body.recv)
@@ -58,10 +58,10 @@ class ParseImaginaryTest < Minitest::Test
   def test_parse_imaginary_times_opcall
     result = Kanayago.parse('117i * 117i')
 
-    assert_instance_of(Kanayago::ScopeNode, result)
-    assert_nil(result.args)
+    assert_instance_of(Kanayago::ScopeNode, result.ast)
+    assert_nil(result.ast.args)
 
-    body = result.body
+    body = result.ast.body
 
     assert_instance_of(Kanayago::OperatorCallNode, body)
     assert_instance_of(Kanayago::ImaginaryNode, body.recv)
@@ -76,10 +76,10 @@ class ParseImaginaryTest < Minitest::Test
   def test_parse_imaginary_div_opcall
     result = Kanayago.parse('117i / 117i')
 
-    assert_instance_of(Kanayago::ScopeNode, result)
-    assert_nil(result.args)
+    assert_instance_of(Kanayago::ScopeNode, result.ast)
+    assert_nil(result.ast.args)
 
-    body = result.body
+    body = result.ast.body
 
     assert_instance_of(Kanayago::OperatorCallNode, body)
     assert_instance_of(Kanayago::ImaginaryNode, body.recv)
@@ -94,10 +94,10 @@ class ParseImaginaryTest < Minitest::Test
   def test_parse_imaginary_remainder_opcall
     result = Kanayago.parse('117i % 117i')
 
-    assert_instance_of(Kanayago::ScopeNode, result)
-    assert_nil(result.args)
+    assert_instance_of(Kanayago::ScopeNode, result.ast)
+    assert_nil(result.ast.args)
 
-    body = result.body
+    body = result.ast.body
 
     assert_instance_of(Kanayago::OperatorCallNode, body)
     assert_instance_of(Kanayago::ImaginaryNode, body.recv)
@@ -112,10 +112,10 @@ class ParseImaginaryTest < Minitest::Test
   def test_parse_imaginary_call
     result = Kanayago.parse('117i.to_i')
 
-    assert_instance_of(Kanayago::ScopeNode, result)
-    assert_nil(result.args)
+    assert_instance_of(Kanayago::ScopeNode, result.ast)
+    assert_nil(result.ast.args)
 
-    body = result.body
+    body = result.ast.body
 
     assert_instance_of(Kanayago::CallNode, body)
     assert_instance_of(Kanayago::ImaginaryNode, body.recv)

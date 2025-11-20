@@ -18,8 +18,8 @@ class ParseZsuperTest < Minitest::Test
       end
     CODE
 
-    assert_instance_of(Kanayago::ScopeNode, result)
-    body = result.body
+    assert_instance_of(Kanayago::ScopeNode, result.ast)
+    body = result.ast.body
 
     assert_instance_of(Kanayago::BlockNode, body)
     child_class = body[1]

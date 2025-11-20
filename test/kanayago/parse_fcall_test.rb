@@ -6,10 +6,10 @@ class ParseFcallTest < Minitest::Test
   def test_parse_fcall
     result = Kanayago.parse('p 117')
 
-    assert_instance_of(Kanayago::ScopeNode, result)
-    assert_nil(result.args)
+    assert_instance_of(Kanayago::ScopeNode, result.ast)
+    assert_nil(result.ast.args)
 
-    body = result.body
+    body = result.ast.body
 
     assert_instance_of(Kanayago::FunctionCallNode, body)
     assert_equal(:p, body.mid)

@@ -12,7 +12,7 @@ class ParseRescueTest < Minitest::Test
       end
     CODE
 
-    body = result.body
+    body = result.ast.body
 
     assert_instance_of(Kanayago::RescueNode, body)
     refute_nil(body.head)
@@ -28,7 +28,7 @@ class ParseRescueTest < Minitest::Test
       end
     CODE
 
-    body = result.body
+    body = result.ast.body
 
     assert_instance_of(Kanayago::RescueNode, body)
     assert_instance_of(Kanayago::RescueBodyNode, body.resq)
@@ -45,7 +45,7 @@ class ParseRescueTest < Minitest::Test
       end
     CODE
 
-    body = result.body
+    body = result.ast.body
 
     assert_instance_of(Kanayago::RescueNode, body)
     refute_nil(body.else)
@@ -62,7 +62,7 @@ class ParseRescueTest < Minitest::Test
       end
     CODE
 
-    body = result.body
+    body = result.ast.body
 
     assert_instance_of(Kanayago::RescueNode, body)
     first_resbody = body.resq

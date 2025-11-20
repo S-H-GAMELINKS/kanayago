@@ -10,10 +10,10 @@ class ParseDefnTest < Minitest::Test
       end
     CODE
 
-    assert_instance_of(Kanayago::ScopeNode, result)
-    assert_nil(result.args)
+    assert_instance_of(Kanayago::ScopeNode, result.ast)
+    assert_nil(result.ast.args)
 
-    body = result.body
+    body = result.ast.body
 
     assert_instance_of(Kanayago::DefinitionNode, body)
     assert_equal(:kanayago, body.mid)

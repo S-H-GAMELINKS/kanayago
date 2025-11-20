@@ -8,7 +8,7 @@ class ParseDynamicExecuteStringNodeTest < Minitest::Test
     result = Kanayago.parse('`echo #{name}`')
     # rubocop:enable Lint/InterpolationCheck
 
-    body = result.body
+    body = result.ast.body
 
     assert_instance_of(Kanayago::DynamicExecuteStringNode, body)
     assert_equal('echo ', body.string)

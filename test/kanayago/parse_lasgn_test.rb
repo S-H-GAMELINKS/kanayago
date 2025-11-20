@@ -6,10 +6,10 @@ class ParseLasgnTest < Minitest::Test
   def test_parse_lasgn
     result = Kanayago.parse('var = 117')
 
-    assert_instance_of(Kanayago::ScopeNode, result)
-    assert_nil(result.args)
+    assert_instance_of(Kanayago::ScopeNode, result.ast)
+    assert_nil(result.ast.args)
 
-    body = result.body
+    body = result.ast.body
 
     assert_instance_of(Kanayago::LocalAssignmentNode, body)
     assert_equal(:var, body.id)

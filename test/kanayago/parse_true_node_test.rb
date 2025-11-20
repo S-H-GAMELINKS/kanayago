@@ -6,7 +6,7 @@ class ParseTrueNodeTest < Minitest::Test
   def test_parse_true_node
     result = Kanayago.parse('true')
 
-    body = result.body
+    body = result.ast.body
 
     assert_instance_of(Kanayago::TrueNode, body)
     assert(body.val)

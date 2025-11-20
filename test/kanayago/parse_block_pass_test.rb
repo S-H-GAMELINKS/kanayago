@@ -6,8 +6,8 @@ class ParseBlockPassTest < Minitest::Test
   def test_parse_block_pass_symbol_to_proc
     result = Kanayago.parse('[1, 2].map(&:to_s)')
 
-    assert_instance_of(Kanayago::ScopeNode, result)
-    call_node = result.body
+    assert_instance_of(Kanayago::ScopeNode, result.ast)
+    call_node = result.ast.body
 
     assert_instance_of(Kanayago::CallNode, call_node)
     assert_equal(:map, call_node.mid)
@@ -22,8 +22,8 @@ class ParseBlockPassTest < Minitest::Test
   def test_parse_block_pass_variable
     result = Kanayago.parse('foo(&block)')
 
-    assert_instance_of(Kanayago::ScopeNode, result)
-    call_node = result.body
+    assert_instance_of(Kanayago::ScopeNode, result.ast)
+    call_node = result.ast.body
 
     assert_instance_of(Kanayago::FunctionCallNode, call_node)
     assert_equal(:foo, call_node.mid)
@@ -38,8 +38,8 @@ class ParseBlockPassTest < Minitest::Test
   def test_parse_block_pass_in_method_definition
     result = Kanayago.parse('def bar(&blk); end')
 
-    assert_instance_of(Kanayago::ScopeNode, result)
-    defn = result.body
+    assert_instance_of(Kanayago::ScopeNode, result.ast)
+    defn = result.ast.body
 
     assert_instance_of(Kanayago::DefinitionNode, defn)
     assert_equal(:bar, defn.mid)

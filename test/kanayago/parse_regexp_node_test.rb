@@ -6,7 +6,7 @@ class ParseRegexpNodeTest < Minitest::Test
   def test_parse_regexp_node
     result = Kanayago.parse('/hello/')
 
-    body = result.body
+    body = result.ast.body
 
     assert_instance_of(Kanayago::RegexpNode, body)
     assert_equal('hello', body.ptr)
@@ -16,7 +16,7 @@ class ParseRegexpNodeTest < Minitest::Test
   def test_parse_regexp_node_with_options
     result = Kanayago.parse('/hello/i')
 
-    body = result.body
+    body = result.ast.body
 
     assert_instance_of(Kanayago::RegexpNode, body)
     assert_equal('hello', body.ptr)

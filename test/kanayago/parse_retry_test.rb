@@ -12,7 +12,7 @@ class ParseRetryTest < Minitest::Test
       end
     CODE
 
-    body = result.body
+    body = result.ast.body
 
     assert_instance_of(Kanayago::RescueNode, body)
 

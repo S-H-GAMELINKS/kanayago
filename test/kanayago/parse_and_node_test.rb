@@ -6,7 +6,7 @@ class ParseAndNodeTest < Minitest::Test
   def test_parse_and_node
     result = Kanayago.parse('1 && 2')
 
-    body = result.body
+    body = result.ast.body
 
     assert_instance_of(Kanayago::AndNode, body)
     assert_instance_of(Kanayago::IntegerNode, body.first)

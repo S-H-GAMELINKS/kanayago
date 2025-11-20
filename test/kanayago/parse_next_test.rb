@@ -6,7 +6,7 @@ class ParseNextTest < Minitest::Test
   def test_parse_next_basic
     result = Kanayago.parse('loop { next }')
 
-    scope = result
+    scope = result.ast
 
     assert_instance_of(Kanayago::ScopeNode, scope)
 
@@ -27,7 +27,7 @@ class ParseNextTest < Minitest::Test
   def test_parse_next_with_value
     result = Kanayago.parse('loop { next 117 }')
 
-    scope = result
+    scope = result.ast
     iter = scope.body
     iter_body = iter.body
     next_node = iter_body.body
@@ -39,7 +39,7 @@ class ParseNextTest < Minitest::Test
   def test_parse_next_with_multiple_values
     result = Kanayago.parse('loop { next 1, 2 }')
 
-    scope = result
+    scope = result.ast
     iter = scope.body
     iter_body = iter.body
     next_node = iter_body.body
@@ -52,7 +52,7 @@ class ParseNextTest < Minitest::Test
   def test_parse_next_conditional
     result = Kanayago.parse('loop { next if true }')
 
-    scope = result
+    scope = result.ast
     iter = scope.body
     iter_body = iter.body
     if_node = iter_body.body
@@ -68,7 +68,7 @@ class ParseNextTest < Minitest::Test
   def test_parse_next_in_iterator
     result = Kanayago.parse('[1, 2, 3].each { |i| next }')
 
-    scope = result
+    scope = result.ast
     iter = scope.body
 
     assert_instance_of(Kanayago::IterNode, iter)

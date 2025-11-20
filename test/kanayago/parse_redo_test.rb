@@ -5,7 +5,7 @@ require_relative '../test_helper'
 class ParseRedoTest < Minitest::Test
   def test_parse_redo_basic
     result = Kanayago.parse('loop { redo }')
-    body = result.body
+    body = result.ast.body
 
     assert_instance_of(Kanayago::IterNode, body)
     iter_body = body.body
@@ -16,7 +16,7 @@ class ParseRedoTest < Minitest::Test
 
   def test_parse_redo_conditional
     result = Kanayago.parse('loop { redo if true }')
-    body = result.body
+    body = result.ast.body
 
     assert_instance_of(Kanayago::IterNode, body)
     iter_body = body.body
@@ -28,7 +28,7 @@ class ParseRedoTest < Minitest::Test
 
   def test_parse_redo_in_iterator
     result = Kanayago.parse('3.times { redo }')
-    body = result.body
+    body = result.ast.body
 
     assert_instance_of(Kanayago::IterNode, body)
     iter_body = body.body

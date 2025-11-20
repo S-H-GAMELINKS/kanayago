@@ -8,8 +8,8 @@ class ParseQcallTest < Minitest::Test
       obj&.method_name
     CODE
 
-    assert_instance_of(Kanayago::ScopeNode, result)
-    body = result.body
+    assert_instance_of(Kanayago::ScopeNode, result.ast)
+    body = result.ast.body
 
     assert_instance_of(Kanayago::SafeCallNode, body)
     assert_equal(:method_name, body.mid)
@@ -21,8 +21,8 @@ class ParseQcallTest < Minitest::Test
       obj&.method_name(arg1, arg2)
     CODE
 
-    assert_instance_of(Kanayago::ScopeNode, result)
-    body = result.body
+    assert_instance_of(Kanayago::ScopeNode, result.ast)
+    body = result.ast.body
 
     assert_instance_of(Kanayago::SafeCallNode, body)
     assert_equal(:method_name, body.mid)

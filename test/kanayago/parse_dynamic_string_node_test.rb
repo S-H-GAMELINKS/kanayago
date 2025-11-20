@@ -6,7 +6,7 @@ class ParseDynamicStringNodeTest < Minitest::Test
   def test_parse_dynamic_string_node
     result = Kanayago.parse('"S#{117}"')
 
-    body = result.body
+    body = result.ast.body
 
     assert_instance_of(Kanayago::DynamicStringNode, body)
     assert_equal('S', body.string)

@@ -36,7 +36,7 @@ diff --git a/ext/kanayago/ruby_parser.c b/ext/kanayago/ruby_parser.c
 index 267f619..841db65 100644
 --- a/ext/kanayago/ruby_parser.c
 +++ b/ext/kanayago/ruby_parser.c
-@@ -34,6 +34,89 @@
+@@ -34,6 +34,100 @@
 
  #define parser_encoding const void
 
@@ -91,11 +91,13 @@ index 267f619..841db65 100644
 +static VALUE
 +syntax_error_with_path(VALUE exc, VALUE file, VALUE *mesg, rb_encoding *enc)
 +{
-+    if (NIL_P(exc)) {
++    // Create new SyntaxError if exc is nil or Qfalse (for error_tolerant mode)
++    if (NIL_P(exc) || exc == Qfalse) {
 +        exc = rb_class_new_instance(0, 0, rb_eSyntaxError);
 +    }
 +    *mesg = rb_attr_get(exc, rb_intern("mesg"));
-+    if (NIL_P(*mesg)) {
++    // Check if mesg is nil or frozen (default "compile error" may be frozen)
++    if (NIL_P(*mesg) || OBJ_FROZEN(*mesg)) {
 +        *mesg = rb_enc_str_new(0, 0, enc);
 +        rb_ivar_set(exc, rb_intern("mesg"), *mesg);
 +    }
@@ -109,10 +111,19 @@ index 267f619..841db65 100644
 +{
 +    const char *fn = NIL_P(file) ? NULL : RSTRING_PTR(file);
 +    if (!exc) {
-+        VALUE mesg = rb_enc_str_new(0, 0, enc);
++        // For error_tolerant mode, create SyntaxError even when writing to stderr
++        exc = rb_class_new_instance(0, 0, rb_eSyntaxError);
++        VALUE mesg = rb_attr_get(exc, rb_intern("mesg"));
++        // Check if mesg is nil or frozen (default "compile error" may be frozen)
++        if (NIL_P(mesg) || OBJ_FROZEN(mesg)) {
++            mesg = rb_enc_str_new(0, 0, enc);
++            rb_ivar_set(exc, rb_intern("mesg"), mesg);
++        }
 +        err_vcatf(mesg, NULL, fn, line, fmt, args);
-+        rb_str_cat_cstr(mesg, "\n");
-+        rb_write_error_str(mesg);
++        // Still write to stderr for compatibility
++        VALUE err_mesg = rb_str_dup(mesg);
++        rb_str_cat_cstr(err_mesg, "\n");
++        rb_write_error_str(err_mesg);
 +    }
 +    else {
 +        VALUE mesg;
@@ -126,7 +137,7 @@ index 267f619..841db65 100644
  RBIMPL_ATTR_FORMAT(RBIMPL_PRINTF_FORMAT, 6, 0)
  static VALUE
  syntax_error_append(VALUE exc, VALUE file, int line, int column,
-@@ -314,6 +397,44 @@ enc_mbc_to_codepoint(const char *p, const char *e, parser_encoding *enc)
+@@ -314,6 +408,44 @@ enc_mbc_to_codepoint(const char *p, const char *e, parser_encoding *enc)
 
  extern VALUE rb_eArgError;
 
@@ -171,7 +182,7 @@ index 267f619..841db65 100644
  static const rb_parser_config_t rb_global_parser_config = {
      .malloc = ruby_xmalloc,
      .calloc = ruby_xcalloc,
-@@ -325,9 +446,9 @@ static const rb_parser_config_t rb_global_parser_config = {
+@@ -325,9 +457,9 @@ static const rb_parser_config_t rb_global_parser_config = {
      .zalloc = zalloc,
      .rb_memmove = memmove2,
      .nonempty_memcpy = nonempty_memcpy,
@@ -183,7 +194,7 @@ index 267f619..841db65 100644
      .reg_named_capture_assign = reg_named_capture_assign,
 
      .attr_get = rb_attr_get,
-@@ -335,7 +456,7 @@ static const rb_parser_config_t rb_global_parser_config = {
+@@ -335,7 +467,7 @@ static const rb_parser_config_t rb_global_parser_config = {
      .ary_new_from_args = rb_ary_new_from_args,
      .ary_unshift = rb_ary_unshift,
 
@@ -192,7 +203,7 @@ index 267f619..841db65 100644
      .is_local_id = is_local_id2,
      .is_attrset_id = is_attrset_id2,
      .is_global_name_punct = is_global_name_punct,
-@@ -365,7 +486,7 @@ static const rb_parser_config_t rb_global_parser_config = {
+@@ -365,7 +497,7 @@ static const rb_parser_config_t rb_global_parser_config = {
 
      .int2num = rb_int2num_inline,
 
@@ -201,7 +212,7 @@ index 267f619..841db65 100644
      .write_error_str = rb_write_error_str,
      .io_write = rb_io_write,
      .io_flush = rb_io_flush,
-@@ -412,8 +533,8 @@ static const rb_parser_config_t rb_global_parser_config = {
+@@ -412,8 +544,8 @@ static const rb_parser_config_t rb_global_parser_config = {
      .gc_guard = gc_guard,
      .gc_mark = rb_gc_mark,
 
@@ -212,7 +223,7 @@ index 267f619..841db65 100644
      .memcicmp = rb_memcicmp,
 
      .compile_warn = rb_compile_warn,
-@@ -443,27 +564,6 @@ static const rb_parser_config_t rb_global_parser_config = {
+@@ -443,27 +575,6 @@ static const rb_parser_config_t rb_global_parser_config = {
  };
  #endif
 
@@ -240,7 +251,7 @@ index 267f619..841db65 100644
  static void
  parser_mark(void *ptr)
  {
-@@ -501,7 +601,8 @@ parser_memsize(const void *ptr)
+@@ -501,7 +612,8 @@ parser_memsize(const void *ptr)
      return rb_ruby_parser_memsize(parser->parser_params);
  }
 
@@ -250,3 +261,22 @@ index 267f619..841db65 100644
      "parser",
      {
          parser_mark,
+diff --git a/ext/kanayago/parse.c b/ext/kanayago/parse.c
+--- a/ext/kanayago/parse.c
++++ b/ext/kanayago/parse.c
+@@ -27391,6 +27391,15 @@ ripper_value(struct parser_params *p)
+     return p->value;
+ }
+
++#else /* !RIPPER */
++
++// Accessor function for error_buffer (for Kanayago)
++VALUE
++rb_ruby_parser_error_buffer_get(rb_parser_t *p)
++{
++    return p->error_buffer;
++}
++
+ #endif /* RIPPER */
+ /*
+  * Local variables:

@@ -8,7 +8,7 @@ class ParseReturnNode < Minitest::Test
       return 117
     CODE
 
-    body = result.body
+    body = result.ast.body
 
     assert_instance_of(Kanayago::ReturnNode, body)
     assert_instance_of(Kanayago::IntegerNode, body.statements)
@@ -19,7 +19,7 @@ class ParseReturnNode < Minitest::Test
       return 117, 34
     CODE
 
-    body = result.body
+    body = result.ast.body
 
     assert_instance_of(Kanayago::ReturnNode, body)
     assert_instance_of(Kanayago::ListNode, body.statements)

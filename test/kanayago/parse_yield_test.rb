@@ -6,8 +6,8 @@ class ParseYieldTest < Minitest::Test
   def test_parse_yield_no_args
     result = Kanayago.parse('def foo; yield; end')
 
-    assert_instance_of(Kanayago::ScopeNode, result)
-    definition_node = result.body
+    assert_instance_of(Kanayago::ScopeNode, result.ast)
+    definition_node = result.ast.body
 
     assert_instance_of(Kanayago::DefinitionNode, definition_node)
     scope_node = definition_node.defn
@@ -22,8 +22,8 @@ class ParseYieldTest < Minitest::Test
   def test_parse_yield_single_arg
     result = Kanayago.parse('def foo; yield 42; end')
 
-    assert_instance_of(Kanayago::ScopeNode, result)
-    definition_node = result.body
+    assert_instance_of(Kanayago::ScopeNode, result.ast)
+    definition_node = result.ast.body
     scope_node = definition_node.defn
     yield_node = scope_node.body
 
@@ -35,8 +35,8 @@ class ParseYieldTest < Minitest::Test
   def test_parse_yield_multiple_args
     result = Kanayago.parse('def foo; yield 1, 2, 3; end')
 
-    assert_instance_of(Kanayago::ScopeNode, result)
-    definition_node = result.body
+    assert_instance_of(Kanayago::ScopeNode, result.ast)
+    definition_node = result.ast.body
     scope_node = definition_node.defn
     yield_node = scope_node.body
 

@@ -40,15 +40,25 @@ gem install pkg/kanayago-0.4.1.gem
 require 'kanayago/kanayago'
 
 result = Kanayago.parse('117 + 117')
+# => #<Kanayago::ParseResult:0x00007f522199c5a8>
+
+p result.ast
 # => #<Kanayago::ScopeNode:0x00007f522199c5a8>
 
-p result.body
+p result.ast.body
 # => #<Kanayago::OperatorCallNode:0x00007f5221b06358>
 
-p result.body.recv
-p result.body.recv.val
+p result.ast.body.recv
+p result.ast.body.recv.val
 # => #<Kanayago::IntegerNode:0x00007f5221b06330>
 # => 117
+
+# Check for syntax errors
+result = Kanayago.parse('def foo')
+p result.valid?
+# => false
+p result.error
+# => #<SyntaxError: syntax error, unexpected end-of-input>
 ```
 
 ## Development

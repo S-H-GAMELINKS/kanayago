@@ -6,8 +6,8 @@ class ParseOpAsgn1Test < Minitest::Test
   def test_parse_op_asgn1_plus
     result = Kanayago.parse('ary[0] += 1')
 
-    assert_instance_of(Kanayago::ScopeNode, result)
-    body = result.body
+    assert_instance_of(Kanayago::ScopeNode, result.ast)
+    body = result.ast.body
 
     assert_instance_of(Kanayago::OperatorAssignment1Node, body)
     assert_equal(:+, body.mid)
@@ -19,8 +19,8 @@ class ParseOpAsgn1Test < Minitest::Test
   def test_parse_op_asgn1_or
     result = Kanayago.parse('hash[:key] ||= "default"')
 
-    assert_instance_of(Kanayago::ScopeNode, result)
-    body = result.body
+    assert_instance_of(Kanayago::ScopeNode, result.ast)
+    body = result.ast.body
 
     assert_instance_of(Kanayago::OperatorAssignment1Node, body)
     assert_instance_of(Kanayago::VariableCallNode, body.recv)
@@ -29,8 +29,8 @@ class ParseOpAsgn1Test < Minitest::Test
   def test_parse_op_asgn1_and
     result = Kanayago.parse('ary[1] &&= value')
 
-    assert_instance_of(Kanayago::ScopeNode, result)
-    body = result.body
+    assert_instance_of(Kanayago::ScopeNode, result.ast)
+    body = result.ast.body
 
     assert_instance_of(Kanayago::OperatorAssignment1Node, body)
     assert_instance_of(Kanayago::VariableCallNode, body.recv)

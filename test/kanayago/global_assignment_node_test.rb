@@ -6,7 +6,7 @@ class ParseGlobalAssignmentNodeTest < Minitest::Test
   def test_parse_global_assignment_node
     result = Kanayago.parse('$var = 117')
 
-    body = result.body
+    body = result.ast.body
 
     assert_instance_of(Kanayago::GlobalAssignmentNode, body)
     assert_equal(:$var, body.id)

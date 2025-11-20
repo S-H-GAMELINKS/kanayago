@@ -6,10 +6,10 @@ class ParseConstDeclTest < Minitest::Test
   def test_parse_const_decl
     result = Kanayago.parse('S = 117')
 
-    assert_instance_of(Kanayago::ScopeNode, result)
-    assert_nil(result.args)
+    assert_instance_of(Kanayago::ScopeNode, result.ast)
+    assert_nil(result.ast.args)
 
-    body = result.body
+    body = result.ast.body
 
     assert_instance_of(Kanayago::ConstantDeclarationNode, body)
     assert_equal(:S, body.vid)

@@ -6,10 +6,10 @@ class ParseConstTest < Minitest::Test
   def test_parse_const
     result = Kanayago.parse('Class')
 
-    assert_instance_of(Kanayago::ScopeNode, result)
-    assert_nil(result.args)
+    assert_instance_of(Kanayago::ScopeNode, result.ast)
+    assert_nil(result.ast.args)
 
-    body = result.body
+    body = result.ast.body
 
     assert_instance_of(Kanayago::ConstantNode, body)
     assert_equal(:Class, body.vid)
@@ -21,10 +21,10 @@ class ParseConstTest < Minitest::Test
       p S
     CODE
 
-    assert_instance_of(Kanayago::ScopeNode, result)
-    assert_nil(result.args)
+    assert_instance_of(Kanayago::ScopeNode, result.ast)
+    assert_nil(result.ast.args)
 
-    body = result.body
+    body = result.ast.body
 
     assert_instance_of(Kanayago::BlockNode, body)
     assert_equal(2, body.size)

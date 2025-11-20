@@ -6,7 +6,7 @@ class ParseUndefNodeTest < Minitest::Test
   def test_parse_undef_node
     result = Kanayago.parse('undef :send')
 
-    body = result.body
+    body = result.ast.body
 
     assert_instance_of(Kanayago::UndefNode, body)
     assert_instance_of(Array, body.undefs)

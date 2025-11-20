@@ -10,7 +10,7 @@ class ParseArgumentsNodeTest < Minitest::Test
       end
     CODE
 
-    args = result.body.defn.args
+    args = result.ast.body.defn.args
 
     assert_instance_of(Kanayago::ArgumentsNode, args)
 
@@ -34,7 +34,7 @@ class ParseArgumentsNodeTest < Minitest::Test
       end
     CODE
 
-    args = result.body.defn.args
+    args = result.ast.body.defn.args
 
     assert_instance_of(Kanayago::ArgumentsNode, args)
 
@@ -53,7 +53,7 @@ class ParseArgumentsNodeTest < Minitest::Test
       end
     CODE
 
-    args = result.body.defn.args
+    args = result.ast.body.defn.args
 
     assert_instance_of(Kanayago::ArgumentsNode, args)
 
@@ -70,7 +70,7 @@ class ParseArgumentsNodeTest < Minitest::Test
       end
     CODE
 
-    args = result.body.defn.args
+    args = result.ast.body.defn.args
 
     assert_instance_of(Kanayago::ArgumentsNode, args)
 
@@ -88,7 +88,7 @@ class ParseArgumentsNodeTest < Minitest::Test
       end
     CODE
 
-    args = result.body.defn.args
+    args = result.ast.body.defn.args
 
     assert_instance_of(Kanayago::ArgumentsNode, args)
 
@@ -105,7 +105,7 @@ class ParseArgumentsNodeTest < Minitest::Test
       end
     CODE
 
-    args = result.body.defn.args
+    args = result.ast.body.defn.args
 
     assert_instance_of(Kanayago::ArgumentsNode, args)
 
@@ -122,7 +122,7 @@ class ParseArgumentsNodeTest < Minitest::Test
       end
     CODE
 
-    args = result.body.defn.args
+    args = result.ast.body.defn.args
 
     assert_instance_of(Kanayago::ArgumentsNode, args)
 
@@ -139,7 +139,7 @@ class ParseArgumentsNodeTest < Minitest::Test
       end
     CODE
 
-    args = result.body.defn.args
+    args = result.ast.body.defn.args
 
     assert_instance_of(Kanayago::ArgumentsNode, args)
 
@@ -160,7 +160,7 @@ class ParseArgumentsNodeTest < Minitest::Test
       end
     CODE
 
-    args = result.body.defn.args
+    args = result.ast.body.defn.args
 
     assert_instance_of(Kanayago::ArgumentsNode, args)
 

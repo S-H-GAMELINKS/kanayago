@@ -9,8 +9,8 @@ class ParseBackRefTest < Minitest::Test
       p $&
     CODE
 
-    assert_instance_of(Kanayago::ScopeNode, result)
-    body = result.body
+    assert_instance_of(Kanayago::ScopeNode, result.ast)
+    body = result.ast.body
 
     assert_instance_of(Kanayago::BlockNode, body)
     assert_equal(2, body.size)
@@ -32,7 +32,7 @@ class ParseBackRefTest < Minitest::Test
       end
     CODE
 
-    body = result.body
+    body = result.ast.body
 
     assert_instance_of(Kanayago::IfStatementNode, body)
 
@@ -47,7 +47,7 @@ class ParseBackRefTest < Minitest::Test
       puts "matched: \#{$&}"
     CODE
 
-    body = result.body
+    body = result.ast.body
 
     assert_equal(2, body.size)
 

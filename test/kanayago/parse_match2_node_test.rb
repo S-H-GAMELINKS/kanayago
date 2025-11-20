@@ -6,7 +6,7 @@ class ParseMatch2NodeTest < Minitest::Test
   def test_parse_match2_node
     result = Kanayago.parse('/foo/ =~ "bar"')
 
-    body = result.body
+    body = result.ast.body
 
     assert_instance_of(Kanayago::Match2Node, body)
     assert_instance_of(Kanayago::RegexpNode, body.recv)
@@ -17,7 +17,7 @@ class ParseMatch2NodeTest < Minitest::Test
   def test_parse_match2_node_with_captures
     result = Kanayago.parse('/(?<name>\w+)/ =~ "test"')
 
-    body = result.body
+    body = result.ast.body
 
     assert_instance_of(Kanayago::Match2Node, body)
     # nd_args should contain capture assignments when named captures exist
