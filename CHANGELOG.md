@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.5.0]
+
 ### Added
 - Add LSP (Language Server Protocol) mode
   - `kanayago --lsp` - Start LSP server for editor integration

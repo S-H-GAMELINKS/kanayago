@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    kanayago (0.4.1)
+    kanayago (0.5.0)
       language_server-protocol (~> 3.17.0)
 
 GEM
