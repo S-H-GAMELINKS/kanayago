@@ -36,6 +36,32 @@ gem install pkg/kanayago-0.4.1.gem
 
 ## Usage
 
+### Command Line Interface
+
+Kanayago provides a CLI for syntax checking:
+
+```bash
+# Check Ruby code directly
+$ kanayago check 'p 117'
+Syntax valid
+
+# Check Ruby code with syntax error
+$ kanayago check 'def foo'
+Syntax invalid
+
+# Check a Ruby file
+$ kanayago check --file test.rb
+Syntax valid
+
+# Or use the short option
+$ kanayago check -f test.rb
+Syntax valid
+```
+
+The CLI exits with code 0 for valid syntax and code 1 for invalid syntax or errors.
+
+### Ruby API
+
 ```ruby
 require 'kanayago/kanayago'
 
