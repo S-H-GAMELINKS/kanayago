@@ -8,6 +8,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- Add CLI mode for syntax checking
+  - `kanayago check 'code'` - Check Ruby code syntax directly
+  - `kanayago check --file FILE` or `-f FILE` - Check syntax of Ruby file
+  - Output "Syntax valid" for valid syntax, "Syntax invalid" for invalid syntax
+  - Exit with code 0 for valid syntax, 1 for invalid syntax or errors
 - Add `ParseResult` class to wrap AST and error information
   - `ParseResult#ast` - Returns the parsed AST (ScopeNode)
   - `ParseResult#error` - Returns SyntaxError object if syntax error occurred, false otherwise
