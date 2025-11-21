@@ -11,11 +11,21 @@ module Kanayago
     def initialize(argv)
       @argv = argv
       @file = nil
+      @lsp_mode = false
     end
 
     def run
+      # Check for --lsp flag first
+      parse_global_options
+
+      if @lsp_mode
+        start_lsp_server
+        return
+      end
+
       if @argv.empty?
         puts "Usage: kanayago check 'code' or kanayago check --file FILE"
+        puts '       kanayago --lsp (start LSP server)'
         exit 1
       end
 
@@ -27,11 +37,26 @@ module Kanayago
       else
         puts "Unknown command: #{command}"
         puts "Usage: kanayago check 'code' or kanayago check --file FILE"
+        puts '       kanayago --lsp (start LSP server)'
         exit 1
       end
     end
 
     private
+
+    def parse_global_options
+      # Check for --lsp flag without modifying @argv for other options
+      return unless @argv.include?('--lsp')
+
+      @lsp_mode = true
+      @argv.delete('--lsp')
+    end
+
+    def start_lsp_server
+      require_relative 'lsp'
+      server = Kanayago::LSP::Server.new
+      server.start
+    end
 
     def check_command
       parse_options

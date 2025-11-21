@@ -36,6 +36,51 @@ gem install pkg/kanayago-0.4.1.gem
 
 ## Usage
 
+### Language Server Protocol (LSP) Mode
+
+Kanayago provides LSP server support for real-time syntax checking in your editor:
+
+```bash
+# Start LSP server
+$ kanayago --lsp
+```
+
+This starts an LSP server that communicates via stdin/stdout. You can integrate it with LSP-compliant editors like VSCode, Vim, Emacs, etc.
+
+#### VSCode Integration Example
+
+Create or modify `.vscode/settings.json`:
+
+```json
+{
+  "ruby.lsp.enabled": false,
+  "ruby.languageServer": "kanayago-lsp",
+  "ruby.languageServerPath": "kanayago",
+  "ruby.languageServerArgs": ["--lsp"]
+}
+```
+
+Now VSCode will show syntax errors in real-time as you type Ruby code.
+
+#### Vim/Neovim with coc.nvim Integration Example
+
+Add the following to your `coc-settings.json` (`:CocConfig` in Vim):
+
+```json
+{
+  "languageserver": {
+    "kanayago": {
+      "command": "kanayago",
+      "args": ["--lsp"],
+      "filetypes": ["ruby"],
+      "rootPatterns": ["Gemfile", ".git"]
+    }
+  }
+}
+```
+
+Now Vim/Neovim with coc.nvim will show syntax errors in real-time as you edit Ruby files.
+
 ### Command Line Interface
 
 Kanayago provides a CLI for syntax checking:
