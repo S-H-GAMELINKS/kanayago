@@ -8,6 +8,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- Add LSP (Language Server Protocol) mode
+  - `kanayago --lsp` - Start LSP server for editor integration
+  - Provides real-time syntax error diagnostics via LSP protocol
+  - Supports `textDocument/didOpen`, `didChange`, `didClose` notifications
+  - Publishes diagnostics with `textDocument/publishDiagnostics`
+  - Compatible with LSP-compliant editors (VSCode, etc.)
+  - Add `language_server-protocol` gem dependency (~> 3.17.0)
 - Add CLI mode for syntax checking
   - `kanayago check 'code'` - Check Ruby code syntax directly
   - `kanayago check --file FILE` or `-f FILE` - Check syntax of Ruby file
