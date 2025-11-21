@@ -6,7 +6,7 @@ class ParseSelfNodeTest < Minitest::Test
   def test_parse_true_node
     result = Kanayago.parse('self')
 
-    body = result.body
+    body = result.ast.body
 
     assert_instance_of(Kanayago::SelfNode, body)
     assert_equal(1, body.state)

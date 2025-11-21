@@ -6,8 +6,8 @@ class ParseOpAsgn2Test < Minitest::Test
   def test_parse_op_asgn2_plus
     result = Kanayago.parse('obj.attr += 10')
 
-    assert_instance_of(Kanayago::ScopeNode, result)
-    body = result.body
+    assert_instance_of(Kanayago::ScopeNode, result.ast)
+    body = result.ast.body
 
     assert_instance_of(Kanayago::OperatorAssignment2Node, body)
     assert_equal(:+, body.mid)
@@ -19,8 +19,8 @@ class ParseOpAsgn2Test < Minitest::Test
   def test_parse_op_asgn2_minus
     result = Kanayago.parse('obj.count -= 1')
 
-    assert_instance_of(Kanayago::ScopeNode, result)
-    body = result.body
+    assert_instance_of(Kanayago::ScopeNode, result.ast)
+    body = result.ast.body
 
     assert_instance_of(Kanayago::OperatorAssignment2Node, body)
     assert_equal(:-, body.mid)
@@ -30,8 +30,8 @@ class ParseOpAsgn2Test < Minitest::Test
   def test_parse_op_asgn2_multiply
     result = Kanayago.parse('obj.value *= 2')
 
-    assert_instance_of(Kanayago::ScopeNode, result)
-    body = result.body
+    assert_instance_of(Kanayago::ScopeNode, result.ast)
+    body = result.ast.body
 
     assert_instance_of(Kanayago::OperatorAssignment2Node, body)
     assert_equal(:*, body.mid)

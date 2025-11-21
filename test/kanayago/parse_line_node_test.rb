@@ -6,7 +6,7 @@ class ParseLineNodeTest < Minitest::Test
   def test_parse_line_node
     result = Kanayago.parse('__LINE__')
 
-    body = result.body
+    body = result.ast.body
 
     assert_instance_of(Kanayago::LineNode, body)
     assert_equal(0, body.lineno)

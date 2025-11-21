@@ -12,7 +12,7 @@ class ParseEnsureTest < Minitest::Test
       end
     CODE
 
-    body = result.body
+    body = result.ast.body
 
     assert_instance_of(Kanayago::EnsureNode, body)
     assert_instance_of(Kanayago::VariableCallNode, body.head)
@@ -30,7 +30,7 @@ class ParseEnsureTest < Minitest::Test
       end
     CODE
 
-    body = result.body
+    body = result.ast.body
 
     assert_instance_of(Kanayago::EnsureNode, body)
     assert_instance_of(Kanayago::RescueNode, body.head)
@@ -47,7 +47,7 @@ class ParseEnsureTest < Minitest::Test
       end
     CODE
 
-    body = result.body
+    body = result.ast.body
 
     assert_instance_of(Kanayago::EnsureNode, body)
     refute_nil(body.head)

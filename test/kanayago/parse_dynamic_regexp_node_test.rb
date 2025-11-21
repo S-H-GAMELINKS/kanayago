@@ -8,7 +8,7 @@ class ParseDynamicRegexpNodeTest < Minitest::Test
     result = Kanayago.parse('/hello #{name}/')
     # rubocop:enable Lint/InterpolationCheck
 
-    body = result.body
+    body = result.ast.body
 
     assert_instance_of(Kanayago::DynamicRegexpNode, body)
     assert_equal('hello ', body.string)
@@ -21,7 +21,7 @@ class ParseDynamicRegexpNodeTest < Minitest::Test
     result = Kanayago.parse('/hello #{name}/im')
     # rubocop:enable Lint/InterpolationCheck
 
-    body = result.body
+    body = result.ast.body
 
     assert_instance_of(Kanayago::DynamicRegexpNode, body)
     assert_equal('hello ', body.string)

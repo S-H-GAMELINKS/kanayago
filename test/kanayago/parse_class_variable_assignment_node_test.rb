@@ -6,7 +6,7 @@ class ParseClassVariableAssignmentNodeTest < Minitest::Test
   def test_parse_class_variable_assignment_node
     result = Kanayago.parse('@@var = 117')
 
-    body = result.body
+    body = result.ast.body
 
     assert_instance_of(Kanayago::ClassVariableAssignmentNode, body)
     assert_equal(:@@var, body.id)

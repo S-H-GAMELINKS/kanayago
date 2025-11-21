@@ -6,8 +6,8 @@ class ParseForMasgnTest < Minitest::Test
   def test_parse_for_with_multiple_assignment
     result = Kanayago.parse('for a, b in [[1, 2]]; end')
 
-    assert_instance_of(Kanayago::ScopeNode, result)
-    for_node = result.body
+    assert_instance_of(Kanayago::ScopeNode, result.ast)
+    for_node = result.ast.body
 
     assert_instance_of(Kanayago::ForNode, for_node)
     refute_nil(for_node.iter)

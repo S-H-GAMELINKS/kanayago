@@ -6,7 +6,7 @@ class ParseArrayPatternNodeTest < Minitest::Test
   def test_parse_simple_array_pattern
     result = Kanayago.parse('case [1, 2]; in [a, b]; end')
 
-    scope = result
+    scope = result.ast
     case3_node = scope.body
     in_node = case3_node.body
     array_pattern = in_node.head
@@ -21,7 +21,7 @@ class ParseArrayPatternNodeTest < Minitest::Test
   def test_parse_array_pattern_with_rest
     result = Kanayago.parse('case [1, 2, 3]; in [*, a, b]; end')
 
-    scope = result
+    scope = result.ast
     case3_node = scope.body
     in_node = case3_node.body
     array_pattern = in_node.head
@@ -36,7 +36,7 @@ class ParseArrayPatternNodeTest < Minitest::Test
   def test_parse_array_pattern_with_pre_and_post
     result = Kanayago.parse('case [1, 2, 3, 4]; in [a, *, b]; end')
 
-    scope = result
+    scope = result.ast
     case3_node = scope.body
     in_node = case3_node.body
     array_pattern = in_node.head

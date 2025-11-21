@@ -517,12 +517,22 @@ kanayago_parse(VALUE self, VALUE source)
                                          &ruby_parser_data_type, parser);
     parser->parser_params = parser_params;
 
+    // Enable error tolerant parser
+    rb_ruby_parser_error_tolerant(parser_params);
 
     VALUE vast = rb_parser_compile_string(vparser, "main", source, 0);
 
     rb_ast_t *ast = rb_ruby_ast_data_get(vast);
+    VALUE ast_node = ast_to_node_instance(ast->body.root);
 
-    return ast_to_node_instance(ast->body.root);
+    // Get error_buffer from parser_params using accessor function
+    VALUE error_buffer = rb_ruby_parser_error_buffer_get(parser_params);
+
+    VALUE result = rb_hash_new();
+    rb_hash_aset(result, ID2SYM(rb_intern("ast")), ast_node);
+    rb_hash_aset(result, ID2SYM(rb_intern("error")), error_buffer);
+
+    return result;
 }
 
 RUBY_FUNC_EXPORTED void

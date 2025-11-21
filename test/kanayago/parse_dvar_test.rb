@@ -9,8 +9,8 @@ class ParseDvarTest < Minitest::Test
       lambda { x }
     CODE
 
-    assert_instance_of(Kanayago::ScopeNode, result)
-    body = result.body
+    assert_instance_of(Kanayago::ScopeNode, result.ast)
+    body = result.ast.body
 
     assert_instance_of(Kanayago::BlockNode, body)
     assert_equal(2, body.size)
@@ -38,8 +38,8 @@ class ParseDvarTest < Minitest::Test
       end
     CODE
 
-    assert_instance_of(Kanayago::ScopeNode, result)
-    body = result.body
+    assert_instance_of(Kanayago::ScopeNode, result.ast)
+    body = result.ast.body
 
     assert_instance_of(Kanayago::BlockNode, body)
 
@@ -63,7 +63,7 @@ class ParseDvarTest < Minitest::Test
       proc { value }
     CODE
 
-    body = result.body
+    body = result.ast.body
 
     assert_instance_of(Kanayago::BlockNode, body)
 

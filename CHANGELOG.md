@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- Add `ParseResult` class to wrap AST and error information
+  - `ParseResult#ast` - Returns the parsed AST (ScopeNode)
+  - `ParseResult#error` - Returns SyntaxError object if syntax error occurred, false otherwise
+  - `ParseResult#valid?` - Returns true if no syntax error occurred
+  - `ParseResult#invalid?` - Returns true if syntax error occurred
+  - `Kanayago.parse` now returns `ParseResult` instead of raw AST
+
 ### Fixed
 - Fix parser crash on syntax errors by implementing `rb_syntax_error_append`
   - Previously, `rb_syntax_error_append` was not available in UniversalParser, causing forced termination when syntax errors occurred during parsing
@@ -14,6 +22,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Added proper copyright notice (Copyright (C) 1993-2007 Yukihiro Matsumoto) as the code is ported from Ruby's error.c
   - Updated patch files for both Ruby 3.4 and head versions
   - Syntax errors now display properly instead of crashing the parser
+- Implement error_tolerant mode to continue parsing despite syntax errors
+  - Enable `rb_ruby_parser_error_tolerant` flag for all parsing operations
+  - Parser now accumulates syntax errors in `error_buffer` instead of terminating
+  - Fixed Qfalse handling in `rb_syntax_error_append` (Qfalse is defined as 0, causing `!exc` to evaluate to true)
+  - Added OBJ_FROZEN checks to handle frozen default "compile error" messages in SyntaxError objects
+  - Both AST and error information are now available even when syntax errors occur
+
+### Changed
+- Migrate error_buffer accessor implementation from script to patch files
+  - Moved `rb_ruby_parser_error_buffer_get` accessor function from `script/setup_parser.rb` to patch files
+  - Added parse.c modifications to both `patch/3.4/kanayago.patch` and `patch/head/kanayago.patch`
+  - Improved maintainability and version compatibility by using patch-based approach instead of runtime script modifications
+  - Removed `add_error_buffer_accessor` function from `script/setup_parser.rb`
+- Update all test files to access AST through `ParseResult#ast`
+  - All 93 test files now use `result.ast` instead of direct result access
+  - Tests validate both successful parsing and error handling scenarios
 
 ## [0.4.1]
 

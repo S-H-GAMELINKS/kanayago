@@ -6,7 +6,7 @@ class ParseOnceTest < Minitest::Test
   def test_parse_begin_block
     result = Kanayago.parse('BEGIN { puts "hello" }')
 
-    assert_instance_of(Kanayago::ScopeNode, result)
-    refute_nil(result.body)
+    assert_instance_of(Kanayago::ScopeNode, result.ast)
+    refute_nil(result.ast.body)
   end
 end

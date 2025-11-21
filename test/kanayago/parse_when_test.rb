@@ -11,7 +11,7 @@ class ParseWhenTest < Minitest::Test
       end
     CODE
 
-    body = result.body.body # CaseNode -> WhenNode
+    body = result.ast.body.body # CaseNode -> WhenNode
 
     assert_instance_of(Kanayago::WhenNode, body)
 
@@ -30,7 +30,7 @@ class ParseWhenTest < Minitest::Test
       end
     CODE
 
-    body = result.body.body
+    body = result.ast.body.body
 
     assert_instance_of(Kanayago::WhenNode, body)
     assert_instance_of(Kanayago::ListNode, body.head)
@@ -46,7 +46,7 @@ class ParseWhenTest < Minitest::Test
       end
     CODE
 
-    first_when = result.body.body
+    first_when = result.ast.body.body
 
     assert_instance_of(Kanayago::WhenNode, first_when)
 

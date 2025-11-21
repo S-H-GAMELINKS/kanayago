@@ -10,7 +10,7 @@ class ParseIterTest < Minitest::Test
       end
     CODE
 
-    body = result.body
+    body = result.ast.body
 
     assert_instance_of(Kanayago::IterNode, body)
     assert_instance_of(Kanayago::ScopeNode, body.body)
@@ -22,7 +22,7 @@ class ParseIterTest < Minitest::Test
       [1, 2, 3].map { |x| x * 2 }
     CODE
 
-    body = result.body
+    body = result.ast.body
 
     assert_instance_of(Kanayago::IterNode, body)
     refute_nil(body.body)
@@ -36,7 +36,7 @@ class ParseIterTest < Minitest::Test
       end
     CODE
 
-    body = result.body
+    body = result.ast.body
 
     assert_instance_of(Kanayago::IterNode, body)
   end

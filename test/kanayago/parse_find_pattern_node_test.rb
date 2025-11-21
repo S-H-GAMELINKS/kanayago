@@ -8,7 +8,7 @@ class ParseFindPatternNodeTest < Minitest::Test
     # Note: This might be represented as ARYPTN depending on Ruby version
     result = Kanayago.parse('case [1, 2, 3, 4, 5]; in [*, a, b, *]; end')
 
-    scope = result
+    scope = result.ast
     case3_node = scope.body
     in_node = case3_node.body
     pattern = in_node.head

@@ -6,7 +6,7 @@ class ParseMatchNodeTest < Minitest::Test
   def test_parse_match_node
     result = Kanayago.parse('if /hello/ then end')
 
-    scope = result
+    scope = result.ast
     if_node = scope.body
     cond = if_node.cond
 
@@ -18,7 +18,7 @@ class ParseMatchNodeTest < Minitest::Test
   def test_parse_match_node_with_options
     result = Kanayago.parse('if /hello/i then end')
 
-    scope = result
+    scope = result.ast
     if_node = scope.body
     cond = if_node.cond
 

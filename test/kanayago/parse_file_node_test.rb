@@ -6,7 +6,7 @@ class ParseFileNOdeTest < Minitest::Test
   def test_parse_file_node
     result = Kanayago.parse('__FILE__')
 
-    body = result.body
+    body = result.ast.body
 
     assert_instance_of(Kanayago::FileNode, body)
     assert_equal('main', body.ptr)

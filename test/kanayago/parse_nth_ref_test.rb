@@ -9,8 +9,8 @@ class ParseNthRefTest < Minitest::Test
       p $1
     CODE
 
-    assert_instance_of(Kanayago::ScopeNode, result)
-    body = result.body
+    assert_instance_of(Kanayago::ScopeNode, result.ast)
+    body = result.ast.body
 
     assert_instance_of(Kanayago::BlockNode, body)
     assert_equal(2, body.size)
@@ -31,7 +31,7 @@ class ParseNthRefTest < Minitest::Test
       p $2
     CODE
 
-    body = result.body
+    body = result.ast.body
     second_line = body.last
 
     assert_instance_of(Kanayago::FunctionCallNode, second_line)
@@ -48,7 +48,7 @@ class ParseNthRefTest < Minitest::Test
       p $1, $2, $3
     CODE
 
-    body = result.body
+    body = result.ast.body
     second_line = body.last
 
     assert_instance_of(Kanayago::FunctionCallNode, second_line)
@@ -70,7 +70,7 @@ class ParseNthRefTest < Minitest::Test
       puts "\#{$1}"
     CODE
 
-    body = result.body
+    body = result.ast.body
 
     assert_equal(2, body.size)
 

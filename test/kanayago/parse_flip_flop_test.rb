@@ -10,8 +10,8 @@ class ParseFlipFlopTest < Minitest::Test
       end
     CODE
 
-    assert_instance_of(Kanayago::ScopeNode, result)
-    if_node = result.body
+    assert_instance_of(Kanayago::ScopeNode, result.ast)
+    if_node = result.ast.body
 
     assert_instance_of(Kanayago::IfStatementNode, if_node)
 
@@ -29,8 +29,8 @@ class ParseFlipFlopTest < Minitest::Test
       end
     CODE
 
-    assert_instance_of(Kanayago::ScopeNode, result)
-    if_node = result.body
+    assert_instance_of(Kanayago::ScopeNode, result.ast)
+    if_node = result.ast.body
 
     assert_instance_of(Kanayago::IfStatementNode, if_node)
 

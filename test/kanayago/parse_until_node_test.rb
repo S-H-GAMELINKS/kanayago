@@ -12,7 +12,7 @@ class ParseUntilNodeTest < Minitest::Test
       end
     CODE
 
-    line = result.body.last
+    line = result.ast.body.last
 
     assert_instance_of(Kanayago::UntilNode, line)
     assert_equal(1, line.state)

@@ -6,7 +6,7 @@ class ParseDynamicSymbolNodeTest < Minitest::Test
   def test_parse_dynamic_symbol_node
     result = Kanayago.parse(':"S#{117}"')
 
-    body = result.body
+    body = result.ast.body
 
     assert_instance_of(Kanayago::DynamicSymbolNode, body)
     assert_equal('S', body.string)
@@ -18,7 +18,7 @@ class ParseDynamicSymbolNodeTest < Minitest::Test
   def test_parse_empty_interpolation
     result = Kanayago.parse(':"#{""}"')
 
-    body = result.body
+    body = result.ast.body
 
     assert_instance_of(Kanayago::DynamicSymbolNode, body)
     assert_equal('', body.string)
@@ -30,7 +30,7 @@ class ParseDynamicSymbolNodeTest < Minitest::Test
   def test_parse_multiple_interpolations
     result = Kanayago.parse(':"#{a}_#{b}"')
 
-    body = result.body
+    body = result.ast.body
 
     assert_instance_of(Kanayago::DynamicSymbolNode, body)
     assert_instance_of(Kanayago::ListNode, body.next_nodes)
@@ -49,7 +49,7 @@ class ParseDynamicSymbolNodeTest < Minitest::Test
   def test_backward_compatibility_static_symbol
     result = Kanayago.parse(':static')
 
-    body = result.body
+    body = result.ast.body
 
     # Static symbols should remain SymbolNode, not DynamicSymbolNode
     assert_instance_of(Kanayago::SymbolNode, body)
@@ -65,8 +65,8 @@ class ParseDynamicSymbolNodeTest < Minitest::Test
 
     result = Kanayago.parse(code)
 
-    assert_instance_of(Kanayago::ScopeNode, result)
-    refute_nil(result.body)
+    assert_instance_of(Kanayago::ScopeNode, result.ast)
+    refute_nil(result.ast.body)
   end
 
   def test_complex_nested_hash_with_dynamic_symbols
@@ -85,7 +85,7 @@ class ParseDynamicSymbolNodeTest < Minitest::Test
 
     result = Kanayago.parse(code)
 
-    assert_instance_of(Kanayago::ScopeNode, result)
-    refute_nil(result.body)
+    assert_instance_of(Kanayago::ScopeNode, result.ast)
+    refute_nil(result.ast.body)
   end
 end

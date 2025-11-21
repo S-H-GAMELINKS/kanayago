@@ -6,7 +6,7 @@ class ParseBreakTest < Minitest::Test
   def test_parse_break_basic
     result = Kanayago.parse('loop { break }')
 
-    scope = result
+    scope = result.ast
 
     assert_instance_of(Kanayago::ScopeNode, scope)
 
@@ -27,7 +27,7 @@ class ParseBreakTest < Minitest::Test
   def test_parse_break_with_value
     result = Kanayago.parse('loop { break 117 }')
 
-    scope = result
+    scope = result.ast
     iter = scope.body
     iter_body = iter.body
     break_node = iter_body.body
@@ -39,7 +39,7 @@ class ParseBreakTest < Minitest::Test
   def test_parse_break_with_multiple_values
     result = Kanayago.parse('loop { break 1, 2 }')
 
-    scope = result
+    scope = result.ast
     iter = scope.body
     iter_body = iter.body
     break_node = iter_body.body
@@ -52,7 +52,7 @@ class ParseBreakTest < Minitest::Test
   def test_parse_break_conditional
     result = Kanayago.parse('loop { break if true }')
 
-    scope = result
+    scope = result.ast
     iter = scope.body
     iter_body = iter.body
     if_node = iter_body.body
@@ -68,7 +68,7 @@ class ParseBreakTest < Minitest::Test
   def test_parse_break_in_iterator
     result = Kanayago.parse('[1, 2, 3].each { |i| break }')
 
-    scope = result
+    scope = result.ast
     iter = scope.body
 
     assert_instance_of(Kanayago::IterNode, iter)

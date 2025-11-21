@@ -6,7 +6,7 @@ class ParseValiasNodeTest < Minitest::Test
   def test_parse_valias_node
     result = Kanayago.parse('alias $v $g')
 
-    body = result.body
+    body = result.ast.body
 
     assert_instance_of(Kanayago::ValiasNode, body)
     assert_equal(:$v, body.alias)

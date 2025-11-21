@@ -9,7 +9,7 @@ class ParseModuleNodeTest < Minitest::Test
       end
     CODE
 
-    body = result.body
+    body = result.ast.body
 
     assert_instance_of(Kanayago::ModuleNode, body)
     assert_instance_of(Kanayago::Colon2Node, body.cpath)
@@ -34,7 +34,7 @@ class ParseModuleNodeTest < Minitest::Test
 
     result = Kanayago.parse(code)
 
-    assert_instance_of(Kanayago::ScopeNode, result)
-    refute_nil(result.body)
+    assert_instance_of(Kanayago::ScopeNode, result.ast)
+    refute_nil(result.ast.body)
   end
 end

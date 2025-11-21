@@ -10,7 +10,7 @@ class ParseForNodeTest < Minitest::Test
       end
     CODE
 
-    body = result.body
+    body = result.ast.body
 
     assert_instance_of(Kanayago::ForNode, body)
     assert_instance_of(Kanayago::ListNode, body.iter)

@@ -8,8 +8,8 @@ class ParseRangeTest < Minitest::Test
       1..10
     CODE
 
-    assert_instance_of(Kanayago::ScopeNode, result)
-    body = result.body
+    assert_instance_of(Kanayago::ScopeNode, result.ast)
+    body = result.ast.body
 
     assert_instance_of(Kanayago::RangeNode, body)
 
@@ -23,8 +23,8 @@ class ParseRangeTest < Minitest::Test
       1...10
     CODE
 
-    assert_instance_of(Kanayago::ScopeNode, result)
-    body = result.body
+    assert_instance_of(Kanayago::ScopeNode, result.ast)
+    body = result.ast.body
 
     assert_instance_of(Kanayago::ExclusiveRangeNode, body)
 
@@ -38,7 +38,7 @@ class ParseRangeTest < Minitest::Test
       x..y
     CODE
 
-    body = result.body
+    body = result.ast.body
 
     assert_instance_of(Kanayago::RangeNode, body)
     assert_instance_of(Kanayago::VariableCallNode, body.beg)
@@ -50,7 +50,7 @@ class ParseRangeTest < Minitest::Test
       a...b
     CODE
 
-    body = result.body
+    body = result.ast.body
 
     assert_instance_of(Kanayago::ExclusiveRangeNode, body)
     assert_instance_of(Kanayago::VariableCallNode, body.beg)

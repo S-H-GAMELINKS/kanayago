@@ -8,8 +8,8 @@ class ParseAttrasgnTest < Minitest::Test
       obj.attr = 117
     CODE
 
-    assert_instance_of(Kanayago::ScopeNode, result)
-    body = result.body
+    assert_instance_of(Kanayago::ScopeNode, result.ast)
+    body = result.ast.body
 
     assert_instance_of(Kanayago::AttributeAssignmentNode, body)
     assert_equal(:attr=, body.mid)
@@ -22,8 +22,8 @@ class ParseAttrasgnTest < Minitest::Test
       obj[key] = value
     CODE
 
-    assert_instance_of(Kanayago::ScopeNode, result)
-    body = result.body
+    assert_instance_of(Kanayago::ScopeNode, result.ast)
+    body = result.ast.body
 
     assert_instance_of(Kanayago::AttributeAssignmentNode, body)
     assert_equal(:[]=, body.mid)

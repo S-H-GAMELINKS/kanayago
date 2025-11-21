@@ -6,7 +6,7 @@ class ParseHashPatternNodeTest < Minitest::Test
   def test_parse_simple_hash_pattern
     result = Kanayago.parse('case {x: 1}; in {x: a}; end')
 
-    scope = result
+    scope = result.ast
     case3_node = scope.body
     in_node = case3_node.body
     hash_pattern = in_node.head
@@ -20,7 +20,7 @@ class ParseHashPatternNodeTest < Minitest::Test
   def test_parse_hash_pattern_with_multiple_keys
     result = Kanayago.parse('case {x: 1, y: 2}; in {x: a, y: b}; end')
 
-    scope = result
+    scope = result.ast
     case3_node = scope.body
     in_node = case3_node.body
     hash_pattern = in_node.head

@@ -6,7 +6,7 @@ class ParseMatch3NodeTest < Minitest::Test
   def test_parse_match3_node
     result = Kanayago.parse('"bar" =~ /foo#{1}/')
 
-    body = result.body
+    body = result.ast.body
 
     assert_instance_of(Kanayago::Match3Node, body)
     assert_instance_of(Kanayago::DynamicRegexpNode, body.recv)
@@ -17,7 +17,7 @@ class ParseMatch3NodeTest < Minitest::Test
   def test_parse_match3_node_with_variable
     result = Kanayago.parse('x = 1; "test" =~ /pattern#{x}/')
 
-    block = result.body
+    block = result.ast.body
     match3_node = block[1]
 
     assert_instance_of(Kanayago::Match3Node, match3_node)
