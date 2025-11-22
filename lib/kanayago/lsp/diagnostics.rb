@@ -33,17 +33,17 @@ module Kanayago
           range: range,
           severity: LanguageServer::Protocol::Constant::DiagnosticSeverity::ERROR,
           source: 'Kanayago',
-          message: error.message
+          message: error.message.sub(/main:\d+:\s*/, '')
         }
       end
 
       def extract_range_from_error(error)
         # Try to extract line number from error message
-        # Format: "(eval):LINE: message" or just "message"
+        # Format: "main:LINE: message" or "(eval):LINE: message" or just "message"
         message = error.message
 
-        if message =~ /\(eval\):(\d+):/
-          line = ::Regexp.last_match(1).to_i - 1 # Convert to 0-based
+        if message =~ /(?:main|\(eval\)):(\d+):/
+          line = ::Regexp.last_match(1).to_i # Already 0-based or use as-is
           {
             start: { line: line, character: 0 },
             end: { line: line, character: 0 }

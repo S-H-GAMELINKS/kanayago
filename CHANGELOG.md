@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+- Fix LSP diagnostics to report accurate error line numbers
+  - Update error message pattern matching to support both `main:LINE:` and `(eval):LINE:` formats
+  - Remove incorrect `-1` offset that was causing errors to be reported one line above the actual error location
+  - Parser already returns 0-based line numbers, matching LSP protocol requirements
+  - Clean up error messages by removing redundant `main:LINE:` prefix from diagnostic messages
+  - Add comprehensive test cases for error line detection in multi-line source code
+
 ## [0.5.0]
 
 ### Added

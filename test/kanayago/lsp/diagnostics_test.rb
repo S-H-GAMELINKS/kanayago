@@ -81,4 +81,39 @@ class DiagnosticsTest < Minitest::Test
     assert_kind_of Integer, diagnostic[:range][:start][:line]
     assert_kind_of Integer, diagnostic[:range][:start][:character]
   end
+
+  def test_error_on_specific_line
+    source = <<~RUBY
+      class Foo
+        def bar
+          if condition
+      end
+    RUBY
+
+    diagnostics = @provider.analyze(source)
+
+    assert_equal 1, diagnostics.length
+    diagnostic = diagnostics.first
+
+    # Error should be on line 3 (0-based, parser reports line number as 0-based)
+    assert_equal 3, diagnostic[:range][:start][:line]
+  end
+
+  def test_error_line_detection_multiline
+    source = <<~RUBY
+      def method1
+        puts "ok"
+      end
+
+      def method2
+    RUBY
+
+    diagnostics = @provider.analyze(source)
+
+    assert_equal 1, diagnostics.length
+    diagnostic = diagnostics.first
+
+    # Error should be on line 4 (0-based, parser reports line number as 0-based)
+    assert_equal 4, diagnostic[:range][:start][:line]
+  end
 end
