@@ -520,6 +520,9 @@ kanayago_parse(VALUE self, VALUE source)
     // Enable error tolerant parser
     rb_ruby_parser_error_tolerant(parser_params);
 
+    // Enable script_lines to get source lines from AST
+    rb_ruby_parser_set_script_lines(parser_params);
+
     VALUE vast = rb_parser_compile_string(vparser, "main", source, 0);
 
     rb_ast_t *ast = rb_ruby_ast_data_get(vast);
@@ -528,9 +531,13 @@ kanayago_parse(VALUE self, VALUE source)
     // Get error_buffer from parser_params using accessor function
     VALUE error_buffer = rb_ruby_parser_error_buffer_get(parser_params);
 
+    // Get script_lines from AST and convert to Ruby array
+    VALUE script_lines = rb_parser_build_script_lines_from(ast->body.script_lines);
+
     VALUE result = rb_hash_new();
     rb_hash_aset(result, ID2SYM(rb_intern("ast")), ast_node);
     rb_hash_aset(result, ID2SYM(rb_intern("error")), error_buffer);
+    rb_hash_aset(result, ID2SYM(rb_intern("script_lines")), script_lines);
 
     return result;
 }

@@ -123,4 +123,65 @@ class ParseResultTest < Minitest::Test
     assert_predicate(result, :valid?)
     assert_instance_of(Kanayago::ScopeNode, result.ast)
   end
+
+  def test_parse_result_script_lines_with_single_line
+    result = Kanayago.parse('x = 1')
+
+    assert_instance_of(Array, result.script_lines)
+    assert_equal(['x = 1'], result.script_lines)
+  end
+
+  def test_parse_result_script_lines_with_multiple_lines
+    code = <<~RUBY
+      class Foo
+        def bar
+          puts 'hello'
+        end
+      end
+    RUBY
+
+    result = Kanayago.parse(code)
+
+    assert_instance_of(Array, result.script_lines)
+    assert_equal(5, result.script_lines.length)
+    assert_equal("class Foo\n", result.script_lines[0])
+    assert_equal("  def bar\n", result.script_lines[1])
+    assert_equal("    puts 'hello'\n", result.script_lines[2])
+    assert_equal("  end\n", result.script_lines[3])
+    assert_equal("end\n", result.script_lines[4])
+  end
+
+  def test_parse_result_script_lines_with_syntax_error
+    code = <<~RUBY
+      def foo
+        x = 1 +
+      end
+    RUBY
+
+    result = Kanayago.parse(code)
+
+    # script_lines should be available even with syntax errors
+    assert_instance_of(Array, result.script_lines)
+    assert_equal(3, result.script_lines.length)
+    assert_equal("def foo\n", result.script_lines[0])
+    assert_equal("  x = 1 +\n", result.script_lines[1])
+    assert_equal("end\n", result.script_lines[2])
+  end
+
+  def test_parse_result_script_lines_line_length
+    code = <<~RUBY
+      class Foo
+        def bar
+          puts 'hello world'
+        end
+      end
+    RUBY
+
+    result = Kanayago.parse(code)
+
+    # Test that we can use script_lines to get line length
+    assert_equal(9, result.script_lines[0].chomp.length) # "class Foo"
+    assert_equal(9, result.script_lines[1].chomp.length) # "  def bar"
+    assert_equal(22, result.script_lines[2].chomp.length) # "    puts 'hello world'"
+  end
 end
