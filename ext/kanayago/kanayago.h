@@ -13,6 +13,8 @@ VALUE rb_node_imaginary_literal_val(const NODE *);
 VALUE rb_node_str_string_val(const NODE *);
 VALUE rb_node_sym_string_val(const NODE *);
 VALUE rb_ruby_parser_error_buffer_get(rb_parser_t *);
+void rb_ruby_parser_set_script_lines(rb_parser_t *);
+VALUE rb_parser_build_script_lines_from(rb_parser_ary_t *);
 
 // Add extern for Kanayago
 extern const rb_data_type_t ruby_parser_data_type;

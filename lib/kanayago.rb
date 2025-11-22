@@ -15,11 +15,12 @@ require_relative 'kanayago/constant_node'
 # Parse Ruby code with Ruby's Parser(Universal Parser)
 module Kanayago
   class ParseResult
-    attr_reader :ast, :error
+    attr_reader :ast, :error, :script_lines
 
-    def initialize(ast, error)
+    def initialize(ast, error, script_lines)
       @ast = ast
       @error = error
+      @script_lines = script_lines
     end
 
     def invalid?
@@ -32,8 +33,8 @@ module Kanayago
   end
 
   def self.parse(source)
-    kanayago_parse(source) in { ast:, error: }
+    kanayago_parse(source) in { ast:, error:, script_lines: }
 
-    ParseResult.new(ast, error)
+    ParseResult.new(ast, error, script_lines)
   end
 end

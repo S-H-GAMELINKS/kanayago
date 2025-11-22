@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- Add `script_lines` support to parser for accurate line information
+  - Enable `rb_ruby_parser_set_script_lines()` in parser to capture source code lines
+  - Add `script_lines` attribute to `ParseResult` class
+  - Expose script_lines array containing each line of parsed source code
+  - Use script_lines for accurate character range calculation in LSP diagnostics
+
 ### Fixed
 - Fix LSP diagnostics to report accurate error line numbers
   - Update error message pattern matching to support both `main:LINE:` and `(eval):LINE:` formats
@@ -14,6 +21,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Parser already returns 0-based line numbers, matching LSP protocol requirements
   - Clean up error messages by removing redundant `main:LINE:` prefix from diagnostic messages
   - Add comprehensive test cases for error line detection in multi-line source code
+- Fix LSP diagnostics not showing underlines in VSCode
+  - Use `script_lines` to calculate accurate line length for diagnostic range end position
+  - Set proper character range (`end.character`) to display red squiggly lines on entire error line
+  - Previously, `start` and `end` positions were identical (both at character 0), preventing underlines from appearing
 
 ## [0.5.0]
 
