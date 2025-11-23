@@ -118,6 +118,27 @@ Alternatively, you can configure the LSP server manually in your `coc-settings.j
 
 Now Vim/Neovim with coc.nvim will show syntax errors in real-time as you edit Ruby files.
 
+#### Emacs Integration
+
+If you're using Emacs with lsp-mode, add the following configuration to your `init.el`:
+
+```elisp
+(require 'lsp-mode)
+
+;; Register Kanayago LSP server
+(lsp-register-client
+ (make-lsp-client
+  :new-connection (lsp-stdio-connection '("kanayago" "--lsp"))
+  :major-modes '(ruby-mode enh-ruby-mode)
+  :server-id 'kanayago-lsp
+  :priority 10))
+
+;; Enable lsp-mode for Ruby files
+(add-hook 'ruby-mode-hook #'lsp-deferred)
+```
+
+Kanayago will automatically check your Ruby code for syntax errors and display diagnostics in real-time.
+
 #### Helix Integration
 
 Add the following configuration to your `~/.config/helix/languages.toml`:
