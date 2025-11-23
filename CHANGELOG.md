@@ -12,6 +12,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - VSCode extension: `vscode-kanayago` available on Visual Studio Marketplace
   - coc.nvim extension: `coc-kanayago` installable via `:CocInstall coc-kanayago`
   - Add screenshots and integration guides to README for both plugins
+- Add Emacs integration guide to README
+  - Add lsp-mode configuration example for `init.el`
+  - Document how to register Kanayago LSP server and enable it for Ruby files
 - Add Helix editor integration guide to README
   - Add configuration example for `~/.config/helix/languages.toml`
   - Document how to use Kanayago LSP with Helix editor
