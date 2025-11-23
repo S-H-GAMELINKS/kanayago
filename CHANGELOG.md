@@ -8,6 +8,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- Add official editor plugins for LSP integration
+  - VSCode extension: `vscode-kanayago` available on Visual Studio Marketplace
+  - coc.nvim extension: `coc-kanayago` installable via `:CocInstall coc-kanayago`
+  - Add screenshots and integration guides to README for both plugins
 - Add `script_lines` support to parser for accurate line information
   - Enable `rb_ruby_parser_set_script_lines()` in parser to capture source code lines
   - Add `script_lines` attribute to `ParseResult` class

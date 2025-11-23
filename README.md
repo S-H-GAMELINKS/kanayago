@@ -47,24 +47,61 @@ $ kanayago --lsp
 
 This starts an LSP server that communicates via stdin/stdout. You can integrate it with LSP-compliant editors like VSCode, Vim, Emacs, etc.
 
-#### VSCode Integration Example
+#### VSCode Integration
 
-Create or modify `.vscode/settings.json`:
+Install the official VSCode extension from the marketplace:
+
+1. Open VSCode and search for "VSCode Kanayago" in the Extensions view
+2. Click Install
+
+**Configuration:**
 
 ```json
 {
-  "ruby.lsp.enabled": false,
-  "ruby.languageServer": "kanayago-lsp",
-  "ruby.languageServerPath": "kanayago",
-  "ruby.languageServerArgs": ["--lsp"]
+  "kanayago.serverPath": "kanayago",
+  "kanayago.trace.server": "off"
 }
 ```
 
 Now VSCode will show syntax errors in real-time as you type Ruby code.
 
-#### Vim/Neovim with coc.nvim Integration Example
+![VSCode Kanayago in action](images/vscode-kanayago-demo.png)
+
+#### Vim/Neovim with coc.nvim Integration
+
+##### Using coc-kanayago Extension (Recommended)
+
+Install the official coc.nvim extension:
+
+```vim
+:CocInstall coc-kanayago
+```
+
+**Configuration:**
 
 Add the following to your `coc-settings.json` (`:CocConfig` in Vim):
+
+```json
+{
+  "coc-kanayago.enable": true,
+  "coc-kanayago.command": "kanayago"
+}
+```
+
+**Diagnostic Navigation:**
+
+The extension supports standard coc.nvim diagnostic keybindings:
+- Next diagnostic: `<space>dn`
+- Previous diagnostic: `<space>dp`
+- Show diagnostic info: `<space>di`
+
+See [coc-kanayago](https://github.com/S-H-GAMELINKS/coc-kanayago) for more details.
+
+![coc-kanayago in action](images/coc-kanayago-demo.png)
+
+##### Manual LSP Configuration
+
+Alternatively, you can configure the LSP server manually in your `coc-settings.json`:
 
 ```json
 {
