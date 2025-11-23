@@ -118,6 +118,34 @@ Alternatively, you can configure the LSP server manually in your `coc-settings.j
 
 Now Vim/Neovim with coc.nvim will show syntax errors in real-time as you edit Ruby files.
 
+#### Helix Integration
+
+Add the following configuration to your `~/.config/helix/languages.toml`:
+
+```toml
+[[language]]
+name = "ruby"
+language-servers = ["kanayago"]
+
+[language-server.kanayago]
+command = "kanayago"
+args = ["--lsp"]
+```
+
+If you already have a Ruby language configuration, you can add `"kanayago"` to your existing language-servers array:
+
+```toml
+[[language]]
+name = "ruby"
+language-servers = ["kanayago", "solargraph"]  # Use alongside other LSPs
+
+[language-server.kanayago]
+command = "kanayago"
+args = ["--lsp"]
+```
+
+Now Helix will show syntax errors in real-time as you edit Ruby files.
+
 ### Command Line Interface
 
 Kanayago provides a CLI for syntax checking:
