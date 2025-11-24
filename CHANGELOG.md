@@ -18,6 +18,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add Helix editor integration guide to README
   - Add configuration example for `~/.config/helix/languages.toml`
   - Document how to use Kanayago LSP with Helix editor
+- Add Zed editor integration guide to README
+  - Add official Zed extension `zed-kanayago` available on Zed Extensions marketplace
+  - Document how to install and use Kanayago LSP with Zed editor
+  - Add manual installation guide for development purposes
 - Add `script_lines` support to parser for accurate line information
   - Enable `rb_ruby_parser_set_script_lines()` in parser to capture source code lines
   - Add `script_lines` attribute to `ParseResult` class

@@ -167,6 +167,31 @@ args = ["--lsp"]
 
 Now Helix will show syntax errors in real-time as you edit Ruby files.
 
+#### Zed Integration
+
+Install the official Zed extension from the marketplace:
+
+1. Open Zed and go to Extensions (`cmd/ctrl + shift + x`)
+2. Search for "Kanayago"
+3. Click Install
+
+**Manual Installation:**
+
+If you prefer to install manually or for development purposes:
+
+```bash
+git clone https://github.com/S-H-GAMELINKS/zed-kanayago.git
+cd zed-kanayago
+```
+
+Then follow the [Zed extension development guide](https://zed.dev/docs/extensions) for installation.
+
+**Requirements:**
+- Kanayago must be installed and available in your PATH
+- Zed will automatically start the LSP server when opening Ruby files
+
+See [zed-kanayago](https://github.com/S-H-GAMELINKS/zed-kanayago) for more details.
+
 ### Command Line Interface
 
 Kanayago provides a CLI for syntax checking:
