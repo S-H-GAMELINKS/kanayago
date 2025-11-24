@@ -31,7 +31,7 @@ Finally, build `Kanayago` gem  and install it.
 
 ```console
 bundle exec rake build
-gem install pkg/kanayago-0.5.0.gem
+gem install pkg/kanayago-0.6.0.gem
 ```
 
 ## Usage
