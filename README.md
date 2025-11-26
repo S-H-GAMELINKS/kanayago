@@ -249,6 +249,25 @@ After checking out the repo, run `bin/setup` to install dependencies. You can al
 
 To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and the created tag, and push the `.gem` file to [rubygems.org](https://rubygems.org).
 
+### Running Tests
+
+```bash
+# Run unit tests (excludes integration tests)
+bundle exec rake test
+
+# Run integration tests (requires repository setup)
+bundle exec rake integration:setup    # Clone test repositories (Rails, Discourse, Mastodon, GitLab)
+bundle exec rake integration:test     # Run integration tests
+
+# Clean up cloned repositories
+bundle exec rake integration:clean
+
+# Update cloned repositories to latest
+bundle exec rake integration:update
+```
+
+The integration tests verify that Kanayago can successfully parse real-world Rails codebases including Rails itself, Discourse, Mastodon, and GitLab. These tests help ensure compatibility with production Ruby code patterns.
+
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/S-H-GAMELINKS/kanayago.

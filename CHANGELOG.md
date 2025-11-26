@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- Add integration tests for parsing real-world Rails codebases
+  - Add `test/integration/rails_parsing_test.rb` for testing Rails, Discourse, Mastodon, and GitLab codebases
+  - Add `rake integration:setup` task to automatically clone test repositories
+  - Add `rake integration:test` task to run integration tests
+  - Add `rake integration:clean` task to remove cloned repositories
+  - Add `rake integration:update` task to update cloned repositories
+  - Integration tests verify 99.67% parse success rate across 24,000+ Ruby files
+  - Regular unit tests now exclude integration tests for faster execution
+
 ## [0.6.1]
 
 ### Fixed

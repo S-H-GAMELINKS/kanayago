@@ -6,6 +6,7 @@
 /pkg/
 /spec/reports/
 /tmp/
+/tmp/integration_repos/
 *.bundle
 *.so
 *.o

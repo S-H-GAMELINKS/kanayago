@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require 'English'
 require 'bundler/gem_tasks'
 require 'rake/extensiontask'
 require 'rake/testtask'
@@ -58,7 +59,101 @@ end
 Rake::TestTask.new(:test) do |t|
   t.libs << 'test'
   t.libs << 'lib'
-  t.test_files = FileList['test/**/*_test.rb']
+  t.test_files = FileList['test/**/*_test.rb'].exclude('test/integration/**/*_test.rb')
+end
+
+INTEGRATION_TEST_TARGET_REPOS_DIR = File.expand_path('tmp/integration_repos', __dir__)
+INTEGRATION_TEST_TARGET_REPOSITORIES = {
+  'rails' => {
+    url: 'https://github.com/rails/rails.git',
+    branch: 'main',
+    depth: 1
+  },
+  'discourse' => {
+    url: 'https://github.com/discourse/discourse.git',
+    branch: 'main',
+    depth: 1
+  },
+  'mastodon' => {
+    url: 'https://github.com/mastodon/mastodon.git',
+    branch: 'main',
+    depth: 1
+  },
+  'gitlab' => {
+    url: 'https://gitlab.com/gitlab-org/gitlab.git',
+    branch: 'master',
+    depth: 1
+  }
+}.freeze
+
+namespace :integration do
+  desc 'Setup integration test repositories'
+  task :setup do
+    FileUtils.mkdir_p(INTEGRATION_TEST_TARGET_REPOS_DIR)
+
+    INTEGRATION_TEST_TARGET_REPOSITORIES.each do |name, config|
+      repo_path = File.join(INTEGRATION_TEST_TARGET_REPOS_DIR, name)
+
+      if File.directory?(repo_path)
+        puts "Repository #{name} already exists at #{repo_path}"
+        next
+      end
+
+      puts "Cloning #{name} from #{config[:url]}..."
+      system("git clone --depth #{config[:depth]} --branch #{config[:branch]} #{config[:url]} #{repo_path}")
+
+      if $CHILD_STATUS.success?
+        puts "Successfully cloned #{name}"
+      else
+        puts "Failed to clone #{name}"
+      end
+    end
+
+    puts "\nIntegration test repositories setup complete!"
+  end
+
+  desc 'Clean integration test repositories'
+  task :clean do
+    if File.directory?(INTEGRATION_TEST_TARGET_REPOS_DIR)
+      puts "Removing integration test repositories at #{INTEGRATION_TEST_TARGET_REPOS_DIR}..."
+      FileUtils.rm_rf(INTEGRATION_TEST_TARGET_REPOS_DIR)
+      puts 'Done!'
+    else
+      puts 'No integration test repositories found'
+    end
+  end
+
+  desc 'Update integration test repositories'
+  task :update do
+    unless File.directory?(INTEGRATION_TEST_TARGET_REPOS_DIR)
+      puts "No repositories found. Run 'rake integration:setup' first."
+      next
+    end
+
+    INTEGRATION_TEST_TARGET_REPOSITORIES.each_key do |name|
+      repo_path = File.join(INTEGRATION_TEST_TARGET_REPOS_DIR, name)
+
+      unless File.directory?(repo_path)
+        puts "Repository #{name} not found, skipping..."
+        next
+      end
+
+      puts "Updating #{name}..."
+      Dir.chdir(repo_path) do
+        system('git pull')
+      end
+    end
+
+    puts "\nIntegration test repositories updated!"
+  end
+
+  desc 'Run integration tests'
+  Rake::TestTask.new(:test) do |t|
+    t.libs << 'test'
+    t.libs << 'lib'
+    t.test_files = FileList['test/integration/**/*_test.rb']
+    t.verbose = true
+  end
 end
 
 namespace :sample do
