@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+- Fix segmentation fault when parsing large Ruby files (e.g., Rails schema.rb)
+  - Add `RB_GC_GUARD` for `vast` and `vparser` to prevent garbage collection during AST traversal
+  - The AST data is owned by `vast`, so it must remain alive until traversal is complete
+
 ## [0.6.0]
 
 ### Added

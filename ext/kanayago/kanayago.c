@@ -528,6 +528,12 @@ kanayago_parse(VALUE self, VALUE source)
     rb_ast_t *ast = rb_ruby_ast_data_get(vast);
     VALUE ast_node = ast_to_node_instance(ast->body.root);
 
+    /* Ensure vast and vparser are not garbage collected during AST processing.
+     * The AST data (ast->body.root) is owned by vast, so we need to
+     * keep vast alive until we're done traversing the AST. */
+    RB_GC_GUARD(vast);
+    RB_GC_GUARD(vparser);
+
     // Get error_buffer from parser_params using accessor function
     VALUE error_buffer = rb_ruby_parser_error_buffer_get(parser_params);
 
