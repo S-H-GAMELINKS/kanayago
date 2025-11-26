@@ -36,6 +36,33 @@ gem install pkg/kanayago-0.6.1.gem
 
 ## Usage
 
+### Ruby API
+
+```ruby
+require 'kanayago/kanayago'
+
+result = Kanayago.parse('117 + 117')
+# => #<Kanayago::ParseResult:0x00007f522199c5a8>
+
+p result.ast
+# => #<Kanayago::ScopeNode:0x00007f522199c5a8>
+
+p result.ast.body
+# => #<Kanayago::OperatorCallNode:0x00007f5221b06358>
+
+p result.ast.body.recv
+p result.ast.body.recv.val
+# => #<Kanayago::IntegerNode:0x00007f5221b06330>
+# => 117
+
+# Check for syntax errors
+result = Kanayago.parse('def foo')
+p result.valid?
+# => false
+p result.error
+# => #<SyntaxError: syntax error, unexpected end-of-input>
+```
+
 ### Language Server Protocol (LSP) Mode
 
 Kanayago provides LSP server support for real-time syntax checking in your editor:
@@ -215,33 +242,6 @@ Syntax valid
 ```
 
 The CLI exits with code 0 for valid syntax and code 1 for invalid syntax or errors.
-
-### Ruby API
-
-```ruby
-require 'kanayago/kanayago'
-
-result = Kanayago.parse('117 + 117')
-# => #<Kanayago::ParseResult:0x00007f522199c5a8>
-
-p result.ast
-# => #<Kanayago::ScopeNode:0x00007f522199c5a8>
-
-p result.ast.body
-# => #<Kanayago::OperatorCallNode:0x00007f5221b06358>
-
-p result.ast.body.recv
-p result.ast.body.recv.val
-# => #<Kanayago::IntegerNode:0x00007f5221b06330>
-# => 117
-
-# Check for syntax errors
-result = Kanayago.parse('def foo')
-p result.valid?
-# => false
-p result.error
-# => #<SyntaxError: syntax error, unexpected end-of-input>
-```
 
 ## Development
 
