@@ -38,7 +38,7 @@ GEM
     rake (13.2.1)
     rake-compiler (1.2.7)
       rake
-    rbs (3.9.2)
+    rbs (3.9.5)
       logger
     rdoc (6.13.1)
       psych (>= 4.0.0)
@@ -71,7 +71,8 @@ GEM
     ruby-progressbar (1.13.0)
     stringio (3.1.7)
     test-queue (0.11.1)
-    typeprof (0.30.1)
+    typeprof (0.31.0)
+      prism (>= 1.4.0)
       rbs (>= 3.6.0)
     unicode-display_width (3.1.4)
       unicode-emoji (~> 4.0, >= 4.0.4)
