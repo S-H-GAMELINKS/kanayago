@@ -20,7 +20,7 @@ RBS:
 Style/Documentation:
   Enabled: false
 
-require:
+plugins:
   - rubocop-minitest
   - rubocop-on-rbs
   - rubocop-rake
