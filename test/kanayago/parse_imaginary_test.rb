@@ -12,7 +12,7 @@ class ParseImaginaryTest < Minitest::Test
     body = result.ast.body
 
     assert_instance_of(Kanayago::ImaginaryNode, body)
-    assert_equal((0 + 117i), body.val)
+    assert_equal(0 + 117i, body.val)
     assert_equal(10, body.base)
     refute(body.minus)
     assert_equal(0, body.seen_point)
