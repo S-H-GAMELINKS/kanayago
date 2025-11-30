@@ -36,7 +36,7 @@ GEM
       stringio
     racc (1.8.1)
     rainbow (3.1.1)
-    rake (13.2.1)
+    rake (13.3.1)
     rake-compiler (1.2.7)
       rake
     rbs (3.9.5)
@@ -92,7 +92,7 @@ DEPENDENCIES
   debug
   kanayago!
   minitest
-  rake (~> 13.0)
+  rake (~> 13.3)
   rake-compiler
   rubocop
   rubocop-minitest
