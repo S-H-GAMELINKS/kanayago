@@ -1,0 +1,38 @@
+name: Windows
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  test:
+    runs-on: windows-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        ruby-version:
+          - 3.4
+          - head
+
+    steps:
+    - uses: actions/checkout@v6
+
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: ${{ matrix.ruby-version }}
+        bundler-cache: true
+
+    - name: Setup Kanayago
+      run: bundle install
+
+    - name: Build Kanayago
+      run: bundle exec rake compile
+
+    - name: Run tests
+      run: bundle exec rake queue:test
