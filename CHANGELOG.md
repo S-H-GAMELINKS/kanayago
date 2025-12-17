@@ -7,7 +7,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+- Fix segmentation fault on macOS caused by unexported Ruby C APIs
+  - Several Ruby C APIs (`rb_reg_compile`, `rb_enc_literal_str`, etc.) are not exported on macOS
+  - Add macOS-specific patch (`patch/head/macos.patch`) that replaces unexported APIs with compatible public APIs
+  - Use own parser config in `kanayago.c` to avoid unexported APIs
+
 ### Added
+- Add macOS support
+  - Add macOS CI workflow (`.github/workflows/macos.yml`)
+  - Add `apply_macos_patch` function in `script/setup_parser.rb`
+- Add support for each Ruby 3.4.x patch versions (3.4.0 - 3.4.8)
+  - Add individual patch files and `copy_target.rb` for each version
+- Update Ubuntu CI to test multiple Ruby versions
 - Add integration tests for parsing real-world Rails codebases
   - Add `test/integration/rails_parsing_test.rb` for testing Rails, Discourse, Mastodon, and GitLab codebases
   - Add `rake integration:setup` task to automatically clone test repositories
