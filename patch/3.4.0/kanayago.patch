@@ -1,0 +1,210 @@
+diff -ruN a/ext/kanayago/internal/ruby_parser.h b/ext/kanayago/internal/ruby_parser.h
+--- a/ext/kanayago/internal/ruby_parser.h	2025-12-17 19:49:33.742994229 +0900
++++ b/ext/kanayago/internal/ruby_parser.h	2025-12-17 19:49:33.742994229 +0900
+@@ -10,11 +10,35 @@
+ #include "rubyparser.h"
+ #include "vm.h"
+
+-struct lex_pointer_string {
++    struct lex_pointer_string {
+     VALUE str;
+     long ptr;
+ };
+
++
++// Add Ruby's Parser struct and enum for Kanayago
++enum lex_type {
++    lex_type_str,
++    lex_type_io,
++    lex_type_array,
++    lex_type_generic,
++};
++
++struct ruby_parser {
++    rb_parser_t *parser_params;
++    enum lex_type type;
++    union {
++        struct lex_pointer_string lex_str;
++        struct {
++            VALUE file;
++        } lex_io;
++        struct {
++            VALUE ary;
++        } lex_array;
++    } data;
++};
++// End for Kanayago
++
+ RUBY_SYMBOL_EXPORT_BEGIN
+ #ifdef UNIVERSAL_PARSER
+ const rb_parser_config_t *rb_ruby_parser_config(void);
+diff -ruN a/ext/kanayago/parse.c b/ext/kanayago/parse.c
+--- a/ext/kanayago/parse.c	2025-12-17 19:49:33.742994229 +0900
++++ b/ext/kanayago/parse.c	2025-12-17 19:49:33.742994229 +0900
+@@ -26828,6 +26828,16 @@
+     return p->value;
+ }
+
++#else /* !RIPPER */
++
++// Accessor function for error_buffer (for Kanayago)
++VALUE
++rb_ruby_parser_error_buffer_get(rb_parser_t *p)
++{
++    return p->error_buffer;
++}
++
++
+ #endif /* RIPPER */
+ /*
+  * Local variables:
+diff -ruN a/ext/kanayago/ruby_parser.c b/ext/kanayago/ruby_parser.c
+--- a/ext/kanayago/ruby_parser.c	2025-12-17 19:49:33.742994229 +0900
++++ b/ext/kanayago/ruby_parser.c	2025-12-17 19:49:33.742994229 +0900
+@@ -326,6 +326,51 @@
+
+ extern VALUE rb_eArgError;
+
++// Add for Kanayago - wrapper functions to avoid unexported symbols
++static void *
++xmalloc_mul_add(size_t x, size_t y, size_t z)
++{
++    size_t size;
++    if (y != 0 && x > (SIZE_MAX - z) / y) {
++        rb_raise(rb_eArgError, "allocation size overflow");
++    }
++    size = x * y + z;
++    return ruby_xmalloc(size);
++}
++
++static VALUE
++suppress_tracing(VALUE (*func)(VALUE), VALUE arg)
++{
++    return func(arg);
++}
++
++static ID
++make_temporary_id(size_t n)
++{
++    char buf[64];
++    snprintf(buf, sizeof(buf), "@kanayago_tmp_%zu", n);
++    return rb_intern(buf);
++}
++
++static int
++stderr_tty_p(void)
++{
++    return isatty(fileno(stderr));
++}
++
++static VALUE
++reg_compile(VALUE str, int options, const char *sourcefile, int sourceline)
++{
++    return rb_reg_new_str(str, options);
++}
++
++static VALUE
++reg_check_preprocess(VALUE val)
++{
++    return Qnil;
++}
++// End of Add for Kanayago
++
+ static const rb_parser_config_t rb_global_parser_config = {
+     .malloc = ruby_xmalloc,
+     .calloc = ruby_xcalloc,
+@@ -337,9 +382,9 @@
+     .zalloc = zalloc,
+     .rb_memmove = memmove2,
+     .nonempty_memcpy = nonempty_memcpy,
+-    .xmalloc_mul_add = rb_xmalloc_mul_add,
++    .xmalloc_mul_add = xmalloc_mul_add,
+
+-    .compile_callback = rb_suppress_tracing,
++    .compile_callback = suppress_tracing,
+     .reg_named_capture_assign = reg_named_capture_assign,
+
+     .attr_get = rb_attr_get,
+@@ -348,7 +393,7 @@
+     .ary_new_from_args = rb_ary_new_from_args,
+     .ary_unshift = rb_ary_unshift,
+
+-    .make_temporary_id = rb_make_temporary_id,
++    .make_temporary_id = make_temporary_id,
+     .is_local_id = is_local_id2,
+     .is_attrset_id = is_attrset_id2,
+     .is_global_name_punct = is_global_name_punct,
+@@ -380,7 +425,7 @@
+
+     .int2num = rb_int2num_inline,
+
+-    .stderr_tty_p = rb_stderr_tty_p,
++    .stderr_tty_p = stderr_tty_p,
+     .write_error_str = rb_write_error_str,
+     .io_write = rb_io_write,
+     .io_flush = rb_io_flush,
+@@ -430,8 +475,8 @@
+     .gc_guard = gc_guard,
+     .gc_mark = rb_gc_mark,
+
+-    .reg_compile = rb_reg_compile,
+-    .reg_check_preprocess = rb_reg_check_preprocess,
++    .reg_compile = reg_compile,
++    .reg_check_preprocess = reg_check_preprocess,
+     .memcicmp = rb_memcicmp,
+
+     .compile_warn = rb_compile_warn,
+@@ -461,26 +506,6 @@
+ };
+ #endif
+
+-enum lex_type {
+-    lex_type_str,
+-    lex_type_io,
+-    lex_type_array,
+-    lex_type_generic,
+-};
+-
+-struct ruby_parser {
+-    rb_parser_t *parser_params;
+-    enum lex_type type;
+-    union {
+-        struct lex_pointer_string lex_str;
+-        struct {
+-            VALUE file;
+-        } lex_io;
+-        struct {
+-            VALUE ary;
+-        } lex_array;
+-    } data;
+-};
+
+ static void
+ parser_mark(void *ptr)
+@@ -519,7 +544,7 @@
+     return rb_ruby_parser_memsize(parser->parser_params);
+ }
+
+-static const rb_data_type_t ruby_parser_data_type = {
++const rb_data_type_t ruby_parser_data_type = {
+     "parser",
+     {
+         parser_mark,
+@@ -891,7 +916,7 @@
+ VALUE
+ rb_str_new_parser_string(rb_parser_string_t *str)
+ {
+-    VALUE string = rb_enc_literal_str(str->ptr, str->len, str->enc);
++    VALUE string = rb_enc_str_new(str->ptr, str->len, str->enc);
+     rb_enc_str_coderange(string);
+     return string;
+ }
+@@ -1073,7 +1098,7 @@
+     rb_parser_string_t *string = node_reg->string;
+     VALUE str = rb_enc_str_new(string->ptr, string->len, string->enc);
+
+-    return rb_reg_compile(str, node_reg->options, NULL, 0);
++    return rb_reg_new_str(str, node_reg->options);
+ }
+
+ VALUE

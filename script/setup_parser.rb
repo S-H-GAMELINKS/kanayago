@@ -33,15 +33,32 @@ module KanayagoSetup
     private
 
     def detect_ruby_version
-      if RUBY_DESCRIPTION.include?('dev')
+      # Ruby head (master branch) has 'dev' in description but not a release version
+      # Ruby 3.4.0 also had 'dev' in its preview/rc releases, so check RUBY_VERSION
+      if RUBY_DESCRIPTION.include?('dev') && !RUBY_VERSION.start_with?('3.4')
         'head'
       else
-        RUBY_VERSION[0..2]
+        # Try exact version first (e.g., "3.4.1"), fallback to major.minor (e.g., "3.4")
+        exact_version = RUBY_VERSION
+        major_minor = RUBY_VERSION[0..2]
+
+        patch_dir = File.expand_path('../patch', __dir__)
+        if Dir.exist?(File.join(patch_dir, exact_version))
+          exact_version
+        else
+          major_minor
+        end
       end
     end
 
     def load_copy_targets(version)
+      # Try exact version first, then fallback to major.minor
       copy_target_path = File.expand_path("../patch/#{version}/copy_target.rb", __dir__)
+
+      unless File.exist?(copy_target_path)
+        fallback_version = version[0..2]
+        copy_target_path = File.expand_path("../patch/#{fallback_version}/copy_target.rb", __dir__)
+      end
 
       raise "Copy target file not found: #{copy_target_path}" unless File.exist?(copy_target_path)
 
@@ -54,7 +71,9 @@ module KanayagoSetup
       tar_name = if version == 'head'
                    'snapshot/snapshot-master.tar.gz'
                  else
-                   "#{version}/ruby-#{RUBY_VERSION}.tar.gz"
+                   # Use major.minor for directory path (e.g., "3.4")
+                   major_minor = RUBY_VERSION[0..2]
+                   "#{major_minor}/ruby-#{RUBY_VERSION}.tar.gz"
                  end
 
       # Get project root directory
@@ -127,7 +146,25 @@ module KanayagoSetup
       Dir.chdir(project_root) do
         system("patch -p1 < #{patch_file}") ||
           raise('Failed to apply patch')
+
+        # Apply macOS-specific patch if on macOS
+        apply_macos_patch(version)
       end
+    end
+
+    def apply_macos_patch(version)
+      return unless macos?
+
+      macos_patch_file = File.expand_path("../patch/#{version}/macos.patch", __dir__)
+      return unless File.exist?(macos_patch_file)
+
+      puts "Applying macOS-specific patch for Ruby #{version}..."
+      system("patch -p1 < #{macos_patch_file}") ||
+        raise('Failed to apply macOS patch')
+    end
+
+    def macos?
+      RUBY_PLATFORM.include?('darwin')
     end
   end
 end

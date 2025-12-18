@@ -1,3 +1,82 @@
+/*
+ * Kanayago - Ruby Parser Extension
+ *
+ * This file contains code derived from CRuby (https://www.ruby-lang.org/).
+ *
+ * The following functions are based on ruby_parser.c:
+ *   - kanayago_zalloc
+ *   - kanayago_memmove
+ *   - kanayago_nonempty_memcpy
+ *   - kanayago_is_local_id
+ *   - kanayago_is_attrset_id
+ *   - kanayago_is_notop_id
+ *   - kanayago_enc_str_new
+ *   - kanayago_enc_isalnum
+ *   - kanayago_enc_precise_mbclen
+ *   - kanayago_mbclen_charfound_p
+ *   - kanayago_mbclen_charfound_len
+ *   - kanayago_enc_name
+ *   - kanayago_enc_prev_char
+ *   - kanayago_enc_get
+ *   - kanayago_enc_asciicompat
+ *   - kanayago_utf8_encoding
+ *   - kanayago_ascii8bit_encoding
+ *   - kanayago_enc_codelen
+ *   - kanayago_enc_mbcput
+ *   - kanayago_enc_from_index
+ *   - kanayago_enc_isspace
+ *   - kanayago_intern3
+ *   - kanayago_enc_symname_type
+ *   - kanayago_is_usascii_enc
+ *   - kanayago_local_defined
+ *   - kanayago_dvar_defined
+ *   - kanayago_rtest
+ *   - kanayago_nil_p
+ *   - kanayago_syntax_error_new
+ *   - kanayago_ruby_verbose
+ *   - kanayago_errno_ptr
+ *   - kanayago_gc_guard
+ *   - kanayago_arg_error
+ *   - kanayago_static_id2sym
+ *   - kanayago_str_coderange_scan_restartable
+ *   - kanayago_enc_mbminlen
+ *   - kanayago_enc_isascii
+ *   - kanayago_enc_mbc_to_codepoint
+ *   - kanayago_reg_named_capture_assign
+ *   - kanayago_reg_named_capture_assign_iter
+ *
+ * The following functions are based on error.c:
+ *   - kanayago_err_vcatf
+ *   - kanayago_syntax_error_with_path
+ *   - kanayago_syntax_error_append
+ *
+ * Ruby is copyrighted free software by Yukihiro Matsumoto <matz@netlab.jp>.
+ * Ruby is available under the terms of the 2-clause BSD License:
+ *
+ *   Redistribution and use in source and binary forms, with or without
+ *   modification, are permitted provided that the following conditions are met:
+ *
+ *   1. Redistributions of source code must retain the above copyright notice,
+ *      this list of conditions and the following disclaimer.
+ *   2. Redistributions in binary form must reproduce the above copyright notice,
+ *      this list of conditions and the following disclaimer in the documentation
+ *      and/or other materials provided with the distribution.
+ *
+ *   THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+ *   AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ *   IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ *   ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+ *   LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+ *   CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+ *   SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+ *   INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+ *   CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ *   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+ *   POSSIBILITY OF SUCH DAMAGE.
+ *
+ * See https://www.ruby-lang.org/en/about/license.txt for the full Ruby license.
+ */
+
 #include "kanayago.h"
 #include "scope_node.h"
 #include "literal_node.h"
@@ -8,6 +87,549 @@
 #include "internal/encoding.h"
 #include "internal/ruby_parser.h"
 #include "rubyparser.h"
+
+#include <unistd.h>
+#include "internal.h"
+#include "internal/array.h"
+#include "internal/bignum.h"
+#include "internal/compile.h"
+#include "internal/complex.h"
+#include "internal/gc.h"
+#include "internal/hash.h"
+#include "internal/io.h"
+#include "internal/rational.h"
+#include "internal/re.h"
+#include "internal/string.h"
+#include "internal/symbol.h"
+#include "internal/thread.h"
+#include "ruby/ractor.h"
+#include "ruby/util.h"
+#include "vm_core.h"
+#include "symbol.h"
+
+#define parser_encoding const void
+
+/*
+ * Kanayago's own adapter implementation
+ * To eliminate dependency on Universal Parser's rb_global_parser_config,
+ * we define our own kanayago_parser_config.
+ */
+
+/* Memory allocation with overflow check */
+static void *
+kanayago_xmalloc_mul_add(size_t x, size_t y, size_t z)
+{
+    size_t size;
+    if (y != 0 && x > (SIZE_MAX - z) / y) {
+        rb_raise(rb_eArgError, "allocation size overflow");
+    }
+    size = x * y + z;
+    return ruby_xmalloc(size);
+}
+
+/* Temporary ID generation */
+static size_t kanayago_tmp_id_counter = 0;
+
+static ID
+kanayago_make_temporary_id(size_t n)
+{
+    char buf[64];
+    snprintf(buf, sizeof(buf), "@kanayago_tmp_%zu_%zu", n, kanayago_tmp_id_counter++);
+    return rb_intern(buf);
+}
+
+/* TTY detection */
+static int
+kanayago_stderr_tty_p(void)
+{
+    return isatty(fileno(stderr));
+}
+
+/* Regex compilation */
+static VALUE
+kanayago_reg_compile(VALUE str, int options, const char *sourcefile, int sourceline)
+{
+    return rb_reg_new_str(str, options);
+}
+
+/* Regex preprocessing */
+static VALUE
+kanayago_reg_check_preprocess(VALUE val)
+{
+    return Qnil;
+}
+
+/* Tracing suppression */
+static VALUE
+kanayago_suppress_tracing(VALUE (*func)(VALUE), VALUE arg)
+{
+    return func(arg);
+}
+
+/* Helper functions (ported from ruby_parser.c) */
+static void *
+kanayago_zalloc(size_t elemsiz)
+{
+    return ruby_xcalloc(1, elemsiz);
+}
+
+static void *
+kanayago_memmove(void *dest, const void *src, size_t t, size_t n)
+{
+    return memmove(dest, src, rbimpl_size_mul_or_raise(t, n));
+}
+
+static void *
+kanayago_nonempty_memcpy(void *dest, const void *src, size_t t, size_t n)
+{
+    return ruby_nonempty_memcpy(dest, src, rbimpl_size_mul_or_raise(t, n));
+}
+
+static int
+kanayago_is_local_id(ID id)
+{
+    return is_local_id(id);
+}
+
+static int
+kanayago_is_attrset_id(ID id)
+{
+    return is_attrset_id(id);
+}
+
+static int
+kanayago_is_notop_id(ID id)
+{
+    return is_notop_id(id);
+}
+
+static VALUE
+kanayago_enc_str_new(const char *ptr, long len, parser_encoding *enc)
+{
+    return rb_enc_str_new(ptr, len, enc);
+}
+
+static int
+kanayago_enc_isalnum(OnigCodePoint c, parser_encoding *enc)
+{
+    return rb_enc_isalnum(c, enc);
+}
+
+static int
+kanayago_enc_precise_mbclen(const char *p, const char *e, parser_encoding *enc)
+{
+    return rb_enc_precise_mbclen(p, e, enc);
+}
+
+static int
+kanayago_mbclen_charfound_p(int len)
+{
+    return MBCLEN_CHARFOUND_P(len);
+}
+
+static int
+kanayago_mbclen_charfound_len(int len)
+{
+    return MBCLEN_CHARFOUND_LEN(len);
+}
+
+static const char *
+kanayago_enc_name(parser_encoding *enc)
+{
+    return rb_enc_name(enc);
+}
+
+static char *
+kanayago_enc_prev_char(const char *s, const char *p, const char *e, parser_encoding *enc)
+{
+    return rb_enc_prev_char(s, p, e, enc);
+}
+
+static parser_encoding *
+kanayago_enc_get(VALUE obj)
+{
+    return rb_enc_get(obj);
+}
+
+static int
+kanayago_enc_asciicompat(parser_encoding *enc)
+{
+    return rb_enc_asciicompat(enc);
+}
+
+static parser_encoding *
+kanayago_utf8_encoding(void)
+{
+    return rb_utf8_encoding();
+}
+
+static parser_encoding *
+kanayago_ascii8bit_encoding(void)
+{
+    return rb_ascii8bit_encoding();
+}
+
+static int
+kanayago_enc_codelen(int c, parser_encoding *enc)
+{
+    return rb_enc_codelen(c, enc);
+}
+
+static int
+kanayago_enc_mbcput(unsigned int c, void *buf, parser_encoding *enc)
+{
+    return rb_enc_mbcput(c, buf, enc);
+}
+
+static parser_encoding *
+kanayago_enc_from_index(int idx)
+{
+    return rb_enc_from_index(idx);
+}
+
+static int
+kanayago_enc_isspace(OnigCodePoint c, parser_encoding *enc)
+{
+    return rb_enc_isspace(c, enc);
+}
+
+static ID
+kanayago_intern3(const char *name, long len, parser_encoding *enc)
+{
+    return rb_intern3(name, len, enc);
+}
+
+static int
+kanayago_enc_symname_type(const char *name, long len, parser_encoding *enc, unsigned int allowed_attrset)
+{
+    return rb_enc_symname_type(name, len, enc, allowed_attrset);
+}
+
+static int
+kanayago_is_usascii_enc(parser_encoding *enc)
+{
+    return rb_is_usascii_enc(enc);
+}
+
+static int
+kanayago_local_defined(ID id, const void *p)
+{
+    // Kanayago doesn't have external ISEQ context
+    // parent_iseq is always NULL, so always return 0
+    (void)id;
+    (void)p;
+    return 0;
+}
+
+static int
+kanayago_dvar_defined(ID id, const void *p)
+{
+    // Kanayago doesn't have external ISEQ context
+    // parent_iseq is always NULL, so always return 0
+    (void)id;
+    (void)p;
+    return 0;
+}
+
+static int
+kanayago_rtest(VALUE obj)
+{
+    return (int)RB_TEST(obj);
+}
+
+static int
+kanayago_nil_p(VALUE obj)
+{
+    return (int)NIL_P(obj);
+}
+
+static VALUE
+kanayago_syntax_error_new(void)
+{
+    return rb_class_new_instance(0, 0, rb_eSyntaxError);
+}
+
+static VALUE
+kanayago_ruby_verbose(void)
+{
+    return ruby_verbose;
+}
+
+static int *
+kanayago_errno_ptr(void)
+{
+    return rb_errno_ptr();
+}
+
+static void
+kanayago_gc_guard(VALUE obj)
+{
+    RB_GC_GUARD(obj);
+}
+
+static VALUE
+kanayago_arg_error(void)
+{
+    return rb_eArgError;
+}
+
+static VALUE
+kanayago_static_id2sym(ID id)
+{
+    return (((VALUE)(id)<<RUBY_SPECIAL_SHIFT)|SYMBOL_FLAG);
+}
+
+static long
+kanayago_str_coderange_scan_restartable(const char *s, const char *e, parser_encoding *enc, int *cr)
+{
+    return rb_str_coderange_scan_restartable(s, e, enc, cr);
+}
+
+static int
+kanayago_enc_mbminlen(parser_encoding *enc)
+{
+    return rb_enc_mbminlen(enc);
+}
+
+static bool
+kanayago_enc_isascii(OnigCodePoint c, parser_encoding *enc)
+{
+    return rb_enc_isascii(c, enc);
+}
+
+static OnigCodePoint
+kanayago_enc_mbc_to_codepoint(const char *p, const char *e, parser_encoding *enc)
+{
+    const OnigUChar *up = RBIMPL_CAST((const OnigUChar *)p);
+    const OnigUChar *ue = RBIMPL_CAST((const OnigUChar *)e);
+
+    return ONIGENC_MBC_TO_CODE((rb_encoding *)enc, up, ue);
+}
+
+/* Syntax Error Append (ported from error.c) */
+static VALUE
+kanayago_err_vcatf(VALUE str, const char *pre, const char *file, int line,
+          const char *fmt, va_list args)
+{
+    if (file) {
+        rb_str_cat_cstr(str, file);
+        if (line) rb_str_catf(str, ":%d", line);
+        rb_str_cat_cstr(str, ": ");
+    }
+    if (pre) rb_str_cat_cstr(str, pre);
+    rb_str_vcatf(str, fmt, args);
+    return str;
+}
+
+static VALUE
+kanayago_syntax_error_with_path(VALUE exc, VALUE file, VALUE *mesg, rb_encoding *enc)
+{
+    if (NIL_P(exc) || exc == Qfalse) {
+        exc = rb_class_new_instance(0, 0, rb_eSyntaxError);
+    }
+    *mesg = rb_attr_get(exc, rb_intern("mesg"));
+    if (NIL_P(*mesg) || OBJ_FROZEN(*mesg)) {
+        *mesg = rb_enc_str_new(0, 0, enc);
+        rb_ivar_set(exc, rb_intern("mesg"), *mesg);
+    }
+    return exc;
+}
+
+RBIMPL_ATTR_FORMAT(RBIMPL_PRINTF_FORMAT, 6, 0)
+static VALUE
+kanayago_syntax_error_append(VALUE exc, VALUE file, int line, int column,
+                       parser_encoding *enc, const char *fmt, va_list args)
+{
+    const char *fn = NIL_P(file) ? NULL : RSTRING_PTR(file);
+    if (!exc) {
+        exc = rb_class_new_instance(0, 0, rb_eSyntaxError);
+        VALUE mesg = rb_attr_get(exc, rb_intern("mesg"));
+        if (NIL_P(mesg) || OBJ_FROZEN(mesg)) {
+            mesg = rb_enc_str_new(0, 0, enc);
+            rb_ivar_set(exc, rb_intern("mesg"), mesg);
+        }
+        kanayago_err_vcatf(mesg, NULL, fn, line, fmt, args);
+        VALUE err_mesg = rb_str_dup(mesg);
+        rb_str_cat_cstr(err_mesg, "\n");
+        rb_write_error_str(err_mesg);
+    }
+    else {
+        VALUE mesg;
+        exc = kanayago_syntax_error_with_path(exc, file, &mesg, enc);
+        kanayago_err_vcatf(mesg, NULL, fn, line, fmt, args);
+    }
+
+    return exc;
+}
+
+/* reg_named_capture_assign (ported from ruby_parser.c) */
+typedef struct {
+    struct parser_params *parser;
+    rb_encoding *enc;
+    NODE *succ_block;
+    const rb_code_location_t *loc;
+    rb_parser_assignable_func assignable;
+} kanayago_reg_named_capture_assign_t;
+
+static int
+kanayago_reg_named_capture_assign_iter(const OnigUChar *name, const OnigUChar *name_end,
+          int back_num, int *back_refs, OnigRegex regex, void *arg0)
+{
+    kanayago_reg_named_capture_assign_t *arg = (kanayago_reg_named_capture_assign_t*)arg0;
+    struct parser_params* p = arg->parser;
+    rb_encoding *enc = arg->enc;
+    const rb_code_location_t *loc = arg->loc;
+    long len = name_end - name;
+    const char *s = (const char *)name;
+
+    return rb_reg_named_capture_assign_iter_impl(p, s, len, enc, &arg->succ_block, loc, arg->assignable);
+}
+
+static NODE *
+kanayago_reg_named_capture_assign(struct parser_params* p, VALUE regexp, const rb_code_location_t *loc,
+                         rb_parser_assignable_func assignable)
+{
+    kanayago_reg_named_capture_assign_t arg;
+
+    arg.parser = p;
+    arg.enc = rb_enc_get(regexp);
+    arg.succ_block = 0;
+    arg.loc = loc;
+    arg.assignable = assignable;
+    onig_foreach_name(RREGEXP_PTR(regexp), kanayago_reg_named_capture_assign_iter, &arg);
+
+    if (!arg.succ_block) return 0;
+    return RNODE_BLOCK(arg.succ_block)->nd_next;
+}
+
+/* Kanayago's own parser config */
+static const rb_parser_config_t kanayago_parser_config = {
+    .malloc = ruby_xmalloc,
+    .calloc = ruby_xcalloc,
+    .realloc = ruby_xrealloc,
+    .free = ruby_xfree,
+    .alloc_n = ruby_xmalloc2,
+    .alloc = ruby_xmalloc,
+    .realloc_n = ruby_xrealloc2,
+    .zalloc = kanayago_zalloc,
+    .rb_memmove = kanayago_memmove,
+    .nonempty_memcpy = kanayago_nonempty_memcpy,
+    .xmalloc_mul_add = kanayago_xmalloc_mul_add,
+
+    .compile_callback = kanayago_suppress_tracing,
+    .reg_named_capture_assign = kanayago_reg_named_capture_assign,
+
+    .attr_get = rb_attr_get,
+
+    .ary_new_from_args = rb_ary_new_from_args,
+    .ary_unshift = rb_ary_unshift,
+
+    .make_temporary_id = kanayago_make_temporary_id,
+    .is_local_id = kanayago_is_local_id,
+    .is_attrset_id = kanayago_is_attrset_id,
+    .is_global_name_punct = is_global_name_punct,
+    .id_type = id_type,
+    .id_attrset = rb_id_attrset,
+    .intern = rb_intern,
+    .intern2 = rb_intern2,
+    .intern3 = kanayago_intern3,
+    .intern_str = rb_intern_str,
+    .is_notop_id = kanayago_is_notop_id,
+    .enc_symname_type = kanayago_enc_symname_type,
+    .id2name = rb_id2name,
+    .id2str = rb_id2str,
+    .id2sym = rb_id2sym,
+
+    .str_catf = rb_str_catf,
+    .str_cat_cstr = rb_str_cat_cstr,
+    .str_resize = rb_str_resize,
+    .str_new = rb_str_new,
+    .str_new_cstr = rb_str_new_cstr,
+    .str_to_interned_str = rb_str_to_interned_str,
+    .enc_str_new = kanayago_enc_str_new,
+    .str_vcatf = rb_str_vcatf,
+    .rb_sprintf = rb_sprintf,
+    .rstring_ptr = RSTRING_PTR,
+    .rstring_len = RSTRING_LEN,
+
+    .int2num = rb_int2num_inline,
+
+    .stderr_tty_p = kanayago_stderr_tty_p,
+    .write_error_str = rb_write_error_str,
+    .io_write = rb_io_write,
+    .io_flush = rb_io_flush,
+    .io_puts = rb_io_puts,
+
+    .debug_output_stdout = rb_ractor_stdout,
+    .debug_output_stderr = rb_ractor_stderr,
+
+    .is_usascii_enc = kanayago_is_usascii_enc,
+    .enc_isalnum = kanayago_enc_isalnum,
+    .enc_precise_mbclen = kanayago_enc_precise_mbclen,
+    .mbclen_charfound_p = kanayago_mbclen_charfound_p,
+    .mbclen_charfound_len = kanayago_mbclen_charfound_len,
+    .enc_name = kanayago_enc_name,
+    .enc_prev_char = kanayago_enc_prev_char,
+    .enc_get = kanayago_enc_get,
+    .enc_asciicompat = kanayago_enc_asciicompat,
+    .utf8_encoding = kanayago_utf8_encoding,
+    .ascii8bit_encoding = kanayago_ascii8bit_encoding,
+    .enc_codelen = kanayago_enc_codelen,
+    .enc_mbcput = kanayago_enc_mbcput,
+    .enc_find_index = rb_enc_find_index,
+    .enc_from_index = kanayago_enc_from_index,
+    .enc_isspace = kanayago_enc_isspace,
+    .enc_coderange_7bit = ENC_CODERANGE_7BIT,
+    .enc_coderange_unknown = ENC_CODERANGE_UNKNOWN,
+    .enc_mbminlen = kanayago_enc_mbminlen,
+    .enc_isascii = kanayago_enc_isascii,
+    .enc_mbc_to_codepoint = kanayago_enc_mbc_to_codepoint,
+
+    .local_defined = kanayago_local_defined,
+    .dvar_defined = kanayago_dvar_defined,
+
+    .syntax_error_append = kanayago_syntax_error_append,
+    .raise = rb_raise,
+    .syntax_error_new = kanayago_syntax_error_new,
+
+    .errinfo = rb_errinfo,
+    .set_errinfo = rb_set_errinfo,
+    .make_exception = rb_make_exception,
+
+    .sized_xfree = ruby_sized_xfree,
+    .sized_realloc_n = ruby_sized_realloc_n,
+    .gc_guard = kanayago_gc_guard,
+    .gc_mark = rb_gc_mark,
+
+    .reg_compile = kanayago_reg_compile,
+    .reg_check_preprocess = kanayago_reg_check_preprocess,
+    .memcicmp = rb_memcicmp,
+
+    .compile_warn = rb_compile_warn,
+    .compile_warning = rb_compile_warning,
+    .bug = rb_bug,
+    .fatal = rb_fatal,
+    .verbose = kanayago_ruby_verbose,
+    .errno_ptr = kanayago_errno_ptr,
+
+    .make_backtrace = rb_make_backtrace,
+
+    .scan_hex = ruby_scan_hex,
+    .scan_oct = ruby_scan_oct,
+    .scan_digits = ruby_scan_digits,
+    .strtod = ruby_strtod,
+
+    .rtest = kanayago_rtest,
+    .nil_p = kanayago_nil_p,
+    .qnil = Qnil,
+    .qfalse = Qfalse,
+    .eArgError = kanayago_arg_error,
+    .long2int = rb_long2int,
+
+    /* For Ripper */
+    .static_id2sym = kanayago_static_id2sym,
+    .str_coderange_scan_restartable = kanayago_str_coderange_scan_restartable,
+};
 
 VALUE rb_mKanayago;
 
@@ -512,7 +1134,8 @@ kanayago_parse(VALUE self, VALUE source)
     struct ruby_parser *parser;
     rb_parser_t *parser_params;
 
-    parser_params = rb_parser_params_new();
+    /* Use Kanayago's own parser config */
+    parser_params = rb_ruby_parser_new(&kanayago_parser_config);
     VALUE vparser = TypedData_Make_Struct(0, struct ruby_parser,
                                          &ruby_parser_data_type, parser);
     parser->parser_params = parser_params;

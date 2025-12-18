@@ -1,0 +1,78 @@
+# frozen_string_literal: true
+
+RUBY_PARSER_COPY_TARGETS = %w[
+  ccan/check_type/check_type.h
+  ccan/container_of/container_of.h
+  ccan/list/list.h
+  ccan/str/str.h
+  constant.h
+  id.h
+  id_table.h
+  internal/array.h
+  internal/basic_operators.h
+  internal/bignum.h
+  internal/bits.h
+  internal/compile.h
+  internal/compilers.h
+  internal/complex.h
+  internal/encoding.h
+  internal/error.h
+  internal/fixnum.h
+  internal/gc.h
+  internal/hash.h
+  internal/imemo.h
+  internal/io.h
+  internal/numeric.h
+  internal/parse.h
+  internal/rational.h
+  internal/re.h
+  internal/ruby_parser.h
+  internal/sanitizers.h
+  internal/serial.h
+  internal/static_assert.h
+  internal/string.h
+  internal/symbol.h
+  internal/thread.h
+  internal/variable.h
+  internal/warnings.h
+  internal/vm.h
+  internal.h
+  lex.c
+  method.h
+  node.c
+  node.h
+  node_name.inc
+  parse.c
+  parse.h
+  parser_bits.h
+  parser_node.h
+  parser_st.c
+  parser_st.h
+  parser_value.h
+  ruby_assert.h
+  ruby_atomic.h
+  ruby_parser.c
+  rubyparser.h
+  shape.h
+  st.c
+  symbol.h
+  thread_pthread.h
+  universal_parser.c
+  vm_core.h
+  vm_opts.h
+].freeze
+
+MAKE_DIRECTORIES = [
+  'ccan',
+  'ccan/check_type',
+  'ccan/container',
+  'ccan/container_of',
+  'ccan/list',
+  'ccan/str',
+  'internal'
+].freeze
+
+DELETE_DIRECTORIES = %w[
+  ccan
+  internal
+].freeze

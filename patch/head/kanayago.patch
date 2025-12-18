@@ -264,7 +264,7 @@ index 267f619..841db65 100644
 diff --git a/ext/kanayago/parse.c b/ext/kanayago/parse.c
 --- a/ext/kanayago/parse.c
 +++ b/ext/kanayago/parse.c
-@@ -27391,6 +27391,15 @@ ripper_value(struct parser_params *p)
+@@ -27350,6 +27350,15 @@ ripper_value(struct parser_params *p)
      return p->value;
  }
 
