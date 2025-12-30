@@ -17,6 +17,7 @@ jobs:
       matrix:
         ruby-version:
           - 3.4
+          - 4.0
           - head
 
     steps:

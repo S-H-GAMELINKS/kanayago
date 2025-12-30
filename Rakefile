@@ -11,7 +11,7 @@ require 'fileutils'
 if RUBY_DESCRIPTION.include?('dev')
   require_relative 'patch/head/copy_target'
 else
-  require_relative "patch/#{RUBY_VERSION[0..2]}/copy_target"
+  require_relative "patch/#{RUBY_VERSION}/copy_target"
 end
 
 namespace :ruby_parser do
