@@ -1,6 +1,14 @@
---- a/ext/kanayago/ruby_parser.c
+--- a/ext/kanayago/ruby_parser.c	
 +++ b/ext/kanayago/ruby_parser.c
-@@ -433,16 +433,21 @@
+@@ -6,7 +6,6 @@
+ 
+ #include "node.h"
+ #include "rubyparser.h"
+-#include "internal/error.h"
+ 
+ #ifdef UNIVERSAL_PARSER
+ 
+@@ -433,16 +432,21 @@ stderr_tty_p(void)
      return rb_stderr_tty_p();
  }
  
@@ -24,7 +32,7 @@
  }
  // End of Add for Kanayago
  
-@@ -985,7 +990,8 @@
+@@ -985,7 +989,8 @@ rb_parser_build_script_lines_from(rb_par
  VALUE
  rb_str_new_parser_string(rb_parser_string_t *str)
  {
@@ -34,7 +42,18 @@
      rb_enc_str_coderange(string);
      return string;
  }
-@@ -1167,7 +1173,8 @@
+@@ -1027,8 +1032,9 @@ negative_numeric(VALUE val)
+         break;
+       unknown:
+       default:
++        // Kanayago macOS: Use rb_obj_classname instead of rb_builtin_class_name
+         rb_bug("unknown literal type (%s) passed to negative_numeric",
+-               rb_builtin_class_name(val));
++               rb_obj_classname(val));
+         break;
+     }
+     return val;
+@@ -1167,7 +1173,8 @@ rb_node_regx_string_val(const NODE *node
      rb_parser_string_t *string = node_reg->string;
      VALUE str = rb_enc_str_new(string->ptr, string->len, string->enc);
  
