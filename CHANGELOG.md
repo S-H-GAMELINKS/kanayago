@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.7.0] - 2026-01-01
+
 ### Fixed
 - Fix segmentation fault on macOS caused by unexported Ruby C APIs
   - Several Ruby C APIs (`rb_reg_compile`, `rb_enc_literal_str`, etc.) are not exported on macOS
