@@ -6,6 +6,7 @@ RUBY_PARSER_COPY_TARGETS = %w[
   ccan/list/list.h
   ccan/str/str.h
   constant.h
+  encindex.h
   id.h
   id_table.h
   include/ruby/st.h
@@ -35,6 +36,7 @@ RUBY_PARSER_COPY_TARGETS = %w[
   internal/set_table.h
   internal/static_assert.h
   internal/string.h
+  internal/struct.h
   internal/symbol.h
   internal/thread.h
   internal/variable.h

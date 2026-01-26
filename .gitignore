@@ -13,12 +13,14 @@
 *.a
 mkmf.log
 test.rb
+.test_queue_stats
 
 /ext/kanayago/ccan/check_type/check_type.h
 /ext/kanayago/ccan/container_of/container_of.h
 /ext/kanayago/ccan/list/list.h
 /ext/kanayago/ccan/str/str.h
 /ext/kanayago/constant.h
+/ext/kanayago/encindex.h
 /ext/kanayago/id.h
 /ext/kanayago/id_table.h
 /ext/kanayago/include/ruby/st.h
