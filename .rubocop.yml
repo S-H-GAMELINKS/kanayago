@@ -20,6 +20,13 @@ RBS:
 Style/Documentation:
   Enabled: false
 
+Minitest/UselessAssertion:
+  Exclude:
+    - test/kanayago/global_assignment_node_test.rb
+    - test/kanayago/parse_args_cat_test.rb 
+    - test/kanayago/parse_args_push_test.rb
+    - test/kanayago/parse_attrasgn_test.rb 
+
 plugins:
   - rubocop-minitest
   - rubocop-on-rbs

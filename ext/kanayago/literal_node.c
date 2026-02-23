@@ -299,45 +299,45 @@ back_ref_node_new(const NODE *node)
 }
 
 void
-Init_LiteralNode(VALUE module)
+Init_LiteralNode(VALUE module, VALUE base)
 {
-    rb_cIntegerNode = rb_define_class_under(module, "IntegerNode", rb_cObject);
+    rb_cIntegerNode = rb_define_class_under(module, "IntegerNode", base);
 
-    rb_cFloatNode = rb_define_class_under(module, "FloatNode", rb_cObject);
+    rb_cFloatNode = rb_define_class_under(module, "FloatNode", base);
 
-    rb_cRationalNode = rb_define_class_under(module, "RationalNode", rb_cObject);
+    rb_cRationalNode = rb_define_class_under(module, "RationalNode", base);
 
-    rb_cImaginaryNode = rb_define_class_under(module, "ImaginaryNode", rb_cObject);
+    rb_cImaginaryNode = rb_define_class_under(module, "ImaginaryNode", base);
 
-    rb_cStringNode = rb_define_class_under(module, "StringNode", rb_cObject);
+    rb_cStringNode = rb_define_class_under(module, "StringNode", base);
 
-    rb_cSymbolNode = rb_define_class_under(module, "SymbolNode", rb_cObject);
+    rb_cSymbolNode = rb_define_class_under(module, "SymbolNode", base);
 
-    rb_cZeroListNode = rb_define_class_under(module, "ZeroListNode", rb_cObject);
+    rb_cZeroListNode = rb_define_class_under(module, "ZeroListNode", base);
 
-    rb_cFileNode = rb_define_class_under(module, "FileNode", rb_cObject);
+    rb_cFileNode = rb_define_class_under(module, "FileNode", base);
 
-    rb_cLineNode = rb_define_class_under(module, "LineNode", rb_cObject);
+    rb_cLineNode = rb_define_class_under(module, "LineNode", base);
 
-    rb_cEncodingNode = rb_define_class_under(module, "EncodingNode", rb_cObject);
+    rb_cEncodingNode = rb_define_class_under(module, "EncodingNode", base);
 
-    rb_cNilNode = rb_define_class_under(module, "NilNode", rb_cObject);
+    rb_cNilNode = rb_define_class_under(module, "NilNode", base);
 
-    rb_cTrueNode = rb_define_class_under(module, "TrueNode", rb_cObject);
+    rb_cTrueNode = rb_define_class_under(module, "TrueNode", base);
 
-    rb_cFalseNode = rb_define_class_under(module, "FalseNode", rb_cObject);
+    rb_cFalseNode = rb_define_class_under(module, "FalseNode", base);
 
-    rb_cRangeNode = rb_define_class_under(module, "RangeNode", rb_cObject);
+    rb_cRangeNode = rb_define_class_under(module, "RangeNode", base);
 
-    rb_cExclusiveRangeNode = rb_define_class_under(module, "ExclusiveRangeNode", rb_cObject);
+    rb_cExclusiveRangeNode = rb_define_class_under(module, "ExclusiveRangeNode", base);
 
-    rb_cFlipFlopNode = rb_define_class_under(module, "FlipFlopNode", rb_cObject);
+    rb_cFlipFlopNode = rb_define_class_under(module, "FlipFlopNode", base);
 
-    rb_cExclusiveFlipFlopNode = rb_define_class_under(module, "ExclusiveFlipFlopNode", rb_cObject);
+    rb_cExclusiveFlipFlopNode = rb_define_class_under(module, "ExclusiveFlipFlopNode", base);
 
-    rb_cHashNode = rb_define_class_under(module, "HashNode", rb_cObject);
+    rb_cHashNode = rb_define_class_under(module, "HashNode", base);
 
-    rb_cNthRefNode = rb_define_class_under(module, "NthRefNode", rb_cObject);
+    rb_cNthRefNode = rb_define_class_under(module, "NthRefNode", base);
 
-    rb_cBackRefNode = rb_define_class_under(module, "BackRefNode", rb_cObject);
+    rb_cBackRefNode = rb_define_class_under(module, "BackRefNode", base);
 }

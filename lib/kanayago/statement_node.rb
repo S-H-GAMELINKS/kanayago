@@ -2,114 +2,114 @@
 
 module Kanayago
   class IfStatementNode
-    attr_reader :cond, :body, :else
+    node_attributes :cond, :body, :else
   end
 
   class UnlessStatementNode
-    attr_reader :cond, :body, :else
+    node_attributes :cond, :body, :else
   end
 
   class OrNode
-    attr_reader :first, :second
+    node_attributes :first, :second
   end
 
   class AndNode
-    attr_reader :first, :second
+    node_attributes :first, :second
   end
 
   class WhileNode
-    attr_reader :state, :cond, :body
+    node_attributes :state, :cond, :body
   end
 
   class UntilNode
-    attr_reader :state, :cond, :body
+    node_attributes :state, :cond, :body
   end
 
   class ForNode
-    attr_reader :iter, :body
+    node_attributes :iter, :body
   end
 
   class AliasNode
-    attr_reader :first, :second
+    node_attributes :first, :second
   end
 
   class ValiasNode
-    attr_reader :alias, :original
+    node_attributes :alias, :original
   end
 
   class UndefNode
-    attr_reader :undefs
+    node_attributes :undefs
   end
 
   class ReturnNode
-    attr_reader :statements
+    node_attributes :statements
   end
 
   class GlobalAssignmentNode
-    attr_reader :id, :value
+    node_attributes :id, :value
   end
 
   class ClassVariableAssignmentNode
-    attr_reader :id, :value
+    node_attributes :id, :value
   end
 
   class InstanceAssignmentNode
-    attr_reader :id, :value
+    node_attributes :id, :value
   end
 
   class LocalAssignmentNode
-    attr_reader :id, :value
+    node_attributes :id, :value
   end
 
   class DefinitionNode
-    attr_reader :mid, :defn
+    node_attributes :mid, :defn
   end
 
   class SingletonDefinitionNode
-    attr_reader :recv, :mid, :defn
+    node_attributes :recv, :mid, :defn
   end
 
   class ClassNode
-    attr_reader :cpath, :super, :body
+    node_attributes :cpath, :super, :body
   end
 
   class ModuleNode
-    attr_reader :cpath, :body
+    node_attributes :cpath, :body
   end
 
   class SingletonClassNode
-    attr_reader :recv, :body
+    node_attributes :recv, :body
   end
 
   class AttributeAssignmentNode
-    attr_reader :recv, :mid, :args
+    node_attributes :recv, :mid, :args
   end
 
   class SafeCallNode
-    attr_reader :recv, :mid, :args
+    node_attributes :recv, :mid, :args
   end
 
   class SuperNode
-    attr_reader :args
+    node_attributes :args
   end
 
   class ZeroSuperNode # rubocop:disable Lint/EmptyClass
   end
 
   class CaseNode
-    attr_reader :head, :body
+    node_attributes :head, :body
   end
 
   class Case2Node
-    attr_reader :body
+    node_attributes :body
   end
 
   class Case3Node
-    attr_reader :head, :body
+    node_attributes :head, :body
   end
 
   class WhenNode
-    attr_reader :head, :body, :next
+    node_attributes :head, :body, :next
   end
 
   class RetryNode # rubocop:disable Lint/EmptyClass
@@ -119,118 +119,118 @@ module Kanayago
   end
 
   class BreakNode
-    attr_reader :statements
+    node_attributes :statements
   end
 
   class NextNode
-    attr_reader :statements
+    node_attributes :statements
   end
 
   class DefinedNode
-    attr_reader :head
+    node_attributes :head
   end
 
   class IterNode
-    attr_reader :body, :iter
+    node_attributes :body, :iter
   end
 
   class BeginNode
-    attr_reader :body
+    node_attributes :body
   end
 
   class EnsureNode
-    attr_reader :head, :ensr
+    node_attributes :head, :ensr
   end
 
   class RescueNode
-    attr_reader :head, :resq, :else
+    node_attributes :head, :resq, :else
   end
 
   class RescueBodyNode
-    attr_reader :args, :exc_var, :body, :next
+    node_attributes :args, :exc_var, :body, :next
   end
 
   class OperatorAssignment1Node
-    attr_reader :recv, :mid, :index, :rvalue
+    node_attributes :recv, :mid, :index, :rvalue
   end
 
   class OperatorAssignment2Node
-    attr_reader :recv, :value, :vid, :mid
+    node_attributes :recv, :value, :vid, :mid
   end
 
   class OperatorAssignmentAndNode
-    attr_reader :head, :value
+    node_attributes :head, :value
   end
 
   class OperatorAssignmentOrNode
-    attr_reader :head, :value
+    node_attributes :head, :value
   end
 
   class OperatorConstantDeclarationNode
-    attr_reader :head, :value, :aid, :shareability
+    node_attributes :head, :value, :aid, :shareability
   end
 
   class YieldNode
-    attr_reader :head
+    node_attributes :head
   end
 
   class LambdaNode
-    attr_reader :body
+    node_attributes :body
   end
 
   class SplatNode
-    attr_reader :head
+    node_attributes :head
   end
 
   class BlockPassNode
-    attr_reader :head, :body, :forwarding
+    node_attributes :head, :body, :forwarding
   end
 
   class ArgsAuxNode
-    attr_reader :pid, :plen, :next
+    node_attributes :pid, :plen, :next
   end
 
   class OptArgNode
-    attr_reader :body, :next
+    node_attributes :body, :next
   end
 
   class KwArgNode
-    attr_reader :body, :next
+    node_attributes :body, :next
   end
 
   class PostArgNode
-    attr_reader :first, :second
+    node_attributes :first, :second
   end
 
   class ArgsCatNode
-    attr_reader :head, :body
+    node_attributes :head, :body
   end
 
   class ArgsPushNode
-    attr_reader :head, :body
+    node_attributes :head, :body
   end
 
   class ForMasgnNode
-    attr_reader :var
+    node_attributes :var
   end
 
   class MasgnNode
-    attr_reader :head, :value, :args
+    node_attributes :head, :value, :args
   end
 
   class DasgnNode
-    attr_reader :vid, :value
+    node_attributes :vid, :value
   end
 
   class OnceNode
-    attr_reader :body
+    node_attributes :body
   end
 
   class ErrinfoNode # rubocop:disable Lint/EmptyClass
   end
 
   class PostexeNode
-    attr_reader :body
+    node_attributes :body
   end
 
   class ErrorNode # rubocop:disable Lint/EmptyClass

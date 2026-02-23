@@ -66,13 +66,13 @@ find_pattern_node_new(const NODE *node)
 }
 
 void
-Init_PatternNode(VALUE module)
+Init_PatternNode(VALUE module, VALUE base)
 {
-    rb_cInNode = rb_define_class_under(module, "InNode", rb_cObject);
+    rb_cInNode = rb_define_class_under(module, "InNode", base);
 
-    rb_cArrayPatternNode = rb_define_class_under(module, "ArrayPatternNode", rb_cObject);
+    rb_cArrayPatternNode = rb_define_class_under(module, "ArrayPatternNode", base);
 
-    rb_cHashPatternNode = rb_define_class_under(module, "HashPatternNode", rb_cObject);
+    rb_cHashPatternNode = rb_define_class_under(module, "HashPatternNode", base);
 
-    rb_cFindPatternNode = rb_define_class_under(module, "FindPatternNode", rb_cObject);
+    rb_cFindPatternNode = rb_define_class_under(module, "FindPatternNode", base);
 }

@@ -209,25 +209,25 @@ match3_node_new(const NODE *node)
 }
 
 void
-Init_StringNode(VALUE module)
+Init_StringNode(VALUE module, VALUE base)
 {
-    rb_cDynamicStringNode = rb_define_class_under(module, "DynamicStringNode", rb_cObject);
+    rb_cDynamicStringNode = rb_define_class_under(module, "DynamicStringNode", base);
 
-    rb_cDynamicSymbolNode = rb_define_class_under(module, "DynamicSymbolNode", rb_cObject);
+    rb_cDynamicSymbolNode = rb_define_class_under(module, "DynamicSymbolNode", base);
 
-    rb_cEmbeddedExpressionStringNode = rb_define_class_under(module, "EmbeddedExpressionStringNode", rb_cObject);
+    rb_cEmbeddedExpressionStringNode = rb_define_class_under(module, "EmbeddedExpressionStringNode", base);
 
-    rb_cExecuteStringNode = rb_define_class_under(module, "ExecuteStringNode", rb_cObject);
+    rb_cExecuteStringNode = rb_define_class_under(module, "ExecuteStringNode", base);
 
-    rb_cDynamicExecuteStringNode = rb_define_class_under(module, "DynamicExecuteStringNode", rb_cObject);
+    rb_cDynamicExecuteStringNode = rb_define_class_under(module, "DynamicExecuteStringNode", base);
 
-    rb_cRegexpNode = rb_define_class_under(module, "RegexpNode", rb_cObject);
+    rb_cRegexpNode = rb_define_class_under(module, "RegexpNode", base);
 
-    rb_cDynamicRegexpNode = rb_define_class_under(module, "DynamicRegexpNode", rb_cObject);
+    rb_cDynamicRegexpNode = rb_define_class_under(module, "DynamicRegexpNode", base);
 
-    rb_cMatchNode = rb_define_class_under(module, "MatchNode", rb_cObject);
+    rb_cMatchNode = rb_define_class_under(module, "MatchNode", base);
 
-    rb_cMatch2Node = rb_define_class_under(module, "Match2Node", rb_cObject);
+    rb_cMatch2Node = rb_define_class_under(module, "Match2Node", base);
 
-    rb_cMatch3Node = rb_define_class_under(module, "Match3Node", rb_cObject);
+    rb_cMatch3Node = rb_define_class_under(module, "Match3Node", base);
 }

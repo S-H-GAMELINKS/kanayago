@@ -25,6 +25,6 @@ VALUE hash_node_new(const NODE *);
 VALUE nth_ref_node_new(const NODE *);
 VALUE back_ref_node_new(const NODE *);
 
-void Init_LiteralNode(VALUE);
+void Init_LiteralNode(VALUE, VALUE);
 
 #endif

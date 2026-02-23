@@ -14,6 +14,6 @@ VALUE match_node_new(const NODE *);
 VALUE match2_node_new(const NODE *);
 VALUE match3_node_new(const NODE *);
 
-void Init_StringNode(VALUE);
+void Init_StringNode(VALUE, VALUE);
 
 #endif

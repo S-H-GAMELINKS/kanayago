@@ -55,4 +55,63 @@ class ParseBackRefTest < Minitest::Test
 
     assert_instance_of(Kanayago::FunctionCallNode, second_line)
   end
+
+  def test_case_in_matched
+    result = Kanayago.parse(<<~CODE)
+      "hello" =~ /ll/
+      p $&
+    CODE
+
+    body = result.ast.body
+
+    case body
+    in Kanayago::BlockNode
+      assert_equal(2, body.size)
+      assert_instance_of(Kanayago::FunctionCallNode, body.last)
+    end
+  end
+
+  def test_case_in_unmatched
+    result = Kanayago.parse(<<~CODE)
+      "hello" =~ /ll/
+      p $&
+    CODE
+
+    body = result.ast.body
+
+    assert_raises(NoMatchingPatternError) do
+      case body
+      in Kanayago::IfStatementNode
+        # Nothing to do
+      end
+    end
+  end
+
+  def test_single_in
+    result = Kanayago.parse(<<~CODE)
+      "hello" =~ /ll/
+      p $&
+    CODE
+
+    body = result.ast.body
+
+    body in Kanayago::BlockNode
+
+    assert_equal(2, body.size)
+    assert_instance_of(Kanayago::FunctionCallNode, body.last)
+  end
+
+  def test_right_assignment
+    result = Kanayago.parse(<<~CODE)
+      "hello" =~ /ll/
+      p $&
+    CODE
+
+    body = result.ast.body
+
+    body => Kanayago::BlockNode
+
+    assert_equal(2, body.size)
+    assert_instance_of(Kanayago::FunctionCallNode, body.last)
+  end
 end

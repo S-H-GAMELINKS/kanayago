@@ -2,14 +2,14 @@
 
 module Kanayago
   class ConstantDeclarationNode
-    attr_reader :vid, :else, :value
+    node_attributes :vid, :else, :value
   end
 
   class Colon2Node
-    attr_reader :mid, :head
+    node_attributes :mid, :head
   end
 
   class Colon3Node
-    attr_reader :mid
+    node_attributes :mid
   end
 end

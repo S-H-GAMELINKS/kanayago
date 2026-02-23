@@ -61,6 +61,6 @@ VALUE errinfo_node_new(const NODE *);
 VALUE postexe_node_new(const NODE *);
 VALUE error_node_new(const NODE *);
 
-void Init_StatementNode(VALUE);
+void Init_StatementNode(VALUE, VALUE);
 
 #endif

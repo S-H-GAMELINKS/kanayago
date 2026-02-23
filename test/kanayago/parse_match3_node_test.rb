@@ -24,4 +24,48 @@ class ParseMatch3NodeTest < Minitest::Test
     assert_instance_of(Kanayago::DynamicRegexpNode, match3_node.recv)
     assert_instance_of(Kanayago::StringNode, match3_node.value)
   end
+
+  def pattern_match_target_body
+    result = Kanayago.parse(<<~'PATTERN_TEST_CODE')
+      "bar" =~ /foo#{1}/
+    PATTERN_TEST_CODE
+
+    result.ast.body
+  end
+
+  def test_case_in_matched
+    body = pattern_match_target_body
+
+    case body
+    in Kanayago::Match3Node
+      assert_instance_of(Kanayago::Match3Node, body)
+    end
+  end
+
+  def test_case_in_unmatched
+    body = pattern_match_target_body
+
+    assert_raises(NoMatchingPatternError) do
+      case body.class.name
+      in '__kanayago_unmatched_pattern__'
+        # Nothing to do
+      end
+    end
+  end
+
+  def test_single_in
+    body = pattern_match_target_body
+
+    body in Kanayago::Match3Node
+
+    assert_instance_of(Kanayago::Match3Node, body)
+  end
+
+  def test_right_assignment
+    body = pattern_match_target_body
+
+    body => Kanayago::Match3Node
+
+    assert_instance_of(Kanayago::Match3Node, body)
+  end
 end

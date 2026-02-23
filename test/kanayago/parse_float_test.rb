@@ -138,4 +138,48 @@ class ParseFloatTest < Minitest::Test
 
     assert_instance_of(Kanayago::IntegerNode, arg)
   end
+
+  def pattern_match_target_body
+    result = Kanayago.parse(<<~PATTERN_TEST_CODE)
+      1.17
+    PATTERN_TEST_CODE
+
+    result.ast.body
+  end
+
+  def test_case_in_matched
+    body = pattern_match_target_body
+
+    case body
+    in Kanayago::FloatNode
+      assert_instance_of(Kanayago::FloatNode, body)
+    end
+  end
+
+  def test_case_in_unmatched
+    body = pattern_match_target_body
+
+    assert_raises(NoMatchingPatternError) do
+      case body.class.name
+      in '__kanayago_unmatched_pattern__'
+        # Nothing to do
+      end
+    end
+  end
+
+  def test_single_in
+    body = pattern_match_target_body
+
+    body in Kanayago::FloatNode
+
+    assert_instance_of(Kanayago::FloatNode, body)
+  end
+
+  def test_right_assignment
+    body = pattern_match_target_body
+
+    body => Kanayago::FloatNode
+
+    assert_instance_of(Kanayago::FloatNode, body)
+  end
 end

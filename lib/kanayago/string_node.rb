@@ -2,42 +2,42 @@
 
 module Kanayago
   class DynamicStringNode
-    attr_reader :string, :next_nodes
+    node_attributes :string, :next_nodes
   end
 
   class DynamicSymbolNode
-    attr_reader :string, :next_nodes
+    node_attributes :string, :next_nodes
   end
 
   class EmbeddedExpressionStringNode
-    attr_reader :body
+    node_attributes :body
   end
 
   class ExecuteStringNode
-    attr_reader :ptr, :len, :enc, :coderange
+    node_attributes :ptr, :len, :enc, :coderange
   end
 
   class DynamicExecuteStringNode
-    attr_reader :string, :next_nodes
+    node_attributes :string, :next_nodes
   end
 
   class RegexpNode
-    attr_reader :ptr, :len, :enc, :coderange, :options
+    node_attributes :ptr, :len, :enc, :coderange, :options
   end
 
   class DynamicRegexpNode
-    attr_reader :string, :next_nodes, :options
+    node_attributes :string, :next_nodes, :options
   end
 
   class MatchNode
-    attr_reader :ptr, :len, :enc, :coderange, :options
+    node_attributes :ptr, :len, :enc, :coderange, :options
   end
 
   class Match2Node
-    attr_reader :recv, :value, :args
+    node_attributes :recv, :value, :args
   end
 
   class Match3Node
-    attr_reader :recv, :value
+    node_attributes :recv, :value
   end
 end

@@ -59,15 +59,15 @@ global_variable_node_new(const NODE *node)
 }
 
 void
-Init_VariableNode(VALUE module)
+Init_VariableNode(VALUE module, VALUE base)
 {
-    rb_cLocalVariableNode = rb_define_class_under(module, "LocalVariableNode", rb_cObject);
+    rb_cLocalVariableNode = rb_define_class_under(module, "LocalVariableNode", base);
 
-    rb_cDynamicVariableNode = rb_define_class_under(module, "DynamicVariableNode", rb_cObject);
+    rb_cDynamicVariableNode = rb_define_class_under(module, "DynamicVariableNode", base);
 
-    rb_cInstanceVariableNode = rb_define_class_under(module, "InstanceVariableNode", rb_cObject);
+    rb_cInstanceVariableNode = rb_define_class_under(module, "InstanceVariableNode", base);
 
-    rb_cClassVariableNode = rb_define_class_under(module, "ClassVariableNode", rb_cObject);
+    rb_cClassVariableNode = rb_define_class_under(module, "ClassVariableNode", base);
 
-    rb_cGlobalVariableNode = rb_define_class_under(module, "GlobalVariableNode", rb_cObject);
+    rb_cGlobalVariableNode = rb_define_class_under(module, "GlobalVariableNode", base);
 }
