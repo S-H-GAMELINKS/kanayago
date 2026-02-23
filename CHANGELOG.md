@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- Add support for pattern matching
+
 ## [0.7.0] - 2026-01-01
 
 ### Fixed
