@@ -5,6 +5,7 @@ Trying to Make Ruby's Parser Available as a Gem.
 ## Support Ruby version
 
 Kanayago(金屋子)　is supported Ruby 3.4 or Ruby head.
+CI runs on Ubuntu, macOS, and Windows.
 
 ## Installation
 ### From RubyGems

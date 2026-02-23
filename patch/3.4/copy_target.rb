@@ -57,6 +57,7 @@ RUBY_PARSER_COPY_TARGETS = %w[
   st.c
   symbol.h
   thread_pthread.h
+  thread_win32.h
   universal_parser.c
   vm_core.h
   vm_opts.h

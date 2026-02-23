@@ -208,3 +208,21 @@ diff -ruN a/ext/kanayago/ruby_parser.c b/ext/kanayago/ruby_parser.c
  }
 
  VALUE
+
+diff --git a/ext/kanayago/universal_parser.c b/ext/kanayago/universal_parser.c
+--- a/ext/kanayago/universal_parser.c
++++ b/ext/kanayago/universal_parser.c
+@@ -1,4 +1,12 @@
+-#include <alloca.h>
++#if defined(_WIN32)
++#include <malloc.h>
++#ifndef alloca
++#define alloca _alloca
++#endif
++#else
++#include <alloca.h>
++#endif
++
+ #include <string.h>
+ #include <stdarg.h>
+ #include <stdbool.h>

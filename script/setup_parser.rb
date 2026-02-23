@@ -2,6 +2,9 @@
 # frozen_string_literal: true
 
 require 'fileutils'
+require 'open-uri'
+require 'rubygems/package'
+require 'zlib'
 
 # Ruby parser setup script for Kanayago
 # This script downloads Ruby source code and prepares parser files for building
@@ -87,13 +90,11 @@ module KanayagoSetup
 
       # Download Ruby source
       puts 'Downloading Ruby source from cache.ruby-lang.org...'
-      system("curl -L https://cache.ruby-lang.org/pub/ruby/#{tar_name} -o #{tmp_tar_file}") ||
-        raise('Failed to download Ruby source')
+      download_ruby_source(tar_name, tmp_tar_file)
 
       # Extract
       puts 'Extracting Ruby source...'
-      system("tar -zxf #{tmp_tar_file} -C #{tmp_ruby_dir} --strip-components 1") ||
-        raise('Failed to extract Ruby source')
+      extract_tar_gz(tmp_tar_file, tmp_ruby_dir, strip_components: 1)
 
       dist = File.join(project_root, 'ext', 'kanayago')
 
@@ -144,8 +145,7 @@ module KanayagoSetup
       # Change to project root directory before applying patch
       project_root = File.expand_path('..', __dir__)
       Dir.chdir(project_root) do
-        system("patch -p1 < #{patch_file}") ||
-          raise('Failed to apply patch')
+        apply_unified_patch(patch_file)
 
         # Apply macOS-specific patch if on macOS
         apply_macos_patch(version)
@@ -159,13 +159,66 @@ module KanayagoSetup
       return unless File.exist?(macos_patch_file)
 
       puts "Applying macOS-specific patch for Ruby #{version}..."
-      system("patch -p1 < #{macos_patch_file}") ||
-        raise('Failed to apply macOS patch')
+      apply_unified_patch(macos_patch_file, error_message: 'Failed to apply macOS patch')
     end
 
     def macos?
       RUBY_PLATFORM.include?('darwin')
     end
+
+    def apply_unified_patch(patch_file, error_message: 'Failed to apply patch')
+      status = system('patch', '-p1', in: patch_file)
+      raise(error_message) unless status
+    end
+
+    def download_ruby_source(tar_name, destination)
+      source_url = "https://cache.ruby-lang.org/pub/ruby/#{tar_name}"
+
+      URI.open(source_url) do |input|
+        File.open(destination, 'wb') do |output|
+          IO.copy_stream(input, output)
+        end
+      end
+    rescue StandardError => e
+      raise("Failed to download Ruby source: #{e.message}")
+    end
+
+    def extract_tar_gz(archive_path, destination, strip_components: 0)
+      Zlib::GzipReader.open(archive_path) do |gzip_reader|
+        Gem::Package::TarReader.new(gzip_reader) do |tar|
+          tar.each do |entry|
+            next if entry.full_name.nil? || entry.full_name.empty?
+
+            path_segments = entry.full_name.split('/')
+            next if path_segments.length <= strip_components
+
+            relative_path = path_segments.drop(strip_components).join('/')
+            next if relative_path.empty?
+
+            output_path = File.join(destination, relative_path)
+
+            if entry.directory?
+              FileUtils.mkdir_p(output_path)
+              next
+            end
+
+            FileUtils.mkdir_p(File.dirname(output_path))
+            File.open(output_path, 'wb') { |file| IO.copy_stream(entry, file) }
+
+            next unless entry.header.respond_to?(:mode)
+
+            begin
+              File.chmod(entry.header.mode, output_path)
+            rescue StandardError
+              # Non-fatal on platforms/filesystems that do not support mode changes.
+            end
+          end
+        end
+      end
+    rescue StandardError => e
+      raise("Failed to extract Ruby source: #{e.message}")
+    end
+
   end
 end
 
