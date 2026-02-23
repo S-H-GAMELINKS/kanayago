@@ -20,7 +20,6 @@ class TestGenerator
 
   private
 
-  # rubocop:disable Metrics/CyclomaticComplexity
   def extract_classes(node, namespace = [])
     classes = []
 
@@ -59,7 +58,6 @@ class TestGenerator
 
     classes
   end
-  # rubocop:enable Metrics/CyclomaticComplexity
 
   def extract_constant_name(node)
     case node
