@@ -24,7 +24,7 @@ module Kanayago
 
       private
 
-      def handle_request(request) # rubocop:disable Metrics/CyclomaticComplexity
+      def handle_request(request)
         case request[:method]
         when 'initialize'
           handle_initialize(request)

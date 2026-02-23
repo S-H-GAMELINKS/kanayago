@@ -65,7 +65,7 @@ module KanayagoSetup
       require copy_target_path
     end
 
-    def import_parser_files(version) # rubocop:disable Metrics/PerceivedComplexity
+    def import_parser_files(version)
       puts 'Importing Ruby parser files...'
 
       tar_name = if version == 'head'
