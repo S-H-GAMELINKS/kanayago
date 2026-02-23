@@ -9,7 +9,7 @@ on:
       - master
 
 jobs:
-  test:
+  compile-test:
     runs-on: macos-14
 
     strategy:
@@ -48,5 +48,56 @@ jobs:
       run: bundle exec rake compile
 
     - name: Run tests
-      run: bundle exec rake test
+      run: bundle exec rake queue:test
 
+  gem-build-install:
+    runs-on: macos-14
+
+    strategy:
+      fail-fast: false
+      matrix:
+        ruby-version:
+          - 3.4
+          - 4.0
+          - head
+
+    steps:
+    - uses: actions/checkout@v6
+
+    - name: Install dependencies
+      run: brew install openssl readline libyaml gdbm
+
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: ${{ matrix.ruby-version }}
+        bundler-cache: true
+
+    - name: Kanayago gem build and install
+      run: bundle exec rake build && gem install ./pkg/kanayago-*.gem
+
+  gem-rake-install:
+    runs-on: macos-14
+
+    strategy:
+      fail-fast: false
+      matrix:
+        ruby-version:
+          - 3.4
+          - 4.0
+          - head
+
+    steps:
+    - uses: actions/checkout@v6
+
+    - name: Install dependencies
+      run: brew install openssl readline libyaml gdbm
+
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: ${{ matrix.ruby-version }}
+        bundler-cache: true
+
+    - name: Kanayago gem install
+      run: bundle exec rake install

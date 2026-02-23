@@ -9,7 +9,7 @@ on:
       - master
 
 jobs:
-  test:
+  compile-test:
     runs-on: ubuntu-latest
 
     strategy:
@@ -50,3 +50,54 @@ jobs:
     - name: Run tests
       run: bundle exec rake queue:test
 
+  gem-build-install:
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        ruby-version:
+          - 3.4
+          - 4.0
+          - head
+
+    steps:
+    - uses: actions/checkout@v6
+
+    - name: Install dependencies
+      run: sudo apt install git ruby autoconf gcc make zlib1g-dev libffi-dev libreadline-dev libgdbm-dev libssl-dev libyaml-dev -y
+
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: ${{ matrix.ruby-version }}
+        bundler-cache: true
+
+    - name: Kanayago gem build and install
+      run: bundle exec rake build && gem install ./pkg/kanayago-*.gem
+
+  gem-rake-install:
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        ruby-version:
+          - 3.4
+          - 4.0
+          - head
+
+    steps:
+    - uses: actions/checkout@v6
+
+    - name: Install dependencies
+      run: sudo apt install git ruby autoconf gcc make zlib1g-dev libffi-dev libreadline-dev libgdbm-dev libssl-dev libyaml-dev -y
+
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: ${{ matrix.ruby-version }}
+        bundler-cache: true
+
+    - name: Kanayago gem install
+      run: bundle exec rake install
