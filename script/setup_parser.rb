@@ -218,7 +218,6 @@ module KanayagoSetup
     rescue StandardError => e
       raise("Failed to extract Ruby source: #{e.message}")
     end
-
   end
 end
 

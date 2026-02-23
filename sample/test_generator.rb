@@ -69,7 +69,7 @@ class TestGenerator
     end
   end
 
-  # rubocop:disable Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity
+  # rubocop:disable Metrics/CyclomaticComplexity
   def extract_methods(node, visibility = :public)
     methods = []
     current_visibility = visibility
@@ -111,7 +111,7 @@ class TestGenerator
 
     methods
   end
-  # rubocop:enable Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity
+  # rubocop:enable Metrics/CyclomaticComplexity
 
   # rubocop:disable Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity
   def extract_parameters(def_node)
