@@ -1,0 +1,10 @@
+rules:
+  - name: no_puts
+    file: rules/no_puts_rule.rb
+    class: LintRules::NoPutsRule
+    enabled: true
+
+  - name: no_p
+    file: rules/no_p_call_rule.rb
+    class: LintRules::NoPCallRule
+    enabled: true
