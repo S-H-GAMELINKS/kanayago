@@ -2,13 +2,13 @@
 
 module Kanayago
   class ScopeNode
-    attr_reader :args, :body
+    node_attributes :args, :body
   end
 
   class BlockNode # rubocop:disable Lint/EmptyClass
   end
 
   class ArgumentsNode
-    attr_reader :ainfo
+    node_attributes :ainfo
   end
 end

@@ -14,7 +14,7 @@ scope_node_new(const NODE *node)
 }
 
 void
-Init_ScopeNode(VALUE module)
+Init_ScopeNode(VALUE module, VALUE base)
 {
-    rb_cScopeNode = rb_define_class_under(module, "ScopeNode", rb_cObject);
+    rb_cScopeNode = rb_define_class_under(module, "ScopeNode", base);
 }

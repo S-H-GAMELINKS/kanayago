@@ -179,4 +179,54 @@ class ParseIntegerTest < Minitest::Test
     assert_instance_of(Kanayago::IntegerNode, arg)
     assert_equal(10, arg.val)
   end
+
+  def test_case_in_matched
+    result = Kanayago.parse('117')
+
+    body = result.ast.body
+
+    case body
+    in Kanayago::IntegerNode(val:, minus:, base:)
+      assert_equal(117, val)
+      refute(minus)
+      assert_equal(10, base)
+    end
+  end
+
+  def test_case_in_unmatched
+    result = Kanayago.parse('117')
+
+    body = result.ast.body
+
+    assert_raises(NoMatchingPatternError) do
+      case body
+      in Kanayago::IntegerNode(val:, minus: true, base:)
+        # Nothing to do
+      end
+    end
+  end
+
+  def test_single_in
+    result = Kanayago.parse('117')
+
+    body = result.ast.body
+
+    body in Kanayago::IntegerNode(val:, minus:, base:)
+
+    assert_equal(117, val)
+    refute(minus)
+    assert_equal(10, base)
+  end
+
+  def test_right_assignment
+    result = Kanayago.parse('117')
+
+    body = result.ast.body
+
+    body => Kanayago::IntegerNode(val:, minus:, base:)
+
+    assert_equal(117, val)
+    refute(minus)
+    assert_equal(10, base)
+  end
 end

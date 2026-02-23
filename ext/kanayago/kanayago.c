@@ -633,6 +633,7 @@ static const rb_parser_config_t kanayago_parser_config = {
 
 VALUE rb_mKanayago;
 
+VALUE rb_cBaseNode;
 VALUE rb_cConstantNode;
 VALUE rb_cConstantDeclarationNode;
 VALUE rb_cDefinitionNode;
@@ -1176,54 +1177,56 @@ Init_kanayago(void)
 {
     rb_mKanayago = rb_define_module("Kanayago");
     rb_define_module_function(rb_mKanayago, "kanayago_parse", kanayago_parse, 1);
+    
+    rb_cBaseNode = rb_define_class_under(rb_mKanayago, "BaseNode", rb_cObject);
 
     // For Kanayago::ScopeNode
-    Init_ScopeNode(rb_mKanayago);
+    Init_ScopeNode(rb_mKanayago, rb_cBaseNode);
 
     // For Literal Node(e.g. Kanayago::IntegerNode)
-    Init_LiteralNode(rb_mKanayago);
+    Init_LiteralNode(rb_mKanayago, rb_cBaseNode);
 
     // For String Node(e.g. Kanayago::DynamicStringNode)
-    Init_StringNode(rb_mKanayago);
+    Init_StringNode(rb_mKanayago, rb_cBaseNode);
 
-    rb_cConstantNode = rb_define_class_under(rb_mKanayago, "ConstantNode", rb_cObject);
+    rb_cConstantNode = rb_define_class_under(rb_mKanayago, "ConstantNode", rb_cBaseNode);
 
-    rb_cConstantDeclarationNode = rb_define_class_under(rb_mKanayago, "ConstantDeclarationNode", rb_cObject);
+    rb_cConstantDeclarationNode = rb_define_class_under(rb_mKanayago, "ConstantDeclarationNode", rb_cBaseNode);
 
-    rb_cDefinitionNode = rb_define_class_under(rb_mKanayago, "DefinitionNode", rb_cObject);
+    rb_cDefinitionNode = rb_define_class_under(rb_mKanayago, "DefinitionNode", rb_cBaseNode);
 
-    rb_cOperatorCallNode = rb_define_class_under(rb_mKanayago, "OperatorCallNode", rb_cObject);
+    rb_cOperatorCallNode = rb_define_class_under(rb_mKanayago, "OperatorCallNode", rb_cBaseNode);
 
-    rb_cListNode = rb_define_class_under(rb_mKanayago, "ListNode", rb_cObject);
+    rb_cListNode = rb_define_class_under(rb_mKanayago, "ListNode", rb_cBaseNode);
 
-    rb_cArgumentsNode = rb_define_class_under(rb_mKanayago, "ArgumentsNode", rb_cObject);
+    rb_cArgumentsNode = rb_define_class_under(rb_mKanayago, "ArgumentsNode", rb_cBaseNode);
 
-    rb_cCallNode = rb_define_class_under(rb_mKanayago, "CallNode", rb_cObject);
+    rb_cCallNode = rb_define_class_under(rb_mKanayago, "CallNode", rb_cBaseNode);
 
-    rb_cFunctionCallNode = rb_define_class_under(rb_mKanayago, "FunctionCallNode", rb_cObject);
+    rb_cFunctionCallNode = rb_define_class_under(rb_mKanayago, "FunctionCallNode", rb_cBaseNode);
 
-    rb_cVariableCallNode = rb_define_class_under(rb_mKanayago, "VariableCallNode", rb_cObject);
+    rb_cVariableCallNode = rb_define_class_under(rb_mKanayago, "VariableCallNode", rb_cBaseNode);
 
     // For Statement Node(e.g. Kanayago::IfStatementNode)
-    Init_StatementNode(rb_mKanayago);
+    Init_StatementNode(rb_mKanayago, rb_cBaseNode);
 
     rb_cBlockNode = rb_define_class_under(rb_mKanayago, "BlockNode", rb_cArray);
 
-    rb_cBeginNode = rb_define_class_under(rb_mKanayago, "BeginNode", rb_cObject);
+    rb_cBeginNode = rb_define_class_under(rb_mKanayago, "BeginNode", rb_cBaseNode);
 
-    rb_cClassNode = rb_define_class_under(rb_mKanayago, "ClassNode", rb_cObject);
+    rb_cClassNode = rb_define_class_under(rb_mKanayago, "ClassNode", rb_cBaseNode);
 
-    rb_cModuleNode = rb_define_class_under(rb_mKanayago, "ModuleNode", rb_cObject);
+    rb_cModuleNode = rb_define_class_under(rb_mKanayago, "ModuleNode", rb_cBaseNode);
 
-    rb_cColon2Node = rb_define_class_under(rb_mKanayago, "Colon2Node", rb_cObject);
+    rb_cColon2Node = rb_define_class_under(rb_mKanayago, "Colon2Node", rb_cBaseNode);
 
-    rb_cColon3Node = rb_define_class_under(rb_mKanayago, "Colon3Node", rb_cObject);
+    rb_cColon3Node = rb_define_class_under(rb_mKanayago, "Colon3Node", rb_cBaseNode);
 
     // For Variable Node(e.g. Kanayago::LocalVariableNode)
-    Init_VariableNode(rb_mKanayago);
+    Init_VariableNode(rb_mKanayago, rb_cBaseNode);
 
     // For Pattern Node(e.g. Kanayago::InNode)
-    Init_PatternNode(rb_mKanayago);
+    Init_PatternNode(rb_mKanayago, rb_cBaseNode);
 
-    rb_cSelfNode = rb_define_class_under(rb_mKanayago, "SelfNode", rb_cObject);
+    rb_cSelfNode = rb_define_class_under(rb_mKanayago, "SelfNode", rb_cBaseNode);
 }

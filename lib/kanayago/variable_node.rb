@@ -2,26 +2,26 @@
 
 module Kanayago
   class LocalVariableNode
-    attr_reader :vid
+    node_attributes :vid
   end
 
   class DynamicVariableNode
-    attr_reader :vid
+    node_attributes :vid
   end
 
   class InstanceVariableNode
-    attr_reader :vid
+    node_attributes :vid
   end
 
   class ClassVariableNode
-    attr_reader :vid
+    node_attributes :vid
   end
 
   class GlobalVariableNode
-    attr_reader :vid
+    node_attributes :vid
   end
 
   class ConstantNode
-    attr_reader :vid
+    node_attributes :vid
   end
 end

@@ -46,4 +46,48 @@ class ParseArrayPatternNodeTest < Minitest::Test
     refute_nil(array_pattern.rest_arg)
     assert_instance_of(Kanayago::ListNode, array_pattern.post_args)
   end
+
+  def test_case_in_matched
+    result = Kanayago.parse('case [1, 2]; in [a, b]; end')
+
+    body = result.ast.body
+
+    case body
+    in Kanayago::Case3Node(body: Kanayago::InNode(head: Kanayago::ArrayPatternNode => pattern))
+      assert_instance_of(Kanayago::ArrayPatternNode, pattern)
+    end
+  end
+
+  def test_case_in_unmatched
+    result = Kanayago.parse('case [1, 2]; in [a, b]; end')
+
+    body = result.ast.body
+
+    assert_raises(NoMatchingPatternError) do
+      case body
+      in Kanayago::Case3Node(body: Kanayago::InNode(head: Kanayago::HashPatternNode))
+        # Nothing to do
+      end
+    end
+  end
+
+  def test_single_in
+    result = Kanayago.parse('case [1, 2]; in [a, b]; end')
+
+    body = result.ast.body
+
+    body in Kanayago::Case3Node(body: Kanayago::InNode(head: Kanayago::ArrayPatternNode => pattern))
+
+    assert_instance_of(Kanayago::ArrayPatternNode, pattern)
+  end
+
+  def test_right_assignment
+    result = Kanayago.parse('case [1, 2]; in [a, b]; end')
+
+    body = result.ast.body
+
+    body => Kanayago::Case3Node(body: Kanayago::InNode(head: Kanayago::ArrayPatternNode => pattern))
+
+    assert_instance_of(Kanayago::ArrayPatternNode, pattern)
+  end
 end

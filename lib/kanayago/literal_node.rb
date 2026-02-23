@@ -1,91 +1,91 @@
 # frozen_string_literal: true
 
 module Kanayago
-  class IntegerNode
-    attr_reader :val, :minus, :base
+  class IntegerNode < BaseNode
+    node_attributes :val, :minus, :base
   end
 
   class FloatNode
-    attr_reader :val, :minus
+    node_attributes :val, :minus
   end
 
   class RationalNode
-    attr_reader :val, :minus, :base, :seen_point
+    node_attributes :val, :minus, :base, :seen_point
   end
 
   class ImaginaryNode
-    attr_reader :val, :minus, :base, :seen_point, :type
+    node_attributes :val, :minus, :base, :seen_point, :type
   end
 
   class StringNode
-    attr_reader :ptr, :len, :enc, :coderange
+    node_attributes :ptr, :len, :enc, :coderange
   end
 
   class SymbolNode
-    attr_reader :ptr, :len, :enc, :coderange
+    node_attributes :ptr, :len, :enc, :coderange
   end
 
   class ListNode
-    attr_reader :len, :val
+    node_attributes :len, :val
   end
 
   class ZeroListNode
-    attr_reader :len, :val
+    node_attributes :len, :val
   end
 
   class FileNode
-    attr_reader :ptr, :len, :enc, :coderange
+    node_attributes :ptr, :len, :enc, :coderange
   end
 
   class LineNode
-    attr_reader :lineno
+    node_attributes :lineno
   end
 
   class EncodingNode
-    attr_reader :val
+    node_attributes :val
   end
 
   class NilNode
-    attr_reader :val
+    node_attributes :val
   end
 
   class TrueNode
-    attr_reader :val
+    node_attributes :val
   end
 
   class FalseNode
-    attr_reader :val
+    node_attributes :val
   end
 
   class RangeNode
-    attr_reader :beg, :end
+    node_attributes :beg, :end
   end
 
   class ExclusiveRangeNode
-    attr_reader :beg, :end
+    node_attributes :beg, :end
   end
 
   class FlipFlopNode
-    attr_reader :beg, :end
+    node_attributes :beg, :end
   end
 
   class ExclusiveFlipFlopNode
-    attr_reader :beg, :end
+    node_attributes :beg, :end
   end
 
   class HashNode
-    attr_reader :head, :brace
+    node_attributes :head, :brace
   end
 
   class NthRefNode
-    attr_reader :nth
+    node_attributes :nth
   end
 
   class BackRefNode
-    attr_reader :nth
+    node_attributes :nth
   end
 
   class SelfNode
-    attr_reader :state
+    node_attributes :state
   end
 end

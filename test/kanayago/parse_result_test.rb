@@ -184,4 +184,48 @@ class ParseResultTest < Minitest::Test
     assert_equal(9, result.script_lines[1].chomp.length) # "  def bar"
     assert_equal(22, result.script_lines[2].chomp.length) # "    puts 'hello world'"
   end
+
+  def pattern_match_target_body
+    result = Kanayago.parse(<<~PATTERN_TEST_CODE)
+      1 + 1
+    PATTERN_TEST_CODE
+
+    result.ast.body
+  end
+
+  def test_case_in_matched
+    body = pattern_match_target_body
+
+    case body
+    in Kanayago::OperatorCallNode
+      assert_instance_of(Kanayago::OperatorCallNode, body)
+    end
+  end
+
+  def test_case_in_unmatched
+    body = pattern_match_target_body
+
+    assert_raises(NoMatchingPatternError) do
+      case body.class.name
+      in '__kanayago_unmatched_pattern__'
+        # Nothing to do
+      end
+    end
+  end
+
+  def test_single_in
+    body = pattern_match_target_body
+
+    body in Kanayago::OperatorCallNode
+
+    assert_instance_of(Kanayago::OperatorCallNode, body)
+  end
+
+  def test_right_assignment
+    body = pattern_match_target_body
+
+    body => Kanayago::OperatorCallNode
+
+    assert_instance_of(Kanayago::OperatorCallNode, body)
+  end
 end

@@ -170,4 +170,64 @@ class ParseArgumentsNodeTest < Minitest::Test
     assert_equal(2, ainfo[:post_args_num])
     assert_equal(:rest, ainfo[:rest_arg])
   end
+
+  def test_case_in_matched
+    result = Kanayago.parse(<<~CODE)
+      def foo(a, b)
+        a + b
+      end
+    CODE
+
+    body = result.ast.body
+
+    case body
+    in Kanayago::DefinitionNode(mid: :foo, defn: Kanayago::ScopeNode(args: Kanayago::ArgumentsNode => args))
+      assert_instance_of(Hash, args.ainfo)
+    end
+  end
+
+  def test_case_in_unmatched
+    result = Kanayago.parse(<<~CODE)
+      def foo(a, b)
+        a + b
+      end
+    CODE
+
+    body = result.ast.body
+
+    assert_raises(NoMatchingPatternError) do
+      case body
+      in Kanayago::DefinitionNode(mid: :bar, defn:)
+        # Nothing to do
+      end
+    end
+  end
+
+  def test_single_in
+    result = Kanayago.parse(<<~CODE)
+      def foo(a, b)
+        a + b
+      end
+    CODE
+
+    body = result.ast.body
+
+    body in Kanayago::DefinitionNode(mid: :foo, defn: Kanayago::ScopeNode(args: Kanayago::ArgumentsNode => args))
+
+    assert_instance_of(Hash, args.ainfo)
+  end
+
+  def test_right_assignment
+    result = Kanayago.parse(<<~CODE)
+      def foo(a, b)
+        a + b
+      end
+    CODE
+
+    body = result.ast.body
+
+    body => Kanayago::DefinitionNode(mid: :foo, defn: Kanayago::ScopeNode(args: Kanayago::ArgumentsNode => args))
+
+    assert_instance_of(Hash, args.ainfo)
+  end
 end

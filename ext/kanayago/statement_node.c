@@ -679,117 +679,117 @@ error_node_new(const NODE *node)
 }
 
 void
-Init_StatementNode(VALUE module)
+Init_StatementNode(VALUE module, VALUE base)
 {
-    rb_cIfStatementNode = rb_define_class_under(module, "IfStatementNode", rb_cObject);
+    rb_cIfStatementNode = rb_define_class_under(module, "IfStatementNode", base);
 
-    rb_cUnlessStatementNode = rb_define_class_under(module, "UnlessStatementNode", rb_cObject);
+    rb_cUnlessStatementNode = rb_define_class_under(module, "UnlessStatementNode", base);
 
-    rb_cOrNode = rb_define_class_under(module, "OrNode", rb_cObject);
+    rb_cOrNode = rb_define_class_under(module, "OrNode", base);
 
-    rb_cAndNode = rb_define_class_under(module, "AndNode", rb_cObject);
+    rb_cAndNode = rb_define_class_under(module, "AndNode", base);
 
-    rb_cWhileNode = rb_define_class_under(module, "WhileNode", rb_cObject);
+    rb_cWhileNode = rb_define_class_under(module, "WhileNode", base);
 
-    rb_cUntilNode = rb_define_class_under(module, "UntilNode", rb_cObject);
+    rb_cUntilNode = rb_define_class_under(module, "UntilNode", base);
 
-    rb_cForNode = rb_define_class_under(module, "ForNode", rb_cObject);
+    rb_cForNode = rb_define_class_under(module, "ForNode", base);
 
-    rb_cAliasNode = rb_define_class_under(module, "AliasNode", rb_cObject);
+    rb_cAliasNode = rb_define_class_under(module, "AliasNode", base);
 
-    rb_cValiasNode = rb_define_class_under(module, "ValiasNode", rb_cObject);
+    rb_cValiasNode = rb_define_class_under(module, "ValiasNode", base);
 
-    rb_cUndefNode = rb_define_class_under(module, "UndefNode", rb_cObject);
+    rb_cUndefNode = rb_define_class_under(module, "UndefNode", base);
 
-    rb_cReturnNode = rb_define_class_under(module, "ReturnNode", rb_cObject);
+    rb_cReturnNode = rb_define_class_under(module, "ReturnNode", base);
 
-    rb_cGlobalAssignmentNode = rb_define_class_under(module, "GlobalAssignmentNode", rb_cObject);
+    rb_cGlobalAssignmentNode = rb_define_class_under(module, "GlobalAssignmentNode", base);
 
-    rb_cClassVariableAssignmentNode = rb_define_class_under(module, "ClassVariableAssignmentNode", rb_cObject);
+    rb_cClassVariableAssignmentNode = rb_define_class_under(module, "ClassVariableAssignmentNode", base);
 
-    rb_cInstanceAssignmentNode = rb_define_class_under(module, "InstanceAssignmentNode", rb_cObject);
+    rb_cInstanceAssignmentNode = rb_define_class_under(module, "InstanceAssignmentNode", base);
 
-    rb_cLocalAssignmentNode = rb_define_class_under(module, "LocalAssignmentNode", rb_cObject);
+    rb_cLocalAssignmentNode = rb_define_class_under(module, "LocalAssignmentNode", base);
 
-    rb_cSingletonDefinitionNode = rb_define_class_under(module, "SingletonDefinitionNode", rb_cObject);
+    rb_cSingletonDefinitionNode = rb_define_class_under(module, "SingletonDefinitionNode", base);
 
-    rb_cSingletonClassNode = rb_define_class_under(module, "SingletonClassNode", rb_cObject);
+    rb_cSingletonClassNode = rb_define_class_under(module, "SingletonClassNode", base);
 
-    rb_cAttributeAssignmentNode = rb_define_class_under(module, "AttributeAssignmentNode", rb_cObject);
+    rb_cAttributeAssignmentNode = rb_define_class_under(module, "AttributeAssignmentNode", base);
 
-    rb_cSafeCallNode = rb_define_class_under(module, "SafeCallNode", rb_cObject);
+    rb_cSafeCallNode = rb_define_class_under(module, "SafeCallNode", base);
 
-    rb_cSuperNode = rb_define_class_under(module, "SuperNode", rb_cObject);
+    rb_cSuperNode = rb_define_class_under(module, "SuperNode", base);
 
-    rb_cZeroSuperNode = rb_define_class_under(module, "ZeroSuperNode", rb_cObject);
+    rb_cZeroSuperNode = rb_define_class_under(module, "ZeroSuperNode", base);
 
-    rb_cCaseNode = rb_define_class_under(module, "CaseNode", rb_cObject);
+    rb_cCaseNode = rb_define_class_under(module, "CaseNode", base);
 
-    rb_cCase2Node = rb_define_class_under(module, "Case2Node", rb_cObject);
+    rb_cCase2Node = rb_define_class_under(module, "Case2Node", base);
 
-    rb_cCase3Node = rb_define_class_under(module, "Case3Node", rb_cObject);
+    rb_cCase3Node = rb_define_class_under(module, "Case3Node", base);
 
-    rb_cWhenNode = rb_define_class_under(module, "WhenNode", rb_cObject);
+    rb_cWhenNode = rb_define_class_under(module, "WhenNode", base);
 
-    rb_cRetryNode = rb_define_class_under(module, "RetryNode", rb_cObject);
+    rb_cRetryNode = rb_define_class_under(module, "RetryNode", base);
 
-    rb_cRedoNode = rb_define_class_under(module, "RedoNode", rb_cObject);
+    rb_cRedoNode = rb_define_class_under(module, "RedoNode", base);
 
-    rb_cBreakNode = rb_define_class_under(module, "BreakNode", rb_cObject);
+    rb_cBreakNode = rb_define_class_under(module, "BreakNode", base);
 
-    rb_cNextNode = rb_define_class_under(module, "NextNode", rb_cObject);
+    rb_cNextNode = rb_define_class_under(module, "NextNode", base);
 
-    rb_cDefinedNode = rb_define_class_under(module, "DefinedNode", rb_cObject);
+    rb_cDefinedNode = rb_define_class_under(module, "DefinedNode", base);
 
-    rb_cIterNode = rb_define_class_under(module, "IterNode", rb_cObject);
+    rb_cIterNode = rb_define_class_under(module, "IterNode", base);
 
-    rb_cEnsureNode = rb_define_class_under(module, "EnsureNode", rb_cObject);
+    rb_cEnsureNode = rb_define_class_under(module, "EnsureNode", base);
 
-    rb_cRescueNode = rb_define_class_under(module, "RescueNode", rb_cObject);
+    rb_cRescueNode = rb_define_class_under(module, "RescueNode", base);
 
-    rb_cRescueBodyNode = rb_define_class_under(module, "RescueBodyNode", rb_cObject);
+    rb_cRescueBodyNode = rb_define_class_under(module, "RescueBodyNode", base);
 
-    rb_cOperatorAssignment1Node = rb_define_class_under(module, "OperatorAssignment1Node", rb_cObject);
+    rb_cOperatorAssignment1Node = rb_define_class_under(module, "OperatorAssignment1Node", base);
 
-    rb_cOperatorAssignment2Node = rb_define_class_under(module, "OperatorAssignment2Node", rb_cObject);
+    rb_cOperatorAssignment2Node = rb_define_class_under(module, "OperatorAssignment2Node", base);
 
-    rb_cOperatorAssignmentAndNode = rb_define_class_under(module, "OperatorAssignmentAndNode", rb_cObject);
+    rb_cOperatorAssignmentAndNode = rb_define_class_under(module, "OperatorAssignmentAndNode", base);
 
-    rb_cOperatorAssignmentOrNode = rb_define_class_under(module, "OperatorAssignmentOrNode", rb_cObject);
+    rb_cOperatorAssignmentOrNode = rb_define_class_under(module, "OperatorAssignmentOrNode", base);
 
-    rb_cOperatorConstantDeclarationNode = rb_define_class_under(module, "OperatorConstantDeclarationNode", rb_cObject);
+    rb_cOperatorConstantDeclarationNode = rb_define_class_under(module, "OperatorConstantDeclarationNode", base);
 
-    rb_cYieldNode = rb_define_class_under(module, "YieldNode", rb_cObject);
+    rb_cYieldNode = rb_define_class_under(module, "YieldNode", base);
 
-    rb_cLambdaNode = rb_define_class_under(module, "LambdaNode", rb_cObject);
+    rb_cLambdaNode = rb_define_class_under(module, "LambdaNode", base);
 
-    rb_cSplatNode = rb_define_class_under(module, "SplatNode", rb_cObject);
+    rb_cSplatNode = rb_define_class_under(module, "SplatNode", base);
 
-    rb_cBlockPassNode = rb_define_class_under(module, "BlockPassNode", rb_cObject);
+    rb_cBlockPassNode = rb_define_class_under(module, "BlockPassNode", base);
 
-    rb_cArgsAuxNode = rb_define_class_under(module, "ArgsAuxNode", rb_cObject);
+    rb_cArgsAuxNode = rb_define_class_under(module, "ArgsAuxNode", base);
 
-    rb_cOptArgNode = rb_define_class_under(module, "OptArgNode", rb_cObject);
+    rb_cOptArgNode = rb_define_class_under(module, "OptArgNode", base);
 
-    rb_cKwArgNode = rb_define_class_under(module, "KwArgNode", rb_cObject);
+    rb_cKwArgNode = rb_define_class_under(module, "KwArgNode", base);
 
-    rb_cPostArgNode = rb_define_class_under(module, "PostArgNode", rb_cObject);
+    rb_cPostArgNode = rb_define_class_under(module, "PostArgNode", base);
 
-    rb_cArgsCatNode = rb_define_class_under(module, "ArgsCatNode", rb_cObject);
+    rb_cArgsCatNode = rb_define_class_under(module, "ArgsCatNode", base);
 
-    rb_cArgsPushNode = rb_define_class_under(module, "ArgsPushNode", rb_cObject);
+    rb_cArgsPushNode = rb_define_class_under(module, "ArgsPushNode", base);
 
-    rb_cForMasgnNode = rb_define_class_under(module, "ForMasgnNode", rb_cObject);
+    rb_cForMasgnNode = rb_define_class_under(module, "ForMasgnNode", base);
 
-    rb_cMasgnNode = rb_define_class_under(module, "MasgnNode", rb_cObject);
+    rb_cMasgnNode = rb_define_class_under(module, "MasgnNode", base);
 
-    rb_cDasgnNode = rb_define_class_under(module, "DasgnNode", rb_cObject);
+    rb_cDasgnNode = rb_define_class_under(module, "DasgnNode", base);
 
-    rb_cOnceNode = rb_define_class_under(module, "OnceNode", rb_cObject);
+    rb_cOnceNode = rb_define_class_under(module, "OnceNode", base);
 
-    rb_cErrinfoNode = rb_define_class_under(module, "ErrinfoNode", rb_cObject);
+    rb_cErrinfoNode = rb_define_class_under(module, "ErrinfoNode", base);
 
-    rb_cPostexeNode = rb_define_class_under(module, "PostexeNode", rb_cObject);
+    rb_cPostexeNode = rb_define_class_under(module, "PostexeNode", base);
 
-    rb_cErrorNode = rb_define_class_under(module, "ErrorNode", rb_cObject);
+    rb_cErrorNode = rb_define_class_under(module, "ErrorNode", base);
 }

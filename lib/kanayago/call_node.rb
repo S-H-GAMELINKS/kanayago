@@ -2,18 +2,18 @@
 
 module Kanayago
   class OperatorCallNode
-    attr_reader :recv, :mid, :args
+    node_attributes :recv, :mid, :args
   end
 
   class CallNode
-    attr_reader :recv, :mid, :args
+    node_attributes :recv, :mid, :args
   end
 
   class FunctionCallNode
-    attr_reader :mid, :args
+    node_attributes :mid, :args
   end
 
   class VariableCallNode
-    attr_reader :mid
+    node_attributes :mid
   end
 end

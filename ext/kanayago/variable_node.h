@@ -8,5 +8,5 @@ VALUE instance_variable_node_new(const NODE *);
 VALUE class_variable_node_new(const NODE *);
 VALUE global_variable_node_new(const NODE *);
 
-void Init_VariableNode(VALUE);
+void Init_VariableNode(VALUE, VALUE);
 #endif
