@@ -5,7 +5,7 @@ require 'mkmf'
 # Run setup script to prepare Ruby parser files before building
 setup_script = File.expand_path('../../script/setup_parser.rb', __dir__)
 puts 'Running parser setup script...'
-unless system("ruby #{setup_script}")
+unless system('ruby', setup_script)
   warn 'Failed to setup parser files. Please check the error messages above.'
   exit 1
 end
