@@ -1,0 +1,148 @@
+name: Ruby head
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  compile-test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v6
+
+    - name: Install dependencies
+      run: |
+        sudo apt update
+        sudo apt install git curl autoconf bison build-essential libssl-dev libyaml-dev libreadline-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm-dev rustc patch -y
+
+    - name: Set up Ruby head
+      run: |
+        git clone https://github.com/rbenv/rbenv.git ~/.rbenv
+        git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
+        echo "$HOME/.rbenv/bin" >> "$GITHUB_PATH"
+        echo "$HOME/.rbenv/shims" >> "$GITHUB_PATH"
+        echo 'RBENV_ROOT=$HOME/.rbenv' >> "$GITHUB_ENV"
+        export PATH="$HOME/.rbenv/bin:$PATH"
+        eval "$(rbenv init - bash)"
+        rbenv install -s ruby-dev
+        rbenv global ruby-dev
+        gem install bundler
+
+    - name: Install gems
+      run: |
+        export PATH="$HOME/.rbenv/bin:$HOME/.rbenv/shims:$PATH"
+        eval "$(rbenv init - bash)"
+        bundle install
+
+    - name: Setup Kanayago
+      run: |
+        export PATH="$HOME/.rbenv/bin:$HOME/.rbenv/shims:$PATH"
+        eval "$(rbenv init - bash)"
+        bin/setup
+
+    - name: Build Kanayago
+      run: |
+        export PATH="$HOME/.rbenv/bin:$HOME/.rbenv/shims:$PATH"
+        eval "$(rbenv init - bash)"
+        bundle exec rake compile
+
+    - name: Run tests
+      run: |
+        export PATH="$HOME/.rbenv/bin:$HOME/.rbenv/shims:$PATH"
+        eval "$(rbenv init - bash)"
+        bundle exec rake queue:test
+
+  gem-build-install:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v6
+
+    - name: Install dependencies
+      run: |
+        sudo apt update
+        sudo apt install git curl autoconf bison build-essential libssl-dev libyaml-dev libreadline-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm-dev rustc patch -y
+
+    - name: Set up Ruby head
+      run: |
+        git clone https://github.com/rbenv/rbenv.git ~/.rbenv
+        git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
+        echo "$HOME/.rbenv/bin" >> "$GITHUB_PATH"
+        echo "$HOME/.rbenv/shims" >> "$GITHUB_PATH"
+        echo 'RBENV_ROOT=$HOME/.rbenv' >> "$GITHUB_ENV"
+        export PATH="$HOME/.rbenv/bin:$PATH"
+        eval "$(rbenv init - bash)"
+        rbenv install -s ruby-dev
+        rbenv global ruby-dev
+        gem install bundler
+
+    - name: Install gems
+      run: |
+        export PATH="$HOME/.rbenv/bin:$HOME/.rbenv/shims:$PATH"
+        eval "$(rbenv init - bash)"
+        bundle install
+
+    - name: Setup Kanayago
+      run: |
+        export PATH="$HOME/.rbenv/bin:$HOME/.rbenv/shims:$PATH"
+        eval "$(rbenv init - bash)"
+        bin/setup
+
+    - name: Build gem
+      run: |
+        export PATH="$HOME/.rbenv/bin:$HOME/.rbenv/shims:$PATH"
+        eval "$(rbenv init - bash)"
+        bundle exec rake build
+
+    - name: Install built gem
+      run: |
+        export PATH="$HOME/.rbenv/bin:$HOME/.rbenv/shims:$PATH"
+        eval "$(rbenv init - bash)"
+        gem install ./pkg/kanayago-*.gem
+
+  gem-rake-install:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v6
+
+    - name: Install dependencies
+      run: |
+        sudo apt update
+        sudo apt install git curl autoconf bison build-essential libssl-dev libyaml-dev libreadline-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm-dev rustc patch -y
+
+    - name: Set up Ruby head
+      run: |
+        git clone https://github.com/rbenv/rbenv.git ~/.rbenv
+        git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
+        echo "$HOME/.rbenv/bin" >> "$GITHUB_PATH"
+        echo "$HOME/.rbenv/shims" >> "$GITHUB_PATH"
+        echo 'RBENV_ROOT=$HOME/.rbenv' >> "$GITHUB_ENV"
+        export PATH="$HOME/.rbenv/bin:$PATH"
+        eval "$(rbenv init - bash)"
+        rbenv install -s ruby-dev
+        rbenv global ruby-dev
+        gem install bundler
+
+    - name: Install gems
+      run: |
+        export PATH="$HOME/.rbenv/bin:$HOME/.rbenv/shims:$PATH"
+        eval "$(rbenv init - bash)"
+        bundle install
+
+    - name: Setup Kanayago
+      run: |
+        export PATH="$HOME/.rbenv/bin:$HOME/.rbenv/shims:$PATH"
+        eval "$(rbenv init - bash)"
+        bin/setup
+
+    - name: Kanayago gem install
+      run: |
+        export PATH="$HOME/.rbenv/bin:$HOME/.rbenv/shims:$PATH"
+        eval "$(rbenv init - bash)"
+        bundle exec rake install

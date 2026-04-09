@@ -35,6 +35,7 @@ test.rb
 /ext/kanayago/parse.y
 /ext/kanayago/parse.h
 /ext/kanayago/parse.c
+/ext/kanayago/parse.c.orig
 /ext/kanayago/parser_bits.h
 /ext/kanayago/parser_node.h
 /ext/kanayago/parser_st.c
@@ -50,7 +51,7 @@ test.rb
 /ext/kanayago/st.c
 /ext/kanayago/symbol.h
 /ext/kanayago/thread_pthread.h
+/ext/kanayago/thread_win32.h
 /ext/kanayago/universal_parser.c
 /ext/kanayago/vm_core.h
 /ext/kanayago/vm_opts.h
-
