@@ -367,6 +367,12 @@ kanayago_gc_guard(VALUE obj)
     RB_GC_GUARD(obj);
 }
 
+static void
+kanayago_sized_xfree(void *ptr, size_t size)
+{
+    ruby_sized_xfree(ptr, size);
+}
+
 static VALUE
 kanayago_arg_error(void)
 {
@@ -596,7 +602,7 @@ static const rb_parser_config_t kanayago_parser_config = {
     .set_errinfo = rb_set_errinfo,
     .make_exception = rb_make_exception,
 
-    .sized_xfree = ruby_sized_xfree,
+    .sized_xfree = kanayago_sized_xfree,
     .sized_realloc_n = ruby_sized_realloc_n,
     .gc_guard = kanayago_gc_guard,
     .gc_mark = rb_gc_mark,

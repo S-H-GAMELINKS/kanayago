@@ -15,6 +15,7 @@ RUBY_PARSER_COPY_TARGETS = %w[
   internal/bignum.h
   internal/bits.h
   internal/box.h
+  internal/compar.h
   internal/compile.h
   internal/compilers.h
   internal/complex.h

@@ -32,6 +32,39 @@ index 8e306d1..d420a02 100644
  RUBY_SYMBOL_EXPORT_BEGIN
  #ifdef UNIVERSAL_PARSER
  const rb_parser_config_t *rb_ruby_parser_config(void);
+diff --git a/ext/kanayago/internal/gc.h b/ext/kanayago/internal/gc.h
+--- a/ext/kanayago/internal/gc.h
++++ b/ext/kanayago/internal/gc.h
+@@ -253,6 +253,9 @@
+ void rb_gc_mark_values(long n, const VALUE *values);
+ void rb_gc_mark_vm_stack_values(long n, const VALUE *values);
+ void rb_gc_update_values(long n, VALUE *values);
++
++#define ruby_sized_xrealloc2 ruby_xrealloc2_sized
++#define ruby_sized_xfree ruby_xfree_sized
+ 
+ const char *rb_gc_active_gc_name(void);
+ int rb_gc_modular_gc_loaded_p(void);
+@@ -284,14 +289,14 @@
+ const char *rb_obj_info(VALUE obj);
+ void ruby_annotate_mmap(const void *addr, unsigned long size, const char *name);
+ 
+-# define SIZED_REALLOC_N(v, T, m, n) \
+-    ((v) = (T *)ruby_xrealloc2_sized((void *)(v), (m), sizeof(T), (n)))
++# define SIZED_REALLOC_N(v, T, m, n) \
++    ((v) = (T *)ruby_sized_xrealloc2((void *)(v), (m), sizeof(T), (n)))
+ 
+-# define SIZED_FREE(v) ruby_xfree_sized((void *)(v), sizeof(*(v)))
+-# define SIZED_FREE_N(v, n) ruby_xfree_sized((void *)(v), sizeof(*(v)) * (n))
++# define SIZED_FREE(v) ruby_sized_xfree((void *)(v), sizeof(*(v)))
++# define SIZED_FREE_N(v, n) ruby_sized_xfree((void *)(v), sizeof(*(v)) * (n))
+ 
+ static inline void *
+ ruby_sized_realloc_n(void *ptr, size_t new_count, size_t element_size, size_t old_count)
+ {
+-    return ruby_xrealloc2_sized(ptr, new_count, element_size, old_count);
++    return ruby_sized_xrealloc2(ptr, new_count, element_size, old_count);
+ }
 diff --git a/ext/kanayago/ruby_parser.c b/ext/kanayago/ruby_parser.c
 index 267f619..841db65 100644
 --- a/ext/kanayago/ruby_parser.c
