@@ -12,6 +12,9 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    
+    env:
+      BUNDLER_VERSION: 0
 
     steps:
     - uses: actions/checkout@v6

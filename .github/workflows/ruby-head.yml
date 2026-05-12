@@ -12,6 +12,9 @@ jobs:
   compile-test:
     runs-on: ubuntu-latest
 
+    env:
+      BUNDLER_VERSION: 0
+
     steps:
     - uses: actions/checkout@v6
 
@@ -60,6 +63,9 @@ jobs:
   gem-build-install:
     runs-on: ubuntu-latest
 
+    env:
+      BUNDLER_VERSION: 0
+
     steps:
     - uses: actions/checkout@v6
 
@@ -107,6 +113,9 @@ jobs:
 
   gem-rake-install:
     runs-on: ubuntu-latest
+
+    env:
+      BUNDLER_VERSION: 0
 
     steps:
     - uses: actions/checkout@v6
