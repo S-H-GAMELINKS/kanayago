@@ -12,7 +12,7 @@ Gem::Specification.new do |spec|
   spec.description = "Trying to Make Ruby's Parser Available as a Gem"
   spec.homepage = 'https://github.com/S-H-GAMELINKS/kanayago'
   spec.license = 'MIT'
-  spec.required_ruby_version = '> 3.3.0'
+  spec.required_ruby_version = '>= 3.4.0.dev'
 
   spec.metadata['homepage_uri'] = spec.homepage
   spec.metadata['source_code_uri'] = 'https://github.com/S-H-GAMELINKS/kanayago'
