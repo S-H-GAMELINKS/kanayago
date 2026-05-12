@@ -9,8 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 - Add support for Ruby 3.4.9
-- Add support for Ruby 4.0.2
-- Add Ruby 3.4.9 and 4.0.2 to the CI test matrix
+- Add support for Ruby 4.0.2, 4.0.3 and 4.0.4
+- Add Ruby 3.4.9, 4.0.2, 4.0.3 and 4.0.4 to the CI test matrix
 
 ## [0.8.1] - 2026-03-06
 

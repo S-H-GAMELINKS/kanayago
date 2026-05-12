@@ -1,0 +1,46 @@
+--- a/ext/kanayago/ruby_parser.c
++++ b/ext/kanayago/ruby_parser.c
+@@ -433,16 +433,21 @@
+     return rb_stderr_tty_p();
+ }
+ 
++// Kanayago macOS: Use rb_reg_new_str instead of rb_reg_compile (not exported in Ruby head)
+ static VALUE
+ reg_compile(VALUE str, int options, const char *sourcefile, int sourceline)
+ {
+-     return rb_reg_compile(str, options, sourcefile, sourceline);
++    (void)sourcefile;
++    (void)sourceline;
++    return rb_reg_new_str(str, options);
+ }
+ 
++// Kanayago macOS: Return Qnil instead of calling rb_reg_check_preprocess (not exported in Ruby head)
+ static VALUE
+ reg_check_preprocess(VALUE val)
+ {
+-    return rb_reg_check_preprocess(val);
++    (void)val;
++    return Qnil;
+ }
+ // End of Add for Kanayago
+ 
+@@ -985,7 +990,8 @@
+ VALUE
+ rb_str_new_parser_string(rb_parser_string_t *str)
+ {
+-    VALUE string = rb_enc_literal_str(str->ptr, str->len, str->enc);
++    // Kanayago macOS: Use rb_enc_str_new instead of rb_enc_literal_str (not exported in Ruby head)
++    VALUE string = rb_enc_str_new(str->ptr, str->len, str->enc);
+     rb_enc_str_coderange(string);
+     return string;
+ }
+@@ -1167,7 +1173,8 @@
+     rb_parser_string_t *string = node_reg->string;
+     VALUE str = rb_enc_str_new(string->ptr, string->len, string->enc);
+ 
+-    return rb_reg_compile(str, node_reg->options, NULL, 0);
++    // Kanayago macOS: Use rb_reg_new_str instead of rb_reg_compile
++    return rb_reg_new_str(str, node_reg->options);
+ }
+ 
+ VALUE
