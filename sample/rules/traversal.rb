@@ -4,7 +4,7 @@ module LintRules
   module Traversal
     module_function
 
-    def walk(node, visited = {}, &block)
+    def walk(node, visited = {}, &)
       return if node.nil?
 
       # Guard against accidental cyclic object graphs.
@@ -15,7 +15,7 @@ module LintRules
       yield node
 
       if node.is_a?(Array)
-        node.each { |child| walk(child, visited, &block) }
+        node.each { |child| walk(child, visited, &) }
         return
       end
 
@@ -23,7 +23,7 @@ module LintRules
 
       node.instance_variables.each do |ivar|
         child = node.instance_variable_get(ivar)
-        walk(child, visited, &block)
+        walk(child, visited, &)
       end
     end
   end
